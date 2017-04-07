@@ -1,0 +1,1341 @@
+swagger: "2.0"
+info: {}
+basePath: /v1
+paths:
+  /acta_contrato/:
+    get:
+      tags:
+      - acta_contrato
+      description: get ActaInicioContratoGeneral
+      operationId: ActaInicioContratoGeneralController.Get All
+      parameters:
+      - in: query
+        name: query
+        description: Filter. e.g. col1:v1,col2:v2 ...
+        type: string
+      - in: query
+        name: fields
+        description: Fields returned. e.g. col1,col2 ...
+        type: string
+      - in: query
+        name: sortby
+        description: Sorted-by fields. e.g. col1,col2 ...
+        type: string
+      - in: query
+        name: order
+        description: Order corresponding to each sortby field, if single value, apply
+          to all sortby fields. e.g. desc,asc ...
+        type: string
+      - in: query
+        name: limit
+        description: Limit the size of result set. Must be an integer
+        type: string
+      - in: query
+        name: offset
+        description: Start position of result set. Must be an integer
+        type: string
+      responses:
+        "200":
+          schema:
+            $ref: '#/definitions/models.ActaInicioContratoGeneral'
+        "403": {}
+    post:
+      tags:
+      - acta_contrato
+      description: create ActaInicioContratoGeneral
+      operationId: ActaInicioContratoGeneralController.Post
+      parameters:
+      - in: body
+        name: body
+        description: body for ActaInicioContratoGeneral content
+        required: true
+        schema:
+          $ref: '#/definitions/models.ActaInicioContratoGeneral'
+      responses:
+        "201":
+          description: '{int} models.ActaInicioContratoGeneral'
+        "403":
+          description: body is empty
+  /acta_contrato/{id}:
+    get:
+      tags:
+      - acta_contrato
+      description: get ActaInicioContratoGeneral by id
+      operationId: ActaInicioContratoGeneralController.Get One
+      parameters:
+      - in: path
+        name: id
+        description: The key for staticblock
+        required: true
+        type: string
+      responses:
+        "200":
+          schema:
+            $ref: '#/definitions/models.ActaInicioContratoGeneral'
+        "403":
+          description: :id is empty
+    put:
+      tags:
+      - acta_contrato
+      description: update the ActaInicioContratoGeneral
+      operationId: ActaInicioContratoGeneralController.Put
+      parameters:
+      - in: path
+        name: id
+        description: The id you want to update
+        required: true
+        type: string
+      - in: body
+        name: body
+        description: body for ActaInicioContratoGeneral content
+        required: true
+        schema:
+          $ref: '#/definitions/models.ActaInicioContratoGeneral'
+      responses:
+        "200":
+          schema:
+            $ref: '#/definitions/models.ActaInicioContratoGeneral'
+        "403":
+          description: :id is not int
+    delete:
+      tags:
+      - acta_contrato
+      description: delete the ActaInicioContratoGeneral
+      operationId: ActaInicioContratoGeneralController.Delete
+      parameters:
+      - in: path
+        name: id
+        description: The id you want to delete
+        required: true
+        type: string
+      responses:
+        "200":
+          description: '{string} delete success!'
+        "403":
+          description: id is empty
+  /acta_contratoactaContrato/:
+    get:
+      tags:
+      - acta_contrato
+      description: create ActaInicioContratoGeneral
+      operationId: ActaInicioContratoGeneralController.Acta_contrato
+      parameters:
+      - in: body
+        name: body
+        description: body for ActaInicioContratoGeneral content
+        required: true
+        schema:
+          $ref: '#/definitions/models.ActaInicioContratoGeneral'
+      responses:
+        "201":
+          description: '{int} models.ActaInicioContratoGeneral'
+        "403":
+          description: body is empty
+  /acta_inicio/:
+    get:
+      tags:
+      - acta_inicio
+      description: get ActaInicio
+      operationId: ActaInicioController.Get All
+      parameters:
+      - in: query
+        name: query
+        description: Filter. e.g. col1:v1,col2:v2 ...
+        type: string
+      - in: query
+        name: fields
+        description: Fields returned. e.g. col1,col2 ...
+        type: string
+      - in: query
+        name: sortby
+        description: Sorted-by fields. e.g. col1,col2 ...
+        type: string
+      - in: query
+        name: order
+        description: Order corresponding to each sortby field, if single value, apply
+          to all sortby fields. e.g. desc,asc ...
+        type: string
+      - in: query
+        name: limit
+        description: Limit the size of result set. Must be an integer
+        type: string
+      - in: query
+        name: offset
+        description: Start position of result set. Must be an integer
+        type: string
+      responses:
+        "200":
+          schema:
+            $ref: '#/definitions/models.ActaInicio'
+        "403": {}
+    post:
+      tags:
+      - acta_inicio
+      description: create ActaInicio
+      operationId: ActaInicioController.Post
+      parameters:
+      - in: body
+        name: body
+        description: body for ActaInicio content
+        required: true
+        schema:
+          $ref: '#/definitions/models.ActaInicio'
+      responses:
+        "201":
+          description: '{int} models.ActaInicio'
+        "403":
+          description: body is empty
+  /acta_inicio/{id}:
+    get:
+      tags:
+      - acta_inicio
+      description: get ActaInicio by id
+      operationId: ActaInicioController.Get One
+      parameters:
+      - in: path
+        name: id
+        description: The key for staticblock
+        required: true
+        type: string
+      responses:
+        "200":
+          schema:
+            $ref: '#/definitions/models.ActaInicio'
+        "403":
+          description: :id is empty
+    put:
+      tags:
+      - acta_inicio
+      description: update the ActaInicio
+      operationId: ActaInicioController.Put
+      parameters:
+      - in: path
+        name: id
+        description: The id you want to update
+        required: true
+        type: string
+      - in: body
+        name: body
+        description: body for ActaInicio content
+        required: true
+        schema:
+          $ref: '#/definitions/models.ActaInicio'
+      responses:
+        "200":
+          schema:
+            $ref: '#/definitions/models.ActaInicio'
+        "403":
+          description: :id is not int
+    delete:
+      tags:
+      - acta_inicio
+      description: delete the ActaInicio
+      operationId: ActaInicioController.Delete
+      parameters:
+      - in: path
+        name: id
+        description: The id you want to delete
+        required: true
+        type: string
+      responses:
+        "200":
+          description: '{string} delete success!'
+        "403":
+          description: id is empty
+  /contrato_general/:
+    get:
+      tags:
+      - contrato_general
+      description: get ContratoGeneral
+      operationId: ContratoGeneralController.Get All
+      parameters:
+      - in: query
+        name: query
+        description: Filter. e.g. col1:v1,col2:v2 ...
+        type: string
+      - in: query
+        name: fields
+        description: Fields returned. e.g. col1,col2 ...
+        type: string
+      - in: query
+        name: sortby
+        description: Sorted-by fields. e.g. col1,col2 ...
+        type: string
+      - in: query
+        name: order
+        description: Order corresponding to each sortby field, if single value, apply
+          to all sortby fields. e.g. desc,asc ...
+        type: string
+      - in: query
+        name: limit
+        description: Limit the size of result set. Must be an integer
+        type: string
+      - in: query
+        name: offset
+        description: Start position of result set. Must be an integer
+        type: string
+      responses:
+        "200":
+          schema:
+            $ref: '#/definitions/models.ContratoGeneral'
+        "403": {}
+    post:
+      tags:
+      - contrato_general
+      description: create ContratoGeneral
+      operationId: ContratoGeneralController.Post
+      parameters:
+      - in: body
+        name: body
+        description: body for ContratoGeneral content
+        required: true
+        schema:
+          $ref: '#/definitions/models.ContratoGeneral'
+      responses:
+        "201":
+          description: '{int} models.ContratoGeneral'
+        "403":
+          description: body is empty
+  /contrato_general/{id}:
+    get:
+      tags:
+      - contrato_general
+      description: get ContratoGeneral by id
+      operationId: ContratoGeneralController.Get One
+      parameters:
+      - in: path
+        name: id
+        description: The key for staticblock
+        required: true
+        type: string
+      responses:
+        "200":
+          schema:
+            $ref: '#/definitions/models.ContratoGeneral'
+        "403":
+          description: :id is empty
+    put:
+      tags:
+      - contrato_general
+      description: update the ContratoGeneral
+      operationId: ContratoGeneralController.Put
+      parameters:
+      - in: path
+        name: id
+        description: The id you want to update
+        required: true
+        type: string
+      - in: body
+        name: body
+        description: body for ContratoGeneral content
+        required: true
+        schema:
+          $ref: '#/definitions/models.ContratoGeneral'
+      responses:
+        "200":
+          schema:
+            $ref: '#/definitions/models.ContratoGeneral'
+        "403":
+          description: :id is not int
+    delete:
+      tags:
+      - contrato_general
+      description: delete the ContratoGeneral
+      operationId: ContratoGeneralController.Delete
+      parameters:
+      - in: path
+        name: id
+        description: The id you want to delete
+        required: true
+        type: string
+      responses:
+        "200":
+          description: '{string} delete success!'
+        "403":
+          description: id is empty
+  /ordenadores/:
+    get:
+      tags:
+      - ordenadores
+      description: get ArgoOrdenadores
+      operationId: ArgoOrdenadoresController.Get All
+      parameters:
+      - in: query
+        name: query
+        description: Filter. e.g. col1:v1,col2:v2 ...
+        type: string
+      - in: query
+        name: fields
+        description: Fields returned. e.g. col1,col2 ...
+        type: string
+      - in: query
+        name: sortby
+        description: Sorted-by fields. e.g. col1,col2 ...
+        type: string
+      - in: query
+        name: order
+        description: Order corresponding to each sortby field, if single value, apply
+          to all sortby fields. e.g. desc,asc ...
+        type: string
+      - in: query
+        name: limit
+        description: Limit the size of result set. Must be an integer
+        type: string
+      - in: query
+        name: offset
+        description: Start position of result set. Must be an integer
+        type: string
+      responses:
+        "200":
+          schema:
+            $ref: '#/definitions/models.ArgoOrdenadores'
+        "403": {}
+    post:
+      tags:
+      - ordenadores
+      description: create ArgoOrdenadores
+      operationId: ArgoOrdenadoresController.Post
+      parameters:
+      - in: body
+        name: body
+        description: body for ArgoOrdenadores content
+        required: true
+        schema:
+          $ref: '#/definitions/models.ArgoOrdenadores'
+      responses:
+        "201":
+          description: '{int} models.ArgoOrdenadores'
+        "403":
+          description: body is empty
+  /ordenadores/{id}:
+    get:
+      tags:
+      - ordenadores
+      description: get ArgoOrdenadores by id
+      operationId: ArgoOrdenadoresController.Get One
+      parameters:
+      - in: path
+        name: id
+        description: The key for staticblock
+        required: true
+        type: string
+      responses:
+        "200":
+          schema:
+            $ref: '#/definitions/models.ArgoOrdenadores'
+        "403":
+          description: :id is empty
+    put:
+      tags:
+      - ordenadores
+      description: update the ArgoOrdenadores
+      operationId: ArgoOrdenadoresController.Put
+      parameters:
+      - in: path
+        name: id
+        description: The id you want to update
+        required: true
+        type: string
+      - in: body
+        name: body
+        description: body for ArgoOrdenadores content
+        required: true
+        schema:
+          $ref: '#/definitions/models.ArgoOrdenadores'
+      responses:
+        "200":
+          schema:
+            $ref: '#/definitions/models.ArgoOrdenadores'
+        "403":
+          description: :id is not int
+    delete:
+      tags:
+      - ordenadores
+      description: delete the ArgoOrdenadores
+      operationId: ArgoOrdenadoresController.Delete
+      parameters:
+      - in: path
+        name: id
+        description: The id you want to delete
+        required: true
+        type: string
+      responses:
+        "200":
+          description: '{string} delete success!'
+        "403":
+          description: id is empty
+  /parametro_estandar/:
+    get:
+      tags:
+      - parametro_estandar
+      description: get ParametroEstandar
+      operationId: ParametroEstandarController.Get All
+      parameters:
+      - in: query
+        name: query
+        description: Filter. e.g. col1:v1,col2:v2 ...
+        type: string
+      - in: query
+        name: fields
+        description: Fields returned. e.g. col1,col2 ...
+        type: string
+      - in: query
+        name: sortby
+        description: Sorted-by fields. e.g. col1,col2 ...
+        type: string
+      - in: query
+        name: order
+        description: Order corresponding to each sortby field, if single value, apply
+          to all sortby fields. e.g. desc,asc ...
+        type: string
+      - in: query
+        name: limit
+        description: Limit the size of result set. Must be an integer
+        type: string
+      - in: query
+        name: offset
+        description: Start position of result set. Must be an integer
+        type: string
+      responses:
+        "200":
+          schema:
+            $ref: '#/definitions/models.ParametroEstandar'
+        "403": {}
+    post:
+      tags:
+      - parametro_estandar
+      description: create ParametroEstandar
+      operationId: ParametroEstandarController.Post
+      parameters:
+      - in: body
+        name: body
+        description: body for ParametroEstandar content
+        required: true
+        schema:
+          $ref: '#/definitions/models.ParametroEstandar'
+      responses:
+        "201":
+          description: '{int} models.ParametroEstandar'
+        "403":
+          description: body is empty
+  /parametro_estandar/{id}:
+    get:
+      tags:
+      - parametro_estandar
+      description: get ParametroEstandar by id
+      operationId: ParametroEstandarController.Get One
+      parameters:
+      - in: path
+        name: id
+        description: The key for staticblock
+        required: true
+        type: string
+      responses:
+        "200":
+          schema:
+            $ref: '#/definitions/models.ParametroEstandar'
+        "403":
+          description: :id is empty
+    put:
+      tags:
+      - parametro_estandar
+      description: update the ParametroEstandar
+      operationId: ParametroEstandarController.Put
+      parameters:
+      - in: path
+        name: id
+        description: The id you want to update
+        required: true
+        type: string
+      - in: body
+        name: body
+        description: body for ParametroEstandar content
+        required: true
+        schema:
+          $ref: '#/definitions/models.ParametroEstandar'
+      responses:
+        "200":
+          schema:
+            $ref: '#/definitions/models.ParametroEstandar'
+        "403":
+          description: :id is not int
+    delete:
+      tags:
+      - parametro_estandar
+      description: delete the ParametroEstandar
+      operationId: ParametroEstandarController.Delete
+      parameters:
+      - in: path
+        name: id
+        description: The id you want to delete
+        required: true
+        type: string
+      responses:
+        "200":
+          description: '{string} delete success!'
+        "403":
+          description: id is empty
+  /parametros/:
+    get:
+      tags:
+      - parametros
+      description: get Parametros
+      operationId: ParametrosController.Get All
+      parameters:
+      - in: query
+        name: query
+        description: Filter. e.g. col1:v1,col2:v2 ...
+        type: string
+      - in: query
+        name: fields
+        description: Fields returned. e.g. col1,col2 ...
+        type: string
+      - in: query
+        name: sortby
+        description: Sorted-by fields. e.g. col1,col2 ...
+        type: string
+      - in: query
+        name: order
+        description: Order corresponding to each sortby field, if single value, apply
+          to all sortby fields. e.g. desc,asc ...
+        type: string
+      - in: query
+        name: limit
+        description: Limit the size of result set. Must be an integer
+        type: string
+      - in: query
+        name: offset
+        description: Start position of result set. Must be an integer
+        type: string
+      responses:
+        "200":
+          schema:
+            $ref: '#/definitions/models.Parametros'
+        "403": {}
+    post:
+      tags:
+      - parametros
+      description: create Parametros
+      operationId: ParametrosController.Post
+      parameters:
+      - in: body
+        name: body
+        description: body for Parametros content
+        required: true
+        schema:
+          $ref: '#/definitions/models.Parametros'
+      responses:
+        "201":
+          description: '{int} models.Parametros'
+        "403":
+          description: body is empty
+  /parametros/{id}:
+    get:
+      tags:
+      - parametros
+      description: get Parametros by id
+      operationId: ParametrosController.Get One
+      parameters:
+      - in: path
+        name: id
+        description: The key for staticblock
+        required: true
+        type: string
+      responses:
+        "200":
+          schema:
+            $ref: '#/definitions/models.Parametros'
+        "403":
+          description: :id is empty
+    put:
+      tags:
+      - parametros
+      description: update the Parametros
+      operationId: ParametrosController.Put
+      parameters:
+      - in: path
+        name: id
+        description: The id you want to update
+        required: true
+        type: string
+      - in: body
+        name: body
+        description: body for Parametros content
+        required: true
+        schema:
+          $ref: '#/definitions/models.Parametros'
+      responses:
+        "200":
+          schema:
+            $ref: '#/definitions/models.Parametros'
+        "403":
+          description: :id is not int
+    delete:
+      tags:
+      - parametros
+      description: delete the Parametros
+      operationId: ParametrosController.Delete
+      parameters:
+      - in: path
+        name: id
+        description: The id you want to delete
+        required: true
+        type: string
+      responses:
+        "200":
+          description: '{string} delete success!'
+        "403":
+          description: id is empty
+  /relacion_parametro/:
+    get:
+      tags:
+      - relacion_parametro
+      description: get RelacionParametro
+      operationId: RelacionParametroController.Get All
+      parameters:
+      - in: query
+        name: query
+        description: Filter. e.g. col1:v1,col2:v2 ...
+        type: string
+      - in: query
+        name: fields
+        description: Fields returned. e.g. col1,col2 ...
+        type: string
+      - in: query
+        name: sortby
+        description: Sorted-by fields. e.g. col1,col2 ...
+        type: string
+      - in: query
+        name: order
+        description: Order corresponding to each sortby field, if single value, apply
+          to all sortby fields. e.g. desc,asc ...
+        type: string
+      - in: query
+        name: limit
+        description: Limit the size of result set. Must be an integer
+        type: string
+      - in: query
+        name: offset
+        description: Start position of result set. Must be an integer
+        type: string
+      responses:
+        "200":
+          schema:
+            $ref: '#/definitions/models.RelacionParametro'
+        "403": {}
+    post:
+      tags:
+      - relacion_parametro
+      description: create RelacionParametro
+      operationId: RelacionParametroController.Post
+      parameters:
+      - in: body
+        name: body
+        description: body for RelacionParametro content
+        required: true
+        schema:
+          $ref: '#/definitions/models.RelacionParametro'
+      responses:
+        "201":
+          description: '{int} models.RelacionParametro'
+        "403":
+          description: body is empty
+  /relacion_parametro/{id}:
+    get:
+      tags:
+      - relacion_parametro
+      description: get RelacionParametro by id
+      operationId: RelacionParametroController.Get One
+      parameters:
+      - in: path
+        name: id
+        description: The key for staticblock
+        required: true
+        type: string
+      responses:
+        "200":
+          schema:
+            $ref: '#/definitions/models.RelacionParametro'
+        "403":
+          description: :id is empty
+    put:
+      tags:
+      - relacion_parametro
+      description: update the RelacionParametro
+      operationId: RelacionParametroController.Put
+      parameters:
+      - in: path
+        name: id
+        description: The id you want to update
+        required: true
+        type: string
+      - in: body
+        name: body
+        description: body for RelacionParametro content
+        required: true
+        schema:
+          $ref: '#/definitions/models.RelacionParametro'
+      responses:
+        "200":
+          schema:
+            $ref: '#/definitions/models.RelacionParametro'
+        "403":
+          description: :id is not int
+    delete:
+      tags:
+      - relacion_parametro
+      description: delete the RelacionParametro
+      operationId: RelacionParametroController.Delete
+      parameters:
+      - in: path
+        name: id
+        description: The id you want to delete
+        required: true
+        type: string
+      responses:
+        "200":
+          description: '{string} delete success!'
+        "403":
+          description: id is empty
+  /supervisor/:
+    get:
+      tags:
+      - supervisor
+      description: get SupervisorContrato
+      operationId: SupervisorContratoController.Get All
+      parameters:
+      - in: query
+        name: query
+        description: Filter. e.g. col1:v1,col2:v2 ...
+        type: string
+      - in: query
+        name: fields
+        description: Fields returned. e.g. col1,col2 ...
+        type: string
+      - in: query
+        name: sortby
+        description: Sorted-by fields. e.g. col1,col2 ...
+        type: string
+      - in: query
+        name: order
+        description: Order corresponding to each sortby field, if single value, apply
+          to all sortby fields. e.g. desc,asc ...
+        type: string
+      - in: query
+        name: limit
+        description: Limit the size of result set. Must be an integer
+        type: string
+      - in: query
+        name: offset
+        description: Start position of result set. Must be an integer
+        type: string
+      responses:
+        "200":
+          schema:
+            $ref: '#/definitions/models.SupervisorContrato'
+        "403": {}
+    post:
+      tags:
+      - supervisor
+      description: create SupervisorContrato
+      operationId: SupervisorContratoController.Post
+      parameters:
+      - in: body
+        name: body
+        description: body for SupervisorContrato content
+        required: true
+        schema:
+          $ref: '#/definitions/models.SupervisorContrato'
+      responses:
+        "201":
+          description: '{int} models.SupervisorContrato'
+        "403":
+          description: body is empty
+  /supervisor/{id}:
+    get:
+      tags:
+      - supervisor
+      description: get SupervisorContrato by id
+      operationId: SupervisorContratoController.Get One
+      parameters:
+      - in: path
+        name: id
+        description: The key for staticblock
+        required: true
+        type: string
+      responses:
+        "200":
+          schema:
+            $ref: '#/definitions/models.SupervisorContrato'
+        "403":
+          description: :id is empty
+    put:
+      tags:
+      - supervisor
+      description: update the SupervisorContrato
+      operationId: SupervisorContratoController.Put
+      parameters:
+      - in: path
+        name: id
+        description: The id you want to update
+        required: true
+        type: string
+      - in: body
+        name: body
+        description: body for SupervisorContrato content
+        required: true
+        schema:
+          $ref: '#/definitions/models.SupervisorContrato'
+      responses:
+        "200":
+          schema:
+            $ref: '#/definitions/models.SupervisorContrato'
+        "403":
+          description: :id is not int
+    delete:
+      tags:
+      - supervisor
+      description: delete the SupervisorContrato
+      operationId: SupervisorContratoController.Delete
+      parameters:
+      - in: path
+        name: id
+        description: The id you want to delete
+        required: true
+        type: string
+      responses:
+        "200":
+          description: '{string} delete success!'
+        "403":
+          description: id is empty
+definitions:
+  models.ActaInicio:
+    title: ActaInicio
+    type: object
+    properties:
+      Descripcion:
+        type: string
+      FechaFin:
+        type: string
+        format: string
+      FechaInicio:
+        type: string
+        format: string
+      Id:
+        type: integer
+        format: int64
+      NumeroContrato:
+        $ref: '#/definitions/models.ContratoGeneral'
+      Usuario:
+        type: string
+      Vigencia:
+        type: integer
+        format: int64
+  models.ActaInicioContratoGeneral:
+    title: ActaInicioContratoGeneral
+    type: object
+    properties:
+      ClausulaRegistroPresupuestal:
+        type: boolean
+      DependenciaSolicitante:
+        type: string
+      Descripcion:
+        type: string
+      FechaFin:
+        type: string
+        format: string
+      FechaInicio:
+        type: string
+        format: string
+      Id:
+        type: integer
+        format: int64
+      NumeroContrato:
+        $ref: '#/definitions/models.ContratoGeneral'
+      ObjetoContrato:
+        type: string
+      PlazoEjecucion:
+        type: integer
+        format: int64
+      SedeSolicitante:
+        type: string
+      Usuario:
+        type: string
+      Vigencia:
+        type: integer
+        format: int64
+      Vigencia_contrato:
+        type: integer
+        format: int64
+  models.ArgoOrdenadores:
+    title: ArgoOrdenadores
+    type: object
+    properties:
+      Id:
+        type: integer
+        format: int64
+      ORGESTADO:
+        type: string
+      ORGIDENTIFICACION:
+        type: number
+        format: double
+      ORGIDENTIFICADOR:
+        type: number
+        format: double
+      ORGNOMBRE:
+        type: string
+      ORGORDENADORGASTO:
+        type: string
+      ORGTIPOORDENADOR:
+        type: string
+  models.Ciudad:
+    title: Ciudad
+    type: object
+    properties:
+      AbPais:
+        type: string
+      Abreviatura:
+        type: string
+      Departamento:
+        type: string
+      Descripcion:
+        type: string
+      Estado:
+        type: string
+      Id:
+        type: integer
+        format: int64
+      IdDepartamento:
+        $ref: '#/definitions/models.Departamento'
+      Latitud:
+        type: number
+        format: double
+      Longitud:
+        type: number
+        format: double
+      Nombre:
+        type: string
+      Poblacion:
+        type: integer
+        format: int64
+  models.ContratoGeneral:
+    title: ContratoGeneral
+    type: object
+    properties:
+      ClaseContratista:
+        type: integer
+        format: int64
+      ClausulaRegistroPresupuestal:
+        type: boolean
+      Condiciones:
+        type: string
+      Contratista:
+        $ref: '#/definitions/models.InformacionProveedor'
+      Convenio:
+        type: string
+      DependenciaSolicitante:
+        type: string
+      DescripcionFormaPago:
+        type: string
+      Estado:
+        type: boolean
+      FechaRegistro:
+        type: string
+        format: string
+      FormaPago:
+        $ref: '#/definitions/models.Parametros'
+      Id:
+        type: string
+      Justificacion:
+        type: string
+      LugarEjecucion:
+        $ref: '#/definitions/models.LugarEjecucion'
+      ModalidadSeleccion:
+        type: integer
+        format: int64
+      NumeroConstancia:
+        type: integer
+        format: int64
+      ObjetoContrato:
+        type: string
+      Observaciones:
+        type: string
+      OrdenadorGasto:
+        $ref: '#/definitions/models.ArgoOrdenadores'
+      OrigenPresupueso:
+        type: integer
+        format: int64
+      OrigenRecursos:
+        type: integer
+        format: int64
+      PlazoEjecucion:
+        type: integer
+        format: int64
+      Procedimiento:
+        type: integer
+        format: int64
+      RegimenContratacion:
+        type: integer
+        format: int64
+      SedeSolicitante:
+        type: string
+      Supervisor:
+        $ref: '#/definitions/models.SupervisorContrato'
+      TemaGastoInversion:
+        type: integer
+        format: int64
+      TipoCompromiso:
+        type: integer
+        format: int64
+      TipoContrato:
+        $ref: '#/definitions/models.TipoContrato'
+      TipoControl:
+        type: integer
+        format: int64
+      TipoGasto:
+        type: integer
+        format: int64
+      TipoMoneda:
+        type: integer
+        format: int64
+      TipologiaContrato:
+        type: integer
+        format: int64
+      UnidadEjecucion:
+        $ref: '#/definitions/models.Parametros'
+      ValorContrato:
+        type: number
+        format: double
+      ValorContratoMe:
+        type: number
+        format: double
+      ValorTasaCambio:
+        type: number
+        format: double
+      VigenciaContrato:
+        type: integer
+        format: int64
+  models.Departamento:
+    title: Departamento
+    type: object
+    properties:
+      AbPais:
+        type: string
+      Abreviatura:
+        type: string
+      Area:
+        type: integer
+        format: int64
+      CapitalDepartamento:
+        type: string
+      DepartamentoCapPais:
+        type: string
+      Descripcion:
+        type: string
+      Estado:
+        type: string
+      Id:
+        type: integer
+        format: int64
+      IdPais:
+        $ref: '#/definitions/models.Pais'
+      Nombre:
+        type: string
+      Poblacion:
+        type: integer
+        format: int64
+  models.InformacionProveedor:
+    title: InformacionProveedor
+    type: object
+    properties:
+      Anexorut:
+        type: string
+      ClasificacionEvaluacion:
+        type: string
+      Correo:
+        type: string
+      Descripcion:
+        type: string
+      Direccion:
+        type: string
+      Estado:
+        $ref: '#/definitions/models.ParametroEstandar'
+      FechaRegistro:
+        type: string
+      FechaUltimaModificacion:
+        type: string
+      Id:
+        type: integer
+        format: int64
+      IdCiudadContacto:
+        $ref: '#/definitions/models.Ciudad'
+      IdEntidadBancaria:
+        type: number
+        format: double
+      NomAsesor:
+        type: string
+      NomProveedor:
+        type: string
+      NumCuentaBancaria:
+        type: string
+      NumDocumento:
+        type: number
+        format: double
+      PuntajeEvaluacion:
+        type: number
+        format: double
+      TelAsesor:
+        type: string
+      TipoCuentaBancaria:
+        type: string
+      Tipopersona:
+        type: string
+      Web:
+        type: string
+  models.LugarEjecucion:
+    title: LugarEjecucion
+    type: object
+    properties:
+      Ciudad:
+        type: number
+        format: double
+      Dependencia:
+        type: string
+      Direccion:
+        type: string
+      Id:
+        type: integer
+        format: int64
+      Sede:
+        type: string
+  models.Pais:
+    title: Pais
+    type: object
+    properties:
+      Abreviatura:
+        type: string
+      AreaPais:
+        type: integer
+        format: int64
+      CapitalPais:
+        type: string
+      CodigoPais:
+        type: integer
+        format: int64
+      Estado:
+        type: string
+      Id:
+        type: integer
+        format: int64
+      NombrePais:
+        type: string
+      PoblacionPais:
+        type: integer
+        format: int64
+      ProvinciaPais:
+        type: string
+  models.ParametroEstandar:
+    title: ParametroEstandar
+    type: object
+    properties:
+      ClaseParametro:
+        type: string
+      DescripcionParametro:
+        type: string
+      Id:
+        type: integer
+        format: int64
+      ValorParametro:
+        type: string
+  models.Parametros:
+    title: Parametros
+    type: object
+    properties:
+      CodigoContraloria:
+        type: string
+      Descripcion:
+        type: string
+      EstadoRegistro:
+        type: boolean
+      FechaRegistro:
+        type: string
+        format: string
+      Id:
+        type: integer
+        format: int64
+      RelParametro:
+        $ref: '#/definitions/models.RelacionParametro'
+  models.RelacionParametro:
+    title: RelacionParametro
+    type: object
+    properties:
+      Descripcion:
+        type: string
+      EstadoRegistro:
+        type: boolean
+      FechaRegistro:
+        type: string
+        format: string
+      Id:
+        type: integer
+        format: int64
+  models.SupervisorContrato:
+    title: SupervisorContrato
+    type: object
+    properties:
+      Cargo:
+        type: string
+      DependenciaSupervisor:
+        type: string
+      DigitoVerificacion:
+        type: integer
+        format: int64
+      Documento:
+        type: integer
+        format: int64
+      Estado:
+        type: boolean
+      Id:
+        type: integer
+        format: int64
+      Nombre:
+        type: string
+      SedeSupervisor:
+        type: string
+      Tipo:
+        type: integer
+        format: int64
+  models.TipoContrato:
+    title: TipoContrato
+    type: object
+    properties:
+      Id:
+        type: integer
+        format: int64
+      TipoContrato:
+        type: string
+tags:
+- name: contrato_general
+  description: |2
+     ContratoGeneralController operations for ContratoGeneral
+- name: acta_inicio
+  description: |2
+     ActaInicioController operations for ActaInicio
+- name: acta_contrato
+  description: |2
+     ActaInicioContratoGeneralController operations for ActaInicioContratoGeneral
+- name: ordenadores
+  description: |2
+     ArgoOrdenadoresController operations for ArgoOrdenadores
+- name: parametros
+  description: |2
+     ParametrosController operations for Parametros
+- name: parametro_estandar
+  description: |2
+     ParametroEstandarController operations for ParametroEstandar
+- name: relacion_parametro
+  description: |2
+     RelacionParametroController operations for RelacionParametro
+- name: supervisor
+  description: |2
+     SupervisorContratoController operations for SupervisorContrato
