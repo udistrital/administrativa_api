@@ -1,0 +1,2435 @@
+swagger: "2.0"
+info:
+  title: beego Test API
+  description: beego has a very cool tools to autogenerate documents for your API
+  version: 1.0.0
+  termsOfService: http://beego.me/
+  contact:
+    email: astaxie@gmail.com
+  license:
+    name: Url http://www.apache.org/licenses/LICENSE-2.0.html
+basePath: /v1
+paths:
+  /actividad_economica_necesidad/:
+    get:
+      tags:
+      - actividad_economica_necesidad
+      description: get ActividadEconomicaNecesidad
+      operationId: ActividadEconomicaNecesidadController.Get All
+      parameters:
+      - in: query
+        name: query
+        description: Filter. e.g. col1:v1,col2:v2 ...
+        type: string
+      - in: query
+        name: fields
+        description: Fields returned. e.g. col1,col2 ...
+        type: string
+      - in: query
+        name: sortby
+        description: Sorted-by fields. e.g. col1,col2 ...
+        type: string
+      - in: query
+        name: order
+        description: Order corresponding to each sortby field, if single value, apply
+          to all sortby fields. e.g. desc,asc ...
+        type: string
+      - in: query
+        name: limit
+        description: Limit the size of result set. Must be an integer
+        type: string
+      - in: query
+        name: offset
+        description: Start position of result set. Must be an integer
+        type: string
+      responses:
+        "200":
+          schema:
+            $ref: '#/definitions/ActividadEconomicaNecesidad'
+        "403": {}
+    post:
+      tags:
+      - actividad_economica_necesidad
+      description: create ActividadEconomicaNecesidad
+      operationId: ActividadEconomicaNecesidadController.Post
+      parameters:
+      - in: body
+        name: body
+        description: body for ActividadEconomicaNecesidad content
+        required: true
+        schema:
+          $ref: '#/definitions/ActividadEconomicaNecesidad'
+      responses:
+        "201":
+          description: '{int} models.ActividadEconomicaNecesidad'
+        "403":
+          description: body is empty
+  /actividad_economica_necesidad/{id}:
+    get:
+      tags:
+      - actividad_economica_necesidad
+      description: get ActividadEconomicaNecesidad by id
+      operationId: ActividadEconomicaNecesidadController.Get One
+      parameters:
+      - in: path
+        name: id
+        description: The key for staticblock
+        required: true
+        type: string
+      responses:
+        "200":
+          schema:
+            $ref: '#/definitions/ActividadEconomicaNecesidad'
+        "403":
+          description: :id is empty
+    put:
+      tags:
+      - actividad_economica_necesidad
+      description: update the ActividadEconomicaNecesidad
+      operationId: ActividadEconomicaNecesidadController.Put
+      parameters:
+      - in: path
+        name: id
+        description: The id you want to update
+        required: true
+        type: string
+      - in: body
+        name: body
+        description: body for ActividadEconomicaNecesidad content
+        required: true
+        schema:
+          $ref: '#/definitions/ActividadEconomicaNecesidad'
+      responses:
+        "200":
+          schema:
+            $ref: '#/definitions/ActividadEconomicaNecesidad'
+        "403":
+          description: :id is not int
+    delete:
+      tags:
+      - actividad_economica_necesidad
+      description: delete the ActividadEconomicaNecesidad
+      operationId: ActividadEconomicaNecesidadController.Delete
+      parameters:
+      - in: path
+        name: id
+        description: The id you want to delete
+        required: true
+        type: string
+      responses:
+        "200":
+          description: '{string} delete success!'
+        "403":
+          description: id is empty
+  /actividad_especifica/:
+    get:
+      tags:
+      - actividad_especifica
+      description: get ActividadEspecifica
+      operationId: ActividadEspecificaController.Get All
+      parameters:
+      - in: query
+        name: query
+        description: Filter. e.g. col1:v1,col2:v2 ...
+        type: string
+      - in: query
+        name: fields
+        description: Fields returned. e.g. col1,col2 ...
+        type: string
+      - in: query
+        name: sortby
+        description: Sorted-by fields. e.g. col1,col2 ...
+        type: string
+      - in: query
+        name: order
+        description: Order corresponding to each sortby field, if single value, apply
+          to all sortby fields. e.g. desc,asc ...
+        type: string
+      - in: query
+        name: limit
+        description: Limit the size of result set. Must be an integer
+        type: string
+      - in: query
+        name: offset
+        description: Start position of result set. Must be an integer
+        type: string
+      responses:
+        "200":
+          schema:
+            $ref: '#/definitions/ActividadEspecifica'
+        "403": {}
+    post:
+      tags:
+      - actividad_especifica
+      description: create ActividadEspecifica
+      operationId: ActividadEspecificaController.Post
+      parameters:
+      - in: body
+        name: body
+        description: body for ActividadEspecifica content
+        required: true
+        schema:
+          $ref: '#/definitions/ActividadEspecifica'
+      responses:
+        "201":
+          description: '{int} models.ActividadEspecifica'
+        "403":
+          description: body is empty
+  /actividad_especifica/{id}:
+    get:
+      tags:
+      - actividad_especifica
+      description: get ActividadEspecifica by id
+      operationId: ActividadEspecificaController.Get One
+      parameters:
+      - in: path
+        name: id
+        description: The key for staticblock
+        required: true
+        type: string
+      responses:
+        "200":
+          schema:
+            $ref: '#/definitions/ActividadEspecifica'
+        "403":
+          description: :id is empty
+    put:
+      tags:
+      - actividad_especifica
+      description: update the ActividadEspecifica
+      operationId: ActividadEspecificaController.Put
+      parameters:
+      - in: path
+        name: id
+        description: The id you want to update
+        required: true
+        type: string
+      - in: body
+        name: body
+        description: body for ActividadEspecifica content
+        required: true
+        schema:
+          $ref: '#/definitions/ActividadEspecifica'
+      responses:
+        "200":
+          schema:
+            $ref: '#/definitions/ActividadEspecifica'
+        "403":
+          description: :id is not int
+    delete:
+      tags:
+      - actividad_especifica
+      description: delete the ActividadEspecifica
+      operationId: ActividadEspecificaController.Delete
+      parameters:
+      - in: path
+        name: id
+        description: The id you want to delete
+        required: true
+        type: string
+      responses:
+        "200":
+          description: '{string} delete success!'
+        "403":
+          description: id is empty
+  /actividad_solicitud_necesidad/:
+    get:
+      tags:
+      - actividad_solicitud_necesidad
+      description: get ActividadSolicitudNecesidad
+      operationId: ActividadSolicitudNecesidadController.Get All
+      parameters:
+      - in: query
+        name: query
+        description: Filter. e.g. col1:v1,col2:v2 ...
+        type: string
+      - in: query
+        name: fields
+        description: Fields returned. e.g. col1,col2 ...
+        type: string
+      - in: query
+        name: sortby
+        description: Sorted-by fields. e.g. col1,col2 ...
+        type: string
+      - in: query
+        name: order
+        description: Order corresponding to each sortby field, if single value, apply
+          to all sortby fields. e.g. desc,asc ...
+        type: string
+      - in: query
+        name: limit
+        description: Limit the size of result set. Must be an integer
+        type: string
+      - in: query
+        name: offset
+        description: Start position of result set. Must be an integer
+        type: string
+      responses:
+        "200":
+          schema:
+            $ref: '#/definitions/ActividadSolicitudNecesidad'
+        "403": {}
+    post:
+      tags:
+      - actividad_solicitud_necesidad
+      description: create ActividadSolicitudNecesidad
+      operationId: ActividadSolicitudNecesidadController.Post
+      parameters:
+      - in: body
+        name: body
+        description: body for ActividadSolicitudNecesidad content
+        required: true
+        schema:
+          $ref: '#/definitions/ActividadSolicitudNecesidad'
+      responses:
+        "201":
+          description: '{int} models.ActividadSolicitudNecesidad'
+        "403":
+          description: body is empty
+  /actividad_solicitud_necesidad/{id}:
+    get:
+      tags:
+      - actividad_solicitud_necesidad
+      description: get ActividadSolicitudNecesidad by id
+      operationId: ActividadSolicitudNecesidadController.Get One
+      parameters:
+      - in: path
+        name: id
+        description: The key for staticblock
+        required: true
+        type: string
+      responses:
+        "200":
+          schema:
+            $ref: '#/definitions/ActividadSolicitudNecesidad'
+        "403":
+          description: :id is empty
+    put:
+      tags:
+      - actividad_solicitud_necesidad
+      description: update the ActividadSolicitudNecesidad
+      operationId: ActividadSolicitudNecesidadController.Put
+      parameters:
+      - in: path
+        name: id
+        description: The id you want to update
+        required: true
+        type: string
+      - in: body
+        name: body
+        description: body for ActividadSolicitudNecesidad content
+        required: true
+        schema:
+          $ref: '#/definitions/ActividadSolicitudNecesidad'
+      responses:
+        "200":
+          schema:
+            $ref: '#/definitions/ActividadSolicitudNecesidad'
+        "403":
+          description: :id is not int
+    delete:
+      tags:
+      - actividad_solicitud_necesidad
+      description: delete the ActividadSolicitudNecesidad
+      operationId: ActividadSolicitudNecesidadController.Delete
+      parameters:
+      - in: path
+        name: id
+        description: The id you want to delete
+        required: true
+        type: string
+      responses:
+        "200":
+          description: '{string} delete success!'
+        "403":
+          description: id is empty
+  /dependencia_necesidad/:
+    get:
+      tags:
+      - dependencia_necesidad
+      description: get DependenciaNecesidad
+      operationId: DependenciaNecesidadController.Get All
+      parameters:
+      - in: query
+        name: query
+        description: Filter. e.g. col1:v1,col2:v2 ...
+        type: string
+      - in: query
+        name: fields
+        description: Fields returned. e.g. col1,col2 ...
+        type: string
+      - in: query
+        name: sortby
+        description: Sorted-by fields. e.g. col1,col2 ...
+        type: string
+      - in: query
+        name: order
+        description: Order corresponding to each sortby field, if single value, apply
+          to all sortby fields. e.g. desc,asc ...
+        type: string
+      - in: query
+        name: limit
+        description: Limit the size of result set. Must be an integer
+        type: string
+      - in: query
+        name: offset
+        description: Start position of result set. Must be an integer
+        type: string
+      responses:
+        "200":
+          schema:
+            $ref: '#/definitions/DependenciaNecesidad'
+        "403": {}
+    post:
+      tags:
+      - dependencia_necesidad
+      description: create DependenciaNecesidad
+      operationId: DependenciaNecesidadController.Post
+      parameters:
+      - in: body
+        name: body
+        description: body for DependenciaNecesidad content
+        required: true
+        schema:
+          $ref: '#/definitions/DependenciaNecesidad'
+      responses:
+        "201":
+          description: '{int} models.DependenciaNecesidad'
+        "403":
+          description: body is empty
+  /dependencia_necesidad/{id}:
+    get:
+      tags:
+      - dependencia_necesidad
+      description: get DependenciaNecesidad by id
+      operationId: DependenciaNecesidadController.Get One
+      parameters:
+      - in: path
+        name: id
+        description: The key for staticblock
+        required: true
+        type: string
+      responses:
+        "200":
+          schema:
+            $ref: '#/definitions/DependenciaNecesidad'
+        "403":
+          description: :id is empty
+    put:
+      tags:
+      - dependencia_necesidad
+      description: update the DependenciaNecesidad
+      operationId: DependenciaNecesidadController.Put
+      parameters:
+      - in: path
+        name: id
+        description: The id you want to update
+        required: true
+        type: string
+      - in: body
+        name: body
+        description: body for DependenciaNecesidad content
+        required: true
+        schema:
+          $ref: '#/definitions/DependenciaNecesidad'
+      responses:
+        "200":
+          schema:
+            $ref: '#/definitions/DependenciaNecesidad'
+        "403":
+          description: :id is not int
+    delete:
+      tags:
+      - dependencia_necesidad
+      description: delete the DependenciaNecesidad
+      operationId: DependenciaNecesidadController.Delete
+      parameters:
+      - in: path
+        name: id
+        description: The id you want to delete
+        required: true
+        type: string
+      responses:
+        "200":
+          description: '{string} delete success!'
+        "403":
+          description: id is empty
+  /especificacion_tecnica/:
+    get:
+      tags:
+      - especificacion_tecnica
+      description: get EspecificacionTecnica
+      operationId: EspecificacionTecnicaController.Get All
+      parameters:
+      - in: query
+        name: query
+        description: Filter. e.g. col1:v1,col2:v2 ...
+        type: string
+      - in: query
+        name: fields
+        description: Fields returned. e.g. col1,col2 ...
+        type: string
+      - in: query
+        name: sortby
+        description: Sorted-by fields. e.g. col1,col2 ...
+        type: string
+      - in: query
+        name: order
+        description: Order corresponding to each sortby field, if single value, apply
+          to all sortby fields. e.g. desc,asc ...
+        type: string
+      - in: query
+        name: limit
+        description: Limit the size of result set. Must be an integer
+        type: string
+      - in: query
+        name: offset
+        description: Start position of result set. Must be an integer
+        type: string
+      responses:
+        "200":
+          schema:
+            $ref: '#/definitions/EspecificacionTecnica'
+        "403": {}
+    post:
+      tags:
+      - especificacion_tecnica
+      description: create EspecificacionTecnica
+      operationId: EspecificacionTecnicaController.Post
+      parameters:
+      - in: body
+        name: body
+        description: body for EspecificacionTecnica content
+        required: true
+        schema:
+          $ref: '#/definitions/EspecificacionTecnica'
+      responses:
+        "201":
+          description: '{int} models.EspecificacionTecnica'
+        "403":
+          description: body is empty
+  /especificacion_tecnica/{id}:
+    get:
+      tags:
+      - especificacion_tecnica
+      description: get EspecificacionTecnica by id
+      operationId: EspecificacionTecnicaController.Get One
+      parameters:
+      - in: path
+        name: id
+        description: The key for staticblock
+        required: true
+        type: string
+      responses:
+        "200":
+          schema:
+            $ref: '#/definitions/EspecificacionTecnica'
+        "403":
+          description: :id is empty
+    put:
+      tags:
+      - especificacion_tecnica
+      description: update the EspecificacionTecnica
+      operationId: EspecificacionTecnicaController.Put
+      parameters:
+      - in: path
+        name: id
+        description: The id you want to update
+        required: true
+        type: string
+      - in: body
+        name: body
+        description: body for EspecificacionTecnica content
+        required: true
+        schema:
+          $ref: '#/definitions/EspecificacionTecnica'
+      responses:
+        "200":
+          schema:
+            $ref: '#/definitions/EspecificacionTecnica'
+        "403":
+          description: :id is not int
+    delete:
+      tags:
+      - especificacion_tecnica
+      description: delete the EspecificacionTecnica
+      operationId: EspecificacionTecnicaController.Delete
+      parameters:
+      - in: path
+        name: id
+        description: The id you want to delete
+        required: true
+        type: string
+      responses:
+        "200":
+          description: '{string} delete success!'
+        "403":
+          description: id is empty
+  /estado_necesidad/:
+    get:
+      tags:
+      - estado_necesidad
+      description: get EstadoNecesidad
+      operationId: EstadoNecesidadController.Get All
+      parameters:
+      - in: query
+        name: query
+        description: Filter. e.g. col1:v1,col2:v2 ...
+        type: string
+      - in: query
+        name: fields
+        description: Fields returned. e.g. col1,col2 ...
+        type: string
+      - in: query
+        name: sortby
+        description: Sorted-by fields. e.g. col1,col2 ...
+        type: string
+      - in: query
+        name: order
+        description: Order corresponding to each sortby field, if single value, apply
+          to all sortby fields. e.g. desc,asc ...
+        type: string
+      - in: query
+        name: limit
+        description: Limit the size of result set. Must be an integer
+        type: string
+      - in: query
+        name: offset
+        description: Start position of result set. Must be an integer
+        type: string
+      responses:
+        "200":
+          schema:
+            $ref: '#/definitions/EstadoNecesidad'
+        "403": {}
+    post:
+      tags:
+      - estado_necesidad
+      description: create EstadoNecesidad
+      operationId: EstadoNecesidadController.Post
+      parameters:
+      - in: body
+        name: body
+        description: body for EstadoNecesidad content
+        required: true
+        schema:
+          $ref: '#/definitions/EstadoNecesidad'
+      responses:
+        "201":
+          description: '{int} models.EstadoNecesidad'
+        "403":
+          description: body is empty
+  /estado_necesidad/{id}:
+    get:
+      tags:
+      - estado_necesidad
+      description: get EstadoNecesidad by id
+      operationId: EstadoNecesidadController.Get One
+      parameters:
+      - in: path
+        name: id
+        description: The key for staticblock
+        required: true
+        type: string
+      responses:
+        "200":
+          schema:
+            $ref: '#/definitions/EstadoNecesidad'
+        "403":
+          description: :id is empty
+    put:
+      tags:
+      - estado_necesidad
+      description: update the EstadoNecesidad
+      operationId: EstadoNecesidadController.Put
+      parameters:
+      - in: path
+        name: id
+        description: The id you want to update
+        required: true
+        type: string
+      - in: body
+        name: body
+        description: body for EstadoNecesidad content
+        required: true
+        schema:
+          $ref: '#/definitions/EstadoNecesidad'
+      responses:
+        "200":
+          schema:
+            $ref: '#/definitions/EstadoNecesidad'
+        "403":
+          description: :id is not int
+    delete:
+      tags:
+      - estado_necesidad
+      description: delete the EstadoNecesidad
+      operationId: EstadoNecesidadController.Delete
+      parameters:
+      - in: path
+        name: id
+        description: The id you want to delete
+        required: true
+        type: string
+      responses:
+        "200":
+          description: '{string} delete success!'
+        "403":
+          description: id is empty
+  /estado_necesidad_necesidad/:
+    get:
+      tags:
+      - estado_necesidad_necesidad
+      description: get EstadoNecesidadNecesidad
+      operationId: EstadoNecesidadNecesidadController.Get All
+      parameters:
+      - in: query
+        name: query
+        description: Filter. e.g. col1:v1,col2:v2 ...
+        type: string
+      - in: query
+        name: fields
+        description: Fields returned. e.g. col1,col2 ...
+        type: string
+      - in: query
+        name: sortby
+        description: Sorted-by fields. e.g. col1,col2 ...
+        type: string
+      - in: query
+        name: order
+        description: Order corresponding to each sortby field, if single value, apply
+          to all sortby fields. e.g. desc,asc ...
+        type: string
+      - in: query
+        name: limit
+        description: Limit the size of result set. Must be an integer
+        type: string
+      - in: query
+        name: offset
+        description: Start position of result set. Must be an integer
+        type: string
+      responses:
+        "200":
+          schema:
+            $ref: '#/definitions/EstadoNecesidadNecesidad'
+        "403": {}
+    post:
+      tags:
+      - estado_necesidad_necesidad
+      description: create EstadoNecesidadNecesidad
+      operationId: EstadoNecesidadNecesidadController.Post
+      parameters:
+      - in: body
+        name: body
+        description: body for EstadoNecesidadNecesidad content
+        required: true
+        schema:
+          $ref: '#/definitions/EstadoNecesidadNecesidad'
+      responses:
+        "201":
+          description: '{int} models.EstadoNecesidadNecesidad'
+        "403":
+          description: body is empty
+  /estado_necesidad_necesidad/{id}:
+    get:
+      tags:
+      - estado_necesidad_necesidad
+      description: get EstadoNecesidadNecesidad by id
+      operationId: EstadoNecesidadNecesidadController.Get One
+      parameters:
+      - in: path
+        name: id
+        description: The key for staticblock
+        required: true
+        type: string
+      responses:
+        "200":
+          schema:
+            $ref: '#/definitions/EstadoNecesidadNecesidad'
+        "403":
+          description: :id is empty
+    put:
+      tags:
+      - estado_necesidad_necesidad
+      description: update the EstadoNecesidadNecesidad
+      operationId: EstadoNecesidadNecesidadController.Put
+      parameters:
+      - in: path
+        name: id
+        description: The id you want to update
+        required: true
+        type: string
+      - in: body
+        name: body
+        description: body for EstadoNecesidadNecesidad content
+        required: true
+        schema:
+          $ref: '#/definitions/EstadoNecesidadNecesidad'
+      responses:
+        "200":
+          schema:
+            $ref: '#/definitions/EstadoNecesidadNecesidad'
+        "403":
+          description: :id is not int
+    delete:
+      tags:
+      - estado_necesidad_necesidad
+      description: delete the EstadoNecesidadNecesidad
+      operationId: EstadoNecesidadNecesidadController.Delete
+      parameters:
+      - in: path
+        name: id
+        description: The id you want to delete
+        required: true
+        type: string
+      responses:
+        "200":
+          description: '{string} delete success!'
+        "403":
+          description: id is empty
+  /fuente_financiacion_rubro_necesidad/:
+    get:
+      tags:
+      - fuente_financiacion_rubro_necesidad
+      description: get FuenteFinanciacionRubroNecesidad
+      operationId: FuenteFinanciacionRubroNecesidadController.Get All
+      parameters:
+      - in: query
+        name: query
+        description: Filter. e.g. col1:v1,col2:v2 ...
+        type: string
+      - in: query
+        name: fields
+        description: Fields returned. e.g. col1,col2 ...
+        type: string
+      - in: query
+        name: sortby
+        description: Sorted-by fields. e.g. col1,col2 ...
+        type: string
+      - in: query
+        name: order
+        description: Order corresponding to each sortby field, if single value, apply
+          to all sortby fields. e.g. desc,asc ...
+        type: string
+      - in: query
+        name: limit
+        description: Limit the size of result set. Must be an integer
+        type: string
+      - in: query
+        name: offset
+        description: Start position of result set. Must be an integer
+        type: string
+      responses:
+        "200":
+          schema:
+            $ref: '#/definitions/FuenteFinanciacionRubroNecesidad'
+        "403": {}
+    post:
+      tags:
+      - fuente_financiacion_rubro_necesidad
+      description: create FuenteFinanciacionRubroNecesidad
+      operationId: FuenteFinanciacionRubroNecesidadController.Post
+      parameters:
+      - in: body
+        name: body
+        description: body for FuenteFinanciacionRubroNecesidad content
+        required: true
+        schema:
+          $ref: '#/definitions/FuenteFinanciacionRubroNecesidad'
+      responses:
+        "201":
+          description: '{int} models.FuenteFinanciacionRubroNecesidad'
+        "403":
+          description: body is empty
+  /fuente_financiacion_rubro_necesidad/{id}:
+    get:
+      tags:
+      - fuente_financiacion_rubro_necesidad
+      description: get FuenteFinanciacionRubroNecesidad by id
+      operationId: FuenteFinanciacionRubroNecesidadController.Get One
+      parameters:
+      - in: path
+        name: id
+        description: The key for staticblock
+        required: true
+        type: string
+      responses:
+        "200":
+          schema:
+            $ref: '#/definitions/FuenteFinanciacionRubroNecesidad'
+        "403":
+          description: :id is empty
+    put:
+      tags:
+      - fuente_financiacion_rubro_necesidad
+      description: update the FuenteFinanciacionRubroNecesidad
+      operationId: FuenteFinanciacionRubroNecesidadController.Put
+      parameters:
+      - in: path
+        name: id
+        description: The id you want to update
+        required: true
+        type: string
+      - in: body
+        name: body
+        description: body for FuenteFinanciacionRubroNecesidad content
+        required: true
+        schema:
+          $ref: '#/definitions/FuenteFinanciacionRubroNecesidad'
+      responses:
+        "200":
+          schema:
+            $ref: '#/definitions/FuenteFinanciacionRubroNecesidad'
+        "403":
+          description: :id is not int
+    delete:
+      tags:
+      - fuente_financiacion_rubro_necesidad
+      description: delete the FuenteFinanciacionRubroNecesidad
+      operationId: FuenteFinanciacionRubroNecesidadController.Delete
+      parameters:
+      - in: path
+        name: id
+        description: The id you want to delete
+        required: true
+        type: string
+      responses:
+        "200":
+          description: '{string} delete success!'
+        "403":
+          description: id is empty
+  /marco_legal/:
+    get:
+      tags:
+      - marco_legal
+      description: get MarcoLegal
+      operationId: MarcoLegalController.Get All
+      parameters:
+      - in: query
+        name: query
+        description: Filter. e.g. col1:v1,col2:v2 ...
+        type: string
+      - in: query
+        name: fields
+        description: Fields returned. e.g. col1,col2 ...
+        type: string
+      - in: query
+        name: sortby
+        description: Sorted-by fields. e.g. col1,col2 ...
+        type: string
+      - in: query
+        name: order
+        description: Order corresponding to each sortby field, if single value, apply
+          to all sortby fields. e.g. desc,asc ...
+        type: string
+      - in: query
+        name: limit
+        description: Limit the size of result set. Must be an integer
+        type: string
+      - in: query
+        name: offset
+        description: Start position of result set. Must be an integer
+        type: string
+      responses:
+        "200":
+          schema:
+            $ref: '#/definitions/MarcoLegal'
+        "403": {}
+    post:
+      tags:
+      - marco_legal
+      description: create MarcoLegal
+      operationId: MarcoLegalController.Post
+      parameters:
+      - in: body
+        name: body
+        description: body for MarcoLegal content
+        required: true
+        schema:
+          $ref: '#/definitions/MarcoLegal'
+      responses:
+        "201":
+          description: '{int} models.MarcoLegal'
+        "403":
+          description: body is empty
+  /marco_legal/{id}:
+    get:
+      tags:
+      - marco_legal
+      description: get MarcoLegal by id
+      operationId: MarcoLegalController.Get One
+      parameters:
+      - in: path
+        name: id
+        description: The key for staticblock
+        required: true
+        type: string
+      responses:
+        "200":
+          schema:
+            $ref: '#/definitions/MarcoLegal'
+        "403":
+          description: :id is empty
+    put:
+      tags:
+      - marco_legal
+      description: update the MarcoLegal
+      operationId: MarcoLegalController.Put
+      parameters:
+      - in: path
+        name: id
+        description: The id you want to update
+        required: true
+        type: string
+      - in: body
+        name: body
+        description: body for MarcoLegal content
+        required: true
+        schema:
+          $ref: '#/definitions/MarcoLegal'
+      responses:
+        "200":
+          schema:
+            $ref: '#/definitions/MarcoLegal'
+        "403":
+          description: :id is not int
+    delete:
+      tags:
+      - marco_legal
+      description: delete the MarcoLegal
+      operationId: MarcoLegalController.Delete
+      parameters:
+      - in: path
+        name: id
+        description: The id you want to delete
+        required: true
+        type: string
+      responses:
+        "200":
+          description: '{string} delete success!'
+        "403":
+          description: id is empty
+  /marco_legal_necesidad/:
+    get:
+      tags:
+      - marco_legal_necesidad
+      description: get MarcoLegalNecesidad
+      operationId: MarcoLegalNecesidadController.Get All
+      parameters:
+      - in: query
+        name: query
+        description: Filter. e.g. col1:v1,col2:v2 ...
+        type: string
+      - in: query
+        name: fields
+        description: Fields returned. e.g. col1,col2 ...
+        type: string
+      - in: query
+        name: sortby
+        description: Sorted-by fields. e.g. col1,col2 ...
+        type: string
+      - in: query
+        name: order
+        description: Order corresponding to each sortby field, if single value, apply
+          to all sortby fields. e.g. desc,asc ...
+        type: string
+      - in: query
+        name: limit
+        description: Limit the size of result set. Must be an integer
+        type: string
+      - in: query
+        name: offset
+        description: Start position of result set. Must be an integer
+        type: string
+      responses:
+        "200":
+          schema:
+            $ref: '#/definitions/MarcoLegalNecesidad'
+        "403": {}
+    post:
+      tags:
+      - marco_legal_necesidad
+      description: create MarcoLegalNecesidad
+      operationId: MarcoLegalNecesidadController.Post
+      parameters:
+      - in: body
+        name: body
+        description: body for MarcoLegalNecesidad content
+        required: true
+        schema:
+          $ref: '#/definitions/MarcoLegalNecesidad'
+      responses:
+        "201":
+          description: '{int} models.MarcoLegalNecesidad'
+        "403":
+          description: body is empty
+  /marco_legal_necesidad/{id}:
+    get:
+      tags:
+      - marco_legal_necesidad
+      description: get MarcoLegalNecesidad by id
+      operationId: MarcoLegalNecesidadController.Get One
+      parameters:
+      - in: path
+        name: id
+        description: The key for staticblock
+        required: true
+        type: string
+      responses:
+        "200":
+          schema:
+            $ref: '#/definitions/MarcoLegalNecesidad'
+        "403":
+          description: :id is empty
+    put:
+      tags:
+      - marco_legal_necesidad
+      description: update the MarcoLegalNecesidad
+      operationId: MarcoLegalNecesidadController.Put
+      parameters:
+      - in: path
+        name: id
+        description: The id you want to update
+        required: true
+        type: string
+      - in: body
+        name: body
+        description: body for MarcoLegalNecesidad content
+        required: true
+        schema:
+          $ref: '#/definitions/MarcoLegalNecesidad'
+      responses:
+        "200":
+          schema:
+            $ref: '#/definitions/MarcoLegalNecesidad'
+        "403":
+          description: :id is not int
+    delete:
+      tags:
+      - marco_legal_necesidad
+      description: delete the MarcoLegalNecesidad
+      operationId: MarcoLegalNecesidadController.Delete
+      parameters:
+      - in: path
+        name: id
+        description: The id you want to delete
+        required: true
+        type: string
+      responses:
+        "200":
+          description: '{string} delete success!'
+        "403":
+          description: id is empty
+  /modalidad_seleccion/:
+    get:
+      tags:
+      - modalidad_seleccion
+      description: get ModalidadSeleccion
+      operationId: ModalidadSeleccionController.Get All
+      parameters:
+      - in: query
+        name: query
+        description: Filter. e.g. col1:v1,col2:v2 ...
+        type: string
+      - in: query
+        name: fields
+        description: Fields returned. e.g. col1,col2 ...
+        type: string
+      - in: query
+        name: sortby
+        description: Sorted-by fields. e.g. col1,col2 ...
+        type: string
+      - in: query
+        name: order
+        description: Order corresponding to each sortby field, if single value, apply
+          to all sortby fields. e.g. desc,asc ...
+        type: string
+      - in: query
+        name: limit
+        description: Limit the size of result set. Must be an integer
+        type: string
+      - in: query
+        name: offset
+        description: Start position of result set. Must be an integer
+        type: string
+      responses:
+        "200":
+          schema:
+            $ref: '#/definitions/ModalidadSeleccion'
+        "403": {}
+    post:
+      tags:
+      - modalidad_seleccion
+      description: create ModalidadSeleccion
+      operationId: ModalidadSeleccionController.Post
+      parameters:
+      - in: body
+        name: body
+        description: body for ModalidadSeleccion content
+        required: true
+        schema:
+          $ref: '#/definitions/ModalidadSeleccion'
+      responses:
+        "201":
+          description: '{int} models.ModalidadSeleccion'
+        "403":
+          description: body is empty
+  /modalidad_seleccion/{id}:
+    get:
+      tags:
+      - modalidad_seleccion
+      description: get ModalidadSeleccion by id
+      operationId: ModalidadSeleccionController.Get One
+      parameters:
+      - in: path
+        name: id
+        description: The key for staticblock
+        required: true
+        type: string
+      responses:
+        "200":
+          schema:
+            $ref: '#/definitions/ModalidadSeleccion'
+        "403":
+          description: :id is empty
+    put:
+      tags:
+      - modalidad_seleccion
+      description: update the ModalidadSeleccion
+      operationId: ModalidadSeleccionController.Put
+      parameters:
+      - in: path
+        name: id
+        description: The id you want to update
+        required: true
+        type: string
+      - in: body
+        name: body
+        description: body for ModalidadSeleccion content
+        required: true
+        schema:
+          $ref: '#/definitions/ModalidadSeleccion'
+      responses:
+        "200":
+          schema:
+            $ref: '#/definitions/ModalidadSeleccion'
+        "403":
+          description: :id is not int
+    delete:
+      tags:
+      - modalidad_seleccion
+      description: delete the ModalidadSeleccion
+      operationId: ModalidadSeleccionController.Delete
+      parameters:
+      - in: path
+        name: id
+        description: The id you want to delete
+        required: true
+        type: string
+      responses:
+        "200":
+          description: '{string} delete success!'
+        "403":
+          description: id is empty
+  /necesidad/:
+    get:
+      tags:
+      - necesidad
+      description: get Necesidad
+      operationId: NecesidadController.Get All
+      parameters:
+      - in: query
+        name: query
+        description: Filter. e.g. col1:v1,col2:v2 ...
+        type: string
+      - in: query
+        name: fields
+        description: Fields returned. e.g. col1,col2 ...
+        type: string
+      - in: query
+        name: sortby
+        description: Sorted-by fields. e.g. col1,col2 ...
+        type: string
+      - in: query
+        name: order
+        description: Order corresponding to each sortby field, if single value, apply
+          to all sortby fields. e.g. desc,asc ...
+        type: string
+      - in: query
+        name: limit
+        description: Limit the size of result set. Must be an integer
+        type: string
+      - in: query
+        name: offset
+        description: Start position of result set. Must be an integer
+        type: string
+      responses:
+        "200":
+          schema:
+            $ref: '#/definitions/Necesidad'
+        "403": {}
+    post:
+      tags:
+      - necesidad
+      description: create Necesidad
+      operationId: NecesidadController.Post
+      parameters:
+      - in: body
+        name: body
+        description: body for Necesidad content
+        required: true
+        schema:
+          $ref: '#/definitions/Necesidad'
+      responses:
+        "201":
+          description: '{int} models.Necesidad'
+        "403":
+          description: body is empty
+  /necesidad/{id}:
+    get:
+      tags:
+      - necesidad
+      description: get Necesidad by id
+      operationId: NecesidadController.Get One
+      parameters:
+      - in: path
+        name: id
+        description: The key for staticblock
+        required: true
+        type: string
+      responses:
+        "200":
+          schema:
+            $ref: '#/definitions/Necesidad'
+        "403":
+          description: :id is empty
+    put:
+      tags:
+      - necesidad
+      description: update the Necesidad
+      operationId: NecesidadController.Put
+      parameters:
+      - in: path
+        name: id
+        description: The id you want to update
+        required: true
+        type: string
+      - in: body
+        name: body
+        description: body for Necesidad content
+        required: true
+        schema:
+          $ref: '#/definitions/Necesidad'
+      responses:
+        "200":
+          schema:
+            $ref: '#/definitions/Necesidad'
+        "403":
+          description: :id is not int
+    delete:
+      tags:
+      - necesidad
+      description: delete the Necesidad
+      operationId: NecesidadController.Delete
+      parameters:
+      - in: path
+        name: id
+        description: The id you want to delete
+        required: true
+        type: string
+      responses:
+        "200":
+          description: '{string} delete success!'
+        "403":
+          description: id is empty
+  /necesidad_otro_si/:
+    get:
+      tags:
+      - necesidad_otro_si
+      description: get NecesidadOtroSi
+      operationId: NecesidadOtroSiController.Get All
+      parameters:
+      - in: query
+        name: query
+        description: Filter. e.g. col1:v1,col2:v2 ...
+        type: string
+      - in: query
+        name: fields
+        description: Fields returned. e.g. col1,col2 ...
+        type: string
+      - in: query
+        name: sortby
+        description: Sorted-by fields. e.g. col1,col2 ...
+        type: string
+      - in: query
+        name: order
+        description: Order corresponding to each sortby field, if single value, apply
+          to all sortby fields. e.g. desc,asc ...
+        type: string
+      - in: query
+        name: limit
+        description: Limit the size of result set. Must be an integer
+        type: string
+      - in: query
+        name: offset
+        description: Start position of result set. Must be an integer
+        type: string
+      responses:
+        "200":
+          schema:
+            $ref: '#/definitions/NecesidadOtroSi'
+        "403": {}
+    post:
+      tags:
+      - necesidad_otro_si
+      description: create NecesidadOtroSi
+      operationId: NecesidadOtroSiController.Post
+      parameters:
+      - in: body
+        name: body
+        description: body for NecesidadOtroSi content
+        required: true
+        schema:
+          $ref: '#/definitions/NecesidadOtroSi'
+      responses:
+        "201":
+          description: '{int} models.NecesidadOtroSi'
+        "403":
+          description: body is empty
+  /necesidad_otro_si/{id}:
+    get:
+      tags:
+      - necesidad_otro_si
+      description: get NecesidadOtroSi by id
+      operationId: NecesidadOtroSiController.Get One
+      parameters:
+      - in: path
+        name: id
+        description: The key for staticblock
+        required: true
+        type: string
+      responses:
+        "200":
+          schema:
+            $ref: '#/definitions/NecesidadOtroSi'
+        "403":
+          description: :id is empty
+    put:
+      tags:
+      - necesidad_otro_si
+      description: update the NecesidadOtroSi
+      operationId: NecesidadOtroSiController.Put
+      parameters:
+      - in: path
+        name: id
+        description: The id you want to update
+        required: true
+        type: string
+      - in: body
+        name: body
+        description: body for NecesidadOtroSi content
+        required: true
+        schema:
+          $ref: '#/definitions/NecesidadOtroSi'
+      responses:
+        "200":
+          schema:
+            $ref: '#/definitions/NecesidadOtroSi'
+        "403":
+          description: :id is not int
+    delete:
+      tags:
+      - necesidad_otro_si
+      description: delete the NecesidadOtroSi
+      operationId: NecesidadOtroSiController.Delete
+      parameters:
+      - in: path
+        name: id
+        description: The id you want to delete
+        required: true
+        type: string
+      responses:
+        "200":
+          description: '{string} delete success!'
+        "403":
+          description: id is empty
+  /requisito_minimo/:
+    get:
+      tags:
+      - requisito_minimo
+      description: get RequisitoMinimo
+      operationId: RequisitoMinimoController.Get All
+      parameters:
+      - in: query
+        name: query
+        description: Filter. e.g. col1:v1,col2:v2 ...
+        type: string
+      - in: query
+        name: fields
+        description: Fields returned. e.g. col1,col2 ...
+        type: string
+      - in: query
+        name: sortby
+        description: Sorted-by fields. e.g. col1,col2 ...
+        type: string
+      - in: query
+        name: order
+        description: Order corresponding to each sortby field, if single value, apply
+          to all sortby fields. e.g. desc,asc ...
+        type: string
+      - in: query
+        name: limit
+        description: Limit the size of result set. Must be an integer
+        type: string
+      - in: query
+        name: offset
+        description: Start position of result set. Must be an integer
+        type: string
+      responses:
+        "200":
+          schema:
+            $ref: '#/definitions/RequisitoMinimo'
+        "403": {}
+    post:
+      tags:
+      - requisito_minimo
+      description: create RequisitoMinimo
+      operationId: RequisitoMinimoController.Post
+      parameters:
+      - in: body
+        name: body
+        description: body for RequisitoMinimo content
+        required: true
+        schema:
+          $ref: '#/definitions/RequisitoMinimo'
+      responses:
+        "201":
+          description: '{int} models.RequisitoMinimo'
+        "403":
+          description: body is empty
+  /requisito_minimo/{id}:
+    get:
+      tags:
+      - requisito_minimo
+      description: get RequisitoMinimo by id
+      operationId: RequisitoMinimoController.Get One
+      parameters:
+      - in: path
+        name: id
+        description: The key for staticblock
+        required: true
+        type: string
+      responses:
+        "200":
+          schema:
+            $ref: '#/definitions/RequisitoMinimo'
+        "403":
+          description: :id is empty
+    put:
+      tags:
+      - requisito_minimo
+      description: update the RequisitoMinimo
+      operationId: RequisitoMinimoController.Put
+      parameters:
+      - in: path
+        name: id
+        description: The id you want to update
+        required: true
+        type: string
+      - in: body
+        name: body
+        description: body for RequisitoMinimo content
+        required: true
+        schema:
+          $ref: '#/definitions/RequisitoMinimo'
+      responses:
+        "200":
+          schema:
+            $ref: '#/definitions/RequisitoMinimo'
+        "403":
+          description: :id is not int
+    delete:
+      tags:
+      - requisito_minimo
+      description: delete the RequisitoMinimo
+      operationId: RequisitoMinimoController.Delete
+      parameters:
+      - in: path
+        name: id
+        description: The id you want to delete
+        required: true
+        type: string
+      responses:
+        "200":
+          description: '{string} delete success!'
+        "403":
+          description: id is empty
+  /servicio/:
+    get:
+      tags:
+      - servicio
+      description: get Servicio
+      operationId: ServicioController.Get All
+      parameters:
+      - in: query
+        name: query
+        description: Filter. e.g. col1:v1,col2:v2 ...
+        type: string
+      - in: query
+        name: fields
+        description: Fields returned. e.g. col1,col2 ...
+        type: string
+      - in: query
+        name: sortby
+        description: Sorted-by fields. e.g. col1,col2 ...
+        type: string
+      - in: query
+        name: order
+        description: Order corresponding to each sortby field, if single value, apply
+          to all sortby fields. e.g. desc,asc ...
+        type: string
+      - in: query
+        name: limit
+        description: Limit the size of result set. Must be an integer
+        type: string
+      - in: query
+        name: offset
+        description: Start position of result set. Must be an integer
+        type: string
+      responses:
+        "200":
+          schema:
+            $ref: '#/definitions/Servicio'
+        "403": {}
+    post:
+      tags:
+      - servicio
+      description: create Servicio
+      operationId: ServicioController.Post
+      parameters:
+      - in: body
+        name: body
+        description: body for Servicio content
+        required: true
+        schema:
+          $ref: '#/definitions/Servicio'
+      responses:
+        "201":
+          description: '{int} models.Servicio'
+        "403":
+          description: body is empty
+  /servicio/{id}:
+    get:
+      tags:
+      - servicio
+      description: get Servicio by id
+      operationId: ServicioController.Get One
+      parameters:
+      - in: path
+        name: id
+        description: The key for staticblock
+        required: true
+        type: string
+      responses:
+        "200":
+          schema:
+            $ref: '#/definitions/Servicio'
+        "403":
+          description: :id is empty
+    put:
+      tags:
+      - servicio
+      description: update the Servicio
+      operationId: ServicioController.Put
+      parameters:
+      - in: path
+        name: id
+        description: The id you want to update
+        required: true
+        type: string
+      - in: body
+        name: body
+        description: body for Servicio content
+        required: true
+        schema:
+          $ref: '#/definitions/Servicio'
+      responses:
+        "200":
+          schema:
+            $ref: '#/definitions/Servicio'
+        "403":
+          description: :id is not int
+    delete:
+      tags:
+      - servicio
+      description: delete the Servicio
+      operationId: ServicioController.Delete
+      parameters:
+      - in: path
+        name: id
+        description: The id you want to delete
+        required: true
+        type: string
+      responses:
+        "200":
+          description: '{string} delete success!'
+        "403":
+          description: id is empty
+  /solicitud_disponibilidad/:
+    get:
+      tags:
+      - solicitud_disponibilidad
+      description: get SolicitudDisponibilidad
+      operationId: SolicitudDisponibilidadController.Get All
+      parameters:
+      - in: query
+        name: query
+        description: Filter. e.g. col1:v1,col2:v2 ...
+        type: string
+      - in: query
+        name: fields
+        description: Fields returned. e.g. col1,col2 ...
+        type: string
+      - in: query
+        name: sortby
+        description: Sorted-by fields. e.g. col1,col2 ...
+        type: string
+      - in: query
+        name: order
+        description: Order corresponding to each sortby field, if single value, apply
+          to all sortby fields. e.g. desc,asc ...
+        type: string
+      - in: query
+        name: limit
+        description: Limit the size of result set. Must be an integer
+        type: string
+      - in: query
+        name: offset
+        description: Start position of result set. Must be an integer
+        type: string
+      responses:
+        "200":
+          schema:
+            $ref: '#/definitions/SolicitudDisponibilidad'
+        "403": {}
+    post:
+      tags:
+      - solicitud_disponibilidad
+      description: create SolicitudDisponibilidad
+      operationId: SolicitudDisponibilidadController.Post
+      parameters:
+      - in: body
+        name: body
+        description: body for SolicitudDisponibilidad content
+        required: true
+        schema:
+          $ref: '#/definitions/SolicitudDisponibilidad'
+      responses:
+        "201":
+          description: '{int} models.SolicitudDisponibilidad'
+        "403":
+          description: body is empty
+  /solicitud_disponibilidad/{id}:
+    get:
+      tags:
+      - solicitud_disponibilidad
+      description: get SolicitudDisponibilidad by id
+      operationId: SolicitudDisponibilidadController.Get One
+      parameters:
+      - in: path
+        name: id
+        description: The key for staticblock
+        required: true
+        type: string
+      responses:
+        "200":
+          schema:
+            $ref: '#/definitions/SolicitudDisponibilidad'
+        "403":
+          description: :id is empty
+    put:
+      tags:
+      - solicitud_disponibilidad
+      description: update the SolicitudDisponibilidad
+      operationId: SolicitudDisponibilidadController.Put
+      parameters:
+      - in: path
+        name: id
+        description: The id you want to update
+        required: true
+        type: string
+      - in: body
+        name: body
+        description: body for SolicitudDisponibilidad content
+        required: true
+        schema:
+          $ref: '#/definitions/SolicitudDisponibilidad'
+      responses:
+        "200":
+          schema:
+            $ref: '#/definitions/SolicitudDisponibilidad'
+        "403":
+          description: :id is not int
+    delete:
+      tags:
+      - solicitud_disponibilidad
+      description: delete the SolicitudDisponibilidad
+      operationId: SolicitudDisponibilidadController.Delete
+      parameters:
+      - in: path
+        name: id
+        description: The id you want to delete
+        required: true
+        type: string
+      responses:
+        "200":
+          description: '{string} delete success!'
+        "403":
+          description: id is empty
+  /supervisor_solicitud_necesidad/:
+    get:
+      tags:
+      - supervisor_solicitud_necesidad
+      description: get SupervisorSolicitudNecesidad
+      operationId: SupervisorSolicitudNecesidadController.Get All
+      parameters:
+      - in: query
+        name: query
+        description: Filter. e.g. col1:v1,col2:v2 ...
+        type: string
+      - in: query
+        name: fields
+        description: Fields returned. e.g. col1,col2 ...
+        type: string
+      - in: query
+        name: sortby
+        description: Sorted-by fields. e.g. col1,col2 ...
+        type: string
+      - in: query
+        name: order
+        description: Order corresponding to each sortby field, if single value, apply
+          to all sortby fields. e.g. desc,asc ...
+        type: string
+      - in: query
+        name: limit
+        description: Limit the size of result set. Must be an integer
+        type: string
+      - in: query
+        name: offset
+        description: Start position of result set. Must be an integer
+        type: string
+      responses:
+        "200":
+          schema:
+            $ref: '#/definitions/SupervisorSolicitudNecesidad'
+        "403": {}
+    post:
+      tags:
+      - supervisor_solicitud_necesidad
+      description: create SupervisorSolicitudNecesidad
+      operationId: SupervisorSolicitudNecesidadController.Post
+      parameters:
+      - in: body
+        name: body
+        description: body for SupervisorSolicitudNecesidad content
+        required: true
+        schema:
+          $ref: '#/definitions/SupervisorSolicitudNecesidad'
+      responses:
+        "201":
+          description: '{int} models.SupervisorSolicitudNecesidad'
+        "403":
+          description: body is empty
+  /supervisor_solicitud_necesidad/{id}:
+    get:
+      tags:
+      - supervisor_solicitud_necesidad
+      description: get SupervisorSolicitudNecesidad by id
+      operationId: SupervisorSolicitudNecesidadController.Get One
+      parameters:
+      - in: path
+        name: id
+        description: The key for staticblock
+        required: true
+        type: string
+      responses:
+        "200":
+          schema:
+            $ref: '#/definitions/SupervisorSolicitudNecesidad'
+        "403":
+          description: :id is empty
+    put:
+      tags:
+      - supervisor_solicitud_necesidad
+      description: update the SupervisorSolicitudNecesidad
+      operationId: SupervisorSolicitudNecesidadController.Put
+      parameters:
+      - in: path
+        name: id
+        description: The id you want to update
+        required: true
+        type: string
+      - in: body
+        name: body
+        description: body for SupervisorSolicitudNecesidad content
+        required: true
+        schema:
+          $ref: '#/definitions/SupervisorSolicitudNecesidad'
+      responses:
+        "200":
+          schema:
+            $ref: '#/definitions/SupervisorSolicitudNecesidad'
+        "403":
+          description: :id is not int
+    delete:
+      tags:
+      - supervisor_solicitud_necesidad
+      description: delete the SupervisorSolicitudNecesidad
+      operationId: SupervisorSolicitudNecesidadController.Delete
+      parameters:
+      - in: path
+        name: id
+        description: The id you want to delete
+        required: true
+        type: string
+      responses:
+        "200":
+          description: '{string} delete success!'
+        "403":
+          description: id is empty
+  /tipo_fuente_financiacion/:
+    get:
+      tags:
+      - tipo_fuente_financiacion
+      description: get TipoFuenteFinanciacion
+      operationId: TipoFuenteFinanciacionController.Get All
+      parameters:
+      - in: query
+        name: query
+        description: Filter. e.g. col1:v1,col2:v2 ...
+        type: string
+      - in: query
+        name: fields
+        description: Fields returned. e.g. col1,col2 ...
+        type: string
+      - in: query
+        name: sortby
+        description: Sorted-by fields. e.g. col1,col2 ...
+        type: string
+      - in: query
+        name: order
+        description: Order corresponding to each sortby field, if single value, apply
+          to all sortby fields. e.g. desc,asc ...
+        type: string
+      - in: query
+        name: limit
+        description: Limit the size of result set. Must be an integer
+        type: string
+      - in: query
+        name: offset
+        description: Start position of result set. Must be an integer
+        type: string
+      responses:
+        "200":
+          schema:
+            $ref: '#/definitions/TipoFuenteFinanciacion'
+        "403": {}
+    post:
+      tags:
+      - tipo_fuente_financiacion
+      description: create TipoFuenteFinanciacion
+      operationId: TipoFuenteFinanciacionController.Post
+      parameters:
+      - in: body
+        name: body
+        description: body for TipoFuenteFinanciacion content
+        required: true
+        schema:
+          $ref: '#/definitions/TipoFuenteFinanciacion'
+      responses:
+        "201":
+          description: '{int} models.TipoFuenteFinanciacion'
+        "403":
+          description: body is empty
+  /tipo_fuente_financiacion/{id}:
+    get:
+      tags:
+      - tipo_fuente_financiacion
+      description: get TipoFuenteFinanciacion by id
+      operationId: TipoFuenteFinanciacionController.Get One
+      parameters:
+      - in: path
+        name: id
+        description: The key for staticblock
+        required: true
+        type: string
+      responses:
+        "200":
+          schema:
+            $ref: '#/definitions/TipoFuenteFinanciacion'
+        "403":
+          description: :id is empty
+    put:
+      tags:
+      - tipo_fuente_financiacion
+      description: update the TipoFuenteFinanciacion
+      operationId: TipoFuenteFinanciacionController.Put
+      parameters:
+      - in: path
+        name: id
+        description: The id you want to update
+        required: true
+        type: string
+      - in: body
+        name: body
+        description: body for TipoFuenteFinanciacion content
+        required: true
+        schema:
+          $ref: '#/definitions/TipoFuenteFinanciacion'
+      responses:
+        "200":
+          schema:
+            $ref: '#/definitions/TipoFuenteFinanciacion'
+        "403":
+          description: :id is not int
+    delete:
+      tags:
+      - tipo_fuente_financiacion
+      description: delete the TipoFuenteFinanciacion
+      operationId: TipoFuenteFinanciacionController.Delete
+      parameters:
+      - in: path
+        name: id
+        description: The id you want to delete
+        required: true
+        type: string
+      responses:
+        "200":
+          description: '{string} delete success!'
+        "403":
+          description: id is empty
+  /tr_necesidad/:
+    post:
+      tags:
+      - tr_necesidad
+      description: insert the TrNecesidad
+      operationId: TrNecesidadController.TrNecesidad
+      parameters:
+      - in: body
+        name: body
+        description: body for TrNecesidad content
+        required: true
+        schema:
+          $ref: '#/definitions/TrNecesidad'
+      responses:
+        "200":
+          schema:
+            $ref: '#/definitions/msg'
+        "403":
+          description: :id is not int
+definitions:
+  ActividadEconomicaNecesidad:
+    title: ActividadEconomicaNecesidad
+    type: object
+    properties:
+      ActividadEconomica:
+        type: integer
+        format: int64
+      Id:
+        type: integer
+        format: int64
+      SolicitudNecesidad:
+        $ref: '#/definitions/Necesidad'
+  ActividadEspecifica:
+    title: ActividadEspecifica
+    type: object
+    properties:
+      Descripcion:
+        type: string
+      Id:
+        type: integer
+        format: int64
+      Necesidad:
+        $ref: '#/definitions/Necesidad'
+  ActividadSolicitudNecesidad:
+    title: ActividadSolicitudNecesidad
+    type: object
+    properties:
+      Actividad:
+        type: integer
+        format: int64
+      Id:
+        type: integer
+        format: int64
+      MontoParcial:
+        type: number
+        format: double
+      Necesidad:
+        $ref: '#/definitions/Necesidad'
+  DependenciaNecesidad:
+    title: DependenciaNecesidad
+    type: object
+    properties:
+      DependenciaDestino:
+        type: integer
+        format: int64
+      DependenciaSolicitante:
+        type: integer
+        format: int64
+      Id:
+        type: integer
+        format: int64
+      JefeDependenciaDestino:
+        type: integer
+        format: int64
+      JefeDependenciaSolicitante:
+        type: integer
+        format: int64
+      Necesidad:
+        $ref: '#/definitions/Necesidad'
+      OrdenadorGasto:
+        type: integer
+        format: int64
+  EspecificacionTecnica:
+    title: EspecificacionTecnica
+    type: object
+    properties:
+      Cantidad:
+        type: integer
+        format: int64
+      Catalogo:
+        type: integer
+        format: int64
+      Elemento:
+        type: string
+      Id:
+        type: integer
+        format: int64
+      Iva:
+        type: integer
+        format: int64
+      SolicitudNecesidad:
+        $ref: '#/definitions/Necesidad'
+      Unidad:
+        type: integer
+        format: int64
+      Valor:
+        type: integer
+        format: int64
+  EstadoNecesidad:
+    title: EstadoNecesidad
+    type: object
+    properties:
+      Descripcion:
+        type: string
+      FechaRegistro:
+        $ref: '#/definitions/&{time Time}'
+      Id:
+        type: integer
+        format: int64
+      Nombre:
+        type: string
+  EstadoNecesidadNecesidad:
+    title: EstadoNecesidadNecesidad
+    type: object
+    properties:
+      Estado:
+        $ref: '#/definitions/EstadoNecesidad'
+      Fecha:
+        $ref: '#/definitions/&{time Time}'
+      Id:
+        type: integer
+        format: int64
+      Justificacion:
+        type: string
+      Necesidad:
+        $ref: '#/definitions/Necesidad'
+      Responsable:
+        type: integer
+        format: int64
+  FuenteFinanciacionRubroNecesidad:
+    title: FuenteFinanciacionRubroNecesidad
+    type: object
+    properties:
+      Apropiacion:
+        type: integer
+        format: int64
+      FuenteFinanciacion:
+        type: integer
+        format: int64
+      Id:
+        type: integer
+        format: int64
+      MontoParcial:
+        type: number
+        format: double
+      SolicitudNecesidad:
+        $ref: '#/definitions/Necesidad'
+  MarcoLegal:
+    title: MarcoLegal
+    type: object
+    properties:
+      Enlace:
+        type: string
+      Id:
+        type: integer
+        format: int64
+      NombreDocumento:
+        type: string
+  MarcoLegalNecesidad:
+    title: MarcoLegalNecesidad
+    type: object
+    properties:
+      Id:
+        type: integer
+        format: int64
+      MarcoLegal:
+        $ref: '#/definitions/MarcoLegal'
+      Necesidad:
+        $ref: '#/definitions/Necesidad'
+  ModalidadSeleccion:
+    title: ModalidadSeleccion
+    type: object
+    properties:
+      Descripcion:
+        type: string
+      Id:
+        type: integer
+        format: int64
+      Nombre:
+        type: string
+  Necesidad:
+    title: Necesidad
+    type: object
+    properties:
+      AgotarPresupuesto:
+        type: boolean
+      AnalisisRiesgo:
+        type: string
+      DiasDuracion:
+        type: number
+        format: double
+      EstudioMercado:
+        type: string
+      FechaSolicitud:
+        $ref: '#/definitions/&{time Time}'
+      Id:
+        type: integer
+        format: int64
+      Justificacion:
+        type: string
+      ModalidadSeleccion:
+        $ref: '#/definitions/ModalidadSeleccion'
+      Numero:
+        type: integer
+        format: int64
+      NumeroElaboracion:
+        type: integer
+        format: int64
+      Objeto:
+        type: string
+      OtroSi:
+        type: integer
+        format: int64
+      PlanAnualAdquisiciones:
+        type: integer
+        format: int64
+      Servicio:
+        $ref: '#/definitions/Servicio'
+      TecnicasUniformes:
+        type: boolean
+      TipoFuenteFinanciacion:
+        $ref: '#/definitions/TipoFuenteFinanciacion'
+      UnicoPago:
+        type: boolean
+      UnidadEjecutora:
+        type: integer
+        format: int64
+      Valor:
+        type: number
+        format: double
+      Vigencia:
+        type: number
+        format: double
+  NecesidadOtroSi:
+    title: NecesidadOtroSi
+    type: object
+    properties:
+      Contrato:
+        type: string
+      Id:
+        type: integer
+        format: int64
+      Vigencia:
+        type: integer
+        format: int64
+  RequisitoMinimo:
+    title: RequisitoMinimo
+    type: object
+    properties:
+      Descripcion:
+        type: string
+      EspecificacionTecnica:
+        $ref: '#/definitions/EspecificacionTecnica'
+      Id:
+        type: integer
+        format: int64
+  Servicio:
+    title: Servicio
+    type: object
+    properties:
+      Descripcion:
+        type: string
+      Id:
+        type: integer
+        format: int64
+      Nombre:
+        type: string
+  SolicitudDisponibilidad:
+    title: SolicitudDisponibilidad
+    type: object
+    properties:
+      Expedida:
+        type: boolean
+      FechaSolicitud:
+        $ref: '#/definitions/&{time Time}'
+      Id:
+        type: integer
+        format: int64
+      Necesidad:
+        $ref: '#/definitions/Necesidad'
+      Numero:
+        type: integer
+        format: int64
+      Vigencia:
+        type: number
+        format: double
+  SupervisorSolicitudNecesidad:
+    title: SupervisorSolicitudNecesidad
+    type: object
+    properties:
+      Estado:
+        type: string
+      FechaAsginacion:
+        $ref: '#/definitions/&{time Time}'
+      Funcionario:
+        type: integer
+        format: int64
+      Id:
+        type: integer
+        format: int64
+      SolicitudNecesidad:
+        $ref: '#/definitions/Necesidad'
+  TipoFuenteFinanciacion:
+    title: TipoFuenteFinanciacion
+    type: object
+    properties:
+      Descripcion:
+        type: string
+      Id:
+        type: integer
+        format: int64
+      Nombre:
+        type: string
+  TrEspecificacion:
+    title: TrEspecificacion
+    type: object
+    properties:
+      EspecificacionTecnica:
+        $ref: '#/definitions/EspecificacionTecnica'
+      RequisitoMinimo:
+        type: array
+        items:
+          $ref: '#/definitions/RequisitoMinimo'
+  TrNecesidad:
+    title: TrNecesidad
+    type: object
+    properties:
+      ActividadEconomicaNecesidad:
+        type: array
+        items:
+          $ref: '#/definitions/ActividadEconomicaNecesidad'
+      ActividadEspecifica:
+        type: array
+        items:
+          $ref: '#/definitions/ActividadEspecifica'
+      DependenciaNecesidad:
+        $ref: '#/definitions/DependenciaNecesidad'
+      Especificacion:
+        type: array
+        items:
+          $ref: '#/definitions/TrEspecificacion'
+      EstadoNecesidadNecesidad:
+        $ref: '#/definitions/EstadoNecesidadNecesidad'
+      Ffapropiacion:
+        type: array
+        items:
+          $ref: '#/definitions/FuenteFinanciacionRubroNecesidad'
+      MarcoLegalNecesidad:
+        type: array
+        items:
+          $ref: '#/definitions/MarcoLegalNecesidad'
+      Necesidad:
+        $ref: '#/definitions/Necesidad'
+      SupervisorSolicitudNecesidad:
+        $ref: '#/definitions/SupervisorSolicitudNecesidad'
+  msg:
+    type: object
+tags:
+- name: solicitud_disponibilidad
+  description: |
+    SolicitudDisponibilidadController oprations for SolicitudDisponibilidad
+- name: necesidad_otro_si
+  description: |
+    NecesidadOtroSiController oprations for NecesidadOtroSi
+- name: estado_necesidad_necesidad
+  description: |
+    EstadoNecesidadNecesidadController oprations for EstadoNecesidadNecesidad
+- name: actividad_especifica
+  description: |
+    ActividadEspecificaController oprations for ActividadEspecifica
+- name: servicio
+  description: |
+    ServicioController oprations for Servicio
+- name: necesidad
+  description: |
+    NecesidadController oprations for Necesidad
+- name: dependencia_necesidad
+  description: |
+    DependenciaNecesidadController oprations for DependenciaNecesidad
+- name: modalidad_seleccion
+  description: |
+    ModalidadSeleccionController oprations for ModalidadSeleccion
+- name: tipo_fuente_financiacion
+  description: |
+    TipoFuenteFinanciacionController oprations for TipoFuenteFinanciacion
+- name: actividad_solicitud_necesidad
+  description: |
+    ActividadSolicitudNecesidadController oprations for ActividadSolicitudNecesidad
+- name: estado_necesidad
+  description: |
+    EstadoNecesidadController oprations for EstadoNecesidad
+- name: requisito_minimo
+  description: |
+    RequisitoMinimoController oprations for RequisitoMinimo
+- name: marco_legal
+  description: |
+    MarcoLegalController oprations for MarcoLegal
+- name: marco_legal_necesidad
+  description: |
+    MarcoLegalNecesidadController oprations for MarcoLegalNecesidad
+- name: supervisor_solicitud_necesidad
+  description: |
+    SupervisorSolicitudNecesidadController oprations for SupervisorSolicitudNecesidad
+- name: actividad_economica_necesidad
+  description: |
+    ActividadEconomicaNecesidadController oprations for ActividadEconomicaNecesidad
+- name: especificacion_tecnica
+  description: |
+    EspecificacionTecnicaController oprations for EspecificacionTecnica
+- name: fuente_financiacion_rubro_necesidad
+  description: |
+    FuenteFinanciacionRubroNecesidadController oprations for FuenteFinanciacionRubroNecesidad
+- name: tr_necesidad
+  description: |
+    oprations for Necesidad
