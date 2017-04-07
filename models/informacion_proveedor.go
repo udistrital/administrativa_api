@@ -13,7 +13,6 @@ type InformacionProveedor struct {
 	Id                      int                `orm:"column(id_proveedor)"`
 	Tipopersona             string             `orm:"column(tipopersona)"`
 	NumDocumento            float64            `orm:"column(num_documento);pk"`
-	IdCiudadContacto        *Ciudad            `orm:"column(id_ciudad_contacto);rel(fk)"`
 	Direccion               string             `orm:"column(direccion)"`
 	Correo                  string             `orm:"column(correo)"`
 	Web                     string             `orm:"column(web);null"`
@@ -23,7 +22,6 @@ type InformacionProveedor struct {
 	Anexorut                string             `orm:"column(anexorut)"`
 	PuntajeEvaluacion       float64            `orm:"column(puntaje_evaluacion);null"`
 	ClasificacionEvaluacion string             `orm:"column(clasificacion_evaluacion);null"`
-	Estado                  *ParametroEstandar `orm:"column(estado);rel(fk)"`
 	TipoCuentaBancaria      string             `orm:"column(tipo_cuenta_bancaria)"`
 	NumCuentaBancaria       string             `orm:"column(num_cuenta_bancaria)"`
 	IdEntidadBancaria       float64            `orm:"column(id_entidad_bancaria)"`

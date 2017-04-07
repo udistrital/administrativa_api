@@ -1,7 +1,6 @@
 package main
 
 import (
-	_ "argo_api_crud/routers"
 
 	"github.com/astaxie/beego"
 	"github.com/astaxie/beego/orm"

@@ -1,7 +1,7 @@
 package routers
 
 import (
-	"github.com/udistrital/argo_api_crud/controllers"
+	"github.com/udistrital/administrativa_crud_api/controllers"
 
 	"github.com/astaxie/beego"
 )

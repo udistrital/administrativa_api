@@ -1,7 +1,7 @@
 package controllers
 
 import (
-	"github.com/udistrital/argo_api_crud/controllers"
+	"github.com/udistrital/administrativa_crud_api/models"
 	"encoding/json"
 	"errors"
 	"strings"

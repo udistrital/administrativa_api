@@ -20,15 +20,11 @@ type ContratoGeneral struct {
 	ClausulaRegistroPresupuestal bool             `orm:"column(clausula_registro_presupuestal);null"`
 	SedeSolicitante              string           `orm:"column(sede_solicitante);null"`
 	DependenciaSolicitante       string           `orm:"column(dependencia_solicitante);null"`
-	//NumeroSolicitudNecesidad     int    `orm:"column(numero_solicitud_necesidad)"`
-	//NumeroCdp int `orm:"column(numero_cdp)"`
 	Contratista                  *InformacionProveedor `orm:"column(contratista);rel(fk)"`
-	UnidadEjecucion              *Parametros           `orm:"column(unidad_ejecucion);rel(fk)"`
 	ValorContrato        float64 `orm:"column(valor_contrato)"`
 	Justificacion        string  `orm:"column(justificacion)"`
 	DescripcionFormaPago string  `orm:"column(descripcion_forma_pago)"`
 	Condiciones          string  `orm:"column(condiciones)"`
-	//UnidadEjecutora              *UnidadEjecutora      `orm:"column(unidad_ejecutora);rel(fk)"`
 	FechaRegistro       time.Time `orm:"column(fecha_registro);type(date)"`
 	TipologiaContrato   int       `orm:"column(tipologia_contrato)"`
 	TipoCompromiso      int       `orm:"column(tipo_compromiso)"`
@@ -49,7 +45,6 @@ type ContratoGeneral struct {
 	Convenio         string `orm:"column(convenio);null"`
 	NumeroConstancia int    `orm:"column(numero_constancia);null"`
 	Estado           bool   `orm:"column(estado);null"`
-	//ResgistroPresupuestal int    `orm:"column(registro_presupuestal);null"`
 	TipoContrato                 *TipoContrato         `orm:"column(tipo_contrato);rel(fk)"`
 	LugarEjecucion               *LugarEjecucion       `orm:"column(lugar_ejecucion);rel(fk)"`
 }
@@ -138,7 +133,7 @@ func GetAllContratoGeneral(query map[string]string, fields []string, sortby []st
 
 	var l []ContratoGeneral
 
-	//RELATED SEL ESTO SIRVE 
+	//RELATED SEL ESTO SIRVE
 	qs = qs.OrderBy(sortFields...).RelatedSel("Contratista")
 	if _, err = qs.Limit(limit, offset).All(&l, fields...); err == nil {
 		if len(fields) == 0 {

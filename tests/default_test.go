@@ -6,8 +6,7 @@ import (
 	"testing"
 	"runtime"
 	"path/filepath"
-	_ "argo_api_crud/routers"
-
+	_ "github.com/udistrital/administrativa_crud_api/routers"
 	"github.com/astaxie/beego"
 	. "github.com/smartystreets/goconvey/convey"
 )
@@ -36,4 +35,3 @@ func TestBeego(t *testing.T) {
 	        })
 	})
 }
-
