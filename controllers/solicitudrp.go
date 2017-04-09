@@ -1,7 +1,7 @@
 package controllers
 
 import (
-	"github.com/udistrital/administrativa_crud_api/models"
+	"github.com/udistrital/administrativa_api/models"
 	"encoding/json"
 	"errors"
 	"strconv"
