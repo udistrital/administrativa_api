@@ -1,7 +1,7 @@
 package main
 
 import (
-	_ "github.com/udistrital/administrativa_api/routers"
+	_ "github.com/udistrital/administrativa_crud_api/routers"
 
 	"github.com/astaxie/beego"
 	"github.com/astaxie/beego/orm"

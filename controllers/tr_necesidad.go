@@ -2,7 +2,7 @@ package controllers
 
 import (
 	"encoding/json"
-	"github.com/udistrital/administrativa_api/models"
+	"github.com/udistrital/administrativa_crud_api/models"
 	"github.com/astaxie/beego"
 )
 
