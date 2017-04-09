@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 // @APIVersion 1.0.0
 // @Title beego Test API
 // @Description beego has a very cool tools to autogenerate documents for your API
@@ -5,6 +6,8 @@
 // @TermsOfServiceUrl http://beego.me/
 // @License Apache 2.0
 // @LicenseUrl http://www.apache.org/licenses/LICENSE-2.0.html
+=======
+>>>>>>> solicitud_rp
 package routers
 
 import (
@@ -16,6 +19,7 @@ import (
 func init() {
 	ns := beego.NewNamespace("/v1",
 
+<<<<<<< HEAD
 		beego.NSNamespace("/necesidad_rechazada",
 			beego.NSInclude(
 				&controllers.NecesidadRechazadaController{},
@@ -130,6 +134,63 @@ func init() {
 							&controllers.TrNecesidadController{},
 						),
 					),
+=======
+		beego.NSNamespace("/contrato_general",
+			beego.NSInclude(
+				&controllers.ContratoGeneralController{},
+			),
+		),
+		beego.NSNamespace("/acta_inicio",
+			beego.NSInclude(
+				&controllers.ActaInicioController{},
+			),
+		),
+		beego.NSNamespace("/solicitud_rp",
+			beego.NSInclude(
+				&controllers.SolicitudRpController{},
+			),
+		),
+		beego.NSNamespace("/disponibilidad_apropiacion_solicitud_rp",
+			beego.NSInclude(
+				&controllers.Disponibilidad_apropiacion_solicitud_rpController{},
+			),
+		),
+		beego.NSNamespace("/acta_contrato",
+			beego.NSInclude(
+				&controllers.ActaInicioContratoGeneralController{},
+			),
+		),
+		beego.NSNamespace("/ordenadores",
+			beego.NSInclude(
+				&controllers.ArgoOrdenadoresController{},
+			),
+		),
+		beego.NSNamespace("/parametros",
+			beego.NSInclude(
+				&controllers.ParametrosController{},
+			),
+		),
+		beego.NSNamespace("/parametro_estandar",
+			beego.NSInclude(
+				&controllers.ParametroEstandarController{},
+			),
+		),
+		beego.NSNamespace("/relacion_parametro",
+			beego.NSInclude(
+				&controllers.RelacionParametroController{},
+			),
+		),
+		beego.NSNamespace("/informacion_proveedor",
+			beego.NSInclude(
+				&controllers.InformacionProveedorController{},
+			),
+		),
+		beego.NSNamespace("/supervisor",
+			beego.NSInclude(
+				&controllers.SupervisorContratoController{},
+			),
+		),
+>>>>>>> solicitud_rp
 	)
 	beego.AddNamespace(ns)
 }
