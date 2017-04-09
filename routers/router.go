@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 // @APIVersion 1.0.0
 // @Title beego Test API
 // @Description beego has a very cool tools to autogenerate documents for your API
@@ -6,8 +5,6 @@
 // @TermsOfServiceUrl http://beego.me/
 // @License Apache 2.0
 // @LicenseUrl http://www.apache.org/licenses/LICENSE-2.0.html
-=======
->>>>>>> solicitud_rp
 package routers
 
 import (
@@ -19,7 +16,6 @@ import (
 func init() {
 	ns := beego.NewNamespace("/v1",
 
-<<<<<<< HEAD
 		beego.NSNamespace("/necesidad_rechazada",
 			beego.NSInclude(
 				&controllers.NecesidadRechazadaController{},
@@ -134,7 +130,6 @@ func init() {
 							&controllers.TrNecesidadController{},
 						),
 					),
-=======
 		beego.NSNamespace("/contrato_general",
 			beego.NSInclude(
 				&controllers.ContratoGeneralController{},
@@ -190,7 +185,6 @@ func init() {
 				&controllers.SupervisorContratoController{},
 			),
 		),
->>>>>>> solicitud_rp
 	)
 	beego.AddNamespace(ns)
 }
