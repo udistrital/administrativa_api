@@ -47,7 +47,7 @@ func GetModalidadSeleccionById(id int) (v *ModalidadSeleccion, err error) {
 func GetAllModalidadSeleccion(query map[string]string, fields []string, sortby []string, order []string,
 	offset int64, limit int64) (ml []interface{}, err error) {
 	o := orm.NewOrm()
-	qs := o.QueryTable(new(ModalidadSeleccion))
+	qs := o.QueryTable(new(ModalidadSeleccion)).RelatedSel(5)
 	// query k=v
 	for k, v := range query {
 		// rewrite dot-notation to Object__Attribute

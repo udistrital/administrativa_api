@@ -51,7 +51,7 @@ func GetDependenciaNecesidadById(id int) (v *DependenciaNecesidad, err error) {
 func GetAllDependenciaNecesidad(query map[string]string, fields []string, sortby []string, order []string,
 	offset int64, limit int64) (ml []interface{}, err error) {
 	o := orm.NewOrm()
-	qs := o.QueryTable(new(DependenciaNecesidad))
+	qs := o.QueryTable(new(DependenciaNecesidad)).RelatedSel(5)
 	// query k=v
 	for k, v := range query {
 		// rewrite dot-notation to Object__Attribute
