@@ -141,7 +141,7 @@ func (c *NecesidadController) Put() {
 	id, _ := strconv.Atoi(idStr)
 	v := models.Necesidad{Id: id}
 	if err := json.Unmarshal(c.Ctx.Input.RequestBody, &v); err == nil {
-		if err := models.UpdateNecesidadById(&v); err == nil {
+		if _,err := models.UpdateNecesidadById(&v); err == nil {
 			c.Data["json"] = "OK"
 		} else {
 			c.Data["json"] = err.Error()
