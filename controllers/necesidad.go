@@ -41,7 +41,7 @@ func (c *NecesidadController) Post() {
 			c.Data["json"] = alerta
 		}
 	} else {
-		c.Data["json"] = alerta
+		c.Data["json"] = err.Error()
 	}
 	c.ServeJSON()
 }
