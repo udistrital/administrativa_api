@@ -34,11 +34,11 @@ func (c *NecesidadController) URLMapping() {
 func (c *NecesidadController) Post() {
 	var v models.Necesidad
 	if err := json.Unmarshal(c.Ctx.Input.RequestBody, &v); err == nil {
-		if alerta, err := models.AddNecesidad(&v); err == nil {
+		if _, err := models.AddNecesidad(&v); err == nil {
 			c.Ctx.Output.SetStatus(201)
-			c.Data["json"] = alerta
+			c.Data["json"] = v
 		} else {
-			c.Data["json"] = alerta
+			c.Data["json"] = err.Error()
 		}
 	} else {
 		c.Data["json"] = err.Error()
@@ -141,8 +141,8 @@ func (c *NecesidadController) Put() {
 	id, _ := strconv.Atoi(idStr)
 	v := models.Necesidad{Id: id}
 	if err := json.Unmarshal(c.Ctx.Input.RequestBody, &v); err == nil {
-		if _,err := models.UpdateNecesidadById(&v); err == nil {
-			c.Data["json"] = "OK"
+		if alert,err := models.UpdateNecesidadById(&v); err == nil {
+			c.Data["json"] = alert
 		} else {
 			c.Data["json"] = err.Error()
 		}
