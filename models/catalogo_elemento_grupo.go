@@ -19,7 +19,7 @@ type CatalogoElementoGrupo struct {
 	ElementoNombre         string               `orm:"column(elemento_nombre)"`
 	ElementoFechaCreacion                  time.Time                 `orm:"column(elemento_fecha_creacion);type(date)"`
 	ElementoEstado        float64        `orm:"column(elemento_estado);null"`
-  TipoBien          float64                  `orm:"column(tipo_bien);null"`
+  ElementoTipobien          float64                  `orm:"column(elemento_tipobien);null"`
 }
 
 func (t *CatalogoElementoGrupo) TableName() string {
