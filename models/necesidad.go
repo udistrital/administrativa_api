@@ -159,7 +159,7 @@ func UpdateNecesidadById(m *Necesidad) (alerta []string, err error) {
 		var num int64
 		if num, err = o.Update(m); err == nil {
 			fmt.Println("Number of records updated in database:", num)
-			alerta = append(alerta, "La solicitud con número de elaboración "+strconv.Itoa(m.NumeroElaboracion)+" del "+strconv.Itoa((m.Necesidad.FechaSolicitud).Year())+" fué aprobada y se le asignó a la necesidad el consecutivo número "+strconv.Itoa(m.Numero))
+			alerta = append(alerta, "La solicitud con número de elaboración "+strconv.Itoa(m.NumeroElaboracion)+" del "+strconv.Itoa((m.FechaSolicitud).Year())+" fué aprobada y se le asignó a la necesidad el consecutivo número "+strconv.Itoa(m.Numero))
 		} else {
 			alerta[0] = "error"
 			alerta = append(alerta, "Error: ¡Ocurrió un error al actualizar la necesidad!")
