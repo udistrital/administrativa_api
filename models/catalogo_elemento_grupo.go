@@ -5,51 +5,58 @@ import (
 	"fmt"
 	"reflect"
 	"strings"
+	"time"
+	"strconv"
 
 	"github.com/astaxie/beego/orm"
 )
 
-type ActividadEconomicaNecesidad struct {
-	Id                 int           `orm:"column(id);pk;auto"`
-	SolicitudNecesidad *Necesidad    `orm:"column(solicitud_necesidad);rel(fk)"`
-	ActividadEconomica string `orm:"column(actividad_economica)"`
+type CatalogoElementoGrupo struct {
+	Id                     int                     `orm:"column(elemento_id);pk;auto"`
+	ElementoPadre                 int                     `orm:"column(elemento_padre)"`
+	ElementoCodigo               int                 `orm:"column(elemento_codigo)"`
+	ElementoCatalogo                 int                  `orm:"column(elemento_catalogo);null"`
+	ElementoNombre         string               `orm:"column(elemento_nombre)"`
+	ElementoFechaCreacion                  time.Time                 `orm:"column(elemento_fecha_creacion);type(date)"`
+	ElementoEstado        float64        `orm:"column(elemento_estado);null"`
+  TipoBien          float64                  `orm:"column(tipo_bien);null"`
 }
 
-func (t *ActividadEconomicaNecesidad) TableName() string {
-	return "actividad_economica_necesidad"
+func (t *CatalogoElementoGrupo) TableName() string {
+	return "catalogo_elemento_grupo"
 }
 
 func init() {
-	orm.RegisterModel(new(ActividadEconomicaNecesidad))
+	orm.RegisterModel(new(CatalogoElementoGrupo))
 }
 
-// AddActividadEconomicaNecesidad insert a new ActividadEconomicaNecesidad into database and returns
+// AddCatalogoElementoGrupo insert a new CatalogoElementoGrupo into database and returns
 // last inserted Id on success.
-func AddActividadEconomicaNecesidad(m *ActividadEconomicaNecesidad) (id int64, err error) {
+func AddCatalogoElementoGrupo(m *CatalogoElementoGrupo) (id int64, err error) {
 	o := orm.NewOrm()
 	id, err = o.Insert(m)
 	return
 }
 
-// GetActividadEconomicaNecesidadById retrieves ActividadEconomicaNecesidad by Id. Returns error if
+// GetCatalogoElementoGrupoById retrieves CatalogoElementoGrupo by Id. Returns error if
 // Id doesn't exist
-func GetActividadEconomicaNecesidadById(id int) (v *ActividadEconomicaNecesidad, err error) {
+func GetCatalogoElementoGrupoById(id int) (v *CatalogoElementoGrupo, err error) {
 	o := orm.NewOrm()
-	v = &ActividadEconomicaNecesidad{Id: id}
+	v = &CatalogoElementoGrupo{Id: id}
 	if err = o.Read(v); err == nil {
 		return v, nil
 	}
 	return nil, err
 }
 
-// GetAllActividadEconomicaNecesidad retrieves all ActividadEconomicaNecesidad matches certain condition. Returns empty list if
+// GetAllCatalogoElementoGrupo retrieves all CatalogoElementoGrupo matches certain condition. Returns empty list if
 // no records exist
-func GetAllActividadEconomicaNecesidad(query map[string]string, fields []string, sortby []string, order []string,
+func GetAllCatalogoElementoGrupo(query map[string]string, fields []string, sortby []string, order []string,
 	offset int64, limit int64) (ml []interface{}, err error) {
 	o := orm.NewOrm()
-	qs := o.QueryTable(new(ActividadEconomicaNecesidad)).RelatedSel(5)
+	qs := o.QueryTable(new(CatalogoElementoGrupo)).RelatedSel(5)
 	// query k=v
-	for k, v := range query {
+  for k, v := range query {
 		// rewrite dot-notation to Object__Attribute
 		k = strings.Replace(k, ".", "__", -1)
 		qs = qs.Filter(k, v)
@@ -93,7 +100,7 @@ func GetAllActividadEconomicaNecesidad(query map[string]string, fields []string,
 		}
 	}
 
-	var l []ActividadEconomicaNecesidad
+	var l []CatalogoElementoGrupo
 	qs = qs.OrderBy(sortFields...)
 	if _, err = qs.Limit(limit, offset).All(&l, fields...); err == nil {
 		if len(fields) == 0 {
@@ -116,11 +123,11 @@ func GetAllActividadEconomicaNecesidad(query map[string]string, fields []string,
 	return nil, err
 }
 
-// UpdateActividadEconomicaNecesidad updates ActividadEconomicaNecesidad by Id and returns error if
+// UpdateCatalogoElementoGrupo updates CatalogoElementoGrupo by Id and returns error if
 // the record to be updated doesn't exist
-func UpdateActividadEconomicaNecesidadById(m *ActividadEconomicaNecesidad) (err error) {
+func UpdateCatalogoElementoGrupoById(m *CatalogoElementoGrupo) (err error) {
 	o := orm.NewOrm()
-	v := ActividadEconomicaNecesidad{Id: m.Id}
+	v := CatalogoElementoGrupo{Id: m.Id}
 	// ascertain id exists in the database
 	if err = o.Read(&v); err == nil {
 		var num int64
@@ -131,15 +138,15 @@ func UpdateActividadEconomicaNecesidadById(m *ActividadEconomicaNecesidad) (err 
 	return
 }
 
-// DeleteActividadEconomicaNecesidad deletes ActividadEconomicaNecesidad by Id and returns error if
+// DeleteCatalogoElementoGrupo deletes CatalogoElementoGrupo by Id and returns error if
 // the record to be deleted doesn't exist
-func DeleteActividadEconomicaNecesidad(id int) (err error) {
+func DeleteCatalogoElementoGrupo(id int) (err error) {
 	o := orm.NewOrm()
-	v := ActividadEconomicaNecesidad{Id: id}
+	v := CatalogoElementoGrupo{Id: id}
 	// ascertain id exists in the database
 	if err = o.Read(&v); err == nil {
 		var num int64
-		if num, err = o.Delete(&ActividadEconomicaNecesidad{Id: id}); err == nil {
+		if num, err = o.Delete(&CatalogoElementoGrupo{Id: id}); err == nil {
 			fmt.Println("Number of records deleted in database:", num)
 		}
 	}

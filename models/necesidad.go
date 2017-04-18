@@ -146,9 +146,10 @@ func GetAllNecesidad(query map[string]string, fields []string, sortby []string, 
 
 // UpdateNecesidad updates Necesidad by Id and returns error if
 // the record to be updated doesn't exist
-func UpdateNecesidadById(m *Necesidad) (err error) {
+func UpdateNecesidadById(m *Necesidad) (alerta []string, err error) {
 	o := orm.NewOrm()
 	v := Necesidad{Id: m.Id}
+	alerta = append(alerta, "success")
 	var a []int
 	var b = strconv.FormatFloat(m.Vigencia,'E',-1,64)
 	_,err = o.Raw("SELECT MAX(numero)+1 FROM administrativa.necesidad WHERE vigencia="+b).QueryRows(&a)
@@ -158,9 +159,16 @@ func UpdateNecesidadById(m *Necesidad) (err error) {
 		var num int64
 		if num, err = o.Update(m); err == nil {
 			fmt.Println("Number of records updated in database:", num)
+			alerta = append(alerta, "La solicitud con número de elaboración "+strconv.Itoa(m.NumeroElaboracion)+" del "+strconv.Itoa((m.Necesidad.FechaSolicitud).Year())+" fué aprobada y se le asignó a la necesidad el consecutivo número "+strconv.Itoa(m.Numero))
+		} else {
+			alerta[0] = "error"
+			alerta = append(alerta, "Error: ¡Ocurrió un error al actualizar la necesidad!")
 		}
+	} else {
+		alerta[0] = "error"
+		alerta = append(alerta, "Error: ¡Ocurrió un error al leer la necesidad!")
 	}
-	return
+	return alerta, err
 }
 
 // DeleteNecesidad deletes Necesidad by Id and returns error if

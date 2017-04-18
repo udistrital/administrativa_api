@@ -185,6 +185,16 @@ func init() {
 				&controllers.SupervisorContratoController{},
 			),
 		),
+		beego.NSNamespace("/catalogo_elemento",
+			beego.NSInclude(
+				&controllers.CatalogoElementoController{},
+			),
+		),
+		beego.NSNamespace("/catalogo_elemento_grupo",
+			beego.NSInclude(
+				&controllers.CatalogoElementoGrupoController{},
+			),
+		),
 	)
 	beego.AddNamespace(ns)
 }

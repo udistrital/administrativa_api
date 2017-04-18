@@ -30,9 +30,10 @@ func init() {
 
 // AddSolicitudDisponibilidad insert a new SolicitudDisponibilidad into database and returns
 // last inserted Id on success.
-func AddSolicitudDisponibilidad(m *SolicitudDisponibilidad) (id int64, err error) {
+func AddSolicitudDisponibilidad(m *SolicitudDisponibilidad) (alerta []string, err error) {
 	o := orm.NewOrm()
 	o.Begin()
+	alerta = append(alerta, "success")
 	m.FechaSolicitud = time.Now()
 	m.Vigencia = float64((m.FechaSolicitud).Year())
 	m.Expedida = false
@@ -40,17 +41,22 @@ func AddSolicitudDisponibilidad(m *SolicitudDisponibilidad) (id int64, err error
 	_,err = o.Raw("SELECT MAX(numero)+1 FROM administrativa.solicitud_disponibilidad WHERE vigencia="+strconv.Itoa((m.FechaSolicitud).Year())+";").QueryRows(&a)
 	m.Numero = a[0]
 	if _, err = o.Insert(m); err!=nil{
+		alerta[0] = "error"
+		alerta = append(alerta, "Error: ¡Ocurrió un error al insertar la solicitud de disponibilidad!")
 		o.Rollback()
 		return
 	} else {
 		m.Necesidad.Estado.Id=7;
 		if _,err = o.Update(m.Necesidad); err!=nil{
+			alerta[0] = "error"
+			alerta = append(alerta, "Error: ¡Ocurrió un error al actualizar el estado de la necesidad!")
 			o.Rollback()
 			return
 		}
 	}
+	alerta = append(alerta, "La solicitud de disponibilidad "+strconv.Itoa(m.Numero)+" del "+strconv.Itoa((m.FechaSolicitud).Year())+" fué aprobada exitosamente")
 	o.Commit()
-	return
+	return alerta, err
 }
 
 // GetSolicitudDisponibilidadById retrieves SolicitudDisponibilidad by Id. Returns error if
