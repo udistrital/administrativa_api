@@ -34,14 +34,14 @@ func (c *SolicitudDisponibilidadController) URLMapping() {
 func (c *SolicitudDisponibilidadController) Post() {
 	var v models.SolicitudDisponibilidad
 	if err := json.Unmarshal(c.Ctx.Input.RequestBody, &v); err == nil {
-		if _, err := models.AddSolicitudDisponibilidad(&v); err == nil {
+		if alerta, err := models.AddSolicitudDisponibilidad(&v); err == nil {
 			c.Ctx.Output.SetStatus(201)
 			c.Data["json"] = v
 		} else {
-			c.Data["json"] = err.Error()
+			c.Data["json"] = alerta
 		}
 	} else {
-		c.Data["json"] = err.Error()
+		c.Data["json"] = alerta
 	}
 	c.ServeJSON()
 }

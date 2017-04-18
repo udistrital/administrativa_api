@@ -34,14 +34,14 @@ func (c *NecesidadController) URLMapping() {
 func (c *NecesidadController) Post() {
 	var v models.Necesidad
 	if err := json.Unmarshal(c.Ctx.Input.RequestBody, &v); err == nil {
-		if _, err := models.AddNecesidad(&v); err == nil {
+		if alerta, err := models.AddNecesidad(&v); err == nil {
 			c.Ctx.Output.SetStatus(201)
-			c.Data["json"] = v
+			c.Data["json"] = alerta
 		} else {
-			c.Data["json"] = err.Error()
+			c.Data["json"] = alerta
 		}
 	} else {
-		c.Data["json"] = err.Error()
+		c.Data["json"] = alerta
 	}
 	c.ServeJSON()
 }
