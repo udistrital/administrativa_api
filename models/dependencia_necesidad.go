@@ -12,9 +12,7 @@ import (
 type DependenciaNecesidad struct {
 	Id                         int `orm:"column(id);pk;auto"`
 	JefeDependenciaSolicitante int `orm:"column(jefe_dependencia_solicitante)"`
-	DependenciaSolicitante     int `orm:"column(dependencia_solicitante)"`
 	JefeDependenciaDestino     int `orm:"column(jefe_dependencia_destino)"`
-	DependenciaDestino         int `orm:"column(dependencia_destino)"`
 	Necesidad                  *Necesidad `orm:"column(necesidad);rel(fk)"`
 	OrdenadorGasto             int `orm:"column(ordenador_gasto)"`
 }
