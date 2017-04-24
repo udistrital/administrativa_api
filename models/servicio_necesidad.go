@@ -14,6 +14,7 @@ type ServicioNecesidad struct {
 	Perfil          int `orm:"column(perfil)"`
 	SniesNucleo int `orm:"column(snies_nucleo)"`
 	Cantidad int `orm:"column(cantidad)"`
+	Necesidad int `orm:"column(necesidad)"`
 }
 
 func (t *ServicioNecesidad) TableName() string {
