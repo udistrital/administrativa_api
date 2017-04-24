@@ -54,7 +54,7 @@ func AddSolicitudDisponibilidad(m *SolicitudDisponibilidad) (alerta []string, er
 			return
 		}
 	}
-	alerta = append(alerta, "La solicitud de disponibilidad "+strconv.Itoa(m.Numero)+" del "+strconv.Itoa((m.FechaSolicitud).Year())+" fué aprobada exitosamente")
+	alerta = append(alerta, "La solicitud de disponibilidad "+strconv.Itoa(m.Numero)+" del "+strconv.Itoa((m.FechaSolicitud).Year())+" fué creada exitosamente")
 	o.Commit()
 	return alerta, err
 }

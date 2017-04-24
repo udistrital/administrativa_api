@@ -48,7 +48,7 @@ m.Necesidad.NumeroElaboracion = a[0]
       if _, err = o.Insert(v); err != nil {
         o.Rollback()
         alerta[0] = "error"
-        alerta = append(alerta, "Error: ¡Ocurrió un error al insertar las fuentes de financiacion!")
+        alerta = append(alerta, "Error: ¡Ocurrió un error al insertar las fuentes de financiamiento!")
         return
       }
     }
@@ -77,7 +77,7 @@ m.Necesidad.NumeroElaboracion = a[0]
       if _, err = o.Insert(va); err != nil {
         o.Rollback()
         alerta[0] = "error"
-        alerta = append(alerta, "Error: ¡Ocurrió un error al insertar las actividades economicas!")
+        alerta = append(alerta, "Error: ¡Ocurrió un error al insertar las actividades económicas!")
         return
       }
     }
@@ -96,7 +96,7 @@ m.Necesidad.NumeroElaboracion = a[0]
           if _, err = o.Insert(vr); err != nil {
             o.Rollback()
             alerta[0] = "error"
-            alerta = append(alerta, "Error: ¡Ocurrió un error al insertar los requisitos minimos!")
+            alerta = append(alerta, "Error: ¡Ocurrió un error al insertar los requisitos mínimos!")
             return
           }
         }
@@ -120,7 +120,7 @@ m.Necesidad.NumeroElaboracion = a[0]
       return
     }
     o.Commit()
-    alerta = append(alerta, "La solicitud con numero de elaboracion "+strconv.Itoa(m.Necesidad.NumeroElaboracion)+" del "+strconv.Itoa((m.Necesidad.FechaSolicitud).Year())+" fue creada exitosamente")
+    alerta = append(alerta, "La solicitud con No. de elaboración "+strconv.Itoa(m.Necesidad.NumeroElaboracion)+" del "+strconv.Itoa((m.Necesidad.FechaSolicitud).Year())+" fue creada exitosamente")
     return
   }else{
     o.Rollback()

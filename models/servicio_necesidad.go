@@ -10,7 +10,7 @@ import (
 )
 
 type ServicioNecesidad struct {
-	Id              int    `orm:"column(id);pk"`
+	Id              int    `orm:"column(id);pk;auto"`
 	Perfil          int `orm:"column(perfil)"`
 	SniesNucleo int `orm:"column(snies_nucleo)"`
 	Cantidad int `orm:"column(cantidad)"`
