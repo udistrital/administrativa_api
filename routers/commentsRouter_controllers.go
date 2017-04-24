@@ -993,35 +993,35 @@ func init() {
 			AllowHTTPMethods: []string{"delete"},
 			Params: nil})
 
-	beego.GlobalControllerRouter["github.com/udistrital/administrativa_crud_api/controllers:TipoFuenteFinanciacionController"] = append(beego.GlobalControllerRouter["github.com/udistrital/administrativa_crud_api/controllers:TipoFuenteFinanciacionController"],
+	beego.GlobalControllerRouter["github.com/udistrital/administrativa_crud_api/controllers:TipoRubroController"] = append(beego.GlobalControllerRouter["github.com/udistrital/administrativa_crud_api/controllers:TipoRubroController"],
 		beego.ControllerComments{
 			Method: "Post",
 			Router: `/`,
 			AllowHTTPMethods: []string{"post"},
 			Params: nil})
 
-	beego.GlobalControllerRouter["github.com/udistrital/administrativa_crud_api/controllers:TipoFuenteFinanciacionController"] = append(beego.GlobalControllerRouter["github.com/udistrital/administrativa_crud_api/controllers:TipoFuenteFinanciacionController"],
+	beego.GlobalControllerRouter["github.com/udistrital/administrativa_crud_api/controllers:TipoRubroController"] = append(beego.GlobalControllerRouter["github.com/udistrital/administrativa_crud_api/controllers:TipoRubroController"],
 		beego.ControllerComments{
 			Method: "GetOne",
 			Router: `/:id`,
 			AllowHTTPMethods: []string{"get"},
 			Params: nil})
 
-	beego.GlobalControllerRouter["github.com/udistrital/administrativa_crud_api/controllers:TipoFuenteFinanciacionController"] = append(beego.GlobalControllerRouter["github.com/udistrital/administrativa_crud_api/controllers:TipoFuenteFinanciacionController"],
+	beego.GlobalControllerRouter["github.com/udistrital/administrativa_crud_api/controllers:TipoRubroController"] = append(beego.GlobalControllerRouter["github.com/udistrital/administrativa_crud_api/controllers:TipoRubroController"],
 		beego.ControllerComments{
 			Method: "GetAll",
 			Router: `/`,
 			AllowHTTPMethods: []string{"get"},
 			Params: nil})
 
-	beego.GlobalControllerRouter["github.com/udistrital/administrativa_crud_api/controllers:TipoFuenteFinanciacionController"] = append(beego.GlobalControllerRouter["github.com/udistrital/administrativa_crud_api/controllers:TipoFuenteFinanciacionController"],
+	beego.GlobalControllerRouter["github.com/udistrital/administrativa_crud_api/controllers:TipoRubroController"] = append(beego.GlobalControllerRouter["github.com/udistrital/administrativa_crud_api/controllers:TipoRubroController"],
 		beego.ControllerComments{
 			Method: "Put",
 			Router: `/:id`,
 			AllowHTTPMethods: []string{"put"},
 			Params: nil})
 
-	beego.GlobalControllerRouter["github.com/udistrital/administrativa_crud_api/controllers:TipoFuenteFinanciacionController"] = append(beego.GlobalControllerRouter["github.com/udistrital/administrativa_crud_api/controllers:TipoFuenteFinanciacionController"],
+	beego.GlobalControllerRouter["github.com/udistrital/administrativa_crud_api/controllers:TipoRubroController"] = append(beego.GlobalControllerRouter["github.com/udistrital/administrativa_crud_api/controllers:TipoRubroController"],
 		beego.ControllerComments{
 			Method: "Delete",
 			Router: `/:id`,
@@ -1104,4 +1104,40 @@ func init() {
 					Router: `/:id`,
 					AllowHTTPMethods: []string{"delete"},
 					Params: nil})
+
+				beego.GlobalControllerRouter["github.com/udistrital/administrativa_crud_api/controllers:ServicioNecesidadController"] = append(beego.GlobalControllerRouter["github.com/udistrital/administrativa_crud_api/controllers:ServicioNecesidadController"],
+					beego.ControllerComments{
+						Method: "Post",
+						Router: `/`,
+						AllowHTTPMethods: []string{"post"},
+						Params: nil})
+
+				beego.GlobalControllerRouter["github.com/udistrital/administrativa_crud_api/controllers:ServicioNecesidadController"] = append(beego.GlobalControllerRouter["github.com/udistrital/administrativa_crud_api/controllers:ServicioNecesidadController"],
+					beego.ControllerComments{
+						Method: "GetOne",
+						Router: `/:id`,
+						AllowHTTPMethods: []string{"get"},
+						Params: nil})
+
+				beego.GlobalControllerRouter["github.com/udistrital/administrativa_crud_api/controllers:ServicioNecesidadController"] = append(beego.GlobalControllerRouter["github.com/udistrital/administrativa_crud_api/controllers:ServicioNecesidadController"],
+					beego.ControllerComments{
+						Method: "GetAll",
+						Router: `/`,
+						AllowHTTPMethods: []string{"get"},
+						Params: nil})
+
+				beego.GlobalControllerRouter["github.com/udistrital/administrativa_crud_api/controllers:ServicioNecesidadController"] = append(beego.GlobalControllerRouter["github.com/udistrital/administrativa_crud_api/controllers:ServicioNecesidadController"],
+					beego.ControllerComments{
+						Method: "Put",
+						Router: `/:id`,
+						AllowHTTPMethods: []string{"put"},
+						Params: nil})
+
+				beego.GlobalControllerRouter["github.com/udistrital/administrativa_crud_api/controllers:ServicioNecesidadController"] = append(beego.GlobalControllerRouter["github.com/udistrital/administrativa_crud_api/controllers:ServicioNecesidadController"],
+					beego.ControllerComments{
+						Method: "Delete",
+						Router: `/:id`,
+						AllowHTTPMethods: []string{"delete"},
+						Params: nil})
+
 }

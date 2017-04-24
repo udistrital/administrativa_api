@@ -27,11 +27,10 @@ type Necesidad struct {
 	Servicio               *Servicio               `orm:"column(servicio);rel(fk)"`
 	PlanAnualAdquisiciones int                     `orm:"column(plan_anual_adquisiciones)"`
 	EstudioMercado         string                  `orm:"column(estudio_mercado);null"`
-	TipoFuenteFinanciacion *TipoFuenteFinanciacion `orm:"column(tipo_fuente_financiacion);rel(fk)"`
+	TipoRubro *TipoRubro `orm:"column(tipo_rubro);rel(fk)"`
 	AnalisisRiesgo         string                  `orm:"column(analisis_riesgo);null"`
 	NumeroElaboracion      int                     `orm:"column(numero_elaboracion)"`
 	OtroSi                 int        `orm:"column(otro_si)"`
-	TecnicasUniformes      bool                    `orm:"column(tecnicas_uniformes)"`
 	Estado      *EstadoNecesidad                    `orm:"column(estado);rel(fk)"`
 	FechaModificacion      time.Time                    `orm:"column(fecha_modificacion)"`
 }

@@ -70,9 +70,9 @@ func init() {
 			),
 		),
 
-		beego.NSNamespace("/tipo_fuente_financiacion",
+		beego.NSNamespace("/tipo_rubro",
 			beego.NSInclude(
-				&controllers.TipoFuenteFinanciacionController{},
+				&controllers.TipoRubroController{},
 			),
 		),
 
@@ -198,6 +198,11 @@ func init() {
 		beego.NSNamespace("/catalogo_elemento_grupo",
 			beego.NSInclude(
 				&controllers.CatalogoElementoGrupoController{},
+			),
+		),
+		beego.NSNamespace("/servicio_necesidad",
+			beego.NSInclude(
+				&controllers.ServicioNecesidadController{},
 			),
 		),
 	)

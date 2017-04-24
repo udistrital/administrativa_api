@@ -9,45 +9,45 @@ import (
 	"github.com/astaxie/beego/orm"
 )
 
-type TipoFuenteFinanciacion struct {
+type TipoRubro struct {
 	Id          int    `orm:"column(id);pk"`
 	Nombre      string `orm:"column(nombre)"`
 	Descripcion string `orm:"column(descripcion);null"`
 }
 
-func (t *TipoFuenteFinanciacion) TableName() string {
-	return "tipo_fuente_financiacion"
+func (t *TipoRubro) TableName() string {
+	return "tipo_rubro"
 }
 
 func init() {
-	orm.RegisterModel(new(TipoFuenteFinanciacion))
+	orm.RegisterModel(new(TipoRubro))
 }
 
-// AddTipoFuenteFinanciacion insert a new TipoFuenteFinanciacion into database and returns
+// AddTipoRubro insert a new TipoRubro into database and returns
 // last inserted Id on success.
-func AddTipoFuenteFinanciacion(m *TipoFuenteFinanciacion) (id int64, err error) {
+func AddTipoRubro(m *TipoRubro) (id int64, err error) {
 	o := orm.NewOrm()
 	id, err = o.Insert(m)
 	return
 }
 
-// GetTipoFuenteFinanciacionById retrieves TipoFuenteFinanciacion by Id. Returns error if
+// GetTipoRubroById retrieves TipoRubro by Id. Returns error if
 // Id doesn't exist
-func GetTipoFuenteFinanciacionById(id int) (v *TipoFuenteFinanciacion, err error) {
+func GetTipoRubroById(id int) (v *TipoRubro, err error) {
 	o := orm.NewOrm()
-	v = &TipoFuenteFinanciacion{Id: id}
+	v = &TipoRubro{Id: id}
 	if err = o.Read(v); err == nil {
 		return v, nil
 	}
 	return nil, err
 }
 
-// GetAllTipoFuenteFinanciacion retrieves all TipoFuenteFinanciacion matches certain condition. Returns empty list if
+// GetAllTipoRubro retrieves all TipoRubro matches certain condition. Returns empty list if
 // no records exist
-func GetAllTipoFuenteFinanciacion(query map[string]string, fields []string, sortby []string, order []string,
+func GetAllTipoRubro(query map[string]string, fields []string, sortby []string, order []string,
 	offset int64, limit int64) (ml []interface{}, err error) {
 	o := orm.NewOrm()
-	qs := o.QueryTable(new(TipoFuenteFinanciacion)).RelatedSel(5)
+	qs := o.QueryTable(new(TipoRubro)).RelatedSel(5)
 	// query k=v
 	for k, v := range query {
 		// rewrite dot-notation to Object__Attribute
@@ -93,7 +93,7 @@ func GetAllTipoFuenteFinanciacion(query map[string]string, fields []string, sort
 		}
 	}
 
-	var l []TipoFuenteFinanciacion
+	var l []TipoRubro
 	qs = qs.OrderBy(sortFields...)
 	if _, err = qs.Limit(limit, offset).All(&l, fields...); err == nil {
 		if len(fields) == 0 {
@@ -116,11 +116,11 @@ func GetAllTipoFuenteFinanciacion(query map[string]string, fields []string, sort
 	return nil, err
 }
 
-// UpdateTipoFuenteFinanciacion updates TipoFuenteFinanciacion by Id and returns error if
+// UpdateTipoRubro updates TipoRubro by Id and returns error if
 // the record to be updated doesn't exist
-func UpdateTipoFuenteFinanciacionById(m *TipoFuenteFinanciacion) (err error) {
+func UpdateTipoRubroById(m *TipoRubro) (err error) {
 	o := orm.NewOrm()
-	v := TipoFuenteFinanciacion{Id: m.Id}
+	v := TipoRubro{Id: m.Id}
 	// ascertain id exists in the database
 	if err = o.Read(&v); err == nil {
 		var num int64
@@ -131,15 +131,15 @@ func UpdateTipoFuenteFinanciacionById(m *TipoFuenteFinanciacion) (err error) {
 	return
 }
 
-// DeleteTipoFuenteFinanciacion deletes TipoFuenteFinanciacion by Id and returns error if
+// DeleteTipoRubro deletes TipoRubro by Id and returns error if
 // the record to be deleted doesn't exist
-func DeleteTipoFuenteFinanciacion(id int) (err error) {
+func DeleteTipoRubro(id int) (err error) {
 	o := orm.NewOrm()
-	v := TipoFuenteFinanciacion{Id: id}
+	v := TipoRubro{Id: id}
 	// ascertain id exists in the database
 	if err = o.Read(&v); err == nil {
 		var num int64
-		if num, err = o.Delete(&TipoFuenteFinanciacion{Id: id}); err == nil {
+		if num, err = o.Delete(&TipoRubro{Id: id}); err == nil {
 			fmt.Println("Number of records deleted in database:", num)
 		}
 	}
