@@ -16,7 +16,7 @@ type TrNecesidad struct {
   Especificacion []*TrEspecificacion
   ActividadEspecifica []*ActividadEspecifica
   DependenciaNecesidad *DependenciaNecesidad
-  ServicioNecesidad []*ServicioNecesidad
+  ServicioNecesidad *ServicioNecesidad
 }
 
 
@@ -114,15 +114,12 @@ m.Necesidad.NumeroElaboracion = a[0]
       }
     }
 
-    for _, vs := range m.ServicioNecesidad {
-      vs.Necesidad = &Necesidad{Id:int(id)}
-      //---
-      if _, err = o.Insert(vs); err != nil {
-        o.Rollback()
-        alerta[0] = "error"
-        alerta = append(alerta, "Error: ¡Ocurrió un error al insertar los servicios necesidad!")
-        return
-      }
+    m.ServicioNecesidad.Necesidad = &Necesidad{Id:int(id)}
+    if _, err = o.Insert(m.ServicioNecesidad); err != nil{
+      o.Rollback()
+      alerta[0] = "error"
+      alerta = append(alerta, "Error: ¡Ocurrió un error al insertar servicio necesidad!")
+      return
     }
     m.DependenciaNecesidad.Necesidad= &Necesidad{Id:int(id)}
     if _, err = o.Insert(m.DependenciaNecesidad); err != nil{
