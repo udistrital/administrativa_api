@@ -13,7 +13,7 @@ import (
 type VerificacionNicsp struct {
 	Id            int         `orm:"column(id);pk;auto"`
 	Verificado    bool        `orm:"column(verificado)"`
-	FechaRegistro time.Time   `orm:"column(fecha_registro);type(date)"`
+	FechaRegistro time.Time   `orm:"column(fecha_registro);type(date);auto_now"`
 	ValorMercado  float64     `orm:"column(valor_mercado)"`
 	Inventario    *Inventario `orm:"column(inventario);rel(fk)"`
 }

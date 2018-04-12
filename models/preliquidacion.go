@@ -15,7 +15,7 @@ type Preliquidacion struct {
 	Descripcion          string                `orm:"column(descripcion);null"`
 	Mes                  int                   `orm:"column(mes)"`
 	Ano                  int                   `orm:"column(ano)"`
-	FechaRegistro        time.Time             `orm:"column(fecha_registro);type(timestamp without time zone)"`
+	FechaRegistro        time.Time             `orm:"column(fecha_registro);type(timestamp without time zone);auto_now"`
 	EstadoPreliquidacion *EstadoPreliquidacion `orm:"column(estado_preliquidacion);rel(fk)"`
 	Nomina               *Nomina               `orm:"column(nomina);rel(fk)"`
 }

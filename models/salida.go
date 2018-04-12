@@ -12,7 +12,7 @@ import (
 
 type Salida struct {
 	Id            int       `orm:"column(id);pk;auto"`
-	FechaRegistro time.Time `orm:"column(fecha_registro);type(date)"`
+	FechaRegistro time.Time `orm:"column(fecha_registro);type(date);auto_now"`
 	Funcionario   int       `orm:"column(funcionario)"`
 	EspacioFisico int       `orm:"column(espacio_fisico)"`
 	Entrada       *Entrada  `orm:"column(entrada);rel(fk)"`

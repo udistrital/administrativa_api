@@ -14,7 +14,7 @@ type RelacionParametro struct {
 	Id             int       `orm:"column(id_rel_parametro);pk;auto"`
 	Descripcion    string    `orm:"column(descripcion)"`
 	EstadoRegistro bool      `orm:"column(estado_registro)"`
-	FechaRegistro  time.Time `orm:"column(fecha_registro);type(date)"`
+	FechaRegistro  time.Time `orm:"column(fecha_registro);type(date);auto_now"`
 }
 
 func (t *RelacionParametro) TableName() string {

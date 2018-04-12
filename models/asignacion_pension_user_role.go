@@ -15,8 +15,8 @@ type AsignacionPensionUserRole struct {
 	Pension                     *Pension          `orm:"column(pension);rel(fk)"`
 	PersonaAsignada             int               `orm:"column(persona_asignada)"`
 	EstadoRolPension            *EstadoRolPension `orm:"column(estado_rol_pension);rel(fk)"`
-	FechaInicioBeneficioPension time.Time         `orm:"column(fecha_inicio_beneficio_pension);type(timestamp without time zone);null"`
-	FechaFinBeneficioPension    time.Time         `orm:"column(fecha_fin_beneficio_pension);type(timestamp without time zone);null"`
+	FechaInicioBeneficioPension time.Time         `orm:"column(fecha_inicio_beneficio_pension);type(timestamp without time zone);null;auto_now"`
+	FechaFinBeneficioPension    time.Time         `orm:"column(fecha_fin_beneficio_pension);type(timestamp without time zone);null;auto_now"`
 	Tutor                       int               `orm:"column(tutor);null"`
 	Porcentaje                  float64           `orm:"column(porcentaje);null"`
 }

@@ -13,8 +13,8 @@ import (
 type RelacionPolizaAmparo struct {
 	Id              int              `orm:"column(id);pk;auto"`
 	Amparo          int              `orm:"column(amparo);null"`
-	FechaInicio     time.Time        `orm:"column(fecha_inicio);type(timestamp without time zone)"`
-	FechaFinal      time.Time        `orm:"column(fecha_final);type(timestamp without time zone)"`
+	FechaInicio     time.Time        `orm:"column(fecha_inicio);type(timestamp without time zone);auto_now"`
+	FechaFinal      time.Time        `orm:"column(fecha_final);type(timestamp without time zone);auto_now"`
 	TipoValorAmparo *TipoValorAmparo `orm:"column(tipo_valor_amparo);rel(fk)"`
 	ValorAmparo     float64          `orm:"column(valor_amparo)"`
 	PolizaContrato  *PolizaContrato  `orm:"column(poliza_contrato);rel(fk)"`

@@ -13,7 +13,7 @@ import (
 type Grupo struct {
 	Id            int       `orm:"column(id);pk;auto"`
 	Nombre        string    `orm:"column(nombre)"`
-	FechaRegistro time.Time `orm:"column(fecha_registro);type(date)"`
+	FechaRegistro time.Time `orm:"column(fecha_registro);type(date);auto_now"`
 	TipoBien      *TipoBien `orm:"column(tipo_bien);rel(fk)"`
 	CuentaEntrada float64   `orm:"column(cuenta_entrada)"`
 	CuentaSalida  float64   `orm:"column(cuenta_salida)"`

@@ -25,7 +25,7 @@ type VinculacionDocente struct {
 	IdDedicacion         *Dedicacion                   `orm:"column(id_dedicacion);rel(fk)"`
 	IdProyectoCurricular int16                         `orm:"column(id_proyecto_curricular)"`
 	Estado               bool                          `orm:"column(estado)"`
-	FechaRegistro        time.Time                     `orm:"column(fecha_registro);type(date)"`
+	FechaRegistro        time.Time                     `orm:"column(fecha_registro);type(date);auto_now"`
 	ValorContrato        float64                       `orm:"column(valor_contrato)"`
 	Categoria            string                        `orm:"column(categoria)"`
 	Disponibilidad       int                           `orm:"column(disponibilidad)"`

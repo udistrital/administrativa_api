@@ -15,7 +15,7 @@ type SolicitudDisponibilidad struct {
 	Id                   int        `orm:"column(id);pk;auto"`
 	Numero               int        `orm:"column(numero)"`
 	Vigencia             float64    `orm:"column(vigencia)"`
-	FechaSolicitud       time.Time  `orm:"column(fecha_solicitud);type(timestamp without time zone)"`
+	FechaSolicitud       time.Time  `orm:"column(fecha_solicitud);type(timestamp without time zone);auto_now"`
 	Necesidad            *Necesidad `orm:"column(necesidad);rel(fk)"`
 	Expedida             bool       `orm:"column(expedida)"`
 	JustificacionRechazo string     `orm:"column(justificacion_rechazo);null"`

@@ -12,8 +12,8 @@ import (
 
 type ActaRecibido struct {
 	Id            int                 `orm:"column(id);pk;auto"`
-	FechaRecibido time.Time           `orm:"column(fecha_recibido);type(date)"`
-	FechaRegistro time.Time           `orm:"column(fecha_registro);type(date)"`
+	FechaRecibido time.Time           `orm:"column(fecha_recibido);type(date);auto_now"`
+	FechaRegistro time.Time           `orm:"column(fecha_registro);type(date);auto_now"`
 	Revisor       string              `orm:"column(revisor)"`
 	Sede          string              `orm:"column(sede)"`
 	Observaciones string              `orm:"column(observaciones);null"`

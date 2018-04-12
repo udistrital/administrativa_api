@@ -13,7 +13,7 @@ import (
 type Catalogo struct {
 	Id            int       `orm:"column(id);pk;auto"`
 	Nombre        string    `orm:"column(nombre)"`
-	FechaRegistro time.Time `orm:"column(fecha_registro);type(date)"`
+	FechaRegistro time.Time `orm:"column(fecha_registro);type(date);auto_now"`
 	Vigencia      float64   `orm:"column(vigencia)"`
 	Activo        bool      `orm:"column(activo)"`
 }

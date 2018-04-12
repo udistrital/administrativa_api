@@ -13,14 +13,14 @@ import (
 type Resolucion struct {
 	Id                      int             `orm:"column(id_resolucion);pk;auto"`
 	NumeroResolucion        string          `orm:"column(numero_resolucion)"`
-	FechaExpedicion         time.Time       `orm:"column(fecha_expedicion);type(date);null"`
+	FechaExpedicion         time.Time       `orm:"column(fecha_expedicion);type(date);null;auto_now"`
 	Vigencia                int             `orm:"column(vigencia)"`
 	IdDependencia           int             `orm:"column(id_dependencia)"`
 	IdTipoResolucion        *TipoResolucion `orm:"column(id_tipo_resolucion);rel(fk)"`
 	PreambuloResolucion     string          `orm:"column(preambulo_resolucion)"`
 	ConsideracionResolucion string          `orm:"column(consideracion_resolucion)"`
 	Estado                  bool            `orm:"column(estado)"`
-	FechaRegistro           time.Time       `orm:"column(fecha_registro);type(date)"`
+	FechaRegistro           time.Time       `orm:"column(fecha_registro);type(date);auto_now"`
 	Objeto                  string          `orm:"column(objeto);null"`
 	NumeroSemanas           int             `orm:"column(numero_semanas)"`
 	Periodo                 int             `orm:"column(periodo)"`

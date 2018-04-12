@@ -26,7 +26,7 @@ type ContratoGeneral struct {
 	Justificacion                string              `orm:"column(justificacion)"`
 	DescripcionFormaPago         string              `orm:"column(descripcion_forma_pago)"`
 	Condiciones                  string              `orm:"column(condiciones)"`
-	FechaRegistro                time.Time           `orm:"column(fecha_registro);type(date)"`
+	FechaRegistro                time.Time           `orm:"column(fecha_registro);type(date);auto_now"`
 	TipologiaContrato            int                 `orm:"column(tipologia_contrato)"`
 	TipoCompromiso               int                 `orm:"column(tipo_compromiso)"`
 	ModalidadSeleccion           int                 `orm:"column(modalidad_seleccion)"`

@@ -18,7 +18,7 @@ type PagoMensual struct {
 	Persona           string             `orm:"column(persona)"`
 	EstadoPagoMensual *EstadoPagoMensual `orm:"column(estado_pago_mensual);rel(fk)"`
 	Responsable       string             `orm:"column(responsable)"`
-	FechaModificacion time.Time          `orm:"auto_now;column(fecha_modificacion)"`
+	FechaModificacion time.Time          `orm:"auto_now;column(fecha_modificacion);auto_now"`
 	CargoResponsable  string             `orm:"column(cargo_responsable)"`
 	Ano               float64            `orm:"column(ano)"`
 }

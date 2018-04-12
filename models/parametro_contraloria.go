@@ -16,7 +16,7 @@ type ParametroContraloria struct {
 	CodigoContraloria string                        `orm:"column(codigo_contraloria)"`
 	RelacionParametro *RelacionParametroContraloria `orm:"column(relacion_parametro);rel(fk)"`
 	Activo            bool                          `orm:"column(activo)"`
-	FechaRegistro     time.Time                     `orm:"column(fecha_registro);type(timestamp without time zone)"`
+	FechaRegistro     time.Time                     `orm:"column(fecha_registro);type(timestamp without time zone);auto_now"`
 }
 
 func (t *ParametroContraloria) TableName() string {

@@ -15,9 +15,9 @@ type ConceptoNominaPorPersona struct {
 	ValorNovedad  float64         `orm:"column(valor_novedad)"`
 	NumCuotas     float64         `orm:"column(num_cuotas)"`
 	Activo        bool            `orm:"column(activo)"`
-	FechaDesde    time.Time       `orm:"column(fecha_desde);type(timestamp without time zone);null"`
-	FechaHasta    time.Time       `orm:"column(fecha_hasta);type(timestamp without time zone);null"`
-	FechaRegistro time.Time       `orm:"column(fecha_registro);type(timestamp without time zone)"`
+	FechaDesde    time.Time       `orm:"column(fecha_desde);type(timestamp without time zone);null;auto_now"`
+	FechaHasta    time.Time       `orm:"column(fecha_hasta);type(timestamp without time zone);null;auto_now"`
+	FechaRegistro time.Time       `orm:"column(fecha_registro);type(timestamp without time zone);auto_now"`
 	Persona       int             `orm:"column(persona)"`
 	Nomina        *Nomina         `orm:"column(nomina);rel(fk)"`
 	Concepto      *ConceptoNomina `orm:"column(concepto);rel(fk)"`

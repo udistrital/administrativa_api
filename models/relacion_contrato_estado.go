@@ -14,7 +14,7 @@ type RelacionContratoEstado struct {
 	Id             int             `orm:"column(id);pk;auto"`
 	Contrato       *Contrato       `orm:"column(contrato);rel(fk)"`
 	EstadoContrato *EstadoContrato `orm:"column(estado_contrato);rel(fk)"`
-	FechaRegistro  time.Time       `orm:"column(fecha_registro);type(timestamp without time zone)"`
+	FechaRegistro  time.Time       `orm:"column(fecha_registro);type(timestamp without time zone);auto_now"`
 	Usuario        int             `orm:"column(usuario)"`
 }
 

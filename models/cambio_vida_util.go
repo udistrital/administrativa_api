@@ -13,7 +13,7 @@ import (
 type CambioVidaUtil struct {
 	Id            int         `orm:"column(id);pk;auto"`
 	VidaUtil      int         `orm:"column(vida_util)"`
-	FechaRegistro time.Time   `orm:"column(fecha_registro);type(date)"`
+	FechaRegistro time.Time   `orm:"column(fecha_registro);type(date);auto_now"`
 	Descripcion   string      `orm:"column(descripcion);null"`
 	Inventario    *Inventario `orm:"column(inventario);rel(fk)"`
 }

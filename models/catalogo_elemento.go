@@ -16,7 +16,7 @@ type CatalogoElemento struct {
 	ElementoCodigo        int       `orm:"column(elemento_codigo)"`
 	ElementoCatalogo      int       `orm:"column(elemento_catalogo)"`
 	ElementoNombre        string    `orm:"column(elemento_nombre)"`
-	ElementoFechaCreacion time.Time `orm:"column(elemento_fecha_creacion);type(date)"`
+	ElementoFechaCreacion time.Time `orm:"column(elemento_fecha_creacion);type(date);auto_now"`
 	ElementoGrupoc        string    `orm:"column(elemento_grupoc);null"`
 	ElementoEstado        float64   `orm:"column(elemento_estado);null"`
 }

@@ -16,7 +16,7 @@ type Necesidad struct {
 	Numero                    int                                 `orm:"column(numero);null"`
 	Vigencia                  float64                             `orm:"column(vigencia)"`
 	Objeto                    string                              `orm:"column(objeto)"`
-	FechaSolicitud            time.Time                           `orm:"column(fecha_solicitud);type(date)"`
+	FechaSolicitud            time.Time                           `orm:"column(fecha_solicitud);type(date);auto_now"`
 	Valor                     float64                             `orm:"column(valor)"`
 	Justificacion             string                              `orm:"column(justificacion)"`
 	UnidadEjecutora           int                                 `orm:"column(unidad_ejecutora)"`
@@ -31,7 +31,7 @@ type Necesidad struct {
 	Supervisor                int                                 `orm:"column(supervisor)"`
 	AnalisisRiesgo            string                              `orm:"column(analisis_riesgo);null"`
 	NumeroElaboracion         int                                 `orm:"column(numero_elaboracion)"`
-	FechaModificacion         time.Time                           `orm:"column(fecha_modificacion);type(date)"`
+	FechaModificacion         time.Time                           `orm:"column(fecha_modificacion);type(date);auto_now"`
 	EstadoNecesidad           *EstadoNecesidad                    `orm:"column(estado_necesidad);rel(fk)"`
 	JustificacionRechazo      string                              `orm:"column(justificacion_rechazo)"`
 	JustificacionAnulacion    string                              `orm:"column(justificacion_anulacion)"`

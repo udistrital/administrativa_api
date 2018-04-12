@@ -22,8 +22,8 @@ type Contrato struct {
 	Condiciones      string    `orm:"column(condiciones);null"`
 	FormaPago        int       `orm:"column(forma_pago)"`
 	Observaciones    string    `orm:"column(observaciones);null"`
-	FechaSuscripcion time.Time `orm:"column(fecha_suscripcion);type(timestamp without time zone);null"`
-	FechaRegistro    time.Time `orm:"column(fecha_registro);type(timestamp without time zone)"`
+	FechaSuscripcion time.Time `orm:"column(fecha_suscripcion);type(timestamp without time zone);null;auto_now"`
+	FechaRegistro    time.Time `orm:"column(fecha_registro);type(timestamp without time zone);auto_now"`
 	LugarEjecucion   int       `orm:"column(lugar_ejecucion)"`
 }
 

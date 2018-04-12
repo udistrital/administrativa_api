@@ -12,7 +12,7 @@ import (
 
 type AmortizacionElemento struct {
 	Id                 int                 `orm:"column(id);pk;auto"`
-	FechaAmortizacion  time.Time           `orm:"column(fecha_amortizacion);type(timestamp without time zone)"`
+	FechaAmortizacion  time.Time           `orm:"column(fecha_amortizacion);type(timestamp without time zone);auto_now"`
 	BodegaSalidaBodega *BodegaSalidaBodega `orm:"column(bodega_salida_bodega);rel(fk)"`
 	Descripcion        string              `orm:"column(descripcion);null"`
 	ValorPorcentaje    float64             `orm:"column(valor_porcentaje)"`

@@ -14,7 +14,7 @@ type Entrada struct {
 	Id            int            `orm:"column(id);pk;auto"`
 	Vigencia      float64        `orm:"column(vigencia)"`
 	NumeroEntrada int            `orm:"column(numero_entrada)"`
-	FechaRegistro time.Time      `orm:"column(fecha_registro);type(date)"`
+	FechaRegistro time.Time      `orm:"column(fecha_registro);type(date);auto_now"`
 	Observaciones string         `orm:"column(observaciones);null"`
 	EnlaceSoporte string         `orm:"column(enlace_soporte)"`
 	Estado        *EstadoEntrada `orm:"column(estado);rel(fk)"`

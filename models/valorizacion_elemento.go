@@ -14,7 +14,7 @@ type ValorizacionElemento struct {
 	Id            int         `orm:"column(id);pk;auto"`
 	Descripcion   string      `orm:"column(descripcion)"`
 	Valor         float64     `orm:"column(valor)"`
-	FechaRegistro time.Time   `orm:"column(fecha_registro);type(date)"`
+	FechaRegistro time.Time   `orm:"column(fecha_registro);type(date);auto_now"`
 	Inventario    *Inventario `orm:"column(inventario);rel(fk)"`
 }
 

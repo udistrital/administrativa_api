@@ -13,7 +13,7 @@ import (
 type SalidaBodega struct {
 	Id            int       `orm:"column(id);pk;auto"`
 	Funcionario   int       `orm:"column(funcionario)"`
-	FechaRegistro time.Time `orm:"column(fecha_registro);type(date)"`
+	FechaRegistro time.Time `orm:"column(fecha_registro);type(date);auto_now"`
 	EspacioFisico int       `orm:"column(espacio_fisico)"`
 	Vigencia      float64   `orm:"column(vigencia)"`
 	NumeroSalida  int       `orm:"column(numero_salida)"`

@@ -16,11 +16,11 @@ type Movimiento struct {
 	Vigencia                    float64            `orm:"column(vigencia)"`
 	SubtipoMovimiento           *SubtipoMovimiento `orm:"column(subtipo_movimiento);rel(fk)"`
 	Funcionario                 int                `orm:"column(funcionario);null"`
-	FechaRegistro               time.Time          `orm:"column(fecha_registro);type(date)"`
+	FechaRegistro               time.Time          `orm:"column(fecha_registro);type(date);auto_now"`
 	EspacioFisico               int                `orm:"column(espacio_fisico);null"`
 	Observacion                 string             `orm:"column(observacion);null"`
 	BajaAprobada                bool               `orm:"column(baja_aprobada);null"`
-	FechaAprobacion             time.Time          `orm:"column(fecha_aprobacion);type(date);null"`
+	FechaAprobacion             time.Time          `orm:"column(fecha_aprobacion);type(date);null;auto_now"`
 	JustificacionAprobacionBaja string             `orm:"column(justificacion_aprobacion_baja);null"`
 }
 

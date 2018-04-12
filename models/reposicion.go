@@ -12,7 +12,7 @@ import (
 
 type Reposicion struct {
 	Id            int         `orm:"column(id);pk;auto"`
-	FechaRegistro time.Time   `orm:"column(fecha_registro);type(date)"`
+	FechaRegistro time.Time   `orm:"column(fecha_registro);type(date);auto_now"`
 	Elemento      string      `orm:"column(elemento)"`
 	Marca         string      `orm:"column(marca);null"`
 	Serie         string      `orm:"column(serie);null"`
