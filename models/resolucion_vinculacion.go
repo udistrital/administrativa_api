@@ -15,7 +15,7 @@ type ResolucionVinculacion struct {
 	Facultad        int       `orm:"column(facultad)"`
 	NivelAcademico  string    `orm:"column(nivel_academico)"`
 	Dedicacion      string    `orm:"column(dedicacion)"`
-	FechaExpedicion time.Time `orm:"column(fecha_expedicion);type(date)"`
+	FechaExpedicion time.Time `orm:"column(fecha_expedicion);type(timestamp without time zone)"`
 	NumeroSemanas   int       `orm:"column(numero_semanas)"`
 	Periodo         int       `orm:"column(periodo)"`
 	TipoResolucion  string    `orm:"column(tipo_resolucion)"`
@@ -35,6 +35,10 @@ func GetAllResolucionVinculacion() (arregloIDs []ResolucionVinculacion) {
 		fmt.Println("Consulta exitosa")
 	}
 
+	for x, resoluciones := range temp {
+		resoluciones.FechaExpedicion = resoluciones.FechaExpedicion.UTC()
+		temp[x].FechaExpedicion = resoluciones.FechaExpedicion
+	}
 	return temp
 }
 
@@ -47,7 +51,10 @@ func GetAllResolucionAprobada() (arregloIDs []ResolucionVinculacion) {
 	if err == nil {
 		fmt.Println("Consulta exitosa")
 	}
-
+	for x, resoluciones := range temp {
+		resoluciones.FechaExpedicion = resoluciones.FechaExpedicion.UTC()
+		temp[x].FechaExpedicion = resoluciones.FechaExpedicion
+	}
 	return temp
 }
 
@@ -59,6 +66,11 @@ func GetAllExpedidasVigenciaPeriodo(vigencia, periodo int) (arregloIDs []Resoluc
 
 	if err == nil {
 		fmt.Println("Consulta exitosa")
+	}
+
+	for x, resoluciones := range temp {
+		resoluciones.FechaExpedicion = resoluciones.FechaExpedicion.UTC()
+		temp[x].FechaExpedicion = resoluciones.FechaExpedicion
 	}
 
 	return temp

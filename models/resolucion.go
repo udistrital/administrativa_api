@@ -13,7 +13,7 @@ import (
 type Resolucion struct {
 	Id                      int             `orm:"column(id_resolucion);pk;auto"`
 	NumeroResolucion        string          `orm:"column(numero_resolucion)"`
-	FechaExpedicion         time.Time       `orm:"column(fecha_expedicion);type(date);null"`
+	FechaExpedicion         time.Time       `orm:"column(fecha_expedicion);type(timestamp without time zone);null"`
 	Vigencia                int             `orm:"column(vigencia)"`
 	IdDependencia           int             `orm:"column(id_dependencia)"`
 	IdTipoResolucion        *TipoResolucion `orm:"column(id_tipo_resolucion);rel(fk)"`
@@ -155,6 +155,7 @@ func GetResolucionById(id int) (v *Resolucion, err error) {
 	o := orm.NewOrm()
 	v = &Resolucion{Id: id}
 	if err = o.Read(v); err == nil {
+		v.FechaExpedicion = v.FechaExpedicion.UTC()
 		return v, nil
 	}
 	return nil, err
@@ -220,6 +221,7 @@ func GetAllResolucion(query map[string]string, fields []string, sortby []string,
 	if _, err = qs.Limit(limit, offset).All(&l, fields...); err == nil {
 		if len(fields) == 0 {
 			for _, v := range l {
+				v.FechaExpedicion = v.FechaExpedicion.UTC()
 				ml = append(ml, v)
 			}
 		} else {
