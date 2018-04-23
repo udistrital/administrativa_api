@@ -14527,6 +14527,39 @@
                 }
             }
         },
+        "/resolucion_vinculacion/expedidas_vigencia_periodo_vinculacion": {
+            "get": {
+                "tags": [
+                    "resolucion_vinculacion"
+                ],
+                "description": "Muestra resoluciones de tipo vinculación para cancelar y modificar",
+                "operationId": "ResolucionVinculacionController.GetAllExpedidasVigenciaPeriodo",
+                "parameters": [
+                    {
+                        "in": "query",
+                        "name": "vigencia",
+                        "description": "nomina a listar",
+                        "type": "string"
+                    },
+                    {
+                        "in": "query",
+                        "name": "periodo",
+                        "description": "mes de la liquidacion a listar",
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "201": {
+                        "schema": {
+                            "$ref": "#/definitions/.Preliquidacion_x_contratos"
+                        }
+                    },
+                    "403": {
+                        "description": "body is empty"
+                    }
+                }
+            }
+        },
         "/resolucion_vinculacion_docente/": {
             "get": {
                 "tags": [
@@ -19465,9 +19498,7 @@
                 "description": "create AprobarSoportesContratistas",
                 "operationId": "TrAprobacionMasivaSoportesContratistasController.AprobarSoportesContratistas",
                 "responses": {
-                    "200": {
-                        "description": ""
-                    },
+                    "200": {},
                     "403": {
                         "description": "body is empty"
                     }

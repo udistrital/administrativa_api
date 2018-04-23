@@ -75,3 +75,21 @@ func GetAllExpedidasVigenciaPeriodo(vigencia, periodo int) (arregloIDs []Resoluc
 
 	return temp
 }
+
+func GetAllExpedidasVigenciaPeriodoVinculacion(vigencia, periodo int) (arregloIDs []ResolucionVinculacion) {
+	o := orm.NewOrm()
+	var temp []ResolucionVinculacion
+	//_, err := o.Raw("SELECT r.id_resolucion id, e.nombre_estado estado, r.numero_resolucion numero, r.vigencia vigencia, d.nombre facultad, rv.nivel_academico nivel_academico, rv.dedicacion dedicacion, r.fecha_expedicion fecha_expedicion FROM administrativa.resolucion r, administrativa.resolucion_vinculacion_docente rv, oikos.dependencia d, administrativa.resolucion_estado re, administrativa.estado_resolucion e WHERE rv.id_facultad=d.id AND r.id_resolucion=rv.id_resolucion AND re.resolucion=r.id_resolucion AND re.estado=e.id AND re.fecha_registro=(SELECT MAX(re_aux.fecha_registro) FROM administrativa.resolucion_estado re_aux WHERE re_aux.resolucion=r.id_resolucion) AND r.id_tipo_resolucion=1 ORDER BY id desc;").QueryRows(&temp)
+	_, err := o.Raw("SELECT DISTINCT r.id_resolucion id, e.nombre_estado estado, r.numero_resolucion numero, r.vigencia vigencia, r.periodo periodo, rv.id_facultad facultad, rv.nivel_academico nivel_academico, rv.dedicacion dedicacion, r.numero_semanas numero_semanas,r.fecha_expedicion fecha_expedicion FROM administrativa.resolucion r, administrativa.resolucion_vinculacion_docente rv, administrativa.resolucion_estado re, administrativa.estado_resolucion e WHERE r.id_resolucion=rv.id_resolucion AND re.resolucion=r.id_resolucion AND re.estado=e.id AND re.fecha_registro=(SELECT MAX(re_aux.fecha_registro) FROM administrativa.resolucion_estado re_aux WHERE re_aux.resolucion=r.id_resolucion) AND r.vigencia = ? AND r.periodo = ? AND e.nombre_estado IN('Expedida') AND id_tipo_resolucion=1 ORDER BY id desc;", vigencia, periodo).QueryRows(&temp)
+
+	if err == nil {
+		fmt.Println("Consulta exitosa")
+	}
+
+	for x, resoluciones := range temp {
+		resoluciones.FechaExpedicion = resoluciones.FechaExpedicion.UTC()
+		temp[x].FechaExpedicion = resoluciones.FechaExpedicion
+	}
+
+	return temp
+}
