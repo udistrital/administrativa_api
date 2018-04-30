@@ -56,53 +56,49 @@ func (c *ResolucionVinculacionController) GetAllAprobada() {
 	c.ServeJSON()
 }
 
-// GetAllExpedidasVigenciaPeriodoa ...
+// GetAllExpedidasVigenciaPeriodo ...
 // @Title GetAllExpedidasVigenciaPeriodo
 // @Description Agrupa los contratos de una preliquidacion segun mes, año y nomina para preliquidaicones en estado CERRADA
 // @Param vigencia query string false "nomina a listar"
-// @Param periodo query string false "mes de la liquidacion a listar"
 // @Success 201 {object} models.Preliquidacion_x_contratos
 // @Failure 403 body is empty
 // @router /expedidas_vigencia_periodo [get]
 func (c *ResolucionVinculacionController) GetAllExpedidasVigenciaPeriodo() {
 
-	vigencia, err1 := c.GetInt("vigencia")
-	periodo, err2 := c.GetInt("periodo")
-	if err1 == nil && err2 == nil {
+	vigencia, err := c.GetInt("vigencia")
+	if err == nil {
 
-		listaResoluciones := models.GetAllExpedidasVigenciaPeriodo(vigencia, periodo)
+		listaResoluciones := models.GetAllExpedidasVigenciaPeriodo(vigencia)
 
 		c.Ctx.Output.SetStatus(201)
 		c.Data["json"] = listaResoluciones
 
 	} else {
-		fmt.Println(err1)
+		fmt.Println(err)
 		c.Data["json"] = "error"
 	}
 	c.ServeJSON()
 }
 
-// GetAllExpedidasVigenciaPeriodoa ...
-// @Title GetAllExpedidasVigenciaPeriodo
+// GetAllExpedidasVigenciaPeriodoVinculacion ...
+// @Title GetAllExpedidasVigenciaPeriodoVinculacion
 // @Description Muestra resoluciones de tipo vinculación para cancelar y modificar
 // @Param vigencia query string false "nomina a listar"
-// @Param periodo query string false "mes de la liquidacion a listar"
 // @Success 201 {object} models.Preliquidacion_x_contratos
 // @Failure 403 body is empty
 // @router /expedidas_vigencia_periodo_vinculacion [get]
 func (c *ResolucionVinculacionController) GetAllExpedidasVigenciaPeriodoVinculacion() {
 
-	vigencia, err1 := c.GetInt("vigencia")
-	periodo, err2 := c.GetInt("periodo")
-	if err1 == nil && err2 == nil {
+	vigencia, err := c.GetInt("vigencia")
+	if err == nil {
 
-		listaResoluciones := models.GetAllExpedidasVigenciaPeriodoVinculacion(vigencia, periodo)
+		listaResoluciones := models.GetAllExpedidasVigenciaPeriodoVinculacion(vigencia)
 
 		c.Ctx.Output.SetStatus(201)
 		c.Data["json"] = listaResoluciones
 
 	} else {
-		fmt.Println(err1)
+		fmt.Println(err)
 		c.Data["json"] = "error"
 	}
 	c.ServeJSON()
