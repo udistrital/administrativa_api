@@ -11,12 +11,12 @@ import (
 	"github.com/udistrital/administrativa_crud_api/controllers"
 
 	"github.com/astaxie/beego"
-	"github.com/udistrital/auditoria"
+	//"github.com/udistrital/auditoria"
 )
 
 func init() {
 
-	auditoria.InitMiddleware()
+	//auditoria.InitMiddleware()
 
 	ns := beego.NewNamespace("/v1",
 
