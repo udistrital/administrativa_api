@@ -83,13 +83,26 @@ func GetVinculacionDocenteById(id int) (v *VinculacionDocente, err error) {
 func GetAllVinculacionDocente(query map[string]string, fields []string, sortby []string, order []string,
 	offset int64, limit int64) (ml []interface{}, err error) {
 	o := orm.NewOrm()
-	qs := o.QueryTable(new(VinculacionDocente)).RelatedSel()
+	qs := o.QueryTable(new(VinculacionDocente))
+	groupVacio := true
 	// query k=v
 	for k, v := range query {
 		// rewrite dot-notation to Object__Attribute
 		k = strings.Replace(k, ".", "__", -1)
 		if strings.Contains(k, "isnull") {
 			qs = qs.Filter(k, (v == "true" || v == "1"))
+		} else if strings.Contains(k, "__in") {
+			arr := strings.Split(v, "|")
+			fmt.Println("Soy la k", k, "Soy la v", v, "Soy el arr", arr)
+			qs = qs.Filter(k, arr)
+		} else if strings.Contains(k, "groupby") {
+			groupVacio = false
+			arr := strings.Split(v, "|")
+			if len(arr) == 2 {
+				qs = qs.GroupBy(arr[0], arr[1])
+			} else {
+				qs = qs.GroupBy(arr[0])
+			}
 		} else {
 			qs = qs.Filter(k, v)
 		}
@@ -134,7 +147,11 @@ func GetAllVinculacionDocente(query map[string]string, fields []string, sortby [
 	}
 
 	var l []VinculacionDocente
-	qs = qs.OrderBy(sortFields...)
+
+	if groupVacio {
+		qs = qs.OrderBy(sortFields...).RelatedSel()
+	}
+
 	if _, err = qs.Limit(limit, offset).All(&l, fields...); err == nil {
 		if len(fields) == 0 {
 			for _, v := range l {

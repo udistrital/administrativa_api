@@ -14475,17 +14475,19 @@
                         "in": "query",
                         "name": "limit",
                         "description": "Limit the size of result set. Must be an integer",
-                        "type": "string"
+                        "type": "integer",
+                        "format": "int64"
                     },
                     {
                         "in": "query",
                         "name": "offset",
                         "description": "Start position of result set. Must be an integer",
-                        "type": "string"
+                        "type": "integer",
+                        "format": "int64"
                     }
                 ],
                 "responses": {
-                    "200": {
+                    "201": {
                         "schema": {
                             "$ref": "#/definitions/models.ResolucionVinculacionDocente"
                         }
@@ -14507,12 +14509,6 @@
                         "name": "vigencia",
                         "description": "nomina a listar",
                         "type": "string"
-                    },
-                    {
-                        "in": "query",
-                        "name": "periodo",
-                        "description": "mes de la liquidacion a listar",
-                        "type": "string"
                     }
                 ],
                 "responses": {
@@ -14533,18 +14529,12 @@
                     "resolucion_vinculacion"
                 ],
                 "description": "Muestra resoluciones de tipo vinculación para cancelar y modificar",
-                "operationId": "ResolucionVinculacionController.GetAllExpedidasVigenciaPeriodo",
+                "operationId": "ResolucionVinculacionController.GetAllExpedidasVigenciaPeriodoVinculacion",
                 "parameters": [
                     {
                         "in": "query",
                         "name": "vigencia",
                         "description": "nomina a listar",
-                        "type": "string"
-                    },
-                    {
-                        "in": "query",
-                        "name": "periodo",
-                        "description": "mes de la liquidacion a listar",
                         "type": "string"
                     }
                 ],

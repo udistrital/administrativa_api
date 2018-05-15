@@ -48,12 +48,21 @@ func GetAllModificacionResolucion(query map[string]string, fields []string, sort
 	offset int64, limit int64) (ml []interface{}, err error) {
 	o := orm.NewOrm()
 	qs := o.QueryTable(new(ModificacionResolucion))
+	groupVacio := true
 	// query k=v
 	for k, v := range query {
 		// rewrite dot-notation to Object__Attribute
 		k = strings.Replace(k, ".", "__", -1)
 		if strings.Contains(k, "isnull") {
 			qs = qs.Filter(k, (v == "true" || v == "1"))
+		} else if strings.Contains(k, "groupby") {
+			groupVacio = false
+			arr := strings.Split(v, "|")
+			if len(arr) == 2 {
+				qs = qs.GroupBy(arr[0], arr[1])
+			} else {
+				qs = qs.GroupBy(arr[0])
+			}
 		} else {
 			qs = qs.Filter(k, v)
 		}
@@ -99,7 +108,11 @@ func GetAllModificacionResolucion(query map[string]string, fields []string, sort
 
 	var l []ModificacionResolucion
 	qs = qs.OrderBy(sortFields...)
-	qs = qs.RelatedSel(5)
+
+	if groupVacio {
+		qs = qs.RelatedSel(5)
+	}
+
 	if _, err = qs.Limit(limit, offset).All(&l, fields...); err == nil {
 		if len(fields) == 0 {
 			for _, v := range l {

@@ -5,15 +5,16 @@ import (
 	"fmt"
 	"reflect"
 	"strings"
+
 	"github.com/astaxie/beego/orm"
 )
 
 type ModificacionVinculacion struct {
-	Id           								  int       			`orm:"column(id);pk;auto"`
-	ModificacionResolucion       *ModificacionResolucion      `orm:"column(modificacion_resolucion);rel(fk)"`
-	VinculacionDocenteCancelada     *VinculacionDocente    `orm:"column(vinculacion_docente_cancelada);rel(fk)"`
-	VinculacionDocenteRegistrada    *VinculacionDocente    `orm:"column(vinculacion_docente_registrada);rel(fk);null"`
-	Horas														int	   `orm:"column(horas);null"`
+	Id                           int                     `orm:"column(id);pk;auto"`
+	ModificacionResolucion       *ModificacionResolucion `orm:"column(modificacion_resolucion);rel(fk)"`
+	VinculacionDocenteCancelada  *VinculacionDocente     `orm:"column(vinculacion_docente_cancelada);rel(fk)"`
+	VinculacionDocenteRegistrada *VinculacionDocente     `orm:"column(vinculacion_docente_registrada);rel(fk);null"`
+	Horas                        int                     `orm:"column(horas);null"`
 }
 
 func (t *ModificacionVinculacion) TableName() string {
@@ -49,12 +50,21 @@ func GetAllModificacionVinculacion(query map[string]string, fields []string, sor
 	offset int64, limit int64) (ml []interface{}, err error) {
 	o := orm.NewOrm()
 	qs := o.QueryTable(new(ModificacionVinculacion))
+	groupVacio := true
 	// query k=v
 	for k, v := range query {
 		// rewrite dot-notation to Object__Attribute
 		k = strings.Replace(k, ".", "__", -1)
 		if strings.Contains(k, "isnull") {
 			qs = qs.Filter(k, (v == "true" || v == "1"))
+		} else if strings.Contains(k, "groupby") {
+			groupVacio = false
+			arr := strings.Split(v, "|")
+			if len(arr) == 2 {
+				qs = qs.GroupBy(arr[0], arr[1])
+			} else {
+				qs = qs.GroupBy(arr[0])
+			}
 		} else {
 			qs = qs.Filter(k, v)
 		}
@@ -100,7 +110,11 @@ func GetAllModificacionVinculacion(query map[string]string, fields []string, sor
 
 	var l []ModificacionVinculacion
 	qs = qs.OrderBy(sortFields...)
-	qs = qs.RelatedSel(5)
+
+	if !groupVacio {
+		qs = qs.RelatedSel(5)
+	}
+
 	if _, err = qs.Limit(limit, offset).All(&l, fields...); err == nil {
 		if len(fields) == 0 {
 			for _, v := range l {
