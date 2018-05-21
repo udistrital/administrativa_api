@@ -31,7 +31,15 @@ func (c *ResolucionVinculacionController) URLMapping() {
 // @Failure 403
 // @router / [get]
 func (c *ResolucionVinculacionController) GetAll() {
-	listaResoluciones := models.GetAllResolucionVinculacion()
+	limit, _ := c.GetInt("limit")
+	offset, _ := c.GetInt("offset")
+
+	query := c.GetString("query")
+	listaResoluciones, err := models.GetAllResolucionVinculacion(limit, offset, query)
+	if err != nil {
+		beego.Error(err)
+		c.Abort("403")
+	}
 	c.Ctx.Output.SetStatus(201)
 	c.Data["json"] = listaResoluciones
 	c.ServeJSON()
@@ -54,9 +62,10 @@ func (c *ResolucionVinculacionController) GetAllAprobada() {
 	offset, _ := c.GetInt("offset")
 
 	query := c.GetString("query")
+
 	listaResoluciones, err := models.GetAllResolucionAprobada(limit, offset, query)
 	if err != nil {
-		fmt.Println(err)
+		beego.Error(err)
 		c.Abort("403")
 	}
 

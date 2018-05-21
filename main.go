@@ -36,7 +36,14 @@ func main() {
 	}))
 
 
+	// Custom JSON error pages
+	beego.ErrorHandler("403", forgivenJsonPage)
+	beego.ErrorHandler("404", notFoundJsonPage)
+
+
+
 	logs.SetLogger(logs.AdapterFile, `{"filename":"/var/log/beego/administrativa_crud_api.log"}`)
+
 	apistatus.Init()
 	beego.Run()
 }
