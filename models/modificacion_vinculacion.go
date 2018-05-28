@@ -109,7 +109,7 @@ func GetAllModificacionVinculacion(query map[string]string, fields []string, sor
 	}
 
 	var l []ModificacionVinculacion
-	qs = qs.OrderBy(sortFields...)
+	qs = qs.OrderBy(sortFields...).RelatedSel(5)
 
 	if !groupVacio {
 		qs = qs.RelatedSel(5)
