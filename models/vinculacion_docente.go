@@ -30,6 +30,9 @@ type VinculacionDocente struct {
 	Categoria            string                        `orm:"column(categoria)"`
 	Disponibilidad       int                           `orm:"column(disponibilidad)"`
 	DependenciaAcademica int                           `orm:"column(dependencia_academica)"`
+	NumeroRp             int                           `orm:"column(numero_rp)"`
+	VigenciaRp           int                           `orm:"column(vigencia_rp)"`
+	FechaInicio          time.Time                     `orm:"column(fecha_inicio);type(date)"`
 }
 
 func (t *VinculacionDocente) TableName() string {
