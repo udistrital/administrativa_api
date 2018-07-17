@@ -1,13 +1,14 @@
 package controllers
 
 import (
-	"github.com/udistrital/administrativa_crud_api/models"
 	"encoding/json"
 	"errors"
+	"fmt"
 	"strconv"
 	"strings"
-	"fmt"
+
 	"github.com/astaxie/beego"
+	"github.com/udistrital/administrativa_crud_api/models"
 )
 
 // VinculacionDocenteController oprations for VinculacionDocente
@@ -52,7 +53,7 @@ func (c *VinculacionDocenteController) GetTotalContratosXResolucion() {
 func (c *VinculacionDocenteController) InsertarVinculaciones() {
 	var v []models.VinculacionDocente
 	if err := json.Unmarshal(c.Ctx.Input.RequestBody, &v); err == nil {
-		if id,err := models.AddConjuntoVinculaciones(v); err == nil {
+		if id, err := models.AddConjuntoVinculaciones(v); err == nil {
 
 			c.Ctx.Output.SetStatus(201)
 			c.Data["json"] = id
@@ -245,7 +246,6 @@ func (c *VinculacionDocenteController) GetValoresTotalesPorDisponibilidad() {
 	anio := c.Ctx.Input.Param(":anio")
 	periodo := c.Ctx.Input.Param(":periodo")
 	id_disponibilidad := c.Ctx.Input.Param(":id_disponibilidad")
-	fmt.Println("asdf",anio, periodo, id_disponibilidad)
 	v, err := models.GetValoresTotalesPorDisponibilidad(anio, periodo, id_disponibilidad)
 	if err != nil {
 		c.Data["json"] = err.Error()

@@ -12,14 +12,18 @@ import (
 
 	"github.com/astaxie/beego"
 
+
 //	"github.com/udistrital/auditoria"
+
 
 )
 
 func init() {
 
 
+
 //	auditoria.InitMiddleware()
+
 
 
 	ns := beego.NewNamespace("/v1",

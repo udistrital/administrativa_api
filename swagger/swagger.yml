@@ -9567,13 +9567,15 @@ paths:
       - in: query
         name: limit
         description: Limit the size of result set. Must be an integer
-        type: string
+        type: integer
+        format: int64
       - in: query
         name: offset
         description: Start position of result set. Must be an integer
-        type: string
+        type: integer
+        format: int64
       responses:
-        "200":
+        "201":
           schema:
             $ref: '#/definitions/models.ResolucionVinculacionDocente'
         "403": {}
@@ -9589,9 +9591,22 @@ paths:
         name: vigencia
         description: nomina a listar
         type: string
+      responses:
+        "201":
+          schema:
+            $ref: '#/definitions/.Preliquidacion_x_contratos'
+        "403":
+          description: body is empty
+  /resolucion_vinculacion/expedidas_vigencia_periodo_vinculacion:
+    get:
+      tags:
+      - resolucion_vinculacion
+      description: Muestra resoluciones de tipo vinculación para cancelar y modificar
+      operationId: ResolucionVinculacionController.GetAllExpedidasVigenciaPeriodoVinculacion
+      parameters:
       - in: query
-        name: periodo
-        description: mes de la liquidacion a listar
+        name: vigencia
+        description: nomina a listar
         type: string
       responses:
         "201":
@@ -12864,8 +12879,7 @@ paths:
       description: create AprobarSoportesContratistas
       operationId: TrAprobacionMasivaSoportesContratistasController.AprobarSoportesContratistas
       responses:
-        "200":
-          description: ""
+        "200": {}
         "403":
           description: body is empty
   /tr_necesidad/:
