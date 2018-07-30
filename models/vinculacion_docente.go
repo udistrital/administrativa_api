@@ -230,11 +230,14 @@ func GetValoresTotalesPorDisponibilidad(anio, periodo, id_disponibilidad string)
 	return int(temp), err
 }
 
-func GetTotalContratosXResolucion(id_resolucion string) (totales int, er error) {
+func GetTotalContratosXResolucion(id_resolucion string, dedicacion string) (totales int, err error) {
 	o := orm.NewOrm()
 	var temp float64
-
-	err := o.Raw("SELECT SUM(valor_contrato)  FROM administrativa.vinculacion_docente where id_resolucion=?", id_resolucion).QueryRow(&temp)
+	query := "SELECT SUM(valor_contrato)  FROM administrativa.vinculacion_docente where id_resolucion=?"
+	if dedicacion == "TCO|MTO" {
+		query = "SELECT SUM(valor) FROM (SELECT SUM(DISTINCT(valor_contrato)) AS valor FROM administrativa.vinculacion_docente WHERE id_resolucion=? GROUP BY id_persona) AS vinculaciones"
+	}
+	err = o.Raw(query, id_resolucion).QueryRow(&temp)
 	if err == nil {
 		fmt.Println("Consulta exitosa")
 		fmt.Println(int(temp))
