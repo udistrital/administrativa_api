@@ -178,7 +178,7 @@ func GetTemplateResolucion(dedicacion, nivel string) (res ResolucionCompleta) {
 	paragrafo := Paragrafo{Texto: "El valor del punto en pesos para el reconocimiento y pago de los docentes de Hora Cátedra, será el que fije el Gobierno Nacional, mediante Decreto cada año y que la Universidad acoja mediante acto administrativo para los docentes de Vinculación Especial."}
 	articulo.Paragrafos = append(articulo.Paragrafos, paragrafo)
 	articulos = append(articulos, articulo)
-	articulo = Articulo{Texto: "El docente deberá cumplir con las obligaciones inherentes a la naturaleza del servicio, contempladas en la Ley, en los Reglamentos de la Universidad y en los Planes de Trabajo entregados por el Profesor y aprobados por el Decano y/o Director"}
+	articulo = Articulo{Texto: "El docente deberá cumplir con las obligaciones inherentes a la naturaleza del servicio, contempladas en la Ley, en los Reglamentos de la Universidad y en los Planes de Trabajo entregados por el Profesor y aprobados por el Decano y/o Director."}
 	if dedicacion == "HCH" {
 		paragrafo = Paragrafo{Texto: "En caso de incumplimiento o retiro del docente, la Universidad mediante acto administrativo hará la liquidación con corte a la fecha del cumplido expedido por el Decano."}
 		articulo.Paragrafos = append(articulo.Paragrafos, paragrafo)
