@@ -32,10 +32,11 @@ func (c *VinculacionDocenteController) URLMapping() {
 // @Param id_resolucion query string false "nomina a listar"
 // @Success 201 {object} int
 // @Failure 403 body is empty
-// @router /get_total_contratos_x_resolucion/:id_resolucion [get]
+// @router /get_total_contratos_x_resolucion/:id_resolucion/:dedicacion [get]
 func (c *VinculacionDocenteController) GetTotalContratosXResolucion() {
 	idStr := c.Ctx.Input.Param(":id_resolucion")
-	v, err := models.GetTotalContratosXResolucion(idStr)
+	dedicacion := c.Ctx.Input.Param(":dedicacion")
+	v, err := models.GetTotalContratosXResolucion(idStr, dedicacion)
 	if err != nil {
 		c.Data["json"] = err.Error()
 	} else {
