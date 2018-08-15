@@ -42,6 +42,7 @@ func main() {
 	}))
 
 	// Custom JSON error pages
+	beego.ErrorHandler("400", badRequestJsonPage)
 	beego.ErrorHandler("403", forgivenJsonPage)
 	beego.ErrorHandler("404", notFoundJsonPage)
 
