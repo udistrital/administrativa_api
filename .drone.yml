@@ -8,6 +8,9 @@ build:
     image: golang:1.9
     commands:
      - go get -t ./...
+     - cd $GOPATH/src/github.com/astaxie/beego
+     - git checkout 08c3ca642eb437f1dd65a617e107bdd9aafb66b0
+     - cd $GOPATH/src/github.com/udistrital/administrativa_crud_api
      - GOOS=linux GOARCH=amd64 go build -o main
      - go test ./... -cover
     when:
