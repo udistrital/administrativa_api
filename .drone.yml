@@ -1,13 +1,19 @@
 clone:
   path: github.com/udistrital/administrativa_crud_api
 
+workspace:
+  base: /go
+  path: src/github.com/udistrital/administrativa_crud_api
+
 build:
 
   # build and test the go program
   go:
     image: golang:1.9
     commands:
+     - go get -u github.com/golang/dep/cmd/dep
      - go get -t ./...
+     - dep ensure
      - GOOS=linux GOARCH=amd64 go build -o main
      - go test ./... -cover
     when:
