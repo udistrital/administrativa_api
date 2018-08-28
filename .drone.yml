@@ -7,7 +7,7 @@ workspace:
 
 build:
 
-  # build and test the go program
+  # build and test the go program 
   go:
     image: golang:1.9
     commands:
