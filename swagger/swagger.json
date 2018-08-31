@@ -62,11 +62,14 @@
                 ],
                 "responses": {
                     "200": {
+                        "description": "",
                         "schema": {
                             "$ref": "#/definitions/models.ActaInicio"
                         }
                     },
-                    "403": {}
+                    "403": {
+                        "description": ""
+                }
                 }
             },
             "post": {
@@ -114,6 +117,7 @@
                 ],
                 "responses": {
                     "200": {
+                        "description": "",
                         "schema": {
                             "$ref": "#/definitions/models.ActaInicio"
                         }
@@ -149,6 +153,7 @@
                 ],
                 "responses": {
                     "200": {
+                        "description": "",
                         "schema": {
                             "$ref": "#/definitions/models.ActaInicio"
                         }
@@ -230,11 +235,14 @@
                 ],
                 "responses": {
                     "200": {
+                        "description": "",
                         "schema": {
                             "$ref": "#/definitions/models.ActaRecibido"
                         }
                     },
-                    "403": {}
+                    "403": {
+                        "description": ""
+                }
                 }
             },
             "post": {
@@ -282,6 +290,7 @@
                 ],
                 "responses": {
                     "200": {
+                        "description": "",
                         "schema": {
                             "$ref": "#/definitions/models.ActaRecibido"
                         }
@@ -317,6 +326,7 @@
                 ],
                 "responses": {
                     "200": {
+                        "description": "",
                         "schema": {
                             "$ref": "#/definitions/models.ActaRecibido"
                         }
@@ -398,11 +408,14 @@
                 ],
                 "responses": {
                     "200": {
+                        "description": "",
                         "schema": {
                             "$ref": "#/definitions/models.ActividadEconomicaNecesidad"
                         }
                     },
-                    "403": {}
+                    "403": {
+                        "description": ""
+                }
                 }
             },
             "post": {
@@ -450,6 +463,7 @@
                 ],
                 "responses": {
                     "200": {
+                        "description": "",
                         "schema": {
                             "$ref": "#/definitions/models.ActividadEconomicaNecesidad"
                         }
@@ -485,6 +499,7 @@
                 ],
                 "responses": {
                     "200": {
+                        "description": "",
                         "schema": {
                             "$ref": "#/definitions/models.ActividadEconomicaNecesidad"
                         }
@@ -566,11 +581,14 @@
                 ],
                 "responses": {
                     "200": {
+                        "description": "",
                         "schema": {
                             "$ref": "#/definitions/models.ActividadEspecifica"
                         }
                     },
-                    "403": {}
+                    "403": {
+                        "description": ""
+                }
                 }
             },
             "post": {
@@ -618,6 +636,7 @@
                 ],
                 "responses": {
                     "200": {
+                        "description": "",
                         "schema": {
                             "$ref": "#/definitions/models.ActividadEspecifica"
                         }
@@ -653,6 +672,7 @@
                 ],
                 "responses": {
                     "200": {
+                        "description": "",
                         "schema": {
                             "$ref": "#/definitions/models.ActividadEspecifica"
                         }
@@ -734,11 +754,14 @@
                 ],
                 "responses": {
                     "200": {
+                        "description": "",
                         "schema": {
                             "$ref": "#/definitions/models.AmortizacionElemento"
                         }
                     },
-                    "403": {}
+                    "403": {
+                        "description": ""
+                }
                 }
             },
             "post": {
@@ -786,6 +809,7 @@
                 ],
                 "responses": {
                     "200": {
+                        "description": "",
                         "schema": {
                             "$ref": "#/definitions/models.AmortizacionElemento"
                         }
@@ -821,6 +845,7 @@
                 ],
                 "responses": {
                     "200": {
+                        "description": "",
                         "schema": {
                             "$ref": "#/definitions/models.AmortizacionElemento"
                         }
@@ -902,11 +927,14 @@
                 ],
                 "responses": {
                     "200": {
+                        "description": "",
                         "schema": {
                             "$ref": "#/definitions/models.AmparoContractual"
                         }
                     },
-                    "403": {}
+                    "403": {
+                        "description": ""
+                }
                 }
             },
             "post": {
@@ -954,6 +982,7 @@
                 ],
                 "responses": {
                     "200": {
+                        "description": "",
                         "schema": {
                             "$ref": "#/definitions/models.AmparoContractual"
                         }
@@ -989,6 +1018,7 @@
                 ],
                 "responses": {
                     "200": {
+                        "description": "",
                         "schema": {
                             "$ref": "#/definitions/models.AmparoContractual"
                         }
@@ -1070,11 +1100,14 @@
                 ],
                 "responses": {
                     "200": {
+                        "description": "",
                         "schema": {
                             "$ref": "#/definitions/models.AsignacionPensionUserRole"
                         }
                     },
-                    "403": {}
+                    "403": {
+                        "description": ""
+                }
                 }
             },
             "post": {
@@ -1122,6 +1155,7 @@
                 ],
                 "responses": {
                     "200": {
+                        "description": "",
                         "schema": {
                             "$ref": "#/definitions/models.AsignacionPensionUserRole"
                         }
@@ -1157,6 +1191,7 @@
                 ],
                 "responses": {
                     "200": {
+                        "description": "",
                         "schema": {
                             "$ref": "#/definitions/models.AsignacionPensionUserRole"
                         }
@@ -1238,11 +1273,14 @@
                 ],
                 "responses": {
                     "200": {
+                        "description": "",
                         "schema": {
                             "$ref": "#/definitions/models.AtributoRecurso"
                         }
                     },
-                    "403": {}
+                    "403": {
+                        "description": ""
+                }
                 }
             },
             "post": {
@@ -1290,6 +1328,7 @@
                 ],
                 "responses": {
                     "200": {
+                        "description": "",
                         "schema": {
                             "$ref": "#/definitions/models.AtributoRecurso"
                         }
@@ -1325,6 +1364,7 @@
                 ],
                 "responses": {
                     "200": {
+                        "description": "",
                         "schema": {
                             "$ref": "#/definitions/models.AtributoRecurso"
                         }
@@ -1406,11 +1446,14 @@
                 ],
                 "responses": {
                     "200": {
+                        "description": "",
                         "schema": {
                             "$ref": "#/definitions/models.Bodega"
                         }
                     },
-                    "403": {}
+                    "403": {
+                        "description": ""
+                }
                 }
             },
             "post": {
@@ -1458,6 +1501,7 @@
                 ],
                 "responses": {
                     "200": {
+                        "description": "",
                         "schema": {
                             "$ref": "#/definitions/models.Bodega"
                         }
@@ -1493,6 +1537,7 @@
                 ],
                 "responses": {
                     "200": {
+                        "description": "",
                         "schema": {
                             "$ref": "#/definitions/models.Bodega"
                         }
@@ -1574,11 +1619,14 @@
                 ],
                 "responses": {
                     "200": {
+                        "description": "",
                         "schema": {
                             "$ref": "#/definitions/models.BodegaSalidaBodega"
                         }
                     },
-                    "403": {}
+                    "403": {
+                        "description": ""
+                }
                 }
             },
             "post": {
@@ -1626,6 +1674,7 @@
                 ],
                 "responses": {
                     "200": {
+                        "description": "",
                         "schema": {
                             "$ref": "#/definitions/models.BodegaSalidaBodega"
                         }
@@ -1661,6 +1710,7 @@
                 ],
                 "responses": {
                     "200": {
+                        "description": "",
                         "schema": {
                             "$ref": "#/definitions/models.BodegaSalidaBodega"
                         }
@@ -1742,11 +1792,14 @@
                 ],
                 "responses": {
                     "200": {
+                        "description": "",
                         "schema": {
                             "$ref": "#/definitions/models.CambioVidaUtil"
                         }
                     },
-                    "403": {}
+                    "403": {
+                        "description": ""
+                }
                 }
             },
             "post": {
@@ -1794,6 +1847,7 @@
                 ],
                 "responses": {
                     "200": {
+                        "description": "",
                         "schema": {
                             "$ref": "#/definitions/models.CambioVidaUtil"
                         }
@@ -1829,6 +1883,7 @@
                 ],
                 "responses": {
                     "200": {
+                        "description": "",
                         "schema": {
                             "$ref": "#/definitions/models.CambioVidaUtil"
                         }
@@ -1910,11 +1965,14 @@
                 ],
                 "responses": {
                     "200": {
+                        "description": "",
                         "schema": {
                             "$ref": "#/definitions/models.Catalogo"
                         }
                     },
-                    "403": {}
+                    "403": {
+                        "description": ""
+                }
                 }
             },
             "post": {
@@ -1962,6 +2020,7 @@
                 ],
                 "responses": {
                     "200": {
+                        "description": "",
                         "schema": {
                             "$ref": "#/definitions/models.Catalogo"
                         }
@@ -1997,6 +2056,7 @@
                 ],
                 "responses": {
                     "200": {
+                        "description": "",
                         "schema": {
                             "$ref": "#/definitions/models.Catalogo"
                         }
@@ -2078,11 +2138,14 @@
                 ],
                 "responses": {
                     "200": {
+                        "description": "",
                         "schema": {
                             "$ref": "#/definitions/models.CatalogoElemento"
                         }
                     },
-                    "403": {}
+                    "403": {
+                        "description": ""
+                }
                 }
             },
             "post": {
@@ -2130,6 +2193,7 @@
                 ],
                 "responses": {
                     "200": {
+                        "description": "",
                         "schema": {
                             "$ref": "#/definitions/models.CatalogoElemento"
                         }
@@ -2165,6 +2229,7 @@
                 ],
                 "responses": {
                     "200": {
+                        "description": "",
                         "schema": {
                             "$ref": "#/definitions/models.CatalogoElemento"
                         }
@@ -2246,11 +2311,14 @@
                 ],
                 "responses": {
                     "200": {
+                        "description": "",
                         "schema": {
                             "$ref": "#/definitions/models.CatalogoElementoGrupo"
                         }
                     },
-                    "403": {}
+                    "403": {
+                        "description": ""
+                }
                 }
             },
             "post": {
@@ -2298,6 +2366,7 @@
                 ],
                 "responses": {
                     "200": {
+                        "description": "",
                         "schema": {
                             "$ref": "#/definitions/models.CatalogoElementoGrupo"
                         }
@@ -2333,6 +2402,7 @@
                 ],
                 "responses": {
                     "200": {
+                        "description": "",
                         "schema": {
                             "$ref": "#/definitions/models.CatalogoElementoGrupo"
                         }
@@ -2414,11 +2484,14 @@
                 ],
                 "responses": {
                     "200": {
+                        "description": "",
                         "schema": {
                             "$ref": "#/definitions/models.ComponenteResolucion"
                         }
                     },
-                    "403": {}
+                    "403": {
+                        "description": ""
+                }
                 }
             },
             "post": {
@@ -2466,6 +2539,7 @@
                 ],
                 "responses": {
                     "200": {
+                        "description": "",
                         "schema": {
                             "$ref": "#/definitions/models.ComponenteResolucion"
                         }
@@ -2501,6 +2575,7 @@
                 ],
                 "responses": {
                     "200": {
+                        "description": "",
                         "schema": {
                             "$ref": "#/definitions/models.ComponenteResolucion"
                         }
@@ -2582,11 +2657,14 @@
                 ],
                 "responses": {
                     "200": {
+                        "description": "",
                         "schema": {
                             "$ref": "#/definitions/models.ConceptoNomina"
                         }
                     },
-                    "403": {}
+                    "403": {
+                        "description": ""
+                }
                 }
             },
             "post": {
@@ -2634,6 +2712,7 @@
                 ],
                 "responses": {
                     "200": {
+                        "description": "",
                         "schema": {
                             "$ref": "#/definitions/models.ConceptoNomina"
                         }
@@ -2669,6 +2748,7 @@
                 ],
                 "responses": {
                     "200": {
+                        "description": "",
                         "schema": {
                             "$ref": "#/definitions/models.ConceptoNomina"
                         }
@@ -2750,11 +2830,14 @@
                 ],
                 "responses": {
                     "200": {
+                        "description": "",
                         "schema": {
                             "$ref": "#/definitions/models.ConceptoNominaPorPersona"
                         }
                     },
-                    "403": {}
+                    "403": {
+                        "description": ""
+                }
                 }
             },
             "post": {
@@ -2802,6 +2885,7 @@
                 ],
                 "responses": {
                     "200": {
+                        "description": "",
                         "schema": {
                             "$ref": "#/definitions/models.ConceptoNominaPorPersona"
                         }
@@ -2837,6 +2921,7 @@
                 ],
                 "responses": {
                     "200": {
+                        "description": "",
                         "schema": {
                             "$ref": "#/definitions/models.ConceptoNominaPorPersona"
                         }
@@ -2889,12 +2974,15 @@
                 ],
                 "responses": {
                     "200": {
+                        "description": "",
                         "schema": {
                             "$ref": "#/definitions/models.ResolucionCompleta"
                         }
                     },
-                    "403": {}
+                    "403": {
+                        "description": ""
                 }
+            }
             }
         },
         "/contenido_resolucion/{idResolucion}": {
@@ -2915,6 +3003,7 @@
                 ],
                 "responses": {
                     "200": {
+                        "description": "",
                         "schema": {
                             "$ref": "#/definitions/models.ResolucionCompleta"
                         }
@@ -2941,6 +3030,7 @@
                 ],
                 "responses": {
                     "200": {
+                        "description": "",
                         "schema": {
                             "$ref": "#/definitions/models.ResolucionCompleta"
                         }
@@ -2998,11 +3088,14 @@
                 ],
                 "responses": {
                     "200": {
+                        "description": "",
                         "schema": {
                             "$ref": "#/definitions/models.Contrato"
                         }
                     },
-                    "403": {}
+                    "403": {
+                        "description": ""
+                }
                 }
             },
             "post": {
@@ -3050,6 +3143,7 @@
                 ],
                 "responses": {
                     "200": {
+                        "description": "",
                         "schema": {
                             "$ref": "#/definitions/models.Contrato"
                         }
@@ -3085,6 +3179,7 @@
                 ],
                 "responses": {
                     "200": {
+                        "description": "",
                         "schema": {
                             "$ref": "#/definitions/models.Contrato"
                         }
@@ -3166,11 +3261,14 @@
                 ],
                 "responses": {
                     "200": {
+                        "description": "",
                         "schema": {
                             "$ref": "#/definitions/models.ContratoDisponibilidad"
                         }
                     },
-                    "403": {}
+                    "403": {
+                        "description": ""
+                }
                 }
             },
             "post": {
@@ -3218,6 +3316,7 @@
                 ],
                 "responses": {
                     "200": {
+                        "description": "",
                         "schema": {
                             "$ref": "#/definitions/models.ContratoDisponibilidad"
                         }
@@ -3253,6 +3352,7 @@
                 ],
                 "responses": {
                     "200": {
+                        "description": "",
                         "schema": {
                             "$ref": "#/definitions/models.ContratoDisponibilidad"
                         }
@@ -3334,11 +3434,14 @@
                 ],
                 "responses": {
                     "200": {
+                        "description": "",
                         "schema": {
                             "$ref": "#/definitions/models.ContratoElementoActaRecibido"
                         }
                     },
-                    "403": {}
+                    "403": {
+                        "description": ""
+                }
                 }
             },
             "post": {
@@ -3386,6 +3489,7 @@
                 ],
                 "responses": {
                     "200": {
+                        "description": "",
                         "schema": {
                             "$ref": "#/definitions/models.ContratoElementoActaRecibido"
                         }
@@ -3421,6 +3525,7 @@
                 ],
                 "responses": {
                     "200": {
+                        "description": "",
                         "schema": {
                             "$ref": "#/definitions/models.ContratoElementoActaRecibido"
                         }
@@ -3502,11 +3607,14 @@
                 ],
                 "responses": {
                     "200": {
+                        "description": "",
                         "schema": {
                             "$ref": "#/definitions/models.ContratoEstado"
                         }
                     },
-                    "403": {}
+                    "403": {
+                        "description": ""
+                }
                 }
             },
             "post": {
@@ -3554,6 +3662,7 @@
                 ],
                 "responses": {
                     "200": {
+                        "description": "",
                         "schema": {
                             "$ref": "#/definitions/models.ContratoEstado"
                         }
@@ -3589,6 +3698,7 @@
                 ],
                 "responses": {
                     "200": {
+                        "description": "",
                         "schema": {
                             "$ref": "#/definitions/models.ContratoEstado"
                         }
@@ -3670,11 +3780,14 @@
                 ],
                 "responses": {
                     "200": {
+                        "description": "",
                         "schema": {
                             "$ref": "#/definitions/models.ContratoGeneral"
                         }
                     },
-                    "403": {}
+                    "403": {
+                        "description": ""
+                }
                 }
             },
             "post": {
@@ -3722,6 +3835,7 @@
                 ],
                 "responses": {
                     "200": {
+                        "description": "",
                         "schema": {
                             "$ref": "#/definitions/models.ContratoGeneral"
                         }
@@ -3757,6 +3871,7 @@
                 ],
                 "responses": {
                     "200": {
+                        "description": "",
                         "schema": {
                             "$ref": "#/definitions/models.ContratoGeneral"
                         }
@@ -3838,11 +3953,14 @@
                 ],
                 "responses": {
                     "200": {
+                        "description": "",
                         "schema": {
                             "$ref": "#/definitions/models.Dedicacion"
                         }
                     },
-                    "403": {}
+                    "403": {
+                        "description": ""
+                }
                 }
             },
             "post": {
@@ -3890,6 +4008,7 @@
                 ],
                 "responses": {
                     "200": {
+                        "description": "",
                         "schema": {
                             "$ref": "#/definitions/models.Dedicacion"
                         }
@@ -3925,6 +4044,7 @@
                 ],
                 "responses": {
                     "200": {
+                        "description": "",
                         "schema": {
                             "$ref": "#/definitions/models.Dedicacion"
                         }
@@ -4006,11 +4126,14 @@
                 ],
                 "responses": {
                     "200": {
+                        "description": "",
                         "schema": {
                             "$ref": "#/definitions/models.DependenciaNecesidad"
                         }
                     },
-                    "403": {}
+                    "403": {
+                        "description": ""
+                }
                 }
             },
             "post": {
@@ -4058,6 +4181,7 @@
                 ],
                 "responses": {
                     "200": {
+                        "description": "",
                         "schema": {
                             "$ref": "#/definitions/models.DependenciaNecesidad"
                         }
@@ -4093,6 +4217,7 @@
                 ],
                 "responses": {
                     "200": {
+                        "description": "",
                         "schema": {
                             "$ref": "#/definitions/models.DependenciaNecesidad"
                         }
@@ -4174,11 +4299,14 @@
                 ],
                 "responses": {
                     "200": {
+                        "description": "",
                         "schema": {
                             "$ref": "#/definitions/models.DetallePreliquidacion"
                         }
                     },
-                    "403": {}
+                    "403": {
+                        "description": ""
+                }
                 }
             },
             "post": {
@@ -4226,6 +4354,7 @@
                 ],
                 "responses": {
                     "200": {
+                        "description": "",
                         "schema": {
                             "$ref": "#/definitions/models.DetallePreliquidacion"
                         }
@@ -4261,6 +4390,7 @@
                 ],
                 "responses": {
                     "200": {
+                        "description": "",
                         "schema": {
                             "$ref": "#/definitions/models.DetallePreliquidacion"
                         }
@@ -4342,11 +4472,14 @@
                 ],
                 "responses": {
                     "200": {
+                        "description": "",
                         "schema": {
                             "$ref": "#/definitions/models.DetalleServicioNecesidad"
                         }
                     },
-                    "403": {}
+                    "403": {
+                        "description": ""
+                }
                 }
             },
             "post": {
@@ -4394,6 +4527,7 @@
                 ],
                 "responses": {
                     "200": {
+                        "description": "",
                         "schema": {
                             "$ref": "#/definitions/models.DetalleServicioNecesidad"
                         }
@@ -4429,6 +4563,7 @@
                 ],
                 "responses": {
                     "200": {
+                        "description": "",
                         "schema": {
                             "$ref": "#/definitions/models.DetalleServicioNecesidad"
                         }
@@ -4510,11 +4645,14 @@
                 ],
                 "responses": {
                     "200": {
+                        "description": "",
                         "schema": {
                             "$ref": "#/definitions/models.DisponibilidadApropiacionSolicitudRp"
                         }
                     },
-                    "403": {}
+                    "403": {
+                        "description": ""
+                }
                 }
             },
             "post": {
@@ -4562,6 +4700,7 @@
                 ],
                 "responses": {
                     "200": {
+                        "description": "",
                         "schema": {
                             "$ref": "#/definitions/models.DisponibilidadApropiacionSolicitudRp"
                         }
@@ -4597,6 +4736,7 @@
                 ],
                 "responses": {
                     "200": {
+                        "description": "",
                         "schema": {
                             "$ref": "#/definitions/models.DisponibilidadApropiacionSolicitudRp"
                         }
@@ -4678,11 +4818,14 @@
                 ],
                 "responses": {
                     "200": {
+                        "description": "",
                         "schema": {
                             "$ref": "#/definitions/models.DisponibilidadContrato"
                         }
                     },
-                    "403": {}
+                    "403": {
+                        "description": ""
+                }
                 }
             },
             "post": {
@@ -4730,6 +4873,7 @@
                 ],
                 "responses": {
                     "200": {
+                        "description": "",
                         "schema": {
                             "$ref": "#/definitions/models.DisponibilidadContrato"
                         }
@@ -4765,6 +4909,7 @@
                 ],
                 "responses": {
                     "200": {
+                        "description": "",
                         "schema": {
                             "$ref": "#/definitions/models.DisponibilidadContrato"
                         }
@@ -4846,11 +4991,14 @@
                 ],
                 "responses": {
                     "200": {
+                        "description": "",
                         "schema": {
                             "$ref": "#/definitions/models.DocumentoSoporteActa"
                         }
                     },
-                    "403": {}
+                    "403": {
+                        "description": ""
+                }
                 }
             },
             "post": {
@@ -4898,6 +5046,7 @@
                 ],
                 "responses": {
                     "200": {
+                        "description": "",
                         "schema": {
                             "$ref": "#/definitions/models.DocumentoSoporteActa"
                         }
@@ -4933,6 +5082,7 @@
                 ],
                 "responses": {
                     "200": {
+                        "description": "",
                         "schema": {
                             "$ref": "#/definitions/models.DocumentoSoporteActa"
                         }
@@ -5014,11 +5164,14 @@
                 ],
                 "responses": {
                     "200": {
+                        "description": "",
                         "schema": {
                             "$ref": "#/definitions/models.Entrada"
                         }
                     },
-                    "403": {}
+                    "403": {
+                        "description": ""
+                }
                 }
             },
             "post": {
@@ -5066,6 +5219,7 @@
                 ],
                 "responses": {
                     "200": {
+                        "description": "",
                         "schema": {
                             "$ref": "#/definitions/models.Entrada"
                         }
@@ -5101,6 +5255,7 @@
                 ],
                 "responses": {
                     "200": {
+                        "description": "",
                         "schema": {
                             "$ref": "#/definitions/models.Entrada"
                         }
@@ -5182,11 +5337,14 @@
                 ],
                 "responses": {
                     "200": {
+                        "description": "",
                         "schema": {
                             "$ref": "#/definitions/models.Escalafon"
                         }
                     },
-                    "403": {}
+                    "403": {
+                        "description": ""
+                }
                 }
             },
             "post": {
@@ -5234,6 +5392,7 @@
                 ],
                 "responses": {
                     "200": {
+                        "description": "",
                         "schema": {
                             "$ref": "#/definitions/models.Escalafon"
                         }
@@ -5269,6 +5428,7 @@
                 ],
                 "responses": {
                     "200": {
+                        "description": "",
                         "schema": {
                             "$ref": "#/definitions/models.Escalafon"
                         }
@@ -5350,11 +5510,14 @@
                 ],
                 "responses": {
                     "200": {
+                        "description": "",
                         "schema": {
                             "$ref": "#/definitions/models.EscalafonPersona"
                         }
                     },
-                    "403": {}
+                    "403": {
+                        "description": ""
+                }
                 }
             },
             "post": {
@@ -5402,6 +5565,7 @@
                 ],
                 "responses": {
                     "200": {
+                        "description": "",
                         "schema": {
                             "$ref": "#/definitions/models.EscalafonPersona"
                         }
@@ -5437,6 +5601,7 @@
                 ],
                 "responses": {
                     "200": {
+                        "description": "",
                         "schema": {
                             "$ref": "#/definitions/models.EscalafonPersona"
                         }
@@ -5518,11 +5683,14 @@
                 ],
                 "responses": {
                     "200": {
+                        "description": "",
                         "schema": {
                             "$ref": "#/definitions/models.EspecificacionTecnica"
                         }
                     },
-                    "403": {}
+                    "403": {
+                        "description": ""
+                }
                 }
             },
             "post": {
@@ -5570,6 +5738,7 @@
                 ],
                 "responses": {
                     "200": {
+                        "description": "",
                         "schema": {
                             "$ref": "#/definitions/models.EspecificacionTecnica"
                         }
@@ -5605,6 +5774,7 @@
                 ],
                 "responses": {
                     "200": {
+                        "description": "",
                         "schema": {
                             "$ref": "#/definitions/models.EspecificacionTecnica"
                         }
@@ -5686,11 +5856,14 @@
                 ],
                 "responses": {
                     "200": {
+                        "description": "",
                         "schema": {
                             "$ref": "#/definitions/models.EstadoActaRecibido"
                         }
                     },
-                    "403": {}
+                    "403": {
+                        "description": ""
+                }
                 }
             },
             "post": {
@@ -5738,6 +5911,7 @@
                 ],
                 "responses": {
                     "200": {
+                        "description": "",
                         "schema": {
                             "$ref": "#/definitions/models.EstadoActaRecibido"
                         }
@@ -5773,6 +5947,7 @@
                 ],
                 "responses": {
                     "200": {
+                        "description": "",
                         "schema": {
                             "$ref": "#/definitions/models.EstadoActaRecibido"
                         }
@@ -5854,11 +6029,14 @@
                 ],
                 "responses": {
                     "200": {
+                        "description": "",
                         "schema": {
                             "$ref": "#/definitions/models.EstadoContrato"
                         }
                     },
-                    "403": {}
+                    "403": {
+                        "description": ""
+                }
                 }
             },
             "post": {
@@ -5906,6 +6084,7 @@
                 ],
                 "responses": {
                     "200": {
+                        "description": "",
                         "schema": {
                             "$ref": "#/definitions/models.EstadoContrato"
                         }
@@ -5941,6 +6120,7 @@
                 ],
                 "responses": {
                     "200": {
+                        "description": "",
                         "schema": {
                             "$ref": "#/definitions/models.EstadoContrato"
                         }
@@ -6022,11 +6202,14 @@
                 ],
                 "responses": {
                     "200": {
+                        "description": "",
                         "schema": {
                             "$ref": "#/definitions/models.EstadoEntrada"
                         }
                     },
-                    "403": {}
+                    "403": {
+                        "description": ""
+                }
                 }
             },
             "post": {
@@ -6074,6 +6257,7 @@
                 ],
                 "responses": {
                     "200": {
+                        "description": "",
                         "schema": {
                             "$ref": "#/definitions/models.EstadoEntrada"
                         }
@@ -6109,6 +6293,7 @@
                 ],
                 "responses": {
                     "200": {
+                        "description": "",
                         "schema": {
                             "$ref": "#/definitions/models.EstadoEntrada"
                         }
@@ -6190,11 +6375,14 @@
                 ],
                 "responses": {
                     "200": {
+                        "description": "",
                         "schema": {
                             "$ref": "#/definitions/models.EstadoInventario"
                         }
                     },
-                    "403": {}
+                    "403": {
+                        "description": ""
+                }
                 }
             },
             "post": {
@@ -6242,6 +6430,7 @@
                 ],
                 "responses": {
                     "200": {
+                        "description": "",
                         "schema": {
                             "$ref": "#/definitions/models.EstadoInventario"
                         }
@@ -6277,6 +6466,7 @@
                 ],
                 "responses": {
                     "200": {
+                        "description": "",
                         "schema": {
                             "$ref": "#/definitions/models.EstadoInventario"
                         }
@@ -6358,11 +6548,14 @@
                 ],
                 "responses": {
                     "200": {
+                        "description": "",
                         "schema": {
                             "$ref": "#/definitions/models.EstadoNecesidad"
                         }
                     },
-                    "403": {}
+                    "403": {
+                        "description": ""
+                }
                 }
             },
             "post": {
@@ -6410,6 +6603,7 @@
                 ],
                 "responses": {
                     "200": {
+                        "description": "",
                         "schema": {
                             "$ref": "#/definitions/models.EstadoNecesidad"
                         }
@@ -6445,6 +6639,7 @@
                 ],
                 "responses": {
                     "200": {
+                        "description": "",
                         "schema": {
                             "$ref": "#/definitions/models.EstadoNecesidad"
                         }
@@ -6526,11 +6721,14 @@
                 ],
                 "responses": {
                     "200": {
+                        "description": "",
                         "schema": {
                             "$ref": "#/definitions/models.EstadoPagoMensual"
                         }
                     },
-                    "403": {}
+                    "403": {
+                        "description": ""
+                }
                 }
             },
             "post": {
@@ -6578,6 +6776,7 @@
                 ],
                 "responses": {
                     "200": {
+                        "description": "",
                         "schema": {
                             "$ref": "#/definitions/models.EstadoPagoMensual"
                         }
@@ -6613,6 +6812,7 @@
                 ],
                 "responses": {
                     "200": {
+                        "description": "",
                         "schema": {
                             "$ref": "#/definitions/models.EstadoPagoMensual"
                         }
@@ -6694,11 +6894,14 @@
                 ],
                 "responses": {
                     "200": {
+                        "description": "",
                         "schema": {
                             "$ref": "#/definitions/models.EstadoPreliquidacion"
                         }
                     },
-                    "403": {}
+                    "403": {
+                        "description": ""
+                }
                 }
             },
             "post": {
@@ -6746,6 +6949,7 @@
                 ],
                 "responses": {
                     "200": {
+                        "description": "",
                         "schema": {
                             "$ref": "#/definitions/models.EstadoPreliquidacion"
                         }
@@ -6781,6 +6985,7 @@
                 ],
                 "responses": {
                     "200": {
+                        "description": "",
                         "schema": {
                             "$ref": "#/definitions/models.EstadoPreliquidacion"
                         }
@@ -6862,11 +7067,14 @@
                 ],
                 "responses": {
                     "200": {
+                        "description": "",
                         "schema": {
                             "$ref": "#/definitions/models.EstadoResolucion"
                         }
                     },
-                    "403": {}
+                    "403": {
+                        "description": ""
+                }
                 }
             },
             "post": {
@@ -6914,6 +7122,7 @@
                 ],
                 "responses": {
                     "200": {
+                        "description": "",
                         "schema": {
                             "$ref": "#/definitions/models.EstadoResolucion"
                         }
@@ -6949,6 +7158,7 @@
                 ],
                 "responses": {
                     "200": {
+                        "description": "",
                         "schema": {
                             "$ref": "#/definitions/models.EstadoResolucion"
                         }
@@ -7030,11 +7240,14 @@
                 ],
                 "responses": {
                     "200": {
+                        "description": "",
                         "schema": {
                             "$ref": "#/definitions/models.EstadoRolPension"
                         }
                     },
-                    "403": {}
+                    "403": {
+                        "description": ""
+                }
                 }
             },
             "post": {
@@ -7082,6 +7295,7 @@
                 ],
                 "responses": {
                     "200": {
+                        "description": "",
                         "schema": {
                             "$ref": "#/definitions/models.EstadoRolPension"
                         }
@@ -7117,6 +7331,7 @@
                 ],
                 "responses": {
                     "200": {
+                        "description": "",
                         "schema": {
                             "$ref": "#/definitions/models.EstadoRolPension"
                         }
@@ -7198,11 +7413,14 @@
                 ],
                 "responses": {
                     "200": {
+                        "description": "",
                         "schema": {
                             "$ref": "#/definitions/models.FuenteFinanciacionRubroNecesidad"
                         }
                     },
-                    "403": {}
+                    "403": {
+                        "description": ""
+                }
                 }
             },
             "post": {
@@ -7250,6 +7468,7 @@
                 ],
                 "responses": {
                     "200": {
+                        "description": "",
                         "schema": {
                             "$ref": "#/definitions/models.FuenteFinanciacionRubroNecesidad"
                         }
@@ -7285,6 +7504,7 @@
                 ],
                 "responses": {
                     "200": {
+                        "description": "",
                         "schema": {
                             "$ref": "#/definitions/models.FuenteFinanciacionRubroNecesidad"
                         }
@@ -7366,11 +7586,14 @@
                 ],
                 "responses": {
                     "200": {
+                        "description": "",
                         "schema": {
                             "$ref": "#/definitions/models.Grupo"
                         }
                     },
-                    "403": {}
+                    "403": {
+                        "description": ""
+                }
                 }
             },
             "post": {
@@ -7418,6 +7641,7 @@
                 ],
                 "responses": {
                     "200": {
+                        "description": "",
                         "schema": {
                             "$ref": "#/definitions/models.Grupo"
                         }
@@ -7453,6 +7677,7 @@
                 ],
                 "responses": {
                     "200": {
+                        "description": "",
                         "schema": {
                             "$ref": "#/definitions/models.Grupo"
                         }
@@ -7534,11 +7759,14 @@
                 ],
                 "responses": {
                     "200": {
+                        "description": "",
                         "schema": {
                             "$ref": "#/definitions/models.Inventario"
                         }
                     },
-                    "403": {}
+                    "403": {
+                        "description": ""
+                }
                 }
             },
             "post": {
@@ -7586,6 +7814,7 @@
                 ],
                 "responses": {
                     "200": {
+                        "description": "",
                         "schema": {
                             "$ref": "#/definitions/models.Inventario"
                         }
@@ -7621,6 +7850,7 @@
                 ],
                 "responses": {
                     "200": {
+                        "description": "",
                         "schema": {
                             "$ref": "#/definitions/models.Inventario"
                         }
@@ -7702,11 +7932,14 @@
                 ],
                 "responses": {
                     "200": {
+                        "description": "",
                         "schema": {
                             "$ref": "#/definitions/models.InventarioMovimiento"
                         }
                     },
-                    "403": {}
+                    "403": {
+                        "description": ""
+                }
                 }
             },
             "post": {
@@ -7754,6 +7987,7 @@
                 ],
                 "responses": {
                     "200": {
+                        "description": "",
                         "schema": {
                             "$ref": "#/definitions/models.InventarioMovimiento"
                         }
@@ -7789,6 +8023,7 @@
                 ],
                 "responses": {
                     "200": {
+                        "description": "",
                         "schema": {
                             "$ref": "#/definitions/models.InventarioMovimiento"
                         }
@@ -7870,11 +8105,14 @@
                 ],
                 "responses": {
                     "200": {
+                        "description": "",
                         "schema": {
                             "$ref": "#/definitions/models.Ipc"
                         }
                     },
-                    "403": {}
+                    "403": {
+                        "description": ""
+                }
                 }
             },
             "post": {
@@ -7922,6 +8160,7 @@
                 ],
                 "responses": {
                     "200": {
+                        "description": "",
                         "schema": {
                             "$ref": "#/definitions/models.Ipc"
                         }
@@ -7957,6 +8196,7 @@
                 ],
                 "responses": {
                     "200": {
+                        "description": "",
                         "schema": {
                             "$ref": "#/definitions/models.Ipc"
                         }
@@ -8038,11 +8278,14 @@
                 ],
                 "responses": {
                     "200": {
+                        "description": "",
                         "schema": {
                             "$ref": "#/definitions/models.ItemInforme"
                         }
                     },
-                    "403": {}
+                    "403": {
+                        "description": ""
+                }
                 }
             },
             "post": {
@@ -8090,6 +8333,7 @@
                 ],
                 "responses": {
                     "200": {
+                        "description": "",
                         "schema": {
                             "$ref": "#/definitions/models.ItemInforme"
                         }
@@ -8125,6 +8369,7 @@
                 ],
                 "responses": {
                     "200": {
+                        "description": "",
                         "schema": {
                             "$ref": "#/definitions/models.ItemInforme"
                         }
@@ -8206,11 +8451,14 @@
                 ],
                 "responses": {
                     "200": {
+                        "description": "",
                         "schema": {
                             "$ref": "#/definitions/models.ItemInformeTipoContrato"
                         }
                     },
-                    "403": {}
+                    "403": {
+                        "description": ""
+                }
                 }
             },
             "post": {
@@ -8258,6 +8506,7 @@
                 ],
                 "responses": {
                     "200": {
+                        "description": "",
                         "schema": {
                             "$ref": "#/definitions/models.ItemInformeTipoContrato"
                         }
@@ -8293,6 +8542,7 @@
                 ],
                 "responses": {
                     "200": {
+                        "description": "",
                         "schema": {
                             "$ref": "#/definitions/models.ItemInformeTipoContrato"
                         }
@@ -8374,11 +8624,14 @@
                 ],
                 "responses": {
                     "200": {
+                        "description": "",
                         "schema": {
                             "$ref": "#/definitions/models.LugarEjecucion"
                         }
                     },
-                    "403": {}
+                    "403": {
+                        "description": ""
+                }
                 }
             },
             "post": {
@@ -8426,6 +8679,7 @@
                 ],
                 "responses": {
                     "200": {
+                        "description": "",
                         "schema": {
                             "$ref": "#/definitions/models.LugarEjecucion"
                         }
@@ -8461,6 +8715,7 @@
                 ],
                 "responses": {
                     "200": {
+                        "description": "",
                         "schema": {
                             "$ref": "#/definitions/models.LugarEjecucion"
                         }
@@ -8542,11 +8797,14 @@
                 ],
                 "responses": {
                     "200": {
+                        "description": "",
                         "schema": {
                             "$ref": "#/definitions/models.MarcoLegal"
                         }
                     },
-                    "403": {}
+                    "403": {
+                        "description": ""
+                }
                 }
             },
             "post": {
@@ -8594,6 +8852,7 @@
                 ],
                 "responses": {
                     "200": {
+                        "description": "",
                         "schema": {
                             "$ref": "#/definitions/models.MarcoLegal"
                         }
@@ -8629,6 +8888,7 @@
                 ],
                 "responses": {
                     "200": {
+                        "description": "",
                         "schema": {
                             "$ref": "#/definitions/models.MarcoLegal"
                         }
@@ -8710,11 +8970,14 @@
                 ],
                 "responses": {
                     "200": {
+                        "description": "",
                         "schema": {
                             "$ref": "#/definitions/models.MarcoLegalNecesidad"
                         }
                     },
-                    "403": {}
+                    "403": {
+                        "description": ""
+                }
                 }
             },
             "post": {
@@ -8762,6 +9025,7 @@
                 ],
                 "responses": {
                     "200": {
+                        "description": "",
                         "schema": {
                             "$ref": "#/definitions/models.MarcoLegalNecesidad"
                         }
@@ -8797,6 +9061,7 @@
                 ],
                 "responses": {
                     "200": {
+                        "description": "",
                         "schema": {
                             "$ref": "#/definitions/models.MarcoLegalNecesidad"
                         }
@@ -8878,11 +9143,14 @@
                 ],
                 "responses": {
                     "200": {
+                        "description": "",
                         "schema": {
                             "$ref": "#/definitions/models.ModalidadSeleccion"
                         }
                     },
-                    "403": {}
+                    "403": {
+                        "description": ""
+                }
                 }
             },
             "post": {
@@ -8930,6 +9198,7 @@
                 ],
                 "responses": {
                     "200": {
+                        "description": "",
                         "schema": {
                             "$ref": "#/definitions/models.ModalidadSeleccion"
                         }
@@ -8965,6 +9234,7 @@
                 ],
                 "responses": {
                     "200": {
+                        "description": "",
                         "schema": {
                             "$ref": "#/definitions/models.ModalidadSeleccion"
                         }
@@ -9046,11 +9316,14 @@
                 ],
                 "responses": {
                     "200": {
+                        "description": "",
                         "schema": {
                             "$ref": "#/definitions/models.ModificacionResolucion"
                         }
                     },
-                    "403": {}
+                    "403": {
+                        "description": ""
+                }
                 }
             },
             "post": {
@@ -9098,6 +9371,7 @@
                 ],
                 "responses": {
                     "200": {
+                        "description": "",
                         "schema": {
                             "$ref": "#/definitions/models.ModificacionResolucion"
                         }
@@ -9133,6 +9407,7 @@
                 ],
                 "responses": {
                     "200": {
+                        "description": "",
                         "schema": {
                             "$ref": "#/definitions/models.ModificacionResolucion"
                         }
@@ -9214,11 +9489,14 @@
                 ],
                 "responses": {
                     "200": {
+                        "description": "",
                         "schema": {
                             "$ref": "#/definitions/models.ModificacionVinculacion"
                         }
                     },
-                    "403": {}
+                    "403": {
+                        "description": ""
+                }
                 }
             },
             "post": {
@@ -9266,6 +9544,7 @@
                 ],
                 "responses": {
                     "200": {
+                        "description": "",
                         "schema": {
                             "$ref": "#/definitions/models.ModificacionVinculacion"
                         }
@@ -9301,6 +9580,7 @@
                 ],
                 "responses": {
                     "200": {
+                        "description": "",
                         "schema": {
                             "$ref": "#/definitions/models.ModificacionVinculacion"
                         }
@@ -9382,11 +9662,14 @@
                 ],
                 "responses": {
                     "200": {
+                        "description": "",
                         "schema": {
                             "$ref": "#/definitions/models.Movimiento"
                         }
                     },
-                    "403": {}
+                    "403": {
+                        "description": ""
+                }
                 }
             },
             "post": {
@@ -9434,6 +9717,7 @@
                 ],
                 "responses": {
                     "200": {
+                        "description": "",
                         "schema": {
                             "$ref": "#/definitions/models.Movimiento"
                         }
@@ -9469,6 +9753,7 @@
                 ],
                 "responses": {
                     "200": {
+                        "description": "",
                         "schema": {
                             "$ref": "#/definitions/models.Movimiento"
                         }
@@ -9550,11 +9835,14 @@
                 ],
                 "responses": {
                     "200": {
+                        "description": "",
                         "schema": {
                             "$ref": "#/definitions/models.NaturalezaConceptoNomina"
                         }
                     },
-                    "403": {}
+                    "403": {
+                        "description": ""
+                }
                 }
             },
             "post": {
@@ -9602,6 +9890,7 @@
                 ],
                 "responses": {
                     "200": {
+                        "description": "",
                         "schema": {
                             "$ref": "#/definitions/models.NaturalezaConceptoNomina"
                         }
@@ -9637,6 +9926,7 @@
                 ],
                 "responses": {
                     "200": {
+                        "description": "",
                         "schema": {
                             "$ref": "#/definitions/models.NaturalezaConceptoNomina"
                         }
@@ -9718,11 +10008,14 @@
                 ],
                 "responses": {
                     "200": {
+                        "description": "",
                         "schema": {
                             "$ref": "#/definitions/models.Necesidad"
                         }
                     },
-                    "403": {}
+                    "403": {
+                        "description": ""
+                }
                 }
             },
             "post": {
@@ -9770,6 +10063,7 @@
                 ],
                 "responses": {
                     "200": {
+                        "description": "",
                         "schema": {
                             "$ref": "#/definitions/models.Necesidad"
                         }
@@ -9805,6 +10099,7 @@
                 ],
                 "responses": {
                     "200": {
+                        "description": "",
                         "schema": {
                             "$ref": "#/definitions/models.Necesidad"
                         }
@@ -9886,11 +10181,14 @@
                 ],
                 "responses": {
                     "200": {
+                        "description": "",
                         "schema": {
                             "$ref": "#/definitions/models.NecesidadProcesoExterno"
                         }
                     },
-                    "403": {}
+                    "403": {
+                        "description": ""
+                }
                 }
             },
             "post": {
@@ -9938,6 +10236,7 @@
                 ],
                 "responses": {
                     "200": {
+                        "description": "",
                         "schema": {
                             "$ref": "#/definitions/models.NecesidadProcesoExterno"
                         }
@@ -9973,6 +10272,7 @@
                 ],
                 "responses": {
                     "200": {
+                        "description": "",
                         "schema": {
                             "$ref": "#/definitions/models.NecesidadProcesoExterno"
                         }
@@ -9988,6 +10288,179 @@
                 ],
                 "description": "delete the NecesidadProcesoExterno",
                 "operationId": "NecesidadProcesoExternoController.Delete",
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "id",
+                        "description": "The id you want to delete",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "{string} delete success!"
+                    },
+                    "403": {
+                        "description": "id is empty"
+                    }
+                }
+            }
+        },
+        "/necesidad_rechazada/": {
+            "get": {
+                "tags": [
+                    "necesidad_rechazada"
+                ],
+                "description": "get NecesidadRechazada",
+                "operationId": "NecesidadRechazadaController.Get All",
+                "parameters": [
+                    {
+                        "in": "query",
+                        "name": "query",
+                        "description": "Filter. e.g. col1:v1,col2:v2 ...",
+                        "type": "string"
+                    },
+                    {
+                        "in": "query",
+                        "name": "fields",
+                        "description": "Fields returned. e.g. col1,col2 ...",
+                        "type": "string"
+                    },
+                    {
+                        "in": "query",
+                        "name": "sortby",
+                        "description": "Sorted-by fields. e.g. col1,col2 ...",
+                        "type": "string"
+                    },
+                    {
+                        "in": "query",
+                        "name": "order",
+                        "description": "Order corresponding to each sortby field, if single value, apply to all sortby fields. e.g. desc,asc ...",
+                        "type": "string"
+                    },
+                    {
+                        "in": "query",
+                        "name": "limit",
+                        "description": "Limit the size of result set. Must be an integer",
+                        "type": "string"
+                    },
+                    {
+                        "in": "query",
+                        "name": "offset",
+                        "description": "Start position of result set. Must be an integer",
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "schema": {
+                            "$ref": "#/definitions/models.NecesidadRechazada"
+                        }
+                    },
+                    "403": {
+                        "description": ""
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "necesidad_rechazada"
+                ],
+                "description": "create NecesidadRechazada",
+                "operationId": "NecesidadRechazadaController.Post",
+                "parameters": [
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "description": "body for NecesidadRechazada content",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/models.NecesidadRechazada"
+                        }
+                    }
+                ],
+                "responses": {
+                    "201": {
+                        "description": "{int} models.NecesidadRechazada"
+                    },
+                    "403": {
+                        "description": "body is empty"
+                    }
+                }
+            }
+        },
+        "/necesidad_rechazada/{id}": {
+            "get": {
+                "tags": [
+                    "necesidad_rechazada"
+                ],
+                "description": "get NecesidadRechazada by id",
+                "operationId": "NecesidadRechazadaController.Get One",
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "id",
+                        "description": "The key for staticblock",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "schema": {
+                            "$ref": "#/definitions/models.NecesidadRechazada"
+                        }
+                    },
+                    "403": {
+                        "description": ":id is empty"
+                    }
+                }
+            },
+            "put": {
+                "tags": [
+                    "necesidad_rechazada"
+                ],
+                "description": "update the NecesidadRechazada",
+                "operationId": "NecesidadRechazadaController.Put",
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "id",
+                        "description": "The id you want to update",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "description": "body for NecesidadRechazada content",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/models.NecesidadRechazada"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "schema": {
+                            "$ref": "#/definitions/models.NecesidadRechazada"
+                        }
+                    },
+                    "403": {
+                        "description": ":id is not int"
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "necesidad_rechazada"
+                ],
+                "description": "delete the NecesidadRechazada",
+                "operationId": "NecesidadRechazadaController.Delete",
                 "parameters": [
                     {
                         "in": "path",
@@ -10054,11 +10527,14 @@
                 ],
                 "responses": {
                     "200": {
+                        "description": "",
                         "schema": {
                             "$ref": "#/definitions/models.Nomina"
                         }
                     },
-                    "403": {}
+                    "403": {
+                        "description": ""
+                }
                 }
             },
             "post": {
@@ -10106,6 +10582,7 @@
                 ],
                 "responses": {
                     "200": {
+                        "description": "",
                         "schema": {
                             "$ref": "#/definitions/models.Nomina"
                         }
@@ -10141,6 +10618,7 @@
                 ],
                 "responses": {
                     "200": {
+                        "description": "",
                         "schema": {
                             "$ref": "#/definitions/models.Nomina"
                         }
@@ -10222,11 +10700,14 @@
                 ],
                 "responses": {
                     "200": {
+                        "description": "",
                         "schema": {
                             "$ref": "#/definitions/models.OpcionAtributoRecurso"
                         }
                     },
-                    "403": {}
+                    "403": {
+                        "description": ""
+                }
                 }
             },
             "post": {
@@ -10274,6 +10755,7 @@
                 ],
                 "responses": {
                     "200": {
+                        "description": "",
                         "schema": {
                             "$ref": "#/definitions/models.OpcionAtributoRecurso"
                         }
@@ -10309,6 +10791,7 @@
                 ],
                 "responses": {
                     "200": {
+                        "description": "",
                         "schema": {
                             "$ref": "#/definitions/models.OpcionAtributoRecurso"
                         }
@@ -10390,11 +10873,14 @@
                 ],
                 "responses": {
                     "200": {
+                        "description": "",
                         "schema": {
                             "$ref": "#/definitions/models.Pago"
                         }
                     },
-                    "403": {}
+                    "403": {
+                        "description": ""
+                    }
                 }
             },
             "post": {
@@ -10442,6 +10928,7 @@
                 ],
                 "responses": {
                     "200": {
+                        "description": "",
                         "schema": {
                             "$ref": "#/definitions/models.Pago"
                         }
@@ -10477,6 +10964,7 @@
                 ],
                 "responses": {
                     "200": {
+                        "description": "",
                         "schema": {
                             "$ref": "#/definitions/models.Pago"
                         }
@@ -10558,11 +11046,14 @@
                 ],
                 "responses": {
                     "200": {
+                        "description": "",
                         "schema": {
                             "$ref": "#/definitions/models.PagoMensual"
                         }
                     },
-                    "403": {}
+                    "403": {
+                        "description": ""
+                    }
                 }
             },
             "post": {
@@ -10610,6 +11101,7 @@
                 ],
                 "responses": {
                     "200": {
+                        "description": "",
                         "schema": {
                             "$ref": "#/definitions/models.PagoMensual"
                         }
@@ -10645,6 +11137,7 @@
                 ],
                 "responses": {
                     "200": {
+                        "description": "",
                         "schema": {
                             "$ref": "#/definitions/models.PagoMensual"
                         }
@@ -10726,11 +11219,14 @@
                 ],
                 "responses": {
                     "200": {
+                        "description": "",
                         "schema": {
                             "$ref": "#/definitions/models.ParametroContraloria"
                         }
                     },
-                    "403": {}
+                    "403": {
+                        "description": ""
+                    }
                 }
             },
             "post": {
@@ -10778,6 +11274,7 @@
                 ],
                 "responses": {
                     "200": {
+                        "description": "",
                         "schema": {
                             "$ref": "#/definitions/models.ParametroContraloria"
                         }
@@ -10813,6 +11310,7 @@
                 ],
                 "responses": {
                     "200": {
+                        "description": "",
                         "schema": {
                             "$ref": "#/definitions/models.ParametroContraloria"
                         }
@@ -10894,11 +11392,14 @@
                 ],
                 "responses": {
                     "200": {
+                        "description": "",
                         "schema": {
                             "$ref": "#/definitions/models.ParametroContraloriaContrato"
                         }
                     },
-                    "403": {}
+                    "403": {
+                        "description": ""
+                    }
                 }
             },
             "post": {
@@ -10946,6 +11447,7 @@
                 ],
                 "responses": {
                     "200": {
+                        "description": "",
                         "schema": {
                             "$ref": "#/definitions/models.ParametroContraloriaContrato"
                         }
@@ -10981,6 +11483,7 @@
                 ],
                 "responses": {
                     "200": {
+                        "description": "",
                         "schema": {
                             "$ref": "#/definitions/models.ParametroContraloriaContrato"
                         }
@@ -11062,11 +11565,14 @@
                 ],
                 "responses": {
                     "200": {
+                        "description": "",
                         "schema": {
                             "$ref": "#/definitions/models.ParametroEstandar"
                         }
                     },
-                    "403": {}
+                    "403": {
+                        "description": ""
+                    }
                 }
             },
             "post": {
@@ -11114,6 +11620,7 @@
                 ],
                 "responses": {
                     "200": {
+                        "description": "",
                         "schema": {
                             "$ref": "#/definitions/models.ParametroEstandar"
                         }
@@ -11149,6 +11656,7 @@
                 ],
                 "responses": {
                     "200": {
+                        "description": "",
                         "schema": {
                             "$ref": "#/definitions/models.ParametroEstandar"
                         }
@@ -11230,11 +11738,14 @@
                 ],
                 "responses": {
                     "200": {
+                        "description": "",
                         "schema": {
                             "$ref": "#/definitions/models.Parametros"
                         }
                     },
-                    "403": {}
+                    "403": {
+                        "description": ""
+                    }
                 }
             },
             "post": {
@@ -11282,6 +11793,7 @@
                 ],
                 "responses": {
                     "200": {
+                        "description": "",
                         "schema": {
                             "$ref": "#/definitions/models.Parametros"
                         }
@@ -11317,6 +11829,7 @@
                 ],
                 "responses": {
                     "200": {
+                        "description": "",
                         "schema": {
                             "$ref": "#/definitions/models.Parametros"
                         }
@@ -11398,11 +11911,14 @@
                 ],
                 "responses": {
                     "200": {
+                        "description": "",
                         "schema": {
                             "$ref": "#/definitions/models.Pension"
                         }
                     },
-                    "403": {}
+                    "403": {
+                        "description": ""
+                    }
                 }
             },
             "post": {
@@ -11450,6 +11966,7 @@
                 ],
                 "responses": {
                     "200": {
+                        "description": "",
                         "schema": {
                             "$ref": "#/definitions/models.Pension"
                         }
@@ -11485,6 +12002,7 @@
                 ],
                 "responses": {
                     "200": {
+                        "description": "",
                         "schema": {
                             "$ref": "#/definitions/models.Pension"
                         }
@@ -11566,11 +12084,14 @@
                 ],
                 "responses": {
                     "200": {
+                        "description": "",
                         "schema": {
                             "$ref": "#/definitions/models.PeriodoPago"
                         }
                     },
-                    "403": {}
+                    "403": {
+                        "description": ""
+                    }
                 }
             },
             "post": {
@@ -11618,6 +12139,7 @@
                 ],
                 "responses": {
                     "200": {
+                        "description": "",
                         "schema": {
                             "$ref": "#/definitions/models.PeriodoPago"
                         }
@@ -11653,6 +12175,7 @@
                 ],
                 "responses": {
                     "200": {
+                        "description": "",
                         "schema": {
                             "$ref": "#/definitions/models.PeriodoPago"
                         }
@@ -11696,11 +12219,14 @@
                 "operationId": "PersonaEscalafonController.Get All",
                 "responses": {
                     "200": {
+                        "description": "",
                         "schema": {
                             "$ref": "#/definitions/models.PersonaEscalafon"
                         }
                     },
-                    "403": {}
+                    "403": {
+                        "description": ""
+                    }
                 }
             }
         },
@@ -11751,11 +12277,14 @@
                 ],
                 "responses": {
                     "200": {
+                        "description": "",
                         "schema": {
                             "$ref": "#/definitions/models.Poliza"
                         }
                     },
-                    "403": {}
+                    "403": {
+                        "description": ""
+                    }
                 }
             },
             "post": {
@@ -11803,6 +12332,7 @@
                 ],
                 "responses": {
                     "200": {
+                        "description": "",
                         "schema": {
                             "$ref": "#/definitions/models.Poliza"
                         }
@@ -11838,6 +12368,7 @@
                 ],
                 "responses": {
                     "200": {
+                        "description": "",
                         "schema": {
                             "$ref": "#/definitions/models.Poliza"
                         }
@@ -11919,11 +12450,14 @@
                 ],
                 "responses": {
                     "200": {
+                        "description": "",
                         "schema": {
                             "$ref": "#/definitions/models.PolizaContrato"
                         }
                     },
-                    "403": {}
+                    "403": {
+                        "description": ""
+                    }
                 }
             },
             "post": {
@@ -11971,6 +12505,7 @@
                 ],
                 "responses": {
                     "200": {
+                        "description": "",
                         "schema": {
                             "$ref": "#/definitions/models.PolizaContrato"
                         }
@@ -12006,6 +12541,7 @@
                 ],
                 "responses": {
                     "200": {
+                        "description": "",
                         "schema": {
                             "$ref": "#/definitions/models.PolizaContrato"
                         }
@@ -12058,11 +12594,14 @@
                 ],
                 "responses": {
                     "200": {
+                        "description": "",
                         "schema": {
                             "$ref": "#/definitions/models.Precontratado"
                         }
                     },
-                    "403": {}
+                    "403": {
+                        "description": ""
+                    }
                 }
             }
         },
@@ -12084,11 +12623,14 @@
                 ],
                 "responses": {
                     "200": {
+                        "description": "",
                         "schema": {
                             "$ref": "#/definitions/models.Precontratado"
                         }
                     },
-                    "403": {}
+                    "403": {
+                        "description": ""
+                    }
                 }
             }
         },
@@ -12117,6 +12659,7 @@
                 ],
                 "responses": {
                     "200": {
+                        "description": "",
                         "schema": {
                             "$ref": "#/definitions/models.Precontratado"
                         }
@@ -12174,11 +12717,14 @@
                 ],
                 "responses": {
                     "200": {
+                        "description": "",
                         "schema": {
                             "$ref": "#/definitions/models.Preliquidacion"
                         }
                     },
-                    "403": {}
+                    "403": {
+                        "description": ""
+                    }
                 }
             },
             "post": {
@@ -12226,6 +12772,7 @@
                 ],
                 "responses": {
                     "200": {
+                        "description": "",
                         "schema": {
                             "$ref": "#/definitions/models.Preliquidacion"
                         }
@@ -12261,6 +12808,7 @@
                 ],
                 "responses": {
                     "200": {
+                        "description": "",
                         "schema": {
                             "$ref": "#/definitions/models.Preliquidacion"
                         }
@@ -12342,11 +12890,14 @@
                 ],
                 "responses": {
                     "200": {
+                        "description": "",
                         "schema": {
                             "$ref": "#/definitions/models.RangoEdadUpc"
                         }
                     },
-                    "403": {}
+                    "403": {
+                        "description": ""
+                    }
                 }
             },
             "post": {
@@ -12394,6 +12945,7 @@
                 ],
                 "responses": {
                     "200": {
+                        "description": "",
                         "schema": {
                             "$ref": "#/definitions/models.RangoEdadUpc"
                         }
@@ -12429,6 +12981,7 @@
                 ],
                 "responses": {
                     "200": {
+                        "description": "",
                         "schema": {
                             "$ref": "#/definitions/models.RangoEdadUpc"
                         }
@@ -12510,11 +13063,14 @@
                 ],
                 "responses": {
                     "200": {
+                        "description": "",
                         "schema": {
                             "$ref": "#/definitions/models.Recurso"
                         }
                     },
-                    "403": {}
+                    "403": {
+                        "description": ""
+                    }
                 }
             },
             "post": {
@@ -12562,6 +13118,7 @@
                 ],
                 "responses": {
                     "200": {
+                        "description": "",
                         "schema": {
                             "$ref": "#/definitions/models.Recurso"
                         }
@@ -12597,6 +13154,7 @@
                 ],
                 "responses": {
                     "200": {
+                        "description": "",
                         "schema": {
                             "$ref": "#/definitions/models.Recurso"
                         }
@@ -12678,11 +13236,14 @@
                 ],
                 "responses": {
                     "200": {
+                        "description": "",
                         "schema": {
                             "$ref": "#/definitions/models.RecursoApropiacion"
                         }
                     },
-                    "403": {}
+                    "403": {
+                        "description": ""
+                    }
                 }
             },
             "post": {
@@ -12730,6 +13291,7 @@
                 ],
                 "responses": {
                     "200": {
+                        "description": "",
                         "schema": {
                             "$ref": "#/definitions/models.RecursoApropiacion"
                         }
@@ -12765,6 +13327,7 @@
                 ],
                 "responses": {
                     "200": {
+                        "description": "",
                         "schema": {
                             "$ref": "#/definitions/models.RecursoApropiacion"
                         }
@@ -12846,11 +13409,14 @@
                 ],
                 "responses": {
                     "200": {
+                        "description": "",
                         "schema": {
                             "$ref": "#/definitions/models.RecursoAtributo"
                         }
                     },
-                    "403": {}
+                    "403": {
+                        "description": ""
+                    }
                 }
             },
             "post": {
@@ -12898,6 +13464,7 @@
                 ],
                 "responses": {
                     "200": {
+                        "description": "",
                         "schema": {
                             "$ref": "#/definitions/models.RecursoAtributo"
                         }
@@ -12933,6 +13500,7 @@
                 ],
                 "responses": {
                     "200": {
+                        "description": "",
                         "schema": {
                             "$ref": "#/definitions/models.RecursoAtributo"
                         }
@@ -13014,11 +13582,14 @@
                 ],
                 "responses": {
                     "200": {
+                        "description": "",
                         "schema": {
                             "$ref": "#/definitions/models.RelacionContratoEstado"
                         }
                     },
-                    "403": {}
+                    "403": {
+                        "description": ""
+                    }
                 }
             },
             "post": {
@@ -13066,6 +13637,7 @@
                 ],
                 "responses": {
                     "200": {
+                        "description": "",
                         "schema": {
                             "$ref": "#/definitions/models.RelacionContratoEstado"
                         }
@@ -13101,6 +13673,7 @@
                 ],
                 "responses": {
                     "200": {
+                        "description": "",
                         "schema": {
                             "$ref": "#/definitions/models.RelacionContratoEstado"
                         }
@@ -13182,11 +13755,14 @@
                 ],
                 "responses": {
                     "200": {
+                        "description": "",
                         "schema": {
                             "$ref": "#/definitions/models.RelacionParametro"
                         }
                     },
-                    "403": {}
+                    "403": {
+                        "description": ""
+                    }
                 }
             },
             "post": {
@@ -13234,6 +13810,7 @@
                 ],
                 "responses": {
                     "200": {
+                        "description": "",
                         "schema": {
                             "$ref": "#/definitions/models.RelacionParametro"
                         }
@@ -13269,6 +13846,7 @@
                 ],
                 "responses": {
                     "200": {
+                        "description": "",
                         "schema": {
                             "$ref": "#/definitions/models.RelacionParametro"
                         }
@@ -13350,11 +13928,14 @@
                 ],
                 "responses": {
                     "200": {
+                        "description": "",
                         "schema": {
                             "$ref": "#/definitions/models.RelacionParametroContraloria"
                         }
                     },
-                    "403": {}
+                    "403": {
+                        "description": ""
+                    }
                 }
             },
             "post": {
@@ -13402,6 +13983,7 @@
                 ],
                 "responses": {
                     "200": {
+                        "description": "",
                         "schema": {
                             "$ref": "#/definitions/models.RelacionParametroContraloria"
                         }
@@ -13437,6 +14019,7 @@
                 ],
                 "responses": {
                     "200": {
+                        "description": "",
                         "schema": {
                             "$ref": "#/definitions/models.RelacionParametroContraloria"
                         }
@@ -13518,11 +14101,14 @@
                 ],
                 "responses": {
                     "200": {
+                        "description": "",
                         "schema": {
                             "$ref": "#/definitions/models.RelacionPolizaAmparo"
                         }
                     },
-                    "403": {}
+                    "403": {
+                        "description": ""
+                    }
                 }
             },
             "post": {
@@ -13570,6 +14156,7 @@
                 ],
                 "responses": {
                     "200": {
+                        "description": "",
                         "schema": {
                             "$ref": "#/definitions/models.RelacionPolizaAmparo"
                         }
@@ -13605,6 +14192,7 @@
                 ],
                 "responses": {
                     "200": {
+                        "description": "",
                         "schema": {
                             "$ref": "#/definitions/models.RelacionPolizaAmparo"
                         }
@@ -13686,11 +14274,14 @@
                 ],
                 "responses": {
                     "200": {
+                        "description": "",
                         "schema": {
                             "$ref": "#/definitions/models.Reposicion"
                         }
                     },
-                    "403": {}
+                    "403": {
+                        "description": ""
+                    }
                 }
             },
             "post": {
@@ -13738,6 +14329,7 @@
                 ],
                 "responses": {
                     "200": {
+                        "description": "",
                         "schema": {
                             "$ref": "#/definitions/models.Reposicion"
                         }
@@ -13773,6 +14365,7 @@
                 ],
                 "responses": {
                     "200": {
+                        "description": "",
                         "schema": {
                             "$ref": "#/definitions/models.Reposicion"
                         }
@@ -13854,11 +14447,14 @@
                 ],
                 "responses": {
                     "200": {
+                        "description": "",
                         "schema": {
                             "$ref": "#/definitions/models.RequisitoMinimo"
                         }
                     },
-                    "403": {}
+                    "403": {
+                        "description": ""
+                    }
                 }
             },
             "post": {
@@ -13906,6 +14502,7 @@
                 ],
                 "responses": {
                     "200": {
+                        "description": "",
                         "schema": {
                             "$ref": "#/definitions/models.RequisitoMinimo"
                         }
@@ -13941,6 +14538,7 @@
                 ],
                 "responses": {
                     "200": {
+                        "description": "",
                         "schema": {
                             "$ref": "#/definitions/models.RequisitoMinimo"
                         }
@@ -14022,11 +14620,14 @@
                 ],
                 "responses": {
                     "200": {
+                        "description": "",
                         "schema": {
                             "$ref": "#/definitions/models.Resolucion"
                         }
                     },
-                    "403": {}
+                    "403": {
+                        "description": ""
+                    }
                 }
             },
             "post": {
@@ -14074,6 +14675,7 @@
                 ],
                 "responses": {
                     "200": {
+                        "description": "",
                         "schema": {
                             "$ref": "#/definitions/models.Resolucion"
                         }
@@ -14119,6 +14721,7 @@
                 ],
                 "responses": {
                     "200": {
+                        "description": "",
                         "schema": {
                             "$ref": "#/definitions/models.Resolucion"
                         }
@@ -14147,6 +14750,7 @@
                 ],
                 "responses": {
                     "200": {
+                        "description": "",
                         "schema": {
                             "$ref": "#/definitions/models.Resolucion"
                         }
@@ -14182,6 +14786,7 @@
                 ],
                 "responses": {
                     "200": {
+                        "description": "",
                         "schema": {
                             "$ref": "#/definitions/models.Resolucion"
                         }
@@ -14263,11 +14868,14 @@
                 ],
                 "responses": {
                     "200": {
+                        "description": "",
                         "schema": {
                             "$ref": "#/definitions/models.ResolucionEstado"
                         }
                     },
-                    "403": {}
+                    "403": {
+                        "description": ""
+                    }
                 }
             },
             "post": {
@@ -14315,6 +14923,7 @@
                 ],
                 "responses": {
                     "200": {
+                        "description": "",
                         "schema": {
                             "$ref": "#/definitions/models.ResolucionEstado"
                         }
@@ -14350,6 +14959,7 @@
                 ],
                 "responses": {
                     "200": {
+                        "description": "",
                         "schema": {
                             "$ref": "#/definitions/models.ResolucionEstado"
                         }
@@ -14431,11 +15041,14 @@
                 ],
                 "responses": {
                     "200": {
+                        "description": "",
                         "schema": {
                             "$ref": "#/definitions/models.ResolucionVinculacionDocente"
                         }
                     },
-                    "403": {}
+                    "403": {
+                        "description": ""
+                    }
                 }
             }
         },
@@ -14488,11 +15101,14 @@
                 ],
                 "responses": {
                     "201": {
+                        "description": "",
                         "schema": {
                             "$ref": "#/definitions/models.ResolucionVinculacionDocente"
                         }
                     },
-                    "403": {}
+                    "403": {
+                        "description": ""
+                    }
                 }
             }
         },
@@ -14513,6 +15129,7 @@
                 ],
                 "responses": {
                     "201": {
+                        "description": "",
                         "schema": {
                             "$ref": "#/definitions/.Preliquidacion_x_contratos"
                         }
@@ -14540,6 +15157,7 @@
                 ],
                 "responses": {
                     "201": {
+                        "description": "",
                         "schema": {
                             "$ref": "#/definitions/.Preliquidacion_x_contratos"
                         }
@@ -14597,11 +15215,14 @@
                 ],
                 "responses": {
                     "200": {
+                        "description": "",
                         "schema": {
                             "$ref": "#/definitions/models.ResolucionVinculacionDocente"
                         }
                     },
-                    "403": {}
+                    "403": {
+                        "description": ""
+                    }
                 }
             },
             "post": {
@@ -14649,6 +15270,7 @@
                 ],
                 "responses": {
                     "200": {
+                        "description": "",
                         "schema": {
                             "$ref": "#/definitions/models.ResolucionVinculacionDocente"
                         }
@@ -14684,6 +15306,7 @@
                 ],
                 "responses": {
                     "200": {
+                        "description": "",
                         "schema": {
                             "$ref": "#/definitions/models.ResolucionVinculacionDocente"
                         }
@@ -14765,11 +15388,14 @@
                 ],
                 "responses": {
                     "200": {
+                        "description": "",
                         "schema": {
                             "$ref": "#/definitions/models.Salida"
                         }
                     },
-                    "403": {}
+                    "403": {
+                        "description": ""
+                    }
                 }
             },
             "post": {
@@ -14817,6 +15443,7 @@
                 ],
                 "responses": {
                     "200": {
+                        "description": "",
                         "schema": {
                             "$ref": "#/definitions/models.Salida"
                         }
@@ -14852,6 +15479,7 @@
                 ],
                 "responses": {
                     "200": {
+                        "description": "",
                         "schema": {
                             "$ref": "#/definitions/models.Salida"
                         }
@@ -14933,11 +15561,14 @@
                 ],
                 "responses": {
                     "200": {
+                        "description": "",
                         "schema": {
                             "$ref": "#/definitions/models.SalidaBodega"
                         }
                     },
-                    "403": {}
+                    "403": {
+                        "description": ""
+                    }
                 }
             },
             "post": {
@@ -14985,6 +15616,7 @@
                 ],
                 "responses": {
                     "200": {
+                        "description": "",
                         "schema": {
                             "$ref": "#/definitions/models.SalidaBodega"
                         }
@@ -15020,6 +15652,7 @@
                 ],
                 "responses": {
                     "200": {
+                        "description": "",
                         "schema": {
                             "$ref": "#/definitions/models.SalidaBodega"
                         }
@@ -15101,11 +15734,14 @@
                 ],
                 "responses": {
                     "200": {
+                        "description": "",
                         "schema": {
                             "$ref": "#/definitions/models.SolicitudDisponibilidad"
                         }
                     },
-                    "403": {}
+                    "403": {
+                        "description": ""
+                    }
                 }
             },
             "post": {
@@ -15153,6 +15789,7 @@
                 ],
                 "responses": {
                     "200": {
+                        "description": "",
                         "schema": {
                             "$ref": "#/definitions/models.SolicitudDisponibilidad"
                         }
@@ -15188,6 +15825,7 @@
                 ],
                 "responses": {
                     "200": {
+                        "description": "",
                         "schema": {
                             "$ref": "#/definitions/models.SolicitudDisponibilidad"
                         }
@@ -15269,11 +15907,14 @@
                 ],
                 "responses": {
                     "200": {
+                        "description": "",
                         "schema": {
                             "$ref": "#/definitions/models.SolicitudRp"
                         }
                     },
-                    "403": {}
+                    "403": {
+                        "description": ""
+                    }
                 }
             },
             "post": {
@@ -15349,6 +15990,7 @@
                 ],
                 "responses": {
                     "200": {
+                        "description": "",
                         "schema": {
                             "$ref": "#/definitions/models.SolicitudRp"
                         }
@@ -15384,6 +16026,7 @@
                 ],
                 "responses": {
                     "200": {
+                        "description": "",
                         "schema": {
                             "$ref": "#/definitions/models.SolicitudRp"
                         }
@@ -15465,11 +16108,14 @@
                 ],
                 "responses": {
                     "200": {
+                        "description": "",
                         "schema": {
                             "$ref": "#/definitions/models.SoportePagoMensual"
                         }
                     },
-                    "403": {}
+                    "403": {
+                        "description": ""
+                    }
                 }
             },
             "post": {
@@ -15517,6 +16163,7 @@
                 ],
                 "responses": {
                     "200": {
+                        "description": "",
                         "schema": {
                             "$ref": "#/definitions/models.SoportePagoMensual"
                         }
@@ -15552,6 +16199,7 @@
                 ],
                 "responses": {
                     "200": {
+                        "description": "",
                         "schema": {
                             "$ref": "#/definitions/models.SoportePagoMensual"
                         }
@@ -15633,11 +16281,14 @@
                 ],
                 "responses": {
                     "200": {
+                        "description": "",
                         "schema": {
                             "$ref": "#/definitions/models.Subgrupo"
                         }
                     },
-                    "403": {}
+                    "403": {
+                        "description": ""
+                    }
                 }
             },
             "post": {
@@ -15685,6 +16336,7 @@
                 ],
                 "responses": {
                     "200": {
+                        "description": "",
                         "schema": {
                             "$ref": "#/definitions/models.Subgrupo"
                         }
@@ -15720,6 +16372,7 @@
                 ],
                 "responses": {
                     "200": {
+                        "description": "",
                         "schema": {
                             "$ref": "#/definitions/models.Subgrupo"
                         }
@@ -15801,11 +16454,14 @@
                 ],
                 "responses": {
                     "200": {
+                        "description": "",
                         "schema": {
                             "$ref": "#/definitions/models.SubgrupoCatalogo"
                         }
                     },
-                    "403": {}
+                    "403": {
+                        "description": ""
+                    }
                 }
             },
             "post": {
@@ -15853,6 +16509,7 @@
                 ],
                 "responses": {
                     "200": {
+                        "description": "",
                         "schema": {
                             "$ref": "#/definitions/models.SubgrupoCatalogo"
                         }
@@ -15888,6 +16545,7 @@
                 ],
                 "responses": {
                     "200": {
+                        "description": "",
                         "schema": {
                             "$ref": "#/definitions/models.SubgrupoCatalogo"
                         }
@@ -15969,11 +16627,14 @@
                 ],
                 "responses": {
                     "200": {
+                        "description": "",
                         "schema": {
                             "$ref": "#/definitions/models.SubgrupoSubgrupo"
                         }
                     },
-                    "403": {}
+                    "403": {
+                        "description": ""
+                    }
                 }
             },
             "post": {
@@ -16021,6 +16682,7 @@
                 ],
                 "responses": {
                     "200": {
+                        "description": "",
                         "schema": {
                             "$ref": "#/definitions/models.SubgrupoSubgrupo"
                         }
@@ -16056,6 +16718,7 @@
                 ],
                 "responses": {
                     "200": {
+                        "description": "",
                         "schema": {
                             "$ref": "#/definitions/models.SubgrupoSubgrupo"
                         }
@@ -16137,11 +16800,14 @@
                 ],
                 "responses": {
                     "200": {
+                        "description": "",
                         "schema": {
                             "$ref": "#/definitions/models.SubtipoMovimiento"
                         }
                     },
-                    "403": {}
+                    "403": {
+                        "description": ""
+                    }
                 }
             },
             "post": {
@@ -16189,6 +16855,7 @@
                 ],
                 "responses": {
                     "200": {
+                        "description": "",
                         "schema": {
                             "$ref": "#/definitions/models.SubtipoMovimiento"
                         }
@@ -16224,6 +16891,7 @@
                 ],
                 "responses": {
                     "200": {
+                        "description": "",
                         "schema": {
                             "$ref": "#/definitions/models.SubtipoMovimiento"
                         }
@@ -16305,11 +16973,14 @@
                 ],
                 "responses": {
                     "200": {
+                        "description": "",
                         "schema": {
                             "$ref": "#/definitions/models.SupervisorContrato"
                         }
                     },
-                    "403": {}
+                    "403": {
+                        "description": ""
+                    }
                 }
             },
             "post": {
@@ -16357,6 +17028,7 @@
                 ],
                 "responses": {
                     "200": {
+                        "description": "",
                         "schema": {
                             "$ref": "#/definitions/models.SupervisorContrato"
                         }
@@ -16392,6 +17064,7 @@
                 ],
                 "responses": {
                     "200": {
+                        "description": "",
                         "schema": {
                             "$ref": "#/definitions/models.SupervisorContrato"
                         }
@@ -16473,11 +17146,14 @@
                 ],
                 "responses": {
                     "200": {
+                        "description": "",
                         "schema": {
                             "$ref": "#/definitions/models.TipoBien"
                         }
                     },
-                    "403": {}
+                    "403": {
+                        "description": ""
+                    }
                 }
             },
             "post": {
@@ -16525,6 +17201,7 @@
                 ],
                 "responses": {
                     "200": {
+                        "description": "",
                         "schema": {
                             "$ref": "#/definitions/models.TipoBien"
                         }
@@ -16560,6 +17237,7 @@
                 ],
                 "responses": {
                     "200": {
+                        "description": "",
                         "schema": {
                             "$ref": "#/definitions/models.TipoBien"
                         }
@@ -16641,11 +17319,14 @@
                 ],
                 "responses": {
                     "200": {
+                        "description": "",
                         "schema": {
                             "$ref": "#/definitions/models.TipoConceptoNomina"
                         }
                     },
-                    "403": {}
+                    "403": {
+                        "description": ""
+                    }
                 }
             },
             "post": {
@@ -16693,6 +17374,7 @@
                 ],
                 "responses": {
                     "200": {
+                        "description": "",
                         "schema": {
                             "$ref": "#/definitions/models.TipoConceptoNomina"
                         }
@@ -16728,6 +17410,7 @@
                 ],
                 "responses": {
                     "200": {
+                        "description": "",
                         "schema": {
                             "$ref": "#/definitions/models.TipoConceptoNomina"
                         }
@@ -16809,11 +17492,14 @@
                 ],
                 "responses": {
                     "200": {
+                        "description": "",
                         "schema": {
                             "$ref": "#/definitions/models.TipoContrato"
                         }
                     },
-                    "403": {}
+                    "403": {
+                        "description": ""
+                    }
                 }
             },
             "post": {
@@ -16861,6 +17547,7 @@
                 ],
                 "responses": {
                     "200": {
+                        "description": "",
                         "schema": {
                             "$ref": "#/definitions/models.TipoContrato"
                         }
@@ -16896,6 +17583,7 @@
                 ],
                 "responses": {
                     "200": {
+                        "description": "",
                         "schema": {
                             "$ref": "#/definitions/models.TipoContrato"
                         }
@@ -16977,11 +17665,14 @@
                 ],
                 "responses": {
                     "200": {
+                        "description": "",
                         "schema": {
                             "$ref": "#/definitions/models.TipoContratoNecesidad"
                         }
                     },
-                    "403": {}
+                    "403": {
+                        "description": ""
+                    }
                 }
             },
             "post": {
@@ -17029,6 +17720,7 @@
                 ],
                 "responses": {
                     "200": {
+                        "description": "",
                         "schema": {
                             "$ref": "#/definitions/models.TipoContratoNecesidad"
                         }
@@ -17064,6 +17756,7 @@
                 ],
                 "responses": {
                     "200": {
+                        "description": "",
                         "schema": {
                             "$ref": "#/definitions/models.TipoContratoNecesidad"
                         }
@@ -17145,11 +17838,14 @@
                 ],
                 "responses": {
                     "200": {
+                        "description": "",
                         "schema": {
                             "$ref": "#/definitions/models.TipoDato"
                         }
                     },
-                    "403": {}
+                    "403": {
+                        "description": ""
+                    }
                 }
             },
             "post": {
@@ -17197,6 +17893,7 @@
                 ],
                 "responses": {
                     "200": {
+                        "description": "",
                         "schema": {
                             "$ref": "#/definitions/models.TipoDato"
                         }
@@ -17232,6 +17929,7 @@
                 ],
                 "responses": {
                     "200": {
+                        "description": "",
                         "schema": {
                             "$ref": "#/definitions/models.TipoDato"
                         }
@@ -17313,11 +18011,14 @@
                 ],
                 "responses": {
                     "200": {
+                        "description": "",
                         "schema": {
                             "$ref": "#/definitions/models.TipoDocumentoSoporte"
                         }
                     },
-                    "403": {}
+                    "403": {
+                        "description": ""
+                    }
                 }
             },
             "post": {
@@ -17365,6 +18066,7 @@
                 ],
                 "responses": {
                     "200": {
+                        "description": "",
                         "schema": {
                             "$ref": "#/definitions/models.TipoDocumentoSoporte"
                         }
@@ -17400,6 +18102,7 @@
                 ],
                 "responses": {
                     "200": {
+                        "description": "",
                         "schema": {
                             "$ref": "#/definitions/models.TipoDocumentoSoporte"
                         }
@@ -17481,11 +18184,14 @@
                 ],
                 "responses": {
                     "200": {
+                        "description": "",
                         "schema": {
                             "$ref": "#/definitions/models.TipoEntrada"
                         }
                     },
-                    "403": {}
+                    "403": {
+                        "description": ""
+                    }
                 }
             },
             "post": {
@@ -17533,6 +18239,7 @@
                 ],
                 "responses": {
                     "200": {
+                        "description": "",
                         "schema": {
                             "$ref": "#/definitions/models.TipoEntrada"
                         }
@@ -17568,6 +18275,7 @@
                 ],
                 "responses": {
                     "200": {
+                        "description": "",
                         "schema": {
                             "$ref": "#/definitions/models.TipoEntrada"
                         }
@@ -17649,11 +18357,14 @@
                 ],
                 "responses": {
                     "200": {
+                        "description": "",
                         "schema": {
                             "$ref": "#/definitions/models.TipoFinanciacionNecesidad"
                         }
                     },
-                    "403": {}
+                    "403": {
+                        "description": ""
+                    }
                 }
             },
             "post": {
@@ -17701,6 +18412,7 @@
                 ],
                 "responses": {
                     "200": {
+                        "description": "",
                         "schema": {
                             "$ref": "#/definitions/models.TipoFinanciacionNecesidad"
                         }
@@ -17736,6 +18448,7 @@
                 ],
                 "responses": {
                     "200": {
+                        "description": "",
                         "schema": {
                             "$ref": "#/definitions/models.TipoFinanciacionNecesidad"
                         }
@@ -17817,11 +18530,14 @@
                 ],
                 "responses": {
                     "200": {
+                        "description": "",
                         "schema": {
                             "$ref": "#/definitions/models.TipoMovimiento"
                         }
                     },
-                    "403": {}
+                    "403": {
+                        "description": ""
+                    }
                 }
             },
             "post": {
@@ -17869,6 +18585,7 @@
                 ],
                 "responses": {
                     "200": {
+                        "description": "",
                         "schema": {
                             "$ref": "#/definitions/models.TipoMovimiento"
                         }
@@ -17904,6 +18621,7 @@
                 ],
                 "responses": {
                     "200": {
+                        "description": "",
                         "schema": {
                             "$ref": "#/definitions/models.TipoMovimiento"
                         }
@@ -17985,11 +18703,14 @@
                 ],
                 "responses": {
                     "200": {
+                        "description": "",
                         "schema": {
                             "$ref": "#/definitions/models.TipoNecesidad"
                         }
                     },
-                    "403": {}
+                    "403": {
+                        "description": ""
+                    }
                 }
             },
             "post": {
@@ -18037,6 +18758,7 @@
                 ],
                 "responses": {
                     "200": {
+                        "description": "",
                         "schema": {
                             "$ref": "#/definitions/models.TipoNecesidad"
                         }
@@ -18072,6 +18794,7 @@
                 ],
                 "responses": {
                     "200": {
+                        "description": "",
                         "schema": {
                             "$ref": "#/definitions/models.TipoNecesidad"
                         }
@@ -18153,11 +18876,14 @@
                 ],
                 "responses": {
                     "200": {
+                        "description": "",
                         "schema": {
                             "$ref": "#/definitions/models.TipoNomina"
                         }
                     },
-                    "403": {}
+                    "403": {
+                        "description": ""
+                    }
                 }
             },
             "post": {
@@ -18205,6 +18931,7 @@
                 ],
                 "responses": {
                     "200": {
+                        "description": "",
                         "schema": {
                             "$ref": "#/definitions/models.TipoNomina"
                         }
@@ -18240,6 +18967,7 @@
                 ],
                 "responses": {
                     "200": {
+                        "description": "",
                         "schema": {
                             "$ref": "#/definitions/models.TipoNomina"
                         }
@@ -18321,11 +19049,14 @@
                 ],
                 "responses": {
                     "200": {
+                        "description": "",
                         "schema": {
                             "$ref": "#/definitions/models.TipoPago"
                         }
                     },
-                    "403": {}
+                    "403": {
+                        "description": ""
+                    }
                 }
             },
             "post": {
@@ -18373,6 +19104,7 @@
                 ],
                 "responses": {
                     "200": {
+                        "description": "",
                         "schema": {
                             "$ref": "#/definitions/models.TipoPago"
                         }
@@ -18408,6 +19140,7 @@
                 ],
                 "responses": {
                     "200": {
+                        "description": "",
                         "schema": {
                             "$ref": "#/definitions/models.TipoPago"
                         }
@@ -18489,11 +19222,14 @@
                 ],
                 "responses": {
                     "200": {
+                        "description": "",
                         "schema": {
                             "$ref": "#/definitions/models.TipoPension"
                         }
                     },
-                    "403": {}
+                    "403": {
+                        "description": ""
+                    }
                 }
             },
             "post": {
@@ -18541,6 +19277,7 @@
                 ],
                 "responses": {
                     "200": {
+                        "description": "",
                         "schema": {
                             "$ref": "#/definitions/models.TipoPension"
                         }
@@ -18576,6 +19313,7 @@
                 ],
                 "responses": {
                     "200": {
+                        "description": "",
                         "schema": {
                             "$ref": "#/definitions/models.TipoPension"
                         }
@@ -18657,11 +19395,14 @@
                 ],
                 "responses": {
                     "200": {
+                        "description": "",
                         "schema": {
                             "$ref": "#/definitions/models.TipoPreliquidacion"
                         }
                     },
-                    "403": {}
+                    "403": {
+                        "description": ""
+                    }
                 }
             },
             "post": {
@@ -18709,6 +19450,7 @@
                 ],
                 "responses": {
                     "200": {
+                        "description": "",
                         "schema": {
                             "$ref": "#/definitions/models.TipoPreliquidacion"
                         }
@@ -18744,6 +19486,7 @@
                 ],
                 "responses": {
                     "200": {
+                        "description": "",
                         "schema": {
                             "$ref": "#/definitions/models.TipoPreliquidacion"
                         }
@@ -18825,11 +19568,14 @@
                 ],
                 "responses": {
                     "200": {
+                        "description": "",
                         "schema": {
                             "$ref": "#/definitions/models.TipoRecurso"
                         }
                     },
-                    "403": {}
+                    "403": {
+                        "description": ""
+                    }
                 }
             },
             "post": {
@@ -18877,6 +19623,7 @@
                 ],
                 "responses": {
                     "200": {
+                        "description": "",
                         "schema": {
                             "$ref": "#/definitions/models.TipoRecurso"
                         }
@@ -18912,6 +19659,7 @@
                 ],
                 "responses": {
                     "200": {
+                        "description": "",
                         "schema": {
                             "$ref": "#/definitions/models.TipoRecurso"
                         }
@@ -18993,11 +19741,14 @@
                 ],
                 "responses": {
                     "200": {
+                        "description": "",
                         "schema": {
                             "$ref": "#/definitions/models.TipoResolucion"
                         }
                     },
-                    "403": {}
+                    "403": {
+                        "description": ""
+                    }
                 }
             },
             "post": {
@@ -19045,6 +19796,7 @@
                 ],
                 "responses": {
                     "200": {
+                        "description": "",
                         "schema": {
                             "$ref": "#/definitions/models.TipoResolucion"
                         }
@@ -19080,6 +19832,7 @@
                 ],
                 "responses": {
                     "200": {
+                        "description": "",
                         "schema": {
                             "$ref": "#/definitions/models.TipoResolucion"
                         }
@@ -19161,11 +19914,14 @@
                 ],
                 "responses": {
                     "200": {
+                        "description": "",
                         "schema": {
                             "$ref": "#/definitions/models.TipoUpc"
                         }
                     },
-                    "403": {}
+                    "403": {
+                        "description": ""
+                    }
                 }
             },
             "post": {
@@ -19213,6 +19969,7 @@
                 ],
                 "responses": {
                     "200": {
+                        "description": "",
                         "schema": {
                             "$ref": "#/definitions/models.TipoUpc"
                         }
@@ -19248,6 +20005,7 @@
                 ],
                 "responses": {
                     "200": {
+                        "description": "",
                         "schema": {
                             "$ref": "#/definitions/models.TipoUpc"
                         }
@@ -19329,11 +20087,14 @@
                 ],
                 "responses": {
                     "200": {
+                        "description": "",
                         "schema": {
                             "$ref": "#/definitions/models.TipoValorAmparo"
                         }
                     },
-                    "403": {}
+                    "403": {
+                        "description": ""
+                    }
                 }
             },
             "post": {
@@ -19381,6 +20142,7 @@
                 ],
                 "responses": {
                     "200": {
+                        "description": "",
                         "schema": {
                             "$ref": "#/definitions/models.TipoValorAmparo"
                         }
@@ -19416,6 +20178,7 @@
                 ],
                 "responses": {
                     "200": {
+                        "description": "",
                         "schema": {
                             "$ref": "#/definitions/models.TipoValorAmparo"
                         }
@@ -19458,7 +20221,9 @@
                 "description": "create AprobarDocumentos",
                 "operationId": "TrAprobacionMasivaDocumentosController.AprobarDocumentos",
                 "responses": {
-                    "200": {},
+                    "200": {
+                        "description": ""
+                    },
                     "403": {
                         "description": "body is empty"
                     }
@@ -19473,7 +20238,9 @@
                 "description": "create AprobarPagos",
                 "operationId": "TrAprobacionMasivaPagosController.AprobarPagos",
                 "responses": {
-                    "200": {},
+                    "200": {
+                        "description": ""
+                    },
                     "403": {
                         "description": "body is empty"
                     }
@@ -19488,7 +20255,9 @@
                 "description": "create AprobarSoportesContratistas",
                 "operationId": "TrAprobacionMasivaSoportesContratistasController.AprobarSoportesContratistas",
                 "responses": {
-                    "200": {},
+                    "200": {
+                        "description": ""
+                    },
                     "403": {
                         "description": "body is empty"
                     }
@@ -19515,6 +20284,7 @@
                 ],
                 "responses": {
                     "201": {
+                        "description": "",
                         "schema": {
                             "$ref": "#/definitions/.msg"
                         }
@@ -19545,6 +20315,7 @@
                 ],
                 "responses": {
                     "201": {
+                        "description": "",
                         "schema": {
                             "$ref": "#/definitions/.msg"
                         }
@@ -19602,11 +20373,14 @@
                 ],
                 "responses": {
                     "200": {
+                        "description": "",
                         "schema": {
                             "$ref": "#/definitions/models.UpcAdicional"
                         }
                     },
-                    "403": {}
+                    "403": {
+                        "description": ""
+                    }
                 }
             },
             "post": {
@@ -19654,6 +20428,7 @@
                 ],
                 "responses": {
                     "200": {
+                        "description": "",
                         "schema": {
                             "$ref": "#/definitions/models.UpcAdicional"
                         }
@@ -19689,6 +20464,7 @@
                 ],
                 "responses": {
                     "200": {
+                        "description": "",
                         "schema": {
                             "$ref": "#/definitions/models.UpcAdicional"
                         }
@@ -19770,11 +20546,14 @@
                 ],
                 "responses": {
                     "200": {
+                        "description": "",
                         "schema": {
                             "$ref": "#/definitions/models.ValorizacionElemento"
                         }
                     },
-                    "403": {}
+                    "403": {
+                        "description": ""
+                    }
                 }
             },
             "post": {
@@ -19822,6 +20601,7 @@
                 ],
                 "responses": {
                     "200": {
+                        "description": "",
                         "schema": {
                             "$ref": "#/definitions/models.ValorizacionElemento"
                         }
@@ -19857,6 +20637,7 @@
                 ],
                 "responses": {
                     "200": {
+                        "description": "",
                         "schema": {
                             "$ref": "#/definitions/models.ValorizacionElemento"
                         }
@@ -19938,11 +20719,14 @@
                 ],
                 "responses": {
                     "200": {
+                        "description": "",
                         "schema": {
                             "$ref": "#/definitions/models.VerificacionNicsp"
                         }
                     },
-                    "403": {}
+                    "403": {
+                        "description": ""
+                    }
                 }
             },
             "post": {
@@ -19990,6 +20774,7 @@
                 ],
                 "responses": {
                     "200": {
+                        "description": "",
                         "schema": {
                             "$ref": "#/definitions/models.VerificacionNicsp"
                         }
@@ -20025,6 +20810,7 @@
                 ],
                 "responses": {
                     "200": {
+                        "description": "",
                         "schema": {
                             "$ref": "#/definitions/models.VerificacionNicsp"
                         }
@@ -20134,11 +20920,14 @@
                 ],
                 "responses": {
                     "200": {
+                        "description": "",
                         "schema": {
                             "$ref": "#/definitions/models.VinculacionDocente"
                         }
                     },
-                    "403": {}
+                    "403": {
+                        "description": ""
+                    }
                 }
             },
             "post": {
@@ -20185,7 +20974,7 @@
                 }
             }
         },
-        "/vinculacion_docente/get_total_contratos_x_resolucion/{id_resolucion}": {
+        "/vinculacion_docente/get_total_contratos_x_resolucion/{id_resolucion}/{dedicacion}": {
             "get": {
                 "tags": [
                     "vinculacion_docente"
@@ -20202,6 +20991,7 @@
                 ],
                 "responses": {
                     "201": {
+                        "description": "",
                         "schema": {
                             "format": "int64",
                             "type": "integer"
@@ -20244,7 +21034,9 @@
                     "200": {
                         "description": "{int}"
                     },
-                    "403": {}
+                    "403": {
+                        "description": ""
+                    }
                 }
             }
         },
@@ -20265,6 +21057,7 @@
                 ],
                 "responses": {
                     "200": {
+                        "description": "",
                         "schema": {
                             "$ref": "#/definitions/models.VinculacionDocente"
                         }
@@ -20293,6 +21086,7 @@
                 ],
                 "responses": {
                     "200": {
+                        "description": "",
                         "schema": {
                             "$ref": "#/definitions/models.VinculacionDocente"
                         }
@@ -20328,6 +21122,7 @@
                 ],
                 "responses": {
                     "200": {
+                        "description": "",
                         "schema": {
                             "$ref": "#/definitions/models.VinculacionDocente"
                         }
@@ -20409,11 +21204,14 @@
                 ],
                 "responses": {
                     "200": {
+                        "description": "",
                         "schema": {
                             "$ref": "#/definitions/models.ZonaUpc"
                         }
                     },
-                    "403": {}
+                    "403": {
+                        "description": ""
+                    }
                 }
             },
             "post": {
@@ -20461,6 +21259,7 @@
                 ],
                 "responses": {
                     "200": {
+                        "description": "",
                         "schema": {
                             "$ref": "#/definitions/models.ZonaUpc"
                         }
@@ -20496,6 +21295,7 @@
                 ],
                 "responses": {
                     "200": {
+                        "description": "",
                         "schema": {
                             "$ref": "#/definitions/models.ZonaUpc"
                         }
@@ -20556,11 +21356,11 @@
                 },
                 "FechaFin": {
                     "type": "string",
-                    "format": "string"
+                    "format": "datetime"
                 },
                 "FechaInicio": {
                     "type": "string",
-                    "format": "string"
+                    "format": "datetime"
                 },
                 "Id": {
                     "type": "integer",
@@ -20587,11 +21387,11 @@
                 },
                 "FechaRecibido": {
                     "type": "string",
-                    "format": "string"
+                    "format": "datetime"
                 },
                 "FechaRegistro": {
                     "type": "string",
-                    "format": "string"
+                    "format": "datetime"
                 },
                 "Id": {
                     "type": "integer",
@@ -20653,7 +21453,7 @@
                 },
                 "FechaAmortizacion": {
                     "type": "string",
-                    "format": "string"
+                    "format": "datetime"
                 },
                 "Id": {
                     "type": "integer",
@@ -20723,11 +21523,11 @@
                 },
                 "FechaFinBeneficioPension": {
                     "type": "string",
-                    "format": "string"
+                    "format": "datetime"
                 },
                 "FechaInicioBeneficioPension": {
                     "type": "string",
-                    "format": "string"
+                    "format": "datetime"
                 },
                 "Id": {
                     "type": "integer",
@@ -20819,7 +21619,7 @@
                 },
                 "FechaRegistro": {
                     "type": "string",
-                    "format": "string"
+                    "format": "datetime"
                 },
                 "Id": {
                     "type": "integer",
@@ -20843,7 +21643,7 @@
                 },
                 "FechaRegistro": {
                     "type": "string",
-                    "format": "string"
+                    "format": "datetime"
                 },
                 "Id": {
                     "type": "integer",
@@ -20876,7 +21676,7 @@
                 },
                 "ElementoFechaCreacion": {
                     "type": "string",
-                    "format": "string"
+                    "format": "datetime"
                 },
                 "ElementoGrupoc": {
                     "type": "string"
@@ -20912,7 +21712,7 @@
                 },
                 "ElementoFechaCreacion": {
                     "type": "string",
-                    "format": "string"
+                    "format": "datetime"
                 },
                 "ElementoNombre": {
                     "type": "string"
@@ -20991,15 +21791,15 @@
                 },
                 "FechaDesde": {
                     "type": "string",
-                    "format": "string"
+                    "format": "datetime"
                 },
                 "FechaHasta": {
                     "type": "string",
-                    "format": "string"
+                    "format": "datetime"
                 },
                 "FechaRegistro": {
                     "type": "string",
-                    "format": "string"
+                    "format": "datetime"
                 },
                 "Id": {
                     "type": "integer",
@@ -21035,11 +21835,11 @@
                 },
                 "FechaRegistro": {
                     "type": "string",
-                    "format": "string"
+                    "format": "datetime"
                 },
                 "FechaSuscripcion": {
                     "type": "string",
-                    "format": "string"
+                    "format": "datetime"
                 },
                 "FormaPago": {
                     "type": "integer",
@@ -21091,7 +21891,7 @@
                 },
                 "FechaRegistro": {
                     "type": "string",
-                    "format": "string"
+                    "format": "datetime"
                 },
                 "Id": {
                     "type": "integer",
@@ -21164,7 +21964,7 @@
                 },
                 "FechaRegistro": {
                     "type": "string",
-                    "format": "string"
+                    "format": "datetime"
                 },
                 "Id": {
                     "type": "integer",
@@ -21214,7 +22014,7 @@
                 },
                 "FechaRegistro": {
                     "type": "string",
-                    "format": "string"
+                    "format": "datetime"
                 },
                 "FormaPago": {
                     "$ref": "#/definitions/models.Parametros"
@@ -21508,7 +22308,7 @@
                 },
                 "FechaRegistro": {
                     "type": "string",
-                    "format": "string"
+                    "format": "datetime"
                 },
                 "Id": {
                     "type": "integer",
@@ -21558,7 +22358,7 @@
                 },
                 "FechaRegistro": {
                     "type": "string",
-                    "format": "string"
+                    "format": "datetime"
                 },
                 "Id": {
                     "type": "integer",
@@ -21799,7 +22599,7 @@
             "properties": {
                 "FechaRegistro": {
                     "type": "string",
-                    "format": "string"
+                    "format": "datetime"
                 },
                 "Id": {
                     "type": "integer",
@@ -21875,7 +22675,7 @@
                 },
                 "FechaRegistro": {
                     "type": "string",
-                    "format": "string"
+                    "format": "datetime"
                 },
                 "Id": {
                     "type": "integer",
@@ -21905,11 +22705,11 @@
                 },
                 "FechaValidacionContratista": {
                     "type": "string",
-                    "format": "string"
+                    "format": "datetime"
                 },
                 "FechaValidacionFuncionario": {
                     "type": "string",
-                    "format": "string"
+                    "format": "datetime"
                 },
                 "Id": {
                     "type": "integer",
@@ -22174,11 +22974,11 @@
                 },
                 "FechaAprobacion": {
                     "type": "string",
-                    "format": "string"
+                    "format": "datetime"
                 },
                 "FechaRegistro": {
                     "type": "string",
-                    "format": "string"
+                    "format": "datetime"
                 },
                 "Funcionario": {
                     "type": "integer",
@@ -22257,11 +23057,11 @@
                 },
                 "FechaModificacion": {
                     "type": "string",
-                    "format": "string"
+                    "format": "datetime"
                 },
                 "FechaSolicitud": {
                     "type": "string",
-                    "format": "string"
+                    "format": "datetime"
                 },
                 "FuenteReversa": {
                     "type": "array",
@@ -22347,6 +23147,26 @@
                 },
                 "TipoNecesidad": {
                     "$ref": "#/definitions/models.TipoNecesidad"
+                }
+            }
+        },
+        "models.NecesidadRechazada": {
+            "title": "NecesidadRechazada",
+            "type": "object",
+            "properties": {
+                "Fecha": {
+                    "type": "string",
+                    "format": "datetime"
+                },
+                "Id": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "Justificacion": {
+                    "type": "string"
+                },
+                "Necesidad": {
+                    "$ref": "#/definitions/models.Necesidad"
                 }
             }
         },
@@ -22458,7 +23278,7 @@
                 },
                 "FechaModificacion": {
                     "type": "string",
-                    "format": "string"
+                    "format": "datetime"
                 },
                 "Id": {
                     "type": "integer",
@@ -22515,7 +23335,7 @@
                 },
                 "FechaRegistro": {
                     "type": "string",
-                    "format": "string"
+                    "format": "datetime"
                 },
                 "Id": {
                     "type": "integer",
@@ -22579,7 +23399,7 @@
                 },
                 "FechaRegistro": {
                     "type": "string",
-                    "format": "string"
+                    "format": "datetime"
                 },
                 "Id": {
                     "type": "integer",
@@ -22596,7 +23416,7 @@
             "properties": {
                 "FechaPension": {
                     "type": "string",
-                    "format": "string"
+                    "format": "datetime"
                 },
                 "Id": {
                     "type": "integer",
@@ -22677,19 +23497,19 @@
                 },
                 "FechaAprobacion": {
                     "type": "string",
-                    "format": "string"
+                    "format": "datetime"
                 },
                 "FechaFin": {
                     "type": "string",
-                    "format": "string"
+                    "format": "datetime"
                 },
                 "FechaInicio": {
                     "type": "string",
-                    "format": "string"
+                    "format": "datetime"
                 },
                 "FechaRegistro": {
                     "type": "string",
-                    "format": "string"
+                    "format": "datetime"
                 },
                 "Id": {
                     "type": "integer",
@@ -22729,19 +23549,19 @@
                 },
                 "FechaAprobacion": {
                     "type": "string",
-                    "format": "string"
+                    "format": "datetime"
                 },
                 "FechaFin": {
                     "type": "string",
-                    "format": "string"
+                    "format": "datetime"
                 },
                 "FechaInicio": {
                     "type": "string",
-                    "format": "string"
+                    "format": "datetime"
                 },
                 "FechaRegistro": {
                     "type": "string",
-                    "format": "string"
+                    "format": "datetime"
                 },
                 "Id": {
                     "type": "integer",
@@ -22819,7 +23639,7 @@
                 },
                 "FechaRegistro": {
                     "type": "string",
-                    "format": "string"
+                    "format": "datetime"
                 },
                 "Id": {
                     "type": "integer",
@@ -22944,7 +23764,7 @@
                 },
                 "FechaRegistro": {
                     "type": "string",
-                    "format": "string"
+                    "format": "datetime"
                 },
                 "Id": {
                     "type": "integer",
@@ -22968,7 +23788,7 @@
                 },
                 "FechaRegistro": {
                     "type": "string",
-                    "format": "string"
+                    "format": "datetime"
                 },
                 "Id": {
                     "type": "integer",
@@ -23015,11 +23835,11 @@
                 },
                 "FechaFinal": {
                     "type": "string",
-                    "format": "string"
+                    "format": "datetime"
                 },
                 "FechaInicio": {
                     "type": "string",
-                    "format": "string"
+                    "format": "datetime"
                 },
                 "Id": {
                     "type": "integer",
@@ -23046,7 +23866,7 @@
                 },
                 "FechaRegistro": {
                     "type": "string",
-                    "format": "string"
+                    "format": "datetime"
                 },
                 "Id": {
                     "type": "integer",
@@ -23099,11 +23919,11 @@
                 },
                 "FechaExpedicion": {
                     "type": "string",
-                    "format": "string"
+                    "format": "datetime"
                 },
                 "FechaRegistro": {
                     "type": "string",
-                    "format": "string"
+                    "format": "datetime"
                 },
                 "Id": {
                     "type": "integer",
@@ -23186,7 +24006,7 @@
                 },
                 "FechaRegistro": {
                     "type": "string",
-                    "format": "string"
+                    "format": "datetime"
                 },
                 "Id": {
                     "type": "integer",
@@ -23233,7 +24053,7 @@
                 },
                 "FechaRegistro": {
                     "type": "string",
-                    "format": "string"
+                    "format": "datetime"
                 },
                 "Funcionario": {
                     "type": "integer",
@@ -23255,7 +24075,7 @@
                 },
                 "FechaRegistro": {
                     "type": "string",
-                    "format": "string"
+                    "format": "datetime"
                 },
                 "Funcionario": {
                     "type": "integer",
@@ -23288,7 +24108,7 @@
                 },
                 "FechaSolicitud": {
                     "type": "string",
-                    "format": "string"
+                    "format": "datetime"
                 },
                 "Id": {
                     "type": "integer",
@@ -23323,7 +24143,7 @@
                 },
                 "FechaSolicitud": {
                     "type": "string",
-                    "format": "string"
+                    "format": "datetime"
                 },
                 "Id": {
                     "type": "integer",
@@ -23389,7 +24209,7 @@
             "properties": {
                 "FechaRegistro": {
                     "type": "string",
-                    "format": "string"
+                    "format": "datetime"
                 },
                 "Grupo": {
                     "$ref": "#/definitions/models.Grupo"
@@ -24037,7 +24857,7 @@
                 },
                 "FechaDeNacimiento": {
                     "type": "string",
-                    "format": "string"
+                    "format": "datetime"
                 },
                 "Id": {
                     "type": "integer",
@@ -24098,7 +24918,7 @@
                 },
                 "FechaRegistro": {
                     "type": "string",
-                    "format": "string"
+                    "format": "datetime"
                 },
                 "Id": {
                     "type": "integer",
@@ -24119,7 +24939,7 @@
             "properties": {
                 "FechaRegistro": {
                     "type": "string",
-                    "format": "string"
+                    "format": "datetime"
                 },
                 "Id": {
                     "type": "integer",
@@ -24155,9 +24975,13 @@
                 "Estado": {
                     "type": "boolean"
                 },
+                "FechaInicio": {
+                    "type": "string",
+                    "format": "datetime"
+                },
                 "FechaRegistro": {
                     "type": "string",
-                    "format": "string"
+                    "format": "datetime"
                 },
                 "Id": {
                     "type": "integer",
@@ -24191,6 +25015,10 @@
                     "type": "integer",
                     "format": "int64"
                 },
+                "NumeroRp": {
+                    "type": "integer",
+                    "format": "int64"
+                },
                 "NumeroSemanas": {
                     "type": "integer",
                     "format": "int64"
@@ -24201,6 +25029,10 @@
                 },
                 "Vigencia": {
                     "$ref": "#/definitions/sql.NullInt64"
+                },
+                "VigenciaRp": {
+                    "type": "integer",
+                    "format": "int64"
                 }
             }
         },
@@ -24399,6 +25231,10 @@
         {
             "name": "necesidad_proceso_externo",
             "description": "NecesidadProcesoExternoController operations for NecesidadProcesoExterno\n"
+        },
+        {
+            "name": "necesidad_rechazada",
+            "description": "NecesidadRechazadaController operations for NecesidadRechazada\n"
         },
         {
             "name": "pension",

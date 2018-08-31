@@ -11,17 +11,12 @@ import (
 	"github.com/udistrital/administrativa_crud_api/controllers"
 
 	"github.com/astaxie/beego"
-  
-
- //"github.com/udistrital/auditoria"
-
+	//"github.com/udistrital/auditoria"
 )
 
 func init() {
 
-
-  //auditoria.InitMiddleware()
-
+	//auditoria.InitMiddleware()
 
 	ns := beego.NewNamespace("/v1",
 
@@ -276,7 +271,11 @@ func init() {
 				&controllers.NecesidadProcesoExternoController{},
 			),
 		),
-
+		beego.NSNamespace("/necesidad_rechazada",
+			beego.NSInclude(
+				&controllers.NecesidadRechazadaController{},
+			),
+		),
 		beego.NSNamespace("/pension",
 			beego.NSInclude(
 				&controllers.PensionController{},
