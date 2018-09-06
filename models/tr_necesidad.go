@@ -5,6 +5,7 @@ import (
 	"strconv"
 	"time"
 
+	"github.com/astaxie/beego"
 	"github.com/astaxie/beego/orm"
 )
 
@@ -28,7 +29,6 @@ type TrEspecificacion struct {
 func AddTrNecesidad(m *TrNecesidad) (alertas []Alert, err error) {
 	o := orm.NewOrm()
 	o.Begin()
-	//alertas = append(alertas, "success")
 	var id int64
 	m.Necesidad.FechaSolicitud = time.Now()
 	m.Necesidad.Numero = 0
@@ -45,6 +45,7 @@ func AddTrNecesidad(m *TrNecesidad) (alertas []Alert, err error) {
 			//---
 			if _, err = o.Insert(v); err != nil {
 				o.Rollback()
+				beego.Error(err)
 				alertas = append(alertas, Alert{Type: AlertError, Body: "Error: ¡Ocurrió un error al insertar las fuentes de financiamiento!"})
 				return
 			}
@@ -56,6 +57,7 @@ func AddTrNecesidad(m *TrNecesidad) (alertas []Alert, err error) {
 			//---
 			if _, err = o.Insert(vm); err != nil {
 				o.Rollback()
+				beego.Error(err)
 				alertas = append(alertas, Alert{Type: AlertError, Body: "Error: ¡Ocurrió un error al insertar los marcos legales!"})
 				return
 			}
@@ -64,6 +66,7 @@ func AddTrNecesidad(m *TrNecesidad) (alertas []Alert, err error) {
 		m.DependenciaNecesidad.Necesidad = &Necesidad{Id: int(id)}
 		if _, err = o.Insert(m.DependenciaNecesidad); err != nil {
 			o.Rollback()
+			beego.Error(err)
 			alertas = append(alertas, Alert{Type: AlertError, Body: "Error: ¡Ocurrió un error al insertar los datos de las dependencias y responsables!"})
 			return
 		}
@@ -74,6 +77,7 @@ func AddTrNecesidad(m *TrNecesidad) (alertas []Alert, err error) {
 				//---
 				if _, err = o.Insert(ve.EspecificacionTecnica); err != nil {
 					o.Rollback()
+					beego.Error(err)
 					alertas = append(alertas, Alert{Type: AlertError, Body: "Error: ¡Ocurrió un error al insertar las especificaciones técnicas!"})
 					return
 				} else {
@@ -82,6 +86,7 @@ func AddTrNecesidad(m *TrNecesidad) (alertas []Alert, err error) {
 						//---
 						if _, err = o.Insert(vr); err != nil {
 							o.Rollback()
+							beego.Error(err)
 							alertas = append(alertas, Alert{Type: AlertError, Body: "Error: ¡Ocurrió un error al insertar los requisitos mínimos!"})
 							return
 						}
@@ -95,6 +100,7 @@ func AddTrNecesidad(m *TrNecesidad) (alertas []Alert, err error) {
 				//---
 				if _, err = o.Insert(va); err != nil {
 					o.Rollback()
+					beego.Error(err)
 					alertas = append(alertas, Alert{Type: AlertError, Body: "Error: ¡Ocurrió un error al insertar las actividades económicas!"})
 					return
 				}
@@ -104,6 +110,7 @@ func AddTrNecesidad(m *TrNecesidad) (alertas []Alert, err error) {
 				//---
 				if _, err = o.Insert(vp); err != nil {
 					o.Rollback()
+					beego.Error(err)
 					alertas = append(alertas, Alert{Type: AlertError, Body: "Error: ¡Ocurrió un error al insertar las actividades específicas!"})
 					return
 				}
@@ -111,6 +118,7 @@ func AddTrNecesidad(m *TrNecesidad) (alertas []Alert, err error) {
 			m.DetalleServicioNecesidad.Necesidad = &Necesidad{Id: int(id)}
 			if _, err = o.Insert(m.DetalleServicioNecesidad); err != nil {
 				o.Rollback()
+				beego.Error(err)
 				alertas = append(alertas, Alert{Type: AlertError, Body: "Error: ¡Ocurrió un error al insertar servicio necesidad!"})
 				return
 			}
@@ -121,6 +129,7 @@ func AddTrNecesidad(m *TrNecesidad) (alertas []Alert, err error) {
 		return
 	} else {
 		o.Rollback()
+		beego.Error(err)
 		alertas = append(alertas, Alert{Type: AlertError, Body: "Error: ¡Ocurrió un error al insertar la necesidad!"})
 		return
 	}
