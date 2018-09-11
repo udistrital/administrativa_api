@@ -21,9 +21,7 @@ import (
 func init() {
 
 
-
-//	auditoria.InitMiddleware()
-
+	//auditoria.InitMiddleware()
 
 
 	ns := beego.NewNamespace("/v1",
@@ -279,7 +277,11 @@ func init() {
 				&controllers.NecesidadProcesoExternoController{},
 			),
 		),
-
+		beego.NSNamespace("/necesidad_rechazada",
+			beego.NSInclude(
+				&controllers.NecesidadRechazadaController{},
+			),
+		),
 		beego.NSNamespace("/pension",
 			beego.NSInclude(
 				&controllers.PensionController{},
