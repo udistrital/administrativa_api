@@ -61,7 +61,7 @@ func GetAllResolucionVinculacion(query map[string]string, fields []string, sortb
 
 	qb, err := orm.NewQueryBuilder("mysql")
 	if err != nil {
-		return ml, err
+		return
 	}
 
 	// _, err = o.Raw(`
@@ -129,7 +129,8 @@ func GetAllResolucionVinculacion(query map[string]string, fields []string, sortb
 	return ml, nil
 }
 
-func GetAllResolucionAprobada(limit, offset int, query string) (arregloIDs []ResolucionVinculacion, err error) {
+func GetAllResolucionAprobada(query map[string]string, fields []string, sortby []string, order []string,
+	offset int64, limit int64) (arregloIDs []ResolucionVinculacion, err error) {
 	o := orm.NewOrm()
 	var temp []ResolucionVinculacion
 	//_, err := o.Raw("SELECT r.id_resolucion id, e.nombre_estado estado, r.numero_resolucion numero, r.vigencia vigencia, d.nombre facultad, rv.nivel_academico nivel_academico, rv.dedicacion dedicacion, r.fecha_expedicion fecha_expedicion FROM administrativa.resolucion r, administrativa.resolucion_vinculacion_docente rv, oikos.dependencia d, administrativa.resolucion_estado re, administrativa.estado_resolucion e WHERE rv.id_facultad=d.id AND r.id_resolucion=rv.id_resolucion AND re.resolucion=r.id_resolucion AND re.estado=e.id AND re.fecha_registro=(SELECT MAX(re_aux.fecha_registro) FROM administrativa.resolucion_estado re_aux WHERE re_aux.resolucion=r.id_resolucion) AND r.id_tipo_resolucion=1 ORDER BY id desc;").QueryRows(&temp)
@@ -138,10 +139,80 @@ func GetAllResolucionAprobada(limit, offset int, query string) (arregloIDs []Res
 	if limit == 0 {
 		limit = DefaultMaxItems
 	}
-	_, err = o.Raw("SELECT DISTINCT r.id_resolucion id, e.nombre_estado estado, r.numero_resolucion numero, r.vigencia vigencia, r.periodo periodo, rv.id_facultad facultad, rv.nivel_academico nivel_academico, rv.dedicacion dedicacion, r.numero_semanas numero_semanas,r.fecha_expedicion fecha_expedicion, tr.nombre_tipo_resolucion tipo_resolucion FROM administrativa.resolucion r, administrativa.resolucion_vinculacion_docente rv, administrativa.resolucion_estado re, administrativa.estado_resolucion e, administrativa.tipo_resolucion tr WHERE r.id_resolucion=rv.id_resolucion AND re.resolucion=r.id_resolucion AND re.estado=e.id AND re.fecha_registro=(SELECT MAX(re_aux.fecha_registro) FROM administrativa.resolucion_estado re_aux WHERE re_aux.resolucion=r.id_resolucion) AND e.nombre_estado IN('Aprobada','Expedida') AND tr.id_tipo_resolucion=r.id_tipo_resolucion ORDER BY id desc LIMIT ? OFFSET ?;", limit, offset).QueryRows(&temp)
 
+	qs := make([]Operation, 0)
+	for k, v := range query {
+		// rewrite dot-notation to Object__Attribute
+		k = strings.Replace(k, ".", "__", -1)
+		if strings.Contains(k, "isnull") {
+			qs = append(qs, filter(k, (v == "true" || v == "1")))
+		} else {
+			qs = append(qs, filter(k, v))
+		}
+	}
+
+	qb, err := orm.NewQueryBuilder("mysql")
 	if err != nil {
-		return temp, err
+		return
+	}
+	qb.Select(
+		"DISTINCT r.id_resolucion id",
+		"e.nombre_estado estado",
+		"r.numero_resolucion numero",
+		"r.vigencia vigencia",
+		"r.periodo periodo",
+		"rv.id_facultad facultad",
+		"rv.nivel_academico nivel_academico",
+		"rv.dedicacion dedicacion",
+		"r.numero_semanas numero_semanas",
+		"r.fecha_expedicion fecha_expedicion",
+		"tr.nombre_tipo_resolucion tipo_resolucion",
+	).
+		From(
+			"administrativa.resolucion r",
+			"administrativa.resolucion_vinculacion_docente rv",
+			"administrativa.resolucion_estado re",
+			"administrativa.estado_resolucion e",
+			"administrativa.tipo_resolucion tr",
+		).
+		Where("r.id_resolucion=rv.id_resolucion").
+		And("re.resolucion=r.id_resolucion").
+		And("re.estado=e.id").
+		And("re.fecha_registro=(SELECT MAX(re_aux.fecha_registro) FROM administrativa.resolucion_estado re_aux WHERE re_aux.resolucion=r.id_resolucion) AND e.nombre_estado IN('Aprobada','Expedida')").
+		And("tr.id_tipo_resolucion=r.id_tipo_resolucion")
+
+	qb2, err := orm.NewQueryBuilder("mysql")
+	if err != nil {
+		return arregloIDs, err
+	}
+	qb2.Select("*").
+		From(qb.Subquery(qb.String(), "T"))
+
+	// query externo
+	flag := true
+	for _, v := range qs {
+		columnName, ok := columnNames[v.Field]
+		beego.Debug(columnName)
+		if !ok {
+			return arregloIDs, fmt.Errorf("inexistent fielq in query")
+		}
+		tmp := fmt.Sprintf("T.%s::VARCHAR %s", columnName, v.Op)
+		if flag {
+			qb2.Where(tmp)
+			flag = false
+		} else {
+			qb2.And(tmp)
+		}
+	}
+
+	qb2.OrderBy("id").
+		Desc().
+		Limit(int(limit)).
+		Offset(int(offset))
+
+	_, err = o.Raw(qb2.String()).QueryRows(&temp)
+	if err != nil {
+		return arregloIDs, err
 	}
 	for x, resoluciones := range temp {
 		resoluciones.FechaExpedicion = resoluciones.FechaExpedicion.UTC()
