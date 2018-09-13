@@ -101,7 +101,6 @@ func GetAllResolucionVinculacion(query map[string]string, fields []string, sortb
 	flag := true
 	for _, v := range qs {
 		columnName, ok := columnNames[v.Field]
-		beego.Debug(columnName)
 		if !ok {
 			return ml, fmt.Errorf("inexistent fielq in query")
 		}
