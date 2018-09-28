@@ -1,5 +1,9 @@
 clone:
   path: github.com/udistrital/administrativa_crud_api
+   when:
+   branch: 
+     - develop
+     - master
 
 build:
 
