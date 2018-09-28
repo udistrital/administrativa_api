@@ -11,7 +11,7 @@ import (
 )
 
 type NecesidadRechazada struct {
-	Id            int        `orm:"column(id);pk"`
+	Id            int        `orm:"column(id);pk;auto"`
 	Necesidad     *Necesidad `orm:"column(necesidad);rel(fk)"`
 	Justificacion string     `orm:"column(justificacion)"`
 	Fecha         time.Time  `orm:"column(fecha);type(date)"`
