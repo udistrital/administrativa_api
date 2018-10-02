@@ -2377,16 +2377,16 @@ func init() {
 
 	beego.GlobalControllerRouter["github.com/udistrital/administrativa_crud_api/controllers:NecesidadRechazadaController"] = append(beego.GlobalControllerRouter["github.com/udistrital/administrativa_crud_api/controllers:NecesidadRechazadaController"],
 		beego.ControllerComments{
-			Method: "GetAll",
-			Router: `/`,
+			Method: "GetOne",
+			Router: `/:id`,
 			AllowHTTPMethods: []string{"get"},
 			MethodParams: param.Make(),
 			Params: nil})
 
 	beego.GlobalControllerRouter["github.com/udistrital/administrativa_crud_api/controllers:NecesidadRechazadaController"] = append(beego.GlobalControllerRouter["github.com/udistrital/administrativa_crud_api/controllers:NecesidadRechazadaController"],
 		beego.ControllerComments{
-			Method: "GetOne",
-			Router: `/:id`,
+			Method: "GetAll",
+			Router: `/`,
 			AllowHTTPMethods: []string{"get"},
 			MethodParams: param.Make(),
 			Params: nil})
