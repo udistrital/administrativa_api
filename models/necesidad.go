@@ -52,6 +52,15 @@ func init() {
 // last inserted Id on success.
 func AddNecesidad(m *Necesidad) (id int64, err error) {
 	o := orm.NewOrm()
+
+	//default values
+	if m.ModalidadSeleccion == nil {
+		m.ModalidadSeleccion = &ModalidadSeleccion{Id: 9}
+	}
+	if m.TipoContratoNecesidad == nil {
+		m.TipoContratoNecesidad = &TipoContratoNecesidad{Id: 3}
+	}
+
 	id, err = o.Insert(m)
 	return
 }
