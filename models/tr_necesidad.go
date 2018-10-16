@@ -30,6 +30,15 @@ func AddTrNecesidad(m *TrNecesidad) (alertas []Alert, err error) {
 	o := orm.NewOrm()
 	o.Begin()
 	var id int64
+
+	//default values
+	if m.Necesidad.ModalidadSeleccion == nil {
+		m.Necesidad.ModalidadSeleccion = &ModalidadSeleccion{Id: 9}
+	}
+	if m.Necesidad.TipoContratoNecesidad == nil {
+		m.Necesidad.TipoContratoNecesidad = &TipoContratoNecesidad{Id: 3}
+	}
+
 	m.Necesidad.FechaSolicitud = time.Now()
 	m.Necesidad.Numero = 0
 	m.Necesidad.Vigencia = float64((m.Necesidad.FechaSolicitud).Year())

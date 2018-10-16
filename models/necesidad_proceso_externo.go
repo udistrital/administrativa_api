@@ -13,6 +13,7 @@ type NecesidadProcesoExterno struct {
 	Id             int            `orm:"column(id);pk;auto"`
 	Necesidad      *Necesidad     `orm:"column(necesidad);rel(fk);null"`
 	ProcesoExterno int            `orm:"column(proceso_externo)"`
+	Consecutivo    int            `orm:"column(consecutivo)"`
 	TipoNecesidad  *TipoNecesidad `orm:"column(tipo_necesidad);rel(fk)"`
 }
 
