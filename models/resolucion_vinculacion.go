@@ -12,17 +12,18 @@ import (
 )
 
 type ResolucionVinculacion struct {
-	Id              int       `orm:"column(id);pk;auto"`
-	Estado          string    `orm:"column(estado)"`
-	Numero          string    `orm:"column(numero)"`
-	Vigencia        int       `orm:"column(vigencia)"`
-	Facultad        int       `orm:"column(facultad)"`
-	NivelAcademico  string    `orm:"column(nivel_academico)"`
-	Dedicacion      string    `orm:"column(dedicacion)"`
-	FechaExpedicion time.Time `orm:"column(fecha_expedicion);type(timestamp without time zone)"`
-	NumeroSemanas   int       `orm:"column(numero_semanas)"`
-	Periodo         int       `orm:"column(periodo)"`
-	TipoResolucion  string    `orm:"column(tipo_resolucion)"`
+	Id                 int       `orm:"column(id);pk;auto"`
+	Estado             string    `orm:"column(estado)"`
+	Numero             string    `orm:"column(numero)"`
+	Vigencia           int       `orm:"column(vigencia)"`
+	Facultad           int       `orm:"column(facultad)"`
+	NivelAcademico     string    `orm:"column(nivel_academico)"`
+	Dedicacion         string    `orm:"column(dedicacion)"`
+	FechaExpedicion    time.Time `orm:"column(fecha_expedicion);type(timestamp without time zone)"`
+	NumeroSemanas      int       `orm:"column(numero_semanas)"`
+	Periodo            int       `orm:"column(periodo)"`
+	TipoResolucion     string    `orm:"column(tipo_resolucion)"`
+	IdDependenciaFirma int       `orm:"column(dependencia_firma)"`
 }
 
 var (
@@ -76,7 +77,8 @@ func GetAllResolucionVinculacion(query map[string]string, fields []string, sortb
 		"rv.dedicacion dedicacion",
 		"r.numero_semanas numero_semanas",
 		"r.fecha_expedicion fecha_expedicion",
-		"tipo.nombre_tipo_resolucion tipo_resolucion").
+		"tipo.nombre_tipo_resolucion tipo_resolucion",
+		"r.id_dependencia_firma dependencia_firma").
 		From(
 			"administrativa.resolucion r",
 			"administrativa.resolucion_vinculacion_docente rv",
@@ -166,6 +168,7 @@ func GetAllResolucionAprobada(query map[string]string, fields []string, sortby [
 		"r.numero_semanas numero_semanas",
 		"r.fecha_expedicion fecha_expedicion",
 		"tr.nombre_tipo_resolucion tipo_resolucion",
+		"r.id_dependencia_firma dependencia_firma",
 	).
 		From(
 			"administrativa.resolucion r",
