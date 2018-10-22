@@ -30,7 +30,7 @@ func (c *TrNecesidadController) Post() {
 			c.Ctx.Output.SetStatus(201)
 			c.Data["json"] = alerta
 		} else {
-			c.Data["json"] = alerta
+			c.Data["json"] = err.Error()
 		}
 	} else {
 		c.Data["json"] = err.Error()
@@ -52,8 +52,8 @@ func (c *TrNecesidadController) Put() {
 	id, _ := strconv.Atoi(idStr)
 	v := models.TrNecesidad{Necesidad: &models.Necesidad{Id: id}}
 	if err := json.Unmarshal(c.Ctx.Input.RequestBody, &v); err == nil {
-		if alert, err := models.UpdateTrNecesidadById(&v); err == nil {
-			c.Data["json"] = alert
+		if err := models.UpdateTrNecesidadById(&v); err == nil {
+			c.Data["json"] = "Ok"
 		} else {
 			c.Data["json"] = err.Error()
 		}
