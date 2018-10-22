@@ -149,56 +149,34 @@ func UpdateTrNecesidadById(m *TrNecesidad) (err error) {
 	}
 	fmt.Println("Number of records of Necesidad updated in database:", num)
 
-	var Ffapropiaciones []FuenteFinanciacionRubroNecesidad
-	num, err = o.QueryTable(m.Ffapropiacion[0]).Filter("Necesidad__Id", int(idNecesidad)).All(&Ffapropiaciones)
+	num, err = o.QueryTable(new(FuenteFinanciacionRubroNecesidad)).Filter("Necesidad__Id", int(idNecesidad)).Delete()
 	if err != nil {
 		o.Rollback()
 		return
 	}
-	for _, v1 := range Ffapropiaciones {
-		exist := false
-		for _, v2 := range m.Ffapropiacion {
-			v2.Necesidad = &Necesidad{Id: int(idNecesidad)}
-			if _, err = o.InsertOrUpdate(v2, "Id"); err != nil {
-				o.Rollback()
-				return
-			}
-			if v1.Id == v2.Id {
-				exist = true
-				break
-			}
-		}
-		if !exist {
-			if _, err = o.Delete(&v1); err != nil {
-				o.Rollback()
-				return
-			}
+	for _, v := range m.Ffapropiacion {
+		v.Necesidad = &Necesidad{Id: int(idNecesidad)}
+		if _, err = o.Insert(v); err != nil {
+			o.Rollback()
+			return
 		}
 	}
 
-	var MarcosLegales []MarcoLegalNecesidad
-	num, err = o.QueryTable(m.MarcoLegalNecesidad[0]).Filter("Necesidad__Id", idNecesidad).All(&MarcosLegales)
-
-	for _, v1 := range MarcosLegales {
-		exist := false
-		for _, v2 := range m.MarcoLegalNecesidad {
-			v2.Necesidad = &Necesidad{Id: int(idNecesidad)}
-			o.InsertOrUpdate(v2, "Id")
-			if v1.Id == v2.Id {
-				exist = true
-				break
-			}
-		}
-		if !exist {
-			if _, err = o.Delete(&v1); err != nil {
-				o.Rollback()
-				return
-			}
+	num, err = o.QueryTable(new(MarcoLegalNecesidad)).Filter("Necesidad__Id", idNecesidad).Delete()
+	if err != nil {
+		o.Rollback()
+		return
+	}
+	for _, vm := range m.MarcoLegalNecesidad {
+		vm.Necesidad = &Necesidad{Id: int(idNecesidad)}
+		if _, err = o.Insert(vm); err != nil {
+			o.Rollback()
+			return
 		}
 	}
 
 	m.DependenciaNecesidad.Necesidad = &Necesidad{Id: int(idNecesidad)}
-	if _, err = o.InsertOrUpdate(m.DependenciaNecesidad, "Id"); err != nil {
+	if _, err = o.Update(m.DependenciaNecesidad); err != nil {
 		o.Rollback()
 		return
 	}
@@ -207,14 +185,14 @@ func UpdateTrNecesidadById(m *TrNecesidad) (err error) {
 		for _, ve := range m.Especificacion {
 
 			ve.EspecificacionTecnica.Necesidad = &Necesidad{Id: int(idNecesidad)}
-			if _, err = o.InsertOrUpdate(ve.EspecificacionTecnica, "Id"); err != nil {
+			if _, err = o.Update(ve.EspecificacionTecnica); err != nil {
 				o.Rollback()
 				return
 			}
 			for _, vr := range ve.RequisitoMinimo {
 				vr.EspecificacionTecnica = ve.EspecificacionTecnica
 				//---
-				if _, err = o.InsertOrUpdate(vr, "Id"); err != nil {
+				if _, err = o.Update(vr); err != nil {
 					o.Rollback()
 					return
 				}
@@ -223,6 +201,11 @@ func UpdateTrNecesidadById(m *TrNecesidad) (err error) {
 		}
 	}
 	if m.Necesidad.TipoContratoNecesidad.Id == 2 {
+		num, err = o.QueryTable(new(ActividadEconomicaNecesidad)).Filter("Necesidad__Id", idNecesidad).Delete()
+		if err != nil {
+			o.Rollback()
+			return
+		}
 		for _, va := range m.ActividadEconomicaNecesidad {
 			va.Necesidad = &Necesidad{Id: int(idNecesidad)}
 			//---
@@ -230,6 +213,11 @@ func UpdateTrNecesidadById(m *TrNecesidad) (err error) {
 				o.Rollback()
 				return
 			}
+		}
+		num, err = o.QueryTable(new(ActividadEspecifica)).Filter("Necesidad__Id", idNecesidad).Delete()
+		if err != nil {
+			o.Rollback()
+			return
 		}
 		for _, vp := range m.ActividadEspecifica {
 			vp.Necesidad = &Necesidad{Id: int(idNecesidad)}
