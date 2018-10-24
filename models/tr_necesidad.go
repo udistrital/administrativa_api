@@ -65,7 +65,7 @@ func AddTrNecesidad(m *TrNecesidad) (id int64, err error) {
 		}
 	}
 
-	m.DependenciaNecesidad.Necesidad = &Necesidad{Id: int(id)}
+	m.DependenciaNecesidad.Necesidad = &Necesidad{Id: int(idNecesidad)}
 	if id, err = o.Insert(m.DependenciaNecesidad); err != nil {
 		o.Rollback()
 		return
@@ -114,7 +114,7 @@ func AddTrNecesidad(m *TrNecesidad) (id int64, err error) {
 		}
 	}
 	o.Commit()
-	return
+	return idNecesidad, nil
 }
 
 func UpdateTrNecesidadById(m *TrNecesidad) (err error) {

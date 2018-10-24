@@ -26,11 +26,12 @@ func (c *TrNecesidadController) URLMapping() {
 func (c *TrNecesidadController) Post() {
 	var v models.TrNecesidad
 	if err := json.Unmarshal(c.Ctx.Input.RequestBody, &v); err == nil {
-		if alerta, err := models.AddTrNecesidad(&v); err == nil {
+		if id, err := models.AddTrNecesidad(&v); err == nil {
 			c.Ctx.Output.SetStatus(201)
-			c.Data["json"] = alerta
+			v.Necesidad.Id = int(id)
+			c.Data["json"] = models.Alert{Type: models.AlertSucess, Body: v}
 		} else {
-			c.Data["json"] = err.Error()
+			c.Data["json"] = models.Alert{Type: models.AlertError, Body: err}
 		}
 	} else {
 		c.Data["json"] = err.Error()
@@ -55,7 +56,7 @@ func (c *TrNecesidadController) Put() {
 		if err := models.UpdateTrNecesidadById(&v); err == nil {
 			c.Data["json"] = "Ok"
 		} else {
-			c.Data["json"] = err.Error()
+			c.Data["json"] = models.Alert{Type: models.AlertError, Body: err}
 		}
 	} else {
 		c.Data["json"] = err.Error()
