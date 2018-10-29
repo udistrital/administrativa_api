@@ -5,6 +5,7 @@ import (
 	"strconv"
 	"time"
 
+	"github.com/astaxie/beego"
 	"github.com/astaxie/beego/orm"
 )
 
@@ -18,7 +19,10 @@ type TrNecesidadDocente struct {
 //funcion para la transaccion de solicitudes
 func AddTrNecesidadDocente(m *TrNecesidadDocente) (alerta []string, err error) {
 	o := orm.NewOrm()
-	o.Begin()
+	err = o.Begin()
+	if err != nil {
+		beego.Error(err)
+	}
 	alerta = append(alerta, "success")
 	var id int64
 	m.Necesidad.FechaSolicitud = time.Now()
@@ -35,7 +39,10 @@ func AddTrNecesidadDocente(m *TrNecesidadDocente) (alerta []string, err error) {
 			v.Necesidad = &Necesidad{Id: int(id)}
 			//---
 			if _, err = o.Insert(v); err != nil {
-				o.Rollback()
+				err = o.Rollback()
+				if err != nil {
+					beego.Error(err)
+				}
 				alerta[0] = "error"
 				alerta = append(alerta, "Error: ¡Ocurrió un error al insertar las fuentes de financiamiento!")
 				return
@@ -47,7 +54,10 @@ func AddTrNecesidadDocente(m *TrNecesidadDocente) (alerta []string, err error) {
 			vm.Necesidad = &Necesidad{Id: int(id)}
 			//---
 			if _, err = o.Insert(vm); err != nil {
-				o.Rollback()
+				err = o.Rollback()
+				if err != nil {
+					beego.Error(err)
+				}
 				alerta[0] = "error"
 				alerta = append(alerta, "Error: ¡Ocurrió un error al insertar los marcos legales!")
 				return
@@ -56,16 +66,25 @@ func AddTrNecesidadDocente(m *TrNecesidadDocente) (alerta []string, err error) {
 
 		m.DependenciaNecesidad.Necesidad = &Necesidad{Id: int(id)}
 		if _, err = o.Insert(m.DependenciaNecesidad); err != nil {
-			o.Rollback()
+			err = o.Rollback()
+			if err != nil {
+				beego.Error(err)
+			}
 			alerta[0] = "error"
 			alerta = append(alerta, "Error: ¡Ocurrió un error al insertar los datos de las dependencias y responsables!")
 			return
 		}
-		o.Commit()
+		err = o.Commit()
+		if err != nil {
+			beego.Error(err)
+		}
 		alerta = append(alerta, "La solicitud con No. de elaboración "+strconv.Itoa(m.Necesidad.NumeroElaboracion)+" del "+strconv.Itoa((m.Necesidad.FechaSolicitud).Year())+" fue creada exitosamente")
 		return
 	} else {
-		o.Rollback()
+		err = o.Rollback()
+		if err != nil {
+			beego.Error(err)
+		}
 		alerta[0] = "error"
 		alerta = append(alerta, "Error: ¡Ocurrió un error al insertar la necesidad!")
 		return

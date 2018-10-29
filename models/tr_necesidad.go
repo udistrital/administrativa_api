@@ -5,6 +5,7 @@ import (
 	"strconv"
 	"time"
 
+	"github.com/astaxie/beego"
 	"github.com/astaxie/beego/orm"
 )
 
@@ -27,7 +28,10 @@ type TrEspecificacion struct {
 //funcion para la transaccion de solicitudes
 func AddTrNecesidad(m *TrNecesidad) (alerta []string, err error) {
 	o := orm.NewOrm()
-	o.Begin()
+	err = o.Begin()
+	if err != nil {
+		beego.Error(err)
+	}
 	alerta = append(alerta, "success")
 	var id int64
 	m.Necesidad.FechaSolicitud = time.Now()
@@ -44,7 +48,10 @@ func AddTrNecesidad(m *TrNecesidad) (alerta []string, err error) {
 			v.Necesidad = &Necesidad{Id: int(id)}
 			//---
 			if _, err = o.Insert(v); err != nil {
-				o.Rollback()
+				err = o.Rollback()
+				if err != nil {
+					beego.Error(err)
+				}
 				alerta[0] = "error"
 				alerta = append(alerta, "Error: ¡Ocurrió un error al insertar las fuentes de financiamiento!")
 				return
@@ -56,7 +63,10 @@ func AddTrNecesidad(m *TrNecesidad) (alerta []string, err error) {
 			vm.Necesidad = &Necesidad{Id: int(id)}
 			//---
 			if _, err = o.Insert(vm); err != nil {
-				o.Rollback()
+				err = o.Rollback()
+				if err != nil {
+					beego.Error(err)
+				}
 				alerta[0] = "error"
 				alerta = append(alerta, "Error: ¡Ocurrió un error al insertar los marcos legales!")
 				return
@@ -65,7 +75,10 @@ func AddTrNecesidad(m *TrNecesidad) (alerta []string, err error) {
 
 		m.DependenciaNecesidad.Necesidad = &Necesidad{Id: int(id)}
 		if _, err = o.Insert(m.DependenciaNecesidad); err != nil {
-			o.Rollback()
+			err = o.Rollback()
+			if err != nil {
+				beego.Error(err)
+			}
 			alerta[0] = "error"
 			alerta = append(alerta, "Error: ¡Ocurrió un error al insertar los datos de las dependencias y responsables!")
 			return
@@ -76,7 +89,10 @@ func AddTrNecesidad(m *TrNecesidad) (alerta []string, err error) {
 				ve.EspecificacionTecnica.Necesidad = &Necesidad{Id: int(id)}
 				//---
 				if _, err = o.Insert(ve.EspecificacionTecnica); err != nil {
-					o.Rollback()
+					err = o.Rollback()
+					if err != nil {
+						beego.Error(err)
+					}
 					alerta[0] = "error"
 					alerta = append(alerta, "Error: ¡Ocurrió un error al insertar las especificaciones técnicas!")
 					return
@@ -85,7 +101,10 @@ func AddTrNecesidad(m *TrNecesidad) (alerta []string, err error) {
 						vr.EspecificacionTecnica = ve.EspecificacionTecnica
 						//---
 						if _, err = o.Insert(vr); err != nil {
-							o.Rollback()
+							err = o.Rollback()
+							if err != nil {
+								beego.Error(err)
+							}
 							alerta[0] = "error"
 							alerta = append(alerta, "Error: ¡Ocurrió un error al insertar los requisitos mínimos!")
 							return
@@ -99,7 +118,10 @@ func AddTrNecesidad(m *TrNecesidad) (alerta []string, err error) {
 				va.Necesidad = &Necesidad{Id: int(id)}
 				//---
 				if _, err = o.Insert(va); err != nil {
-					o.Rollback()
+					err = o.Rollback()
+					if err != nil {
+						beego.Error(err)
+					}
 					alerta[0] = "error"
 					alerta = append(alerta, "Error: ¡Ocurrió un error al insertar las actividades económicas!")
 					return
@@ -109,7 +131,10 @@ func AddTrNecesidad(m *TrNecesidad) (alerta []string, err error) {
 				vp.Necesidad = &Necesidad{Id: int(id)}
 				//---
 				if _, err = o.Insert(vp); err != nil {
-					o.Rollback()
+					err = o.Rollback()
+					if err != nil {
+						beego.Error(err)
+					}
 					alerta[0] = "error"
 					alerta = append(alerta, "Error: ¡Ocurrió un error al insertar las actividades específicas!")
 					return
@@ -117,17 +142,26 @@ func AddTrNecesidad(m *TrNecesidad) (alerta []string, err error) {
 			}
 			m.DetalleServicioNecesidad.Necesidad = &Necesidad{Id: int(id)}
 			if _, err = o.Insert(m.DetalleServicioNecesidad); err != nil {
-				o.Rollback()
+				err = o.Rollback()
+				if err != nil {
+					beego.Error(err)
+				}
 				alerta[0] = "error"
 				alerta = append(alerta, "Error: ¡Ocurrió un error al insertar servicio necesidad!")
 				return
 			}
 		}
-		o.Commit()
+		err = o.Commit()
+		if err != nil {
+			beego.Error(err)
+		}
 		alerta = append(alerta, "La solicitud con No. de elaboración "+strconv.Itoa(m.Necesidad.NumeroElaboracion)+" del "+strconv.Itoa((m.Necesidad.FechaSolicitud).Year())+" fue creada exitosamente")
 		return
 	} else {
-		o.Rollback()
+		err = o.Rollback()
+		if err != nil {
+			beego.Error(err)
+		}
 		alerta[0] = "error"
 		alerta = append(alerta, "Error: ¡Ocurrió un error al insertar la necesidad!")
 		return

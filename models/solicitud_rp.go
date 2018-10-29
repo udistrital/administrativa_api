@@ -3,11 +3,13 @@ package models
 import (
 	"errors"
 	"fmt"
-	"github.com/astaxie/beego/orm"
-	"github.com/udistrital/administrativa_crud_api/utilidades"
 	"reflect"
 	"strings"
 	"time"
+
+	"github.com/astaxie/beego"
+	"github.com/astaxie/beego/orm"
+	"github.com/udistrital/administrativa_crud_api/utilidades"
 )
 
 type SolicitudRp struct {
@@ -47,7 +49,10 @@ func AddSolicitudRpTr(m []map[string]interface{}) (res []map[string]interface{})
 	o := orm.NewOrm()
 	solicitud := SolicitudRp{}
 	var rubros []DisponibilidadApropiacionSolicitudRp
-	o.Begin()
+	err := o.Begin()
+	if err != nil {
+		beego.Error(err)
+	}
 	for _, data := range m {
 		if e := utilidades.FillStruct(data["solicitudRp"], &solicitud); e == nil {
 			fmt.Println(solicitud)
@@ -58,7 +63,10 @@ func AddSolicitudRpTr(m []map[string]interface{}) (res []map[string]interface{})
 						solicitud.Id = int(id)
 						row.SolicitudRp = &solicitud
 						if _, err = o.Insert(&row); err != nil {
-							o.Rollback()
+							err = o.Rollback()
+							if err != nil {
+								beego.Error(err)
+							}
 							alrt := map[string]interface{}{"Code": "E_SRP001", "Type": "error", "Body": solicitud}
 							res = append(res, alrt)
 							return
@@ -66,21 +74,30 @@ func AddSolicitudRpTr(m []map[string]interface{}) (res []map[string]interface{})
 					}
 				} else {
 					fmt.Println("error conversion rubros")
-					o.Rollback()
+					err = o.Rollback()
+					if err != nil {
+						beego.Error(err)
+					}
 					alrt := map[string]interface{}{"Code": "E_SRP002", "Type": "error", "Body": e.Error()}
 					res = append(res, alrt)
 					return
 				}
 			} else {
 				fmt.Println("error insersion solicitud")
-				o.Rollback()
+				err = o.Rollback()
+				if err != nil {
+					beego.Error(err)
+				}
 				alrt := map[string]interface{}{"Code": "E_SRP002", "Type": "error", "Body": err.Error()}
 				res = append(res, alrt)
 				return
 			}
 		} else {
 			fmt.Println("error conversion")
-			o.Rollback()
+			err = o.Rollback()
+			if err != nil {
+				beego.Error(err)
+			}
 			alrt := map[string]interface{}{"Code": "E_SRP002", "Type": "error", "Body": e.Error()}
 			res = append(res, alrt)
 			return
@@ -89,7 +106,10 @@ func AddSolicitudRpTr(m []map[string]interface{}) (res []map[string]interface{})
 		res = append(res, alrt)
 		solicitud = SolicitudRp{}
 	}
-	o.Commit()
+	err = o.Commit()
+	if err != nil {
+		beego.Error(err)
+	}
 	return
 }
 
