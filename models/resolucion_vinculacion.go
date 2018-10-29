@@ -37,7 +37,10 @@ func init() {
 		field := t.Field(i)
 		tag := field.Tag.Get("orm")
 		column := ""
-		fmt.Sscanf(strings.Split(tag, ";")[0], "column(%s)", &column)
+		_, err := fmt.Sscanf(strings.Split(tag, ";")[0], "column(%s)", &column)
+		if err != nil {
+			beego.Error(err)
+		}
 		columnNames[field.Name] = column[:len(column)-1]
 	}
 }
