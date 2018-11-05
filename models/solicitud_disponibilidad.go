@@ -8,6 +8,7 @@ import (
 	"strings"
 	"time"
 
+	"github.com/astaxie/beego"
 	"github.com/astaxie/beego/orm"
 )
 
@@ -33,7 +34,10 @@ func init() {
 // last inserted Id on success.
 func AddSolicitudDisponibilidad(m *SolicitudDisponibilidad) (alerta []string, err error) {
 	o := orm.NewOrm()
-	o.Begin()
+	err = o.Begin()
+	if err != nil {
+		beego.Error(err)
+	}
 	alerta = append(alerta, "success")
 	m.FechaSolicitud = time.Now()
 	m.Vigencia = float64((m.FechaSolicitud).Year())
@@ -44,19 +48,28 @@ func AddSolicitudDisponibilidad(m *SolicitudDisponibilidad) (alerta []string, er
 	if _, err = o.Insert(m); err != nil {
 		alerta[0] = "error"
 		alerta = append(alerta, "Error: ¡Ocurrió un error al insertar la solicitud de disponibilidad!")
-		o.Rollback()
+		err = o.Rollback()
+		if err != nil {
+			beego.Error(err)
+		}
 		return
 	} else {
 		m.Necesidad.EstadoNecesidad.Id = 7
 		if _, err = o.Update(m.Necesidad); err != nil {
 			alerta[0] = "error"
 			alerta = append(alerta, "Error: ¡Ocurrió un error al actualizar el estado de la necesidad!")
-			o.Rollback()
+			err = o.Rollback()
+			if err != nil {
+				beego.Error(err)
+			}
 			return
 		}
 	}
 	alerta = append(alerta, "La solicitud de disponibilidad No. "+strconv.Itoa(m.Numero)+" del "+strconv.Itoa((m.FechaSolicitud).Year())+" fué creada exitosamente")
-	o.Commit()
+	err = o.Commit()
+	if err != nil {
+		beego.Error(err)
+	}
 	return alerta, err
 }
 
@@ -79,17 +92,17 @@ func GetAllSolicitudDisponibilidad(query map[string]string, fields []string, sor
 	qs := o.QueryTable(new(SolicitudDisponibilidad)).RelatedSel(5)
 	// query k=v
 	for k, v := range query {
-	        // rewrite dot-notation to Object__Attribute
-	        k = strings.Replace(k, ".", "__", -1)
-	        if strings.Contains(k, "isnull") {
-	            qs = qs.Filter(k, (v == "true" || v == "1"))
-	        } else if strings.Contains(k, "in") {
-	            arr := strings.Split(v, "|")
-	            qs = qs.Filter(k, arr)
-	        } else {
-	            qs = qs.Filter(k, v)
-	        }
-	    }
+		// rewrite dot-notation to Object__Attribute
+		k = strings.Replace(k, ".", "__", -1)
+		if strings.Contains(k, "isnull") {
+			qs = qs.Filter(k, (v == "true" || v == "1"))
+		} else if strings.Contains(k, "in") {
+			arr := strings.Split(v, "|")
+			qs = qs.Filter(k, arr)
+		} else {
+			qs = qs.Filter(k, v)
+		}
+	}
 	// order by:
 	var sortFields []string
 	if len(sortby) != 0 {
