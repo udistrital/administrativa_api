@@ -227,10 +227,20 @@ func UpdateTrNecesidadById(m *TrNecesidad) (err error) {
 				return
 			}
 		}
+		dsn := new(DetalleServicioNecesidad)
 		m.DetalleServicioNecesidad.Necesidad = &Necesidad{Id: int(idNecesidad)}
-		if _, err = o.InsertOrUpdate(m.DetalleServicioNecesidad, "Id"); err != nil {
-			o.Rollback()
-			return
+		if err = o.QueryTable(new(DetalleServicioNecesidad)).Filter("Necesidad", idNecesidad).One(dsn); err == nil {
+			m.DetalleServicioNecesidad.Id = dsn.Id
+			if _, err = o.Update(m.DetalleServicioNecesidad); err != nil {
+				o.Rollback()
+				return
+			}
+		} else {
+			m.DependenciaNecesidad.Id = 0
+			if _, err = o.Insert(m.DetalleServicioNecesidad); err != nil {
+				o.Rollback()
+				return
+			}
 		}
 	}
 	o.Commit()
