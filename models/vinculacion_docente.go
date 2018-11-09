@@ -232,7 +232,7 @@ func GetValoresTotalesPorDisponibilidad(anio, periodo, id_disponibilidad string)
 	o := orm.NewOrm()
 	var temp float64
 
-	err := o.Raw("SELECT SUM(valor_contrato)  FROM administrativa.vinculacion_docente vd, administrativa.resolucion res WHERE vd.id_resolucion = res.id_resolucion AND res.vigencia = " + anio + " AND res.periodo = " + periodo + " AND vd.disponibilidad = " + id_disponibilidad + ";").QueryRow(&temp)
+	err := o.Raw("SELECT SUM(valor_contrato)  FROM administrativa.vinculacion_docente vd, administrativa.resolucion res WHERE vd.id_resolucion = res.id_resolucion AND res.vigencia = ? AND res.periodo = ? AND vd.disponibilidad = ?;", anio, periodo, id_disponibilidad).QueryRow(&temp)
 	if err == nil {
 		fmt.Println("Consulta exitosa")
 
