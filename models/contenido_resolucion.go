@@ -35,7 +35,9 @@ type ResolucionCompleta struct {
 func GetOneResolucionCompleta(idResolucion string) (resolucion ResolucionCompleta) {
 	o := orm.NewOrm()
 	var temp []Resolucion
-	_, err := o.Raw("SELECT * FROM administrativa.resolucion WHERE administrativa.resolucion.id_resolucion=?;", idResolucion).QueryRows(&temp)
+	idRes, _ := strconv.Atoi(idResolucion)
+
+	_, err := o.QueryTable("resolucion").Filter("id_resolucion", idRes).All(&temp)
 	if err == nil {
 		fmt.Println("Consulta exitosa")
 	}
@@ -43,7 +45,7 @@ func GetOneResolucionCompleta(idResolucion string) (resolucion ResolucionComplet
 	resolucionCompleta := ResolucionCompleta{Id: temp[0].Id, Consideracion: temp[0].ConsideracionResolucion, Preambulo: temp[0].PreambuloResolucion, Vigencia: temp[0].Vigencia, Numero: temp[0].NumeroResolucion, Titulo: temp[0].Titulo}
 
 	var arts []ComponenteResolucion
-	_, err2 := o.Raw("SELECT * FROM administrativa.componente_resolucion WHERE resolucion_id=? AND tipo_componente like 'Articulo' ORDER BY numero asc;", idResolucion).QueryRows(&arts)
+	_, err2 := o.QueryTable("componente_resolucion").Filter("resolucion_id", idRes).Filter("tipo_componente", "Articulo").OrderBy("numero").All(&arts)
 	if err2 == nil {
 		fmt.Println("Consulta exitosa")
 	}
@@ -52,10 +54,9 @@ func GetOneResolucionCompleta(idResolucion string) (resolucion ResolucionComplet
 
 	for _, art := range arts {
 		articulo := Articulo{Id: art.Id, Numero: art.Numero, Texto: art.Texto}
-		var articuloID = strconv.Itoa(articulo.Id)
 
 		var pars []ComponenteResolucion
-		_, err3 := o.Raw("SELECT * FROM administrativa.componente_resolucion WHERE resolucion_id=? AND tipo_componente like 'Paragrafo' AND componente_padre=? ORDER BY numero asc;", idResolucion, articuloID).QueryRows(&pars)
+		_, err3 := o.QueryTable("componente_resolucion").Filter("resolucion_id", idRes).Filter("tipo_componente", "Paragrafo").Filter("componente_padre", articulo.Id).OrderBy("numero").All(&pars)
 		if err3 == nil {
 			fmt.Println("Consulta exitosa")
 		}
