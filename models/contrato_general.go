@@ -81,7 +81,8 @@ func init() {
 func GetNumeroTotalContratoGeneralDVE(vigencia int) (n int) {
 	o := orm.NewOrm()
 	var temp []TotalContratos
-	_, err := o.Raw("SELECT count(*) total FROM argo.contrato_general WHERE numero_contrato LIKE 'DVE%' AND vigencia=" + strconv.Itoa(vigencia) + ";").QueryRows(&temp)
+	var vigenciaStr = strconv.Itoa(vigencia)
+	_, err := o.Raw("SELECT count(*) total FROM argo.contrato_general WHERE numero_contrato LIKE 'DVE%' AND vigencia=?;", vigenciaStr).QueryRows(&temp)
 	if err == nil {
 		fmt.Println("Consulta exitosa")
 	}
