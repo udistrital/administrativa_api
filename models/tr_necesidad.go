@@ -133,14 +133,7 @@ func UpdateTrNecesidadById(m *TrNecesidad) (err error) {
 	m.Necesidad.Numero = 0
 	m.Necesidad.Vigencia = float64((m.Necesidad.FechaSolicitud).Year())
 	m.Necesidad.FechaModificacion = time.Now()
-	var a []int
-	_, err = o.Raw("SELECT COALESCE(MAX(numero_elaboracion), 0)+1 FROM administrativa.necesidad WHERE vigencia=" + strconv.Itoa((m.Necesidad.FechaSolicitud).Year()) + ";").QueryRows(&a)
-	if err != nil {
-		o.Rollback()
-		return
-	}
-	m.Necesidad.NumeroElaboracion = a[0]
-	var idNecesidad int = m.Necesidad.Id
+	var idNecesidad = m.Necesidad.Id
 	var num int64
 
 	if num, err = o.Update(m.Necesidad); err != nil {
