@@ -7,6 +7,7 @@ import (
 	"strings"
 	"time"
 
+	"github.com/astaxie/beego"
 	"github.com/astaxie/beego/orm"
 )
 
@@ -25,6 +26,7 @@ type Resolucion struct {
 	NumeroSemanas           int             `orm:"column(numero_semanas)"`
 	Periodo                 int             `orm:"column(periodo)"`
 	Titulo                  string          `orm:"column(titulo);null"`
+	IdDependenciaFirma      int             `orm:"column(id_dependencia_firma)"`
 }
 
 func (t *Resolucion) TableName() string {
@@ -37,7 +39,10 @@ func init() {
 
 func CancelarResolucion(m *Resolucion) (err error) {
 	o := orm.NewOrm()
-	o.Begin()
+	err = o.Begin()
+	if err != nil {
+		beego.Error(err)
+	}
 	v := ResolucionVinculacionDocente{Id: m.Id}
 	if err = o.Read(&v); err == nil {
 		var vinculacion_docente []*VinculacionDocente
@@ -56,12 +61,18 @@ func CancelarResolucion(m *Resolucion) (err error) {
 						e.FechaRegistro = time.Now()
 						e.Estado = &EstadoContrato{Id: 7}
 						if _, err = o.Insert(&e); err != nil {
-							o.Rollback()
+							err = o.Rollback()
+							if err != nil {
+								beego.Error(err)
+							}
 							return
 						}
 					}
 				} else {
-					o.Rollback()
+					err = o.Rollback()
+					if err != nil {
+						beego.Error(err)
+					}
 					return
 				}
 			}
@@ -76,24 +87,39 @@ func CancelarResolucion(m *Resolucion) (err error) {
 			if err == nil {
 				fmt.Println("Number of records updated in database:", num)
 			} else {
-				o.Rollback()
+				err = o.Rollback()
+				if err != nil {
+					beego.Error(err)
+				}
 				return
 			}
 		} else {
-			o.Rollback()
+			err = o.Rollback()
+			if err != nil {
+				beego.Error(err)
+			}
 			return
 		}
 	} else {
-		o.Rollback()
+		err = o.Rollback()
+		if err != nil {
+			beego.Error(err)
+		}
 		return
 	}
-	o.Commit()
+	err = o.Commit()
+	if err != nil {
+		beego.Error(err)
+	}
 	return
 }
 
 func GenerarResolucion(m *Resolucion) (id int64, err error) {
 	o := orm.NewOrm()
-	o.Begin()
+	err = o.Begin()
+	if err != nil {
+		beego.Error(err)
+	}
 	m.Vigencia, _, _ = time.Now().Date()
 	m.FechaRegistro = time.Now()
 	m.Estado = true
@@ -106,20 +132,32 @@ func GenerarResolucion(m *Resolucion) (id int64, err error) {
 		e.FechaRegistro = time.Now()
 		_, err = o.Insert(&e)
 		if err != nil {
-			o.Rollback()
+			err = o.Rollback()
+			if err != nil {
+				beego.Error(err)
+			}
 			return
 		}
 	} else {
-		o.Rollback()
+		err = o.Rollback()
+		if err != nil {
+			beego.Error(err)
+		}
 		return
 	}
-	o.Commit()
+	err = o.Commit()
+	if err != nil {
+		beego.Error(err)
+	}
 	return
 }
 
 func RestaurarResolucion(m *Resolucion) (err error) {
 	o := orm.NewOrm()
-	o.Begin()
+	err = o.Begin()
+	if err != nil {
+		beego.Error(err)
+	}
 	var num int64
 	if num, err = o.Update(m); err == nil {
 		var e ResolucionEstado
@@ -130,14 +168,23 @@ func RestaurarResolucion(m *Resolucion) (err error) {
 		if err == nil {
 			fmt.Println("Number of records updated in database:", num)
 		} else {
-			o.Rollback()
+			err = o.Rollback()
+			if err != nil {
+				beego.Error(err)
+			}
 			return
 		}
 	} else {
-		o.Rollback()
+		err = o.Rollback()
+		if err != nil {
+			beego.Error(err)
+		}
 		return
 	}
-	o.Commit()
+	err = o.Commit()
+	if err != nil {
+		beego.Error(err)
+	}
 	return
 }
 

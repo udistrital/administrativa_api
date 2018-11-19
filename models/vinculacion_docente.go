@@ -9,6 +9,7 @@ import (
 
 	"database/sql"
 
+	"github.com/astaxie/beego"
 	"github.com/astaxie/beego/orm"
 )
 
@@ -45,18 +46,27 @@ func init() {
 
 func AddConjuntoVinculaciones(m []VinculacionDocente) (id int64, err error) {
 	o := orm.NewOrm()
-	o.Begin()
+	err = o.Begin()
+	if err != nil {
+		beego.Error(err)
+	}
 	for _, vinculacion := range m {
 		vinculacion.Estado = true
 		vinculacion.FechaRegistro = time.Now()
 		id, err = o.Insert(&vinculacion)
 		fmt.Println("id de vinculacion insertada", id)
 		if err != nil {
-			o.Rollback()
+			err = o.Rollback()
+			if err != nil {
+				beego.Error(err)
+			}
 			return
 		}
 	}
-	o.Commit()
+	err = o.Commit()
+	if err != nil {
+		beego.Error(err)
+	}
 	return
 }
 
@@ -222,7 +232,7 @@ func GetValoresTotalesPorDisponibilidad(anio, periodo, id_disponibilidad string)
 	o := orm.NewOrm()
 	var temp float64
 
-	err := o.Raw("SELECT SUM(valor_contrato)  FROM administrativa.vinculacion_docente vd, administrativa.resolucion res WHERE vd.id_resolucion = res.id_resolucion AND res.vigencia = " + anio + " AND res.periodo = " + periodo + " AND vd.disponibilidad = " + id_disponibilidad + ";").QueryRow(&temp)
+	err := o.Raw("SELECT SUM(valor_contrato)  FROM administrativa.vinculacion_docente vd, administrativa.resolucion res WHERE vd.id_resolucion = res.id_resolucion AND res.vigencia = ? AND res.periodo = ? AND vd.disponibilidad = ?;", anio, periodo, id_disponibilidad).QueryRow(&temp)
 	if err == nil {
 		fmt.Println("Consulta exitosa")
 
