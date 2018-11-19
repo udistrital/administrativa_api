@@ -9,12 +9,14 @@ import (
 	"github.com/astaxie/beego/orm"
 )
 
+//ActividadEconomicaNecesidad is the model for the actividad_economica_necesidad data
 type ActividadEconomicaNecesidad struct {
 	Id                 int        `orm:"column(id);pk;auto"`
 	Necesidad          *Necesidad `orm:"column(necesidad);rel(fk)"`
 	ActividadEconomica string     `orm:"column(actividad_economica)"`
 }
 
+//TableName shows the name of the table
 func (t *ActividadEconomicaNecesidad) TableName() string {
 	return "actividad_economica_necesidad"
 }
@@ -120,7 +122,7 @@ func GetAllActividadEconomicaNecesidad(query map[string]string, fields []string,
 	return nil, err
 }
 
-// UpdateActividadEconomicaNecesidad updates ActividadEconomicaNecesidad by Id and returns error if
+// UpdateActividadEconomicaNecesidadById updates ActividadEconomicaNecesidad by Id and returns error if
 // the record to be updated doesn't exist
 func UpdateActividadEconomicaNecesidadById(m *ActividadEconomicaNecesidad) (err error) {
 	o := orm.NewOrm()
