@@ -43,7 +43,7 @@ func AddSolicitudDisponibilidad(m *SolicitudDisponibilidad) (alerta []string, er
 	m.Vigencia = float64((m.FechaSolicitud).Year())
 	m.Expedida = false
 	var a []int
-	_, err = o.Raw("SELECT COALESCE(MAX(numero), 0)+1 FROM administrativa.solicitud_disponibilidad WHERE vigencia=" + strconv.Itoa((m.FechaSolicitud).Year()) + ";").QueryRows(&a)
+	_, err = o.Raw("SELECT COALESCE(MAX(numero), 0)+1 FROM administrativa.solicitud_disponibilidad WHERE vigencia = ? ;", strconv.Itoa((m.FechaSolicitud).Year())).QueryRows(&a)
 	m.Numero = a[0]
 	if _, err = o.Insert(m); err != nil {
 		alerta[0] = "error"

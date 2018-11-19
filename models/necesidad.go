@@ -11,6 +11,7 @@ import (
 	"github.com/astaxie/beego/orm"
 )
 
+//Necesidad is the model for the necesidad data
 type Necesidad struct {
 	Id                        int                                 `orm:"column(id);pk;auto"`
 	Numero                    int                                 `orm:"column(numero);null"`
@@ -40,6 +41,7 @@ type Necesidad struct {
 	DependenciaReversa        []*DependenciaNecesidad             `orm:"reverse(many)"`
 }
 
+//TableName show the Name of the table
 func (t *Necesidad) TableName() string {
 	return "necesidad"
 }
@@ -159,7 +161,7 @@ func GetAllNecesidad(query map[string]string, fields []string, sortby []string, 
 	return nil, err
 }
 
-// UpdateNecesidad updates Necesidad by Id and returns error if
+// UpdateNecesidadById updates Necesidad by Id and returns error if
 // the record to be updated doesn't exist
 func UpdateNecesidadById(m *Necesidad) (alerta []string, err error) {
 	o := orm.NewOrm()
@@ -167,7 +169,7 @@ func UpdateNecesidadById(m *Necesidad) (alerta []string, err error) {
 	alerta = append(alerta, "success")
 	var a []int
 	var b = strconv.FormatFloat(m.Vigencia, 'E', -1, 64)
-	_, err = o.Raw("SELECT COALESCE(MAX(numero), 0)+1 FROM administrativa.necesidad WHERE vigencia=" + b).QueryRows(&a)
+	_, err = o.Raw("SELECT COALESCE(MAX(numero), 0)+1 FROM administrativa.necesidad WHERE vigencia = ? ;", b).QueryRows(&a)
 	m.Numero = a[0]
 	// ascertain id exists in the database
 	if err = o.Read(&v); err == nil {
