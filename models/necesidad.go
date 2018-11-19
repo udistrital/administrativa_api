@@ -169,7 +169,7 @@ func UpdateNecesidadById(m *Necesidad) (alerta []string, err error) {
 	alerta = append(alerta, "success")
 	var a []int
 	var b = strconv.FormatFloat(m.Vigencia, 'E', -1, 64)
-	_, err = o.Raw("SELECT COALESCE(MAX(numero), 0)+1 FROM administrativa.necesidad WHERE vigencia=" + b).QueryRows(&a)
+	_, err = o.Raw("SELECT COALESCE(MAX(numero), 0)+1 FROM administrativa.necesidad WHERE vigencia = ? ;", b).QueryRows(&a)
 	m.Numero = a[0]
 	// ascertain id exists in the database
 	if err = o.Read(&v); err == nil {

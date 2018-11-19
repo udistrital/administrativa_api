@@ -17,7 +17,9 @@ func init() {
 	orm.DefaultTimeLoc = time.UTC
 	q := "postgres://" + beego.AppConfig.String("PGuser") + ":" + beego.AppConfig.String("PGpass") + "@" + beego.AppConfig.String("PGurls") + "/" + beego.AppConfig.String("PGdb") + "?sslmode=disable&search_path=" + beego.AppConfig.String("PGschemas") + "&timezone=UTC"
 	//fmt.Println(q)
-	orm.RegisterDataBase("default", "postgres", q)
+	if err := orm.RegisterDataBase("default", "postgres", q); err != nil {
+		panic(err) //Nunca deberia pasar si están bien descargados los paquetes del repo
+	}
 }
 
 func main() {
@@ -42,11 +44,13 @@ func main() {
 	}))
 
 	// Custom JSON error pages
-	beego.ErrorHandler("400", badRequestJsonPage)
-	beego.ErrorHandler("403", forgivenJsonPage)
-	beego.ErrorHandler("404", notFoundJsonPage)
+	beego.ErrorHandler("400", badRequestJSONPage)
+	beego.ErrorHandler("403", forgivenJSONPage)
+	beego.ErrorHandler("404", notFoundJSONPage)
 
-	logs.SetLogger(logs.AdapterFile, `{"filename":"/var/log/beego/administrativa_crud_api.log"}`)
+	if err := logs.SetLogger(logs.AdapterFile, `{"filename":"/var/log/beego/administrativa_crud_api.log"}`); err != nil {
+		beego.Info(err)
+	}
 
 	apistatus.Init()
 	beego.Run()
