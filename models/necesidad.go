@@ -38,6 +38,7 @@ type Necesidad struct {
 	TipoNecesidad             *TipoNecesidad                      `orm:"column(tipo_necesidad);rel(fk)"`
 	FuenteReversa             []*FuenteFinanciacionRubroNecesidad `orm:"reverse(many)"`
 	DependenciaReversa        []*DependenciaNecesidad             `orm:"reverse(many)"`
+	ProductoReversa           []*ProductoRubroNecesidad           `orm:"reverse(many)"`
 }
 
 func (t *Necesidad) TableName() string {

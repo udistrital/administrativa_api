@@ -5,6 +5,8 @@ import (
 	"strconv"
 	"time"
 
+	"github.com/astaxie/beego"
+
 	"github.com/astaxie/beego/orm"
 )
 
@@ -17,6 +19,7 @@ type TrNecesidad struct {
 	ActividadEspecifica         []*ActividadEspecifica
 	DependenciaNecesidad        *DependenciaNecesidad
 	DetalleServicioNecesidad    *DetalleServicioNecesidad
+	ProductosNecesidad          []*ProductoRubroNecesidad
 }
 
 type TrEspecificacion struct {
@@ -53,6 +56,18 @@ func AddTrNecesidad(m *TrNecesidad) (id int64, err error) {
 		v.Necesidad = &Necesidad{Id: int(idNecesidad)}
 		if id, err = o.Insert(v); err != nil {
 			o.Rollback()
+			return
+		}
+	}
+
+	for _, p := range m.ProductosNecesidad {
+		p.Necesidad = &Necesidad{Id: int(idNecesidad)}
+		p.FechaRegistro = time.Now()
+		if id, err = o.Insert(p); err != nil {
+			err = o.Rollback()
+			if err != nil {
+				beego.Error(err)
+			}
 			return
 		}
 	}
@@ -151,6 +166,23 @@ func UpdateTrNecesidadById(m *TrNecesidad) (err error) {
 		v.Necesidad = &Necesidad{Id: int(idNecesidad)}
 		if _, err = o.Insert(v); err != nil {
 			o.Rollback()
+			return
+		}
+	}
+
+	num, err = o.QueryTable(new(ProductoRubroNecesidad)).Filter("Necesidad__Id", int(idNecesidad)).Delete()
+	if err != nil {
+		o.Rollback()
+		return
+	}
+	for _, p := range m.ProductosNecesidad {
+		p.Necesidad = &Necesidad{Id: int(idNecesidad)}
+		p.FechaRegistro = time.Now()
+		if _, err = o.Insert(p); err != nil {
+			err = o.Rollback()
+			if err != nil {
+				beego.Error(err)
+			}
 			return
 		}
 	}
