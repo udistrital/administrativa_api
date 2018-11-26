@@ -53,7 +53,7 @@ func (c *TrNecesidadController) Put() {
 	id, _ := strconv.Atoi(idStr)
 	v := models.TrNecesidad{Necesidad: &models.Necesidad{Id: id}}
 	if err := json.Unmarshal(c.Ctx.Input.RequestBody, &v); err == nil {
-		if err := models.UpdateTrNecesidadById(&v); err == nil {
+		if err := models.UpdateTrNecesidadByID(&v); err == nil {
 			c.Data["json"] = "Ok"
 		} else {
 			c.Data["json"] = models.Alert{Type: models.AlertError, Body: err}
