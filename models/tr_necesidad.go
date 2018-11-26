@@ -185,7 +185,10 @@ func UpdateTrNecesidadByID(m *TrNecesidad) (err error) {
 
 	_, err = o.QueryTable(new(ProductoRubroNecesidad)).Filter("Necesidad__Id", int(idNecesidad)).Delete()
 	if err != nil {
-		o.Rollback()
+		err = o.Rollback()
+		if err != nil {
+			beego.Error(err)
+		}
 		return
 	}
 	for _, p := range m.ProductosNecesidad {
