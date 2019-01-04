@@ -27,6 +27,8 @@ type Resolucion struct {
 	Periodo                 int             `orm:"column(periodo)"`
 	Titulo                  string          `orm:"column(titulo);null"`
 	IdDependenciaFirma      int             `orm:"column(id_dependencia_firma)"`
+	VigenciaCarga           int             `orm:"column(vigencia_carga)"`
+	PeriodoCarga            int             `orm:"column(periodo_carga)"`
 }
 
 func (t *Resolucion) TableName() string {
