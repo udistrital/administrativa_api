@@ -5,51 +5,54 @@ import (
 	"fmt"
 	"reflect"
 	"strings"
+	"time"
 
 	"github.com/astaxie/beego/orm"
 )
 
-//ActividadEconomicaNecesidad is the model for the actividad_economica_necesidad data
-type ActividadEconomicaNecesidad struct {
-	Id                 int        `orm:"column(id);pk;auto"`
-	Necesidad          *Necesidad `orm:"column(necesidad);rel(fk)"`
-	ActividadEconomica string     `orm:"column(actividad_economica)"`
+//ProductoRubroNecesidad relaciona los productos de cada rubro que se seleccionen al crear una necesidad
+type ProductoRubroNecesidad struct {
+	Id            int        `orm:"column(id);pk;auto"`
+	ProductoRubro int        `orm:"column(producto_rubro)"`
+	Apropiacion   int        `orm:"column(apropiacion)"`
+	Necesidad     *Necesidad `orm:"column(necesidad);rel(fk)"`
+	FechaRegistro time.Time  `orm:"column(fecha_registro);type(date)"`
 }
 
-//TableName shows the name of the table
-func (t *ActividadEconomicaNecesidad) TableName() string {
-	return "actividad_economica_necesidad"
+//TableName Asigna el nombre de la tabla
+func (t *ProductoRubroNecesidad) TableName() string {
+	return "producto_rubro_necesidad"
 }
 
 func init() {
-	orm.RegisterModel(new(ActividadEconomicaNecesidad))
+	orm.RegisterModel(new(ProductoRubroNecesidad))
 }
 
-// AddActividadEconomicaNecesidad insert a new ActividadEconomicaNecesidad into database and returns
+// AddProductoRubroNecesidad insert a new ProductoRubroNecesidad into database and returns
 // last inserted Id on success.
-func AddActividadEconomicaNecesidad(m *ActividadEconomicaNecesidad) (id int64, err error) {
+func AddProductoRubroNecesidad(m *ProductoRubroNecesidad) (id int64, err error) {
 	o := orm.NewOrm()
 	id, err = o.Insert(m)
 	return
 }
 
-// GetActividadEconomicaNecesidadById retrieves ActividadEconomicaNecesidad by Id. Returns error if
+// GetProductoRubroNecesidadById retrieves ProductoRubroNecesidad by Id. Returns error if
 // Id doesn't exist
-func GetActividadEconomicaNecesidadById(id int) (v *ActividadEconomicaNecesidad, err error) {
+func GetProductoRubroNecesidadById(id int) (v *ProductoRubroNecesidad, err error) {
 	o := orm.NewOrm()
-	v = &ActividadEconomicaNecesidad{Id: id}
+	v = &ProductoRubroNecesidad{Id: id}
 	if err = o.Read(v); err == nil {
 		return v, nil
 	}
 	return nil, err
 }
 
-// GetAllActividadEconomicaNecesidad retrieves all ActividadEconomicaNecesidad matches certain condition. Returns empty list if
+// GetAllProductoRubroNecesidad retrieves all ProductoRubroNecesidad matches certain condition. Returns empty list if
 // no records exist
-func GetAllActividadEconomicaNecesidad(query map[string]string, fields []string, sortby []string, order []string,
+func GetAllProductoRubroNecesidad(query map[string]string, fields []string, sortby []string, order []string,
 	offset int64, limit int64) (ml []interface{}, err error) {
 	o := orm.NewOrm()
-	qs := o.QueryTable(new(ActividadEconomicaNecesidad)).RelatedSel(5)
+	qs := o.QueryTable(new(ProductoRubroNecesidad)).RelatedSel(5)
 	// query k=v
 	for k, v := range query {
 		// rewrite dot-notation to Object__Attribute
@@ -99,7 +102,7 @@ func GetAllActividadEconomicaNecesidad(query map[string]string, fields []string,
 		}
 	}
 
-	var l []ActividadEconomicaNecesidad
+	var l []ProductoRubroNecesidad
 	qs = qs.OrderBy(sortFields...)
 	if _, err = qs.Limit(limit, offset).All(&l, fields...); err == nil {
 		if len(fields) == 0 {
@@ -122,11 +125,11 @@ func GetAllActividadEconomicaNecesidad(query map[string]string, fields []string,
 	return nil, err
 }
 
-// UpdateActividadEconomicaNecesidadById updates ActividadEconomicaNecesidad by Id and returns error if
+// UpdateProductoRubroNecesidadById updates ProductoRubroNecesidad by Id and returns error if
 // the record to be updated doesn't exist
-func UpdateActividadEconomicaNecesidadById(m *ActividadEconomicaNecesidad) (err error) {
+func UpdateProductoRubroNecesidadById(m *ProductoRubroNecesidad) (err error) {
 	o := orm.NewOrm()
-	v := ActividadEconomicaNecesidad{Id: m.Id}
+	v := ProductoRubroNecesidad{Id: m.Id}
 	// ascertain id exists in the database
 	if err = o.Read(&v); err == nil {
 		var num int64
@@ -137,15 +140,15 @@ func UpdateActividadEconomicaNecesidadById(m *ActividadEconomicaNecesidad) (err 
 	return
 }
 
-// DeleteActividadEconomicaNecesidad deletes ActividadEconomicaNecesidad by Id and returns error if
+// DeleteProductoRubroNecesidad deletes ProductoRubroNecesidad by Id and returns error if
 // the record to be deleted doesn't exist
-func DeleteActividadEconomicaNecesidad(id int) (err error) {
+func DeleteProductoRubroNecesidad(id int) (err error) {
 	o := orm.NewOrm()
-	v := ActividadEconomicaNecesidad{Id: id}
+	v := ProductoRubroNecesidad{Id: id}
 	// ascertain id exists in the database
 	if err = o.Read(&v); err == nil {
 		var num int64
-		if num, err = o.Delete(&ActividadEconomicaNecesidad{Id: id}); err == nil {
+		if num, err = o.Delete(&ProductoRubroNecesidad{Id: id}); err == nil {
 			fmt.Println("Number of records deleted in database:", num)
 		}
 	}

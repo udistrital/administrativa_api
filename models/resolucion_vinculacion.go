@@ -24,6 +24,8 @@ type ResolucionVinculacion struct {
 	Periodo            int       `orm:"column(periodo)"`
 	TipoResolucion     string    `orm:"column(tipo_resolucion)"`
 	IdDependenciaFirma int       `orm:"column(dependencia_firma)"`
+	PeriodoCarga       int       `orm:"column(periodo_carga)"`
+	VigenciaCarga      int       `orm:"column(vigencia_carga)"`
 }
 
 var (
@@ -81,7 +83,9 @@ func GetAllResolucionVinculacion(query map[string]string, fields []string, sortb
 		"r.numero_semanas numero_semanas",
 		"r.fecha_expedicion fecha_expedicion",
 		"tipo.nombre_tipo_resolucion tipo_resolucion",
-		"r.id_dependencia_firma dependencia_firma").
+		"r.id_dependencia_firma dependencia_firma",
+		"r.vigencia_carga vigencia_carga",
+		"r.periodo_carga periodo_carga").
 		From(
 			"administrativa.resolucion r",
 			"administrativa.resolucion_vinculacion_docente rv",
