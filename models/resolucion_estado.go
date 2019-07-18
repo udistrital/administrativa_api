@@ -7,6 +7,8 @@ import (
 	"strings"
 	"time"
 
+	"github.com/astaxie/beego/logs"
+
 	"github.com/astaxie/beego/orm"
 )
 
@@ -29,6 +31,8 @@ func init() {
 // AddResolucionEstado insert a new ResolucionEstado into database and returns
 // last inserted Id on success.
 func AddResolucionEstado(m *ResolucionEstado) (id int64, err error) {
+	m.FechaRegistro = tiempo_bogota()
+	logs.Info(m)
 	o := orm.NewOrm()
 	id, err = o.Insert(m)
 	return
