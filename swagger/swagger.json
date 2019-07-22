@@ -24251,8 +24251,7 @@
                     "$ref": "#/definitions/models.EstadoResolucion"
                 },
                 "FechaRegistro": {
-                    "type": "string",
-                    "format": "datetime"
+                    "type": "string"
                 },
                 "Id": {
                     "type": "integer",

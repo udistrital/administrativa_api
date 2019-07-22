@@ -5,7 +5,6 @@ import (
 	"fmt"
 	"reflect"
 	"strings"
-	"time"
 
 	"github.com/astaxie/beego/logs"
 
@@ -14,7 +13,7 @@ import (
 
 type ResolucionEstado struct {
 	Id            int               `orm:"column(id);pk;auto"`
-	FechaRegistro time.Time         `orm:"column(fecha_registro);type(timestamp without time zone)"`
+	FechaRegistro string            `orm:"column(fecha_registro);"`
 	Usuario       string            `orm:"column(usuario);null"`
 	Estado        *EstadoResolucion `orm:"column(estado);rel(fk)"`
 	Resolucion    *Resolucion       `orm:"column(resolucion);rel(fk)"`
@@ -31,7 +30,8 @@ func init() {
 // AddResolucionEstado insert a new ResolucionEstado into database and returns
 // last inserted Id on success.
 func AddResolucionEstado(m *ResolucionEstado) (id int64, err error) {
-	m.FechaRegistro = tiempo_bogota()
+	logs.Error(m.FechaRegistro)
+	// m.FechaRegistro = tiempo_bogota()
 	logs.Info(m)
 	o := orm.NewOrm()
 	id, err = o.Insert(m)

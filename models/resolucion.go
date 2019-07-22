@@ -87,7 +87,7 @@ func CancelarResolucion(m *Resolucion) (err error) {
 			var e ResolucionEstado
 			e.Resolucion = m
 			e.Estado = &EstadoResolucion{Id: 3}
-			e.FechaRegistro = tiempo_bogota()
+			e.FechaRegistro = tiempo_bogota().Format(time.RFC3339Nano)
 			logs.Error(e.FechaRegistro)
 			_, err = o.Insert(&e)
 			if err == nil {
@@ -136,7 +136,7 @@ func GenerarResolucion(m *Resolucion) (id int64, err error) {
 		var e ResolucionEstado
 		e.Resolucion = m
 		e.Estado = &EstadoResolucion{Id: 1}
-		e.FechaRegistro = tiempo_bogota()
+		e.FechaRegistro = tiempo_bogota().Format(time.RFC3339Nano)
 		logs.Error(e.FechaRegistro)
 		_, err = o.Insert(&e)
 		if err != nil {
@@ -171,7 +171,7 @@ func RestaurarResolucion(m *Resolucion) (err error) {
 		var e ResolucionEstado
 		e.Resolucion = m
 		e.Estado = &EstadoResolucion{Id: 1}
-		e.FechaRegistro = tiempo_bogota()
+		e.FechaRegistro = tiempo_bogota().Format(time.RFC3339Nano)
 		logs.Error(e.FechaRegistro)
 		_, err = o.Insert(&e)
 		if err == nil {

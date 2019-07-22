@@ -16233,7 +16233,6 @@ definitions:
         $ref: '#/definitions/models.EstadoResolucion'
       FechaRegistro:
         type: string
-        format: datetime
       Id:
         type: integer
         format: int64
