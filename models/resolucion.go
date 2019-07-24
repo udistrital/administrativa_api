@@ -7,6 +7,8 @@ import (
 	"strings"
 	"time"
 
+	"github.com/udistrital/utils_oas/time_bogota"
+
 	"github.com/astaxie/beego/logs"
 
 	"github.com/astaxie/beego"
@@ -23,7 +25,7 @@ type Resolucion struct {
 	PreambuloResolucion     string          `orm:"column(preambulo_resolucion)"`
 	ConsideracionResolucion string          `orm:"column(consideracion_resolucion)"`
 	Estado                  bool            `orm:"column(estado)"`
-	FechaRegistro           time.Time       `orm:"column(fecha_registro);type(date)"`
+	FechaRegistro           string          `orm:"column(fecha_registro);"`
 	Objeto                  string          `orm:"column(objeto);null"`
 	NumeroSemanas           int             `orm:"column(numero_semanas)"`
 	Periodo                 int             `orm:"column(periodo)"`
@@ -62,7 +64,7 @@ func CancelarResolucion(m *Resolucion) (err error) {
 						e := ContratoEstado{}
 						e.NumeroContrato = aux1
 						e.Vigencia = aux2
-						e.FechaRegistro = tiempo_bogota()
+						e.FechaRegistro = time_bogota.TiempoBogotaFormato()
 						logs.Error(e.FechaRegistro)
 						e.Estado = &EstadoContrato{Id: 7}
 						if _, err = o.Insert(&e); err != nil {
@@ -87,7 +89,7 @@ func CancelarResolucion(m *Resolucion) (err error) {
 			var e ResolucionEstado
 			e.Resolucion = m
 			e.Estado = &EstadoResolucion{Id: 3}
-			e.FechaRegistro = tiempo_bogota().Format(time.RFC3339Nano)
+			e.FechaRegistro = time_bogota.TiempoBogotaFormato()
 			logs.Error(e.FechaRegistro)
 			_, err = o.Insert(&e)
 			if err == nil {
@@ -126,8 +128,8 @@ func GenerarResolucion(m *Resolucion) (id int64, err error) {
 	if err != nil {
 		beego.Error(err)
 	}
-	m.Vigencia, _, _ = tiempo_bogota().Date()
-	m.FechaRegistro = tiempo_bogota()
+	m.Vigencia, _, _ = time_bogota.Tiempo_bogota().Date()
+	m.FechaRegistro = time_bogota.TiempoBogotaFormato()
 	logs.Error(m.FechaRegistro)
 	m.Estado = true
 	m.IdTipoResolucion = &TipoResolucion{Id: 1}
@@ -136,7 +138,7 @@ func GenerarResolucion(m *Resolucion) (id int64, err error) {
 		var e ResolucionEstado
 		e.Resolucion = m
 		e.Estado = &EstadoResolucion{Id: 1}
-		e.FechaRegistro = tiempo_bogota().Format(time.RFC3339Nano)
+		e.FechaRegistro = time_bogota.TiempoBogotaFormato()
 		logs.Error(e.FechaRegistro)
 		_, err = o.Insert(&e)
 		if err != nil {
@@ -171,7 +173,7 @@ func RestaurarResolucion(m *Resolucion) (err error) {
 		var e ResolucionEstado
 		e.Resolucion = m
 		e.Estado = &EstadoResolucion{Id: 1}
-		e.FechaRegistro = tiempo_bogota().Format(time.RFC3339Nano)
+		e.FechaRegistro = time_bogota.TiempoBogotaFormato()
 		logs.Error(e.FechaRegistro)
 		_, err = o.Insert(&e)
 		if err == nil {
