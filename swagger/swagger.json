@@ -22158,8 +22158,7 @@
                     "$ref": "#/definitions/models.EstadoContrato"
                 },
                 "FechaRegistro": {
-                    "type": "string",
-                    "format": "datetime"
+                    "type": "string"
                 },
                 "Id": {
                     "type": "integer",
@@ -24156,8 +24155,7 @@
                     "format": "datetime"
                 },
                 "FechaRegistro": {
-                    "type": "string",
-                    "format": "datetime"
+                    "type": "string"
                 },
                 "Id": {
                     "type": "integer",
