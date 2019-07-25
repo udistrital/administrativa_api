@@ -13,7 +13,7 @@
             "url": "http://www.apache.org/licenses/LICENSE-2.0.html"
         }
     },
-    "basePath": "/administrativa_api/v1",
+    "basePath": "/v1",
     "paths": {
         "/acta_inicio/": {
             "get": {
@@ -69,7 +69,7 @@
                     },
                     "403": {
                         "description": ""
-                }
+                    }
                 }
             },
             "post": {
@@ -242,7 +242,7 @@
                     },
                     "403": {
                         "description": ""
-                }
+                    }
                 }
             },
             "post": {
@@ -415,7 +415,7 @@
                     },
                     "403": {
                         "description": ""
-                }
+                    }
                 }
             },
             "post": {
@@ -588,7 +588,7 @@
                     },
                     "403": {
                         "description": ""
-                }
+                    }
                 }
             },
             "post": {
@@ -761,7 +761,7 @@
                     },
                     "403": {
                         "description": ""
-                }
+                    }
                 }
             },
             "post": {
@@ -934,7 +934,7 @@
                     },
                     "403": {
                         "description": ""
-                }
+                    }
                 }
             },
             "post": {
@@ -1107,7 +1107,7 @@
                     },
                     "403": {
                         "description": ""
-                }
+                    }
                 }
             },
             "post": {
@@ -1280,7 +1280,7 @@
                     },
                     "403": {
                         "description": ""
-                }
+                    }
                 }
             },
             "post": {
@@ -1453,7 +1453,7 @@
                     },
                     "403": {
                         "description": ""
-                }
+                    }
                 }
             },
             "post": {
@@ -1626,7 +1626,7 @@
                     },
                     "403": {
                         "description": ""
-                }
+                    }
                 }
             },
             "post": {
@@ -1799,7 +1799,7 @@
                     },
                     "403": {
                         "description": ""
-                }
+                    }
                 }
             },
             "post": {
@@ -1972,7 +1972,7 @@
                     },
                     "403": {
                         "description": ""
-                }
+                    }
                 }
             },
             "post": {
@@ -2145,7 +2145,7 @@
                     },
                     "403": {
                         "description": ""
-                }
+                    }
                 }
             },
             "post": {
@@ -2318,7 +2318,7 @@
                     },
                     "403": {
                         "description": ""
-                }
+                    }
                 }
             },
             "post": {
@@ -2491,7 +2491,7 @@
                     },
                     "403": {
                         "description": ""
-                }
+                    }
                 }
             },
             "post": {
@@ -2664,7 +2664,7 @@
                     },
                     "403": {
                         "description": ""
-                }
+                    }
                 }
             },
             "post": {
@@ -2837,7 +2837,7 @@
                     },
                     "403": {
                         "description": ""
-                }
+                    }
                 }
             },
             "post": {
@@ -2956,7 +2956,7 @@
                 }
             }
         },
-        "/contenido_resolucion/ResolucionTemplate/{dedicacion}/{nivel}": {
+        "/contenido_resolucion/ResolucionTemplate/{dedicacion}/{nivel}/{periodo}/{tipo}": {
             "get": {
                 "tags": [
                     "contenido_resolucion"
@@ -2981,8 +2981,8 @@
                     },
                     "403": {
                         "description": ""
+                    }
                 }
-            }
             }
         },
         "/contenido_resolucion/{idResolucion}": {
@@ -3095,7 +3095,7 @@
                     },
                     "403": {
                         "description": ""
-                }
+                    }
                 }
             },
             "post": {
@@ -3268,7 +3268,7 @@
                     },
                     "403": {
                         "description": ""
-                }
+                    }
                 }
             },
             "post": {
@@ -3441,7 +3441,7 @@
                     },
                     "403": {
                         "description": ""
-                }
+                    }
                 }
             },
             "post": {
@@ -3614,7 +3614,7 @@
                     },
                     "403": {
                         "description": ""
-                }
+                    }
                 }
             },
             "post": {
@@ -3787,7 +3787,7 @@
                     },
                     "403": {
                         "description": ""
-                }
+                    }
                 }
             },
             "post": {
@@ -3960,7 +3960,7 @@
                     },
                     "403": {
                         "description": ""
-                }
+                    }
                 }
             },
             "post": {
@@ -4133,7 +4133,7 @@
                     },
                     "403": {
                         "description": ""
-                }
+                    }
                 }
             },
             "post": {
@@ -4306,7 +4306,7 @@
                     },
                     "403": {
                         "description": ""
-                }
+                    }
                 }
             },
             "post": {
@@ -4479,7 +4479,7 @@
                     },
                     "403": {
                         "description": ""
-                }
+                    }
                 }
             },
             "post": {
@@ -4652,7 +4652,7 @@
                     },
                     "403": {
                         "description": ""
-                }
+                    }
                 }
             },
             "post": {
@@ -4825,7 +4825,7 @@
                     },
                     "403": {
                         "description": ""
-                }
+                    }
                 }
             },
             "post": {
@@ -4998,7 +4998,7 @@
                     },
                     "403": {
                         "description": ""
-                }
+                    }
                 }
             },
             "post": {
@@ -5171,7 +5171,7 @@
                     },
                     "403": {
                         "description": ""
-                }
+                    }
                 }
             },
             "post": {
@@ -5344,7 +5344,7 @@
                     },
                     "403": {
                         "description": ""
-                }
+                    }
                 }
             },
             "post": {
@@ -5517,7 +5517,7 @@
                     },
                     "403": {
                         "description": ""
-                }
+                    }
                 }
             },
             "post": {
@@ -5690,7 +5690,7 @@
                     },
                     "403": {
                         "description": ""
-                }
+                    }
                 }
             },
             "post": {
@@ -5863,7 +5863,7 @@
                     },
                     "403": {
                         "description": ""
-                }
+                    }
                 }
             },
             "post": {
@@ -6036,7 +6036,7 @@
                     },
                     "403": {
                         "description": ""
-                }
+                    }
                 }
             },
             "post": {
@@ -6209,7 +6209,7 @@
                     },
                     "403": {
                         "description": ""
-                }
+                    }
                 }
             },
             "post": {
@@ -6382,7 +6382,7 @@
                     },
                     "403": {
                         "description": ""
-                }
+                    }
                 }
             },
             "post": {
@@ -6555,7 +6555,7 @@
                     },
                     "403": {
                         "description": ""
-                }
+                    }
                 }
             },
             "post": {
@@ -6728,7 +6728,7 @@
                     },
                     "403": {
                         "description": ""
-                }
+                    }
                 }
             },
             "post": {
@@ -6901,7 +6901,7 @@
                     },
                     "403": {
                         "description": ""
-                }
+                    }
                 }
             },
             "post": {
@@ -7074,7 +7074,7 @@
                     },
                     "403": {
                         "description": ""
-                }
+                    }
                 }
             },
             "post": {
@@ -7247,7 +7247,7 @@
                     },
                     "403": {
                         "description": ""
-                }
+                    }
                 }
             },
             "post": {
@@ -7420,7 +7420,7 @@
                     },
                     "403": {
                         "description": ""
-                }
+                    }
                 }
             },
             "post": {
@@ -7593,7 +7593,7 @@
                     },
                     "403": {
                         "description": ""
-                }
+                    }
                 }
             },
             "post": {
@@ -7766,7 +7766,7 @@
                     },
                     "403": {
                         "description": ""
-                }
+                    }
                 }
             },
             "post": {
@@ -7939,7 +7939,7 @@
                     },
                     "403": {
                         "description": ""
-                }
+                    }
                 }
             },
             "post": {
@@ -8112,7 +8112,7 @@
                     },
                     "403": {
                         "description": ""
-                }
+                    }
                 }
             },
             "post": {
@@ -8285,7 +8285,7 @@
                     },
                     "403": {
                         "description": ""
-                }
+                    }
                 }
             },
             "post": {
@@ -8458,7 +8458,7 @@
                     },
                     "403": {
                         "description": ""
-                }
+                    }
                 }
             },
             "post": {
@@ -8631,7 +8631,7 @@
                     },
                     "403": {
                         "description": ""
-                }
+                    }
                 }
             },
             "post": {
@@ -8804,7 +8804,7 @@
                     },
                     "403": {
                         "description": ""
-                }
+                    }
                 }
             },
             "post": {
@@ -8977,7 +8977,7 @@
                     },
                     "403": {
                         "description": ""
-                }
+                    }
                 }
             },
             "post": {
@@ -9150,7 +9150,7 @@
                     },
                     "403": {
                         "description": ""
-                }
+                    }
                 }
             },
             "post": {
@@ -9323,7 +9323,7 @@
                     },
                     "403": {
                         "description": ""
-                }
+                    }
                 }
             },
             "post": {
@@ -9496,7 +9496,7 @@
                     },
                     "403": {
                         "description": ""
-                }
+                    }
                 }
             },
             "post": {
@@ -9669,7 +9669,7 @@
                     },
                     "403": {
                         "description": ""
-                }
+                    }
                 }
             },
             "post": {
@@ -9842,7 +9842,7 @@
                     },
                     "403": {
                         "description": ""
-                }
+                    }
                 }
             },
             "post": {
@@ -10015,7 +10015,7 @@
                     },
                     "403": {
                         "description": ""
-                }
+                    }
                 }
             },
             "post": {
@@ -10188,7 +10188,7 @@
                     },
                     "403": {
                         "description": ""
-                }
+                    }
                 }
             },
             "post": {
@@ -10534,7 +10534,7 @@
                     },
                     "403": {
                         "description": ""
-                }
+                    }
                 }
             },
             "post": {
@@ -10707,7 +10707,7 @@
                     },
                     "403": {
                         "description": ""
-                }
+                    }
                 }
             },
             "post": {
@@ -12824,6 +12824,179 @@
                 ],
                 "description": "delete the Preliquidacion",
                 "operationId": "PreliquidacionController.Delete",
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "id",
+                        "description": "The id you want to delete",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "{string} delete success!"
+                    },
+                    "403": {
+                        "description": "id is empty"
+                    }
+                }
+            }
+        },
+        "/producto_rubro_necesidad/": {
+            "get": {
+                "tags": [
+                    "producto_rubro_necesidad"
+                ],
+                "description": "get ProductoRubroNecesidad",
+                "operationId": "ProductoRubroNecesidadController.Get All",
+                "parameters": [
+                    {
+                        "in": "query",
+                        "name": "query",
+                        "description": "Filter. e.g. col1:v1,col2:v2 ...",
+                        "type": "string"
+                    },
+                    {
+                        "in": "query",
+                        "name": "fields",
+                        "description": "Fields returned. e.g. col1,col2 ...",
+                        "type": "string"
+                    },
+                    {
+                        "in": "query",
+                        "name": "sortby",
+                        "description": "Sorted-by fields. e.g. col1,col2 ...",
+                        "type": "string"
+                    },
+                    {
+                        "in": "query",
+                        "name": "order",
+                        "description": "Order corresponding to each sortby field, if single value, apply to all sortby fields. e.g. desc,asc ...",
+                        "type": "string"
+                    },
+                    {
+                        "in": "query",
+                        "name": "limit",
+                        "description": "Limit the size of result set. Must be an integer",
+                        "type": "string"
+                    },
+                    {
+                        "in": "query",
+                        "name": "offset",
+                        "description": "Start position of result set. Must be an integer",
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "schema": {
+                            "$ref": "#/definitions/models.ProductoRubroNecesidad"
+                        }
+                    },
+                    "403": {
+                        "description": ""
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "producto_rubro_necesidad"
+                ],
+                "description": "create ProductoRubroNecesidad",
+                "operationId": "ProductoRubroNecesidadController.Post",
+                "parameters": [
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "description": "body for ProductoRubroNecesidad content",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/models.ProductoRubroNecesidad"
+                        }
+                    }
+                ],
+                "responses": {
+                    "201": {
+                        "description": "{int} models.ProductoRubroNecesidad"
+                    },
+                    "403": {
+                        "description": "body is empty"
+                    }
+                }
+            }
+        },
+        "/producto_rubro_necesidad/{id}": {
+            "get": {
+                "tags": [
+                    "producto_rubro_necesidad"
+                ],
+                "description": "get ProductoRubroNecesidad by id",
+                "operationId": "ProductoRubroNecesidadController.Get One",
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "id",
+                        "description": "The key for staticblock",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "schema": {
+                            "$ref": "#/definitions/models.ProductoRubroNecesidad"
+                        }
+                    },
+                    "403": {
+                        "description": ":id is empty"
+                    }
+                }
+            },
+            "put": {
+                "tags": [
+                    "producto_rubro_necesidad"
+                ],
+                "description": "update the ProductoRubroNecesidad",
+                "operationId": "ProductoRubroNecesidadController.Put",
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "id",
+                        "description": "The id you want to update",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "description": "body for ProductoRubroNecesidad content",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/models.ProductoRubroNecesidad"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "schema": {
+                            "$ref": "#/definitions/models.ProductoRubroNecesidad"
+                        }
+                    },
+                    "403": {
+                        "description": ":id is not int"
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "producto_rubro_necesidad"
+                ],
+                "description": "delete the ProductoRubroNecesidad",
+                "operationId": "ProductoRubroNecesidadController.Delete",
                 "parameters": [
                     {
                         "in": "path",
@@ -15131,7 +15304,7 @@
                     "201": {
                         "description": "",
                         "schema": {
-                            "$ref": "#/definitions/.Preliquidacion_x_contratos"
+                            "$ref": "#/definitions/models.Preliquidacion_x_contratos"
                         }
                     },
                     "403": {
@@ -15159,7 +15332,7 @@
                     "201": {
                         "description": "",
                         "schema": {
-                            "$ref": "#/definitions/.Preliquidacion_x_contratos"
+                            "$ref": "#/definitions/models.Preliquidacion_x_contratos"
                         }
                     },
                     "403": {
@@ -20286,7 +20459,45 @@
                     "201": {
                         "description": "",
                         "schema": {
-                            "$ref": "#/definitions/.msg"
+                            "$ref": "#/definitions/msg"
+                        }
+                    },
+                    "403": {
+                        "description": ":id is not int"
+                    }
+                }
+            }
+        },
+        "/tr_necesidad/{id}": {
+            "put": {
+                "tags": [
+                    "tr_necesidad"
+                ],
+                "description": "update the TrNecesidad it calculates the consecutive number and update the need",
+                "operationId": "TrNecesidadController.Put",
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "id",
+                        "description": "The id you want to update",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "description": "body for TrNecesidad content",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/models.Necesidad"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "schema": {
+                            "$ref": "#/definitions/models.TrNecesidad"
                         }
                     },
                     "403": {
@@ -20317,7 +20528,7 @@
                     "201": {
                         "description": "",
                         "schema": {
-                            "$ref": "#/definitions/.msg"
+                            "$ref": "#/definitions/msg"
                         }
                     },
                     "403": {
@@ -20859,7 +21070,7 @@
                         "description": "body for VigenciaContrato content",
                         "required": true,
                         "schema": {
-                            "$ref": "#/definitions/.VigenciaContrato"
+                            "$ref": "#/definitions/models.VigenciaContrato"
                         }
                     }
                 ],
@@ -21332,21 +21543,6 @@
         }
     },
     "definitions": {
-        ".NullInt64": {
-            "type": "object"
-        },
-        ".NullString": {
-            "type": "object"
-        },
-        ".Preliquidacion_x_contratos": {
-            "type": "object"
-        },
-        ".VigenciaContrato": {
-            "type": "object"
-        },
-        ".msg": {
-            "type": "object"
-        },
         "models.ActaInicio": {
             "title": "ActaInicio",
             "type": "object",
@@ -21413,8 +21609,7 @@
             "type": "object",
             "properties": {
                 "ActividadEconomica": {
-                    "type": "integer",
-                    "format": "int64"
+                    "type": "string"
                 },
                 "Id": {
                     "type": "integer",
@@ -21963,8 +22158,7 @@
                     "$ref": "#/definitions/models.EstadoContrato"
                 },
                 "FechaRegistro": {
-                    "type": "string",
-                    "format": "datetime"
+                    "type": "string"
                 },
                 "Id": {
                     "type": "integer",
@@ -23100,6 +23294,12 @@
                     "type": "integer",
                     "format": "int64"
                 },
+                "ProductoReversa": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/models.ProductoRubroNecesidad"
+                    }
+                },
                 "Supervisor": {
                     "type": "integer",
                     "format": "int64"
@@ -23134,6 +23334,10 @@
             "title": "NecesidadProcesoExterno",
             "type": "object",
             "properties": {
+                "Consecutivo": {
+                    "type": "integer",
+                    "format": "int64"
+                },
                 "Id": {
                     "type": "integer",
                     "format": "int64"
@@ -23654,6 +23858,35 @@
                 }
             }
         },
+        "models.Preliquidacion_x_contratos": {
+            "title": "Preliquidacion_x_contratos",
+            "type": "object"
+        },
+        "models.ProductoRubroNecesidad": {
+            "title": "ProductoRubroNecesidad",
+            "type": "object",
+            "properties": {
+                "Apropiacion": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "FechaRegistro": {
+                    "type": "string",
+                    "format": "datetime"
+                },
+                "Id": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "Necesidad": {
+                    "$ref": "#/definitions/models.Necesidad"
+                },
+                "ProductoRubro": {
+                    "type": "integer",
+                    "format": "int64"
+                }
+            }
+        },
         "models.Profile": {
             "title": "Profile",
             "type": "object",
@@ -23922,14 +24155,17 @@
                     "format": "datetime"
                 },
                 "FechaRegistro": {
-                    "type": "string",
-                    "format": "datetime"
+                    "type": "string"
                 },
                 "Id": {
                     "type": "integer",
                     "format": "int64"
                 },
                 "IdDependencia": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "IdDependenciaFirma": {
                     "type": "integer",
                     "format": "int64"
                 },
@@ -23950,6 +24186,10 @@
                     "type": "integer",
                     "format": "int64"
                 },
+                "PeriodoCarga": {
+                    "type": "integer",
+                    "format": "int64"
+                },
                 "PreambuloResolucion": {
                     "type": "string"
                 },
@@ -23957,6 +24197,10 @@
                     "type": "string"
                 },
                 "Vigencia": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "VigenciaCarga": {
                     "type": "integer",
                     "format": "int64"
                 }
@@ -24005,8 +24249,7 @@
                     "$ref": "#/definitions/models.EstadoResolucion"
                 },
                 "FechaRegistro": {
-                    "type": "string",
-                    "format": "datetime"
+                    "type": "string"
                 },
                 "Id": {
                     "type": "integer",
@@ -24821,6 +25064,12 @@
                 },
                 "Necesidad": {
                     "$ref": "#/definitions/models.Necesidad"
+                },
+                "ProductosNecesidad": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/models.ProductoRubroNecesidad"
+                    }
                 }
             }
         },
@@ -24957,6 +25206,10 @@
                 }
             }
         },
+        "models.VigenciaContrato": {
+            "title": "VigenciaContrato",
+            "type": "object"
+        },
         "models.VinculacionDocente": {
             "title": "VinculacionDocente",
             "type": "object",
@@ -25061,6 +25314,18 @@
                     "format": "double"
                 }
             }
+        },
+        "msg": {
+            "title": "msg",
+            "type": "object"
+        },
+        "sql.NullInt64": {
+            "title": "NullInt64",
+            "type": "object"
+        },
+        "sql.NullString": {
+            "title": "NullString",
+            "type": "object"
         }
     },
     "tags": [
@@ -25411,6 +25676,10 @@
         {
             "name": "fuente_financiacion_rubro_necesidad",
             "description": "FuenteFinanciacionRubroNecesidadController operations for FuenteFinanciacionRubroNecesidad\n"
+        },
+        {
+            "name": "producto_rubro_necesidad",
+            "description": "ProductoRubroNecesidadController operations for ProductoRubroNecesidad\n"
         },
         {
             "name": "marco_legal_necesidad",
