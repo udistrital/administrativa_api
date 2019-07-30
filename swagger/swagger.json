@@ -2956,7 +2956,7 @@
                 }
             }
         },
-        "/contenido_resolucion/ResolucionTemplate/{dedicacion}/{nivel}/{periodo}/{tipo}": {
+        "/contenido_resolucion/ResolucionTemplate/{dedicacion}/{nivel}/{periodo}/{tipo}/{numero}": {
             "get": {
                 "tags": [
                     "contenido_resolucion"
