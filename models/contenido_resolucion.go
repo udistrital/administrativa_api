@@ -239,7 +239,10 @@ func GetTemplateResolucion(dedicacion, nivel, periodo, tipo string) (res Resoluc
 			articulo = Articulo{Texto: "En caso de incumplimiento o retiro del docente, la Universidad Distrital Francisco José de Caldas, mediante acto administrativo motivado, declarará la terminación del reconocimiento con corte a la fecha del respectivo cumplido, cancelando los correspondientes Honorarios, conforme al cálculo que efectúe la División de Recursos Humanos."}
 			articulos = append(articulos, articulo)
 		}
-
+		if dedicacion == "TCO-MTO" {
+			articulo = Articulo{Texto: "En caso de incumplimiento o retiro del docente, la Universidad Distrital Francisco José de Caldas, mediante acto administrativo motivado, declarará la terminación del vínculo laboral y la liquidación con corte a la fecha del respectivo cumplido, cancelando las correspondientes prestaciones sociales, conforme al cálculo que efectúe la División de Recursos Humanos."}
+			articulos = append(articulos, articulo)
+		}
 	}
  /////ARTICULO 5
   if (dedicacion == "HCH" && nivel == "POSGRADO") {
