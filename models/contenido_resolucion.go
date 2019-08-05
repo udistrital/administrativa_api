@@ -280,8 +280,13 @@ func GetTemplateResolucion(dedicacion, nivel, periodo, tipo string) (res Resoluc
 			articulo = Articulo{Texto: "El Decreto 1072 de 2015 artículo 2.2.4.2.2.16. y la resolución de rectoría No. 624 de 2017, el docente ocasional, hora catedra y honorarios debe dar cumplimiento con las normas del sistema general de riesgos laborales las cuales deberá consultar en la mencionada norma."}
 		    articulos = append(articulos, articulo)
 		}else{
-			articulo = Articulo{Texto: "Comuníquese la presente resolución a los docentes mencionados en el artículo 1º, quienes deberán manifestar, bajo la gravedad de juramento que se entiende prestado con la aprobación del formato de carga en el aplicativo de gestión académica, que no se encuentran incursos en causal de inhabilidad o incompatibilidad establecida en las normas pertinentes y aplicables, que no tienen cruces de horarios ni ostentan otra vinculación de carácter público, diferente a hora cátedra, en entidades de educación oficiales, siempre y cuando los honorarios no sumen más de ocho (8) horas diarias de trabajo a varias entidades."}
-	    	articulos = append(articulos, articulo)
+			if dedicacion == "HCP" {
+				articulo = Articulo{Texto: "El Decreto 1072 de 2015 artículo 2.2.4.2.2.16. y la resolución de rectoría No. 624 de 2017, el docente ocasional, hora catedra y honorarios debe dar cumplimiento con las normas del sistema general de riesgos laborales las cuales deberá consultar en la mencionada norma."}
+		        articulos = append(articulos, articulo)
+			}else{
+				articulo = Articulo{Texto: "Comuníquese la presente resolución a los docentes mencionados en el artículo 1º, quienes deberán manifestar, bajo la gravedad de juramento que se entiende prestado con la aprobación del formato de carga en el aplicativo de gestión académica, que no se encuentran incursos en causal de inhabilidad o incompatibilidad establecida en las normas pertinentes y aplicables, que no tienen cruces de horarios ni ostentan otra vinculación de carácter público, diferente a hora cátedra, en entidades de educación oficiales, siempre y cuando los honorarios no sumen más de ocho (8) horas diarias de trabajo a varias entidades."}
+	    	    articulos = append(articulos, articulo)
+			}
 	    }
 	}
 	/////ARTICULO 8
