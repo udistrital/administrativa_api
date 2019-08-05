@@ -320,8 +320,12 @@ func GetTemplateResolucion(dedicacion, nivel, periodo, tipo string) (res Resoluc
 		articulo = Articulo{Texto: "El presente acto administrativo se expide a los ______________(__) días del mes de __________ del año " + strconv.Itoa(vigencia) + " y surte efectos de conformidad con la resolución 003 de enero catorce (14) de 2019, por medio del cual se expide el calendario académico para el año 2019 para las actividades académicas  " + periodoStr + " Periodo Académico para el año " + strconv.Itoa(vigencia) + " que corresponde del doce (12) de agosto al trece (13) diciembre del 2019."}
 		articulos = append(articulos, articulo)
 	}
-	if dedicacion == "HCP" {
+	if (dedicacion == "HCP" && nivel == "PREGRADO") {
 		articulo = Articulo{Texto: "El presente acto administrativo se expide a los ______________(__) días del mes de __________ del año " + strconv.Itoa(vigencia) + " y surte efectos de conformidad con la resolución 003 de enero catorce (14) de 2019, por medio del cual se expide el calendario académico para el año 2019 para las actividades académicas  " + periodoStr + " Periodo Académico para el año " + strconv.Itoa(vigencia) + " que corresponde del doce (12) de agosto al trece (13) diciembre del 2019."}
+		articulos = append(articulos, articulo)
+	}
+	if (dedicacion == "HCP" && nivel == "POSGRADO") {
+		articulo = Articulo{Texto: "El presente acto administrativo se expide a los ______________(__) días del mes de __________ del año " + strconv.Itoa(vigencia) + " y surte efectos de conformidad con la resolución 112 de diciembre 18 de 2018, por medio del cual se expide el calendario académico para el año 2019 para las actividades académicas  " + periodoStr + " Periodo Académico para el año " + strconv.Itoa(vigencia) + " que corresponde del agosto quince (15) y hasta diciembre dieciséis (16) del 2019."}
 		articulos = append(articulos, articulo)
 	}
 
