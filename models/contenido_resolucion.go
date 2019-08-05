@@ -253,7 +253,7 @@ func GetTemplateResolucion(dedicacion, nivel, periodo, tipo string) (res Resoluc
 		  	paragrafo = Paragrafo{Texto: "En todo caso, los pagos correspondientes estarán sujetos a las apropiaciones presupuestales y a las transferencias de la Secretaría de Hacienda Distrital y se realizarán dentro de los primeros cinco días de cada mes."}
 		  	articulo.Paragrafos = append(articulo.Paragrafos, paragrafo)
 		  }else{
-		  	paragrafo = Paragrafo{Texto: "En todo caso, los pagos correspondientes estarán sujetos a las apropiaciones presupuestales y a las transferencias de la Secretaría de Hacienda Distrital."}
+		  	paragrafo = Paragrafo{Texto: "En todo caso, los pagos correspondientes estarán sujetos a las apropiaciones presupuestales y a las transferencias realizadas por la Secretaría de Hacienda Distrital y se realizarán dentro de los primeros cinco días de cada mes."}
 		  	articulo.Paragrafos = append(articulo.Paragrafos, paragrafo)
 		  }
 	}
