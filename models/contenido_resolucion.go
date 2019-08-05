@@ -190,7 +190,7 @@ func GetTemplateResolucion(dedicacion, nivel, periodo, tipo string) (res Resoluc
 
 	/////ARTICULO 2
 	if (dedicacion == "HCH" && nivel == "POSGRADO") {
-		articulo = Articulo{Texto: "El pago de los honorarios por los servicios prestados a los profesores de Hora Cátedra por Honorarios según su escalafón, se cancelará previa certificación de las horas efectivamente dictadas, expedida por el decano (a)."}
+		articulo = Articulo{Texto: "El pago de los honorarios por los servicios prestados a los profesores de Hora Cátedra por Honorarios según su escalafón, se cancelará previa certificación de las horas efectivamente dictadas, expedida por el Decano (a)."}
 
 	}else{
 		articulo = Articulo{Texto: "El pago de los servicios prestados por los profesores de vinculación especial a que se refiere el artículo anterior, según su escalafón, se hará  previa certificación de las horas efectivamente dictadas, que se encuentren inmersas en el correspondiente plan de trabajo de la gestión académica, expedida por el decano y/o director de proyecto curricular."}
@@ -200,42 +200,77 @@ func GetTemplateResolucion(dedicacion, nivel, periodo, tipo string) (res Resoluc
 
 	articulos = append(articulos, articulo)
   /////ARTICULO 3
-	articulo = Articulo{Texto: "Los docentes en cuestión deberán cumplir con las obligaciones inherentes a la naturaleza del servicio, contempladas en la ley, en los reglamentos de la Universidad Distrital y en los planes de trabajo establecidos en el aplicativo de gestión académica, entregados por cada profesor, y aprobados por el coordinador del correspondiente programa académico, decano y/o director."}
-	if dedicacion == "TCO-MTO" {
-		paragrafo = Paragrafo{Texto: "Los Planes de Trabajo objeto de la presente vinculación, serán acordados o entregados, para cada periodo académico, con base en el calendario que para tal efecto, expida el Consejo Académico de la Universidad Distrital Francisco José de Caldas."}
+  if (dedicacion == "HCH" && nivel == "POSGRADO") {
+		articulo = Articulo{Texto: "Los docentes deberán cumplir con las obligaciones inherentes a la naturaleza del servicio, contempladas en la Ley, en los Reglamentos de la Universidad y en los Planes de Trabajo Entregados por el profesor y aprobados por Decano (a).\n\n"}
+		paragrafo = Paragrafo{Texto: "En caso de incumplimiento o retiro del docente, la Universidad mediante acto administrativo hará la liquidación con corte a la fecha del cumplido expedido por el Decano (a).\n\n"}
 		articulo.Paragrafos = append(articulo.Paragrafos, paragrafo)
-		paragrafo = Paragrafo{Texto: "Las funciones propias de la vinculación docente serán aquellas que se fijen en el Plan de Trabajo para cada período académico."}
+		paragrafo = Paragrafo{Texto: "El docente cumplirá con lo establecido en la circular No. 004 de Julio 19 de 2017 de Rectoría con relación al pago de aportes a seguridada social de forma independiente de conformidad con la ley."}
 		articulo.Paragrafos = append(articulo.Paragrafos, paragrafo)
-		paragrafo = Paragrafo{Texto: "En caso de incumplimiento o retiro del docente, la Universidad Distrital Francisco José de Caldas, mediante acto administrativo motivado, declarará la terminación del vínculo laboral y la liquidación con corte a la fecha del respectivo cumplido, cancelando las correspondientes prestaciones sociales, conforme al cálculo que efectúe la División de Recursos Humanos."}
-		articulo.Paragrafos = append(articulo.Paragrafos, paragrafo)
-	} else {
-		paragrafo = Paragrafo{Texto: "Las funciones propias de la vinculación docente serán aquellas que se fijen en el Plan de Trabajo del período académico correspondiente."}
-		articulo.Paragrafos = append(articulo.Paragrafos, paragrafo)
+	}else{
+		articulo = Articulo{Texto: "Los docentes en cuestión deberán cumplir con las obligaciones inherentes a la naturaleza del servicio, contempladas en la ley, en los reglamentos de la Universidad Distrital y en los planes de trabajo establecidos en el aplicativo de gestión académica, entregados por cada profesor, y aprobados por el coordinador del correspondiente programa académico, decano y/o director."}
+		if dedicacion == "TCO-MTO" {
+			paragrafo = Paragrafo{Texto: "Los Planes de Trabajo objeto de la presente vinculación, serán acordados o entregados, para cada periodo académico, con base en el calendario que para tal efecto, expida el Consejo Académico de la Universidad Distrital Francisco José de Caldas."}
+			articulo.Paragrafos = append(articulo.Paragrafos, paragrafo)
+			paragrafo = Paragrafo{Texto: "Las funciones propias de la vinculación docente serán aquellas que se fijen en el Plan de Trabajo para cada período académico."}
+			articulo.Paragrafos = append(articulo.Paragrafos, paragrafo)
+			paragrafo = Paragrafo{Texto: "En caso de incumplimiento o retiro del docente, la Universidad Distrital Francisco José de Caldas, mediante acto administrativo motivado, declarará la terminación del vínculo laboral y la liquidación con corte a la fecha del respectivo cumplido, cancelando las correspondientes prestaciones sociales, conforme al cálculo que efectúe la División de Recursos Humanos."}
+			articulo.Paragrafos = append(articulo.Paragrafos, paragrafo)
+		} else {
+			paragrafo = Paragrafo{Texto: "Las funciones propias de la vinculación docente serán aquellas que se fijen en el Plan de Trabajo del período académico correspondiente."}
+			articulo.Paragrafos = append(articulo.Paragrafos, paragrafo)
+		}
 	}
 	articulos = append(articulos, articulo)
-	if dedicacion == "HCP" {
-		articulo = Articulo{Texto: "En caso de incumplimiento o retiro del docente, la Universidad Distrital Francisco José de Caldas, mediante acto administrativo motivado, declarará la terminación del vínculo laboral y la liquidación con corte a la fecha del respectivo cumplido, cancelando las correspondientes prestaciones sociales, conforme al cálculo que efectúe la División de Recursos Humanos."}
+  ////ARTICULO 4
+	if (dedicacion == "HCH" && nivel == "POSGRADO") {
+		articulo = Articulo{Texto: "El gasto que ocasione la presente resolución se hará cargo al presupuesto de la actual vigencia, previa certificación de disponibilidad presupuestal.\n\n"}
+		paragrafo = Paragrafo{Texto: "En todo caso, los pagos correspondientes estarán sujetos a las apropiaciones presupuestales y a las transferencias realizadas por la Secretaría de Hacienda Distrital y se realizarán dentro de los primeros cinco días de cada mes."}
+		articulo.Paragrafos = append(articulo.Paragrafos, paragrafo)
 		articulos = append(articulos, articulo)
+	}else{
+		if dedicacion == "HCP" {
+			articulo = Articulo{Texto: "En caso de incumplimiento o retiro del docente, la Universidad Distrital Francisco José de Caldas, mediante acto administrativo motivado, declarará la terminación del vínculo laboral y la liquidación con corte a la fecha del respectivo cumplido, cancelando las correspondientes prestaciones sociales, conforme al cálculo que efectúe la División de Recursos Humanos."}
+			articulos = append(articulos, articulo)
+		}
+		if dedicacion == "HCH" {
+			articulo = Articulo{Texto: "En caso de incumplimiento o retiro del docente, la Universidad Distrital Francisco José de Caldas, mediante acto administrativo motivado, declarará la terminación del reconocimiento con corte a la fecha del respectivo cumplido, cancelando los correspondientes Honorarios, conforme al cálculo que efectúe la División de Recursos Humanos."}
+			articulos = append(articulos, articulo)
+		}
+
 	}
-	if dedicacion == "HCH" {
-		articulo = Articulo{Texto: "En caso de incumplimiento o retiro del docente, la Universidad Distrital Francisco José de Caldas, mediante acto administrativo motivado, declarará la terminación del reconocimiento con corte a la fecha del respectivo cumplido, cancelando los correspondientes Honorarios, conforme al cálculo que efectúe la División de Recursos Humanos."}
-		articulos = append(articulos, articulo)
+ /////ARTICULO 5
+  if (dedicacion == "HCH" && nivel == "POSGRADO") {
+			articulo = Articulo{Texto: "Bajo el supuesto que, se declare la suspensión de actividades académicas por parte de los órganos competentes de la Universidad Distrital Francisco José de Caldas, cesará automáticamente para el docente de vinculación especial la obligación de prestar sus servicios y para la Universidad, la de pagar los salarios y prestaciones correspondientes al periodo suspendido, pero persistirá para esta última, la de efectuar los respectivos aportes a salud y pensión, en el porcentaje que le corresponda.\n\nSi la suspensión de actividades académicas persiste por más de quince (15) días calendario, la Universidad Distrital Francisco José de Caldas mediante acto administrativo motivado, podrá declarar la terminación del vínculo laboral y la liquidación con corte a la fecha del respectivo cumplido, conforme al cálculo que efectúe la División de Recursos Humanos."}
+	}else{
+		  articulo = Articulo{Texto: "El gasto que ocasione el presente acto administrativo, se hará con cargo al presupuesto de la actual vigencia, previa certificación de disponibilidad presupuestal."}
+			paragrafo = Paragrafo{Texto: "En todo caso, los pagos correspondientes estarán sujetos a las apropiaciones presupuestales y a las transferencias de la Secretaría de Hacienda Distrital."}
+			articulo.Paragrafos = append(articulo.Paragrafos, paragrafo)
 	}
-	articulo = Articulo{Texto: "El gasto que ocasione el presente acto administrativo, se hará con cargo al presupuesto de la actual vigencia, previa certificación de disponibilidad presupuestal."}
-	paragrafo = Paragrafo{Texto: "En todo caso, los pagos correspondientes estarán sujetos a las apropiaciones presupuestales y a las transferencias de la Secretaría de Hacienda Distrital."}
-	articulo.Paragrafos = append(articulo.Paragrafos, paragrafo)
 	articulos = append(articulos, articulo)
-	if dedicacion == "HCH" {
-		articulo = Articulo{Texto: "Bajo el supuesto que, se declare la suspensión de actividades académicas por parte de los órganos competentes de la Universidad Distrital Francisco José de Caldas, cesará automáticamente para el docente de vinculación especial la obligación de prestar sus servicios y para la Universidad, la de reconocer los honorarios correspondientes al periodo suspendido. Si la suspensión de actividades académicas persiste por más de quince (15) días calendario, la Universidad Distrital Francisco José de Caldas mediante acto administrativo motivado, podrá declarar la terminación con corte a la fecha del respectivo cumplido, cancelando honorarios correspondientes, conforme al cálculo que efectúe la División de Recursos Humanos."}
+	/////ARTICULO 6
+	if (dedicacion == "HCH" && nivel == "POSGRADO") {
+		articulo = Articulo{Texto: "El Decreto 1072 de 2015 artículo 2.2.4.2.2.16. y la resolución de rectoría No. 624 de 2017, el docente ocasional, hora catedra y honorarios debe dar cumplimiento con las normas del sistema general de riesgos laborales las cuales deberá consultar en la mencionada norma."}
 		articulos = append(articulos, articulo)
-	} else {
-		articulo = Articulo{Texto: "Bajo el supuesto que, se declare la suspensión de actividades académicas por parte de los órganos competentes de la Universidad Distrital Francisco José de Caldas, cesará automáticamente para el docente de vinculación especial la obligación de prestar sus servicios y para la Universidad, la de pagar los salarios y prestaciones correspondientes al periodo suspendido, pero persistirá para esta última, la de efectuar los respectivos aportes a salud y pensión, en el porcentaje que le corresponda. Si la suspensión de actividades académicas persiste por más de quince (15) días calendario, la Universidad Distrital Francisco José de Caldas mediante acto administrativo motivado, podrá declarar la terminación del vínculo laboral y la liquidación con corte a la fecha del respectivo cumplido, cancelando las correspondientes prestaciones sociales, conforme al cálculo que efectúe la División de Recursos Humanos."}
-		articulos = append(articulos, articulo)
+	}else{
+		if dedicacion == "HCH" {
+			articulo = Articulo{Texto: "Bajo el supuesto que, se declare la suspensión de actividades académicas por parte de los órganos competentes de la Universidad Distrital Francisco José de Caldas, cesará automáticamente para el docente de vinculación especial la obligación de prestar sus servicios y para la Universidad, la de reconocer los honorarios correspondientes al periodo suspendido. Si la suspensión de actividades académicas persiste por más de quince (15) días calendario, la Universidad Distrital Francisco José de Caldas mediante acto administrativo motivado, podrá declarar la terminación con corte a la fecha del respectivo cumplido, cancelando honorarios correspondientes, conforme al cálculo que efectúe la División de Recursos Humanos."}
+			articulos = append(articulos, articulo)
+		} else {
+			articulo = Articulo{Texto: "Bajo el supuesto que, se declare la suspensión de actividades académicas por parte de los órganos competentes de la Universidad Distrital Francisco José de Caldas, cesará automáticamente para el docente de vinculación especial la obligación de prestar sus servicios y para la Universidad, la de pagar los salarios y prestaciones correspondientes al periodo suspendido, pero persistirá para esta última, la de efectuar los respectivos aportes a salud y pensión, en el porcentaje que le corresponda. Si la suspensión de actividades académicas persiste por más de quince (15) días calendario, la Universidad Distrital Francisco José de Caldas mediante acto administrativo motivado, podrá declarar la terminación del vínculo laboral y la liquidación con corte a la fecha del respectivo cumplido, cancelando las correspondientes prestaciones sociales, conforme al cálculo que efectúe la División de Recursos Humanos."}
+			articulos = append(articulos, articulo)
+		}
 	}
+  /////ARTICULO 7
 	articulo = Articulo{Texto: "Comuníquese la presente resolución a los docentes mencionados en el artículo 1º, quienes deberán manifestar, bajo la gravedad de juramento que se entiende prestado con la aprobación del formato de carga en el aplicativo de gestión académica, que no se encuentran incursos en causal de inhabilidad o incompatibilidad establecida en las normas pertinentes y aplicables, que no tienen cruces de horarios ni ostentan otra vinculación de carácter público, diferente a hora cátedra, en entidades de educación oficiales, siempre y cuando los honorarios no sumen más de ocho (8) horas diarias de trabajo a varias entidades."}
 	articulos = append(articulos, articulo)
-	articulo = Articulo{Texto: "El presente acto administrativo se expide a los XXXXXX (XX) días del mes de XXXXXX del año " + strconv.Itoa(vigencia) + " y surte efectos en los términos de la. Resolución Nro. 110 de diciembre 13 de 2018, modificada por la Resolución Nro. 05 de enero 22 de 2019 del Consejo Académico, es decir, dependiendo de la normalización de las actividades, tanto administrativas como académicas en la Facultad, para el " + periodoStr + " Periodo Académico del año " + strconv.Itoa(vigencia) + "."}
-	articulos = append(articulos, articulo)
+	/////ARTICULO 8
+	if (dedicacion == "HCH" && nivel == "POSGRADO") {
+		articulo = Articulo{Texto: "El presente acto administrativo se expide a los XXXXXX (XX) días del mes de XXXXXX del año " + strconv.Itoa(vigencia) + " y surte efectos de conformidad con la resolución 112 de diciembre 18 de 2018 por medio del cual se expide el calendario académico para el año 2019 para las actividades académicas  " + periodoStr + " Periodo Académico para el año " + strconv.Itoa(vigencia) + " que corresponde del agosto quince (15) y hasta diciembre dieciséis (16) del 2019."}
+		articulos = append(articulos, articulo)
+	}else{
+		articulo = Articulo{Texto: "El presente acto administrativo se expide a los XXXXXX (XX) días del mes de XXXXXX del año " + strconv.Itoa(vigencia) + " y surte efectos en los términos de la. Resolución Nro. 110 de diciembre 13 de 2018, modificada por la Resolución Nro. 05 de enero 22 de 2019 del Consejo Académico, es decir, dependiendo de la normalización de las actividades, tanto administrativas como académicas en la Facultad, para el " + periodoStr + " Periodo Académico del año " + strconv.Itoa(vigencia) + "."}
+		articulos = append(articulos, articulo)
+	}
 	resolucion.Articulos = articulos //articulos//articulos
 
 	return resolucion
