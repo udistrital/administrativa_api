@@ -137,6 +137,7 @@ func GetTemplateResolucion(dedicacion, nivel, periodo, tipo string) (res Resoluc
 	var resolucion ResolucionCompleta
 	var articulos []Articulo
 	var articulo Articulo
+	var paragrafo Paragrafo
 	var vigencia, _, _ = time.Now().Date()
 	//var accion string
 	var periodoStr string
@@ -186,10 +187,19 @@ func GetTemplateResolucion(dedicacion, nivel, periodo, tipo string) (res Resoluc
 	}
 
 	articulos = append(articulos, articulo)
-	articulo = Articulo{Texto: "El pago de los servicios prestados por los profesores de vinculación especial a que se refiere el artículo anterior, según su escalafón, se hará  previa certificación de las horas efectivamente dictadas, que se encuentren inmersas en el correspondiente plan de trabajo de la gestión académica, expedida por el decano y/o director de proyecto curricular."}
-	paragrafo := Paragrafo{Texto: "El valor del punto en pesos para el reconocimiento y pago de los docentes de hora cátedra, será el que fije el Gobierno Nacional mediante decreto, cada año, y que la Universidad Distrital Francisco José de Caldas acoja mediante acto administrativo, respecto de los docentes de vinculación especial."}
-	articulo.Paragrafos = append(articulo.Paragrafos, paragrafo)
+
+	/////ARTICULO 2
+	if (dedicacion == "HCH" && nivel == "POSGRADO") {
+		articulo = Articulo{Texto: "El pago de los honorarios por los servicios prestados a los profesores de Hora Cátedra por Honorarios según su escalafón, se cancelará previa certificación de las horas efectivamente dictadas, expedida por el decano (a)."}
+
+	}else{
+		articulo = Articulo{Texto: "El pago de los servicios prestados por los profesores de vinculación especial a que se refiere el artículo anterior, según su escalafón, se hará  previa certificación de las horas efectivamente dictadas, que se encuentren inmersas en el correspondiente plan de trabajo de la gestión académica, expedida por el decano y/o director de proyecto curricular."}
+		paragrafo := Paragrafo{Texto: "El valor del punto en pesos para el reconocimiento y pago de los docentes de hora cátedra, será el que fije el Gobierno Nacional mediante decreto, cada año, y que la Universidad Distrital Francisco José de Caldas acoja mediante acto administrativo, respecto de los docentes de vinculación especial."}
+    articulo.Paragrafos = append(articulo.Paragrafos, paragrafo)
+	}
+
 	articulos = append(articulos, articulo)
+  /////ARTICULO 3
 	articulo = Articulo{Texto: "Los docentes en cuestión deberán cumplir con las obligaciones inherentes a la naturaleza del servicio, contempladas en la ley, en los reglamentos de la Universidad Distrital y en los planes de trabajo establecidos en el aplicativo de gestión académica, entregados por cada profesor, y aprobados por el coordinador del correspondiente programa académico, decano y/o director."}
 	if dedicacion == "TCO-MTO" {
 		paragrafo = Paragrafo{Texto: "Los Planes de Trabajo objeto de la presente vinculación, serán acordados o entregados, para cada periodo académico, con base en el calendario que para tal efecto, expida el Consejo Académico de la Universidad Distrital Francisco José de Caldas."}
