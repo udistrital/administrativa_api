@@ -193,9 +193,13 @@ func GetTemplateResolucion(dedicacion, nivel, periodo, tipo string) (res Resoluc
 		articulo = Articulo{Texto: "El pago de los honorarios por los servicios prestados a los profesores de Hora Cátedra por Honorarios según su escalafón, se cancelará previa certificación de las horas efectivamente dictadas, expedida por el Decano (a)."}
 
 	}else{
-		articulo = Articulo{Texto: "El pago de los servicios prestados por los profesores de vinculación especial a que se refiere el artículo anterior, según su escalafón, se hará  previa certificación de las horas efectivamente dictadas, que se encuentren inmersas en el correspondiente plan de trabajo de la gestión académica, expedida por el decano y/o director de proyecto curricular.\n\n"}
-		paragrafo := Paragrafo{Texto: "El valor del punto en pesos para el reconocimiento y pago de los docentes de hora cátedra, será el que fije el Gobierno Nacional mediante decreto, cada año, y que la Universidad Distrital Francisco José de Caldas acoja mediante acto administrativo, respecto de los docentes de vinculación especial."}
-        articulo.Paragrafos = append(articulo.Paragrafos, paragrafo)
+		if(dedicacion == "HCP" && nivel == "POSGRADO"){
+			articulo = Articulo{Texto: "El pago de los servicios prestados por los profesores de vinculación especial a que se refiere el artículo anterior, según su escalafón, se hará previa certificación de las horas efectivamente dictadas, que se encuentren inmersas en el correspondiente plan de trabajo de la gestión académica, expedida por el decano y/o director de proyecto curricular.\n\n"}
+		}else{
+			articulo = Articulo{Texto: "El pago de los servicios prestados por los profesores de vinculación especial a que se refiere el artículo anterior, según su escalafón, se hará  previa certificación de las horas efectivamente dictadas, que se encuentren inmersas en el correspondiente plan de trabajo de la gestión académica, expedida por el decano y/o director de proyecto curricular.\n\n"}
+		    paragrafo := Paragrafo{Texto: "El valor del punto en pesos para el reconocimiento y pago de los docentes de hora cátedra, será el que fije el Gobierno Nacional mediante decreto, cada año, y que la Universidad Distrital Francisco José de Caldas acoja mediante acto administrativo, respecto de los docentes de vinculación especial."}
+            articulo.Paragrafos = append(articulo.Paragrafos, paragrafo)
+		}
 	}
 
 	articulos = append(articulos, articulo)
