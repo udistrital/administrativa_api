@@ -29,7 +29,7 @@ func (c *NaturalezaConceptoNominaController) URLMapping() {
 // @Description create NaturalezaConceptoNomina
 // @Param	body		body 	models.NaturalezaConceptoNomina	true		"body for NaturalezaConceptoNomina content"
 // @Success 201 {int} models.NaturalezaConceptoNomina
-// @Failure 403 body is empty
+// @Failure 400 the request contains incorrect syntax
 // @router / [post]
 func (c *NaturalezaConceptoNominaController) Post() {
 	var v models.NaturalezaConceptoNomina
@@ -38,10 +38,16 @@ func (c *NaturalezaConceptoNominaController) Post() {
 			c.Ctx.Output.SetStatus(201)
 			c.Data["json"] = v
 		} else {
-			c.Data["json"] = err.Error()
+logs.Error(err)
+ //c.Data["development"] = map[string]interface{}{"Code": "000", "Body": err.Error(), "Type": "error"}
+c.Data["system"] = err
+ c.Abort("400")
 		}
 	} else {
-		c.Data["json"] = err.Error()
+logs.Error(err)
+ //c.Data["development"] = map[string]interface{}{"Code": "000", "Body": err.Error(), "Type": "error"}
+c.Data["system"] = err
+ c.Abort("400")
 	}
 	c.ServeJSON()
 }
@@ -51,14 +57,17 @@ func (c *NaturalezaConceptoNominaController) Post() {
 // @Description get NaturalezaConceptoNomina by id
 // @Param	id		path 	string	true		"The key for staticblock"
 // @Success 200 {object} models.NaturalezaConceptoNomina
-// @Failure 403 :id is empty
+// @Failure 404 not found resource
 // @router /:id [get]
 func (c *NaturalezaConceptoNominaController) GetOne() {
 	idStr := c.Ctx.Input.Param(":id")
 	id, _ := strconv.Atoi(idStr)
 	v, err := models.GetNaturalezaConceptoNominaById(id)
 	if err != nil {
-		c.Data["json"] = err.Error()
+logs.Error(err)
+ //c.Data["development"] = map[string]interface{}{"Code": "000", "Body": err.Error(), "Type": "error"}
+c.Data["system"] = err
+ c.Abort("404")
 	} else {
 		c.Data["json"] = v
 	}
@@ -75,7 +84,7 @@ func (c *NaturalezaConceptoNominaController) GetOne() {
 // @Param	limit	query	string	false	"Limit the size of result set. Must be an integer"
 // @Param	offset	query	string	false	"Start position of result set. Must be an integer"
 // @Success 200 {object} models.NaturalezaConceptoNomina
-// @Failure 403
+// @Failure 404 not found resource
 // @router / [get]
 func (c *NaturalezaConceptoNominaController) GetAll() {
 	var fields []string
@@ -121,9 +130,15 @@ func (c *NaturalezaConceptoNominaController) GetAll() {
 
 	l, err := models.GetAllNaturalezaConceptoNomina(query, fields, sortby, order, offset, limit)
 	if err != nil {
-		c.Data["json"] = err.Error()
+logs.Error(err)
+ //c.Data["development"] = map[string]interface{}{"Code": "000", "Body": err.Error(), "Type": "error"}
+c.Data["system"] = err
+ c.Abort("404")
 	} else {
-		c.Data["json"] = l
+if l == nil {
+ l = append(l, map[string]interface{}{})
+ }
+ c.Data["json"] = l
 	}
 	c.ServeJSON()
 }
@@ -134,7 +149,7 @@ func (c *NaturalezaConceptoNominaController) GetAll() {
 // @Param	id		path 	string	true		"The id you want to update"
 // @Param	body		body 	models.NaturalezaConceptoNomina	true		"body for NaturalezaConceptoNomina content"
 // @Success 200 {object} models.NaturalezaConceptoNomina
-// @Failure 403 :id is not int
+// @Failure 400 the request contains incorrect syntax
 // @router /:id [put]
 func (c *NaturalezaConceptoNominaController) Put() {
 	idStr := c.Ctx.Input.Param(":id")
@@ -142,12 +157,18 @@ func (c *NaturalezaConceptoNominaController) Put() {
 	v := models.NaturalezaConceptoNomina{Id: id}
 	if err := json.Unmarshal(c.Ctx.Input.RequestBody, &v); err == nil {
 		if err := models.UpdateNaturalezaConceptoNominaById(&v); err == nil {
-			c.Data["json"] = "OK"
+c.Data["json"] = v
 		} else {
-			c.Data["json"] = err.Error()
+logs.Error(err)
+ //c.Data["development"] = map[string]interface{}{"Code": "000", "Body": err.Error(), "Type": "error"}
+c.Data["system"] = err
+ c.Abort("400")
 		}
 	} else {
-		c.Data["json"] = err.Error()
+logs.Error(err)
+ //c.Data["development"] = map[string]interface{}{"Code": "000", "Body": err.Error(), "Type": "error"}
+c.Data["system"] = err
+ c.Abort("400")
 	}
 	c.ServeJSON()
 }
@@ -157,15 +178,18 @@ func (c *NaturalezaConceptoNominaController) Put() {
 // @Description delete the NaturalezaConceptoNomina
 // @Param	id		path 	string	true		"The id you want to delete"
 // @Success 200 {string} delete success!
-// @Failure 403 id is empty
+// @Failure 404 not found resource
 // @router /:id [delete]
 func (c *NaturalezaConceptoNominaController) Delete() {
 	idStr := c.Ctx.Input.Param(":id")
 	id, _ := strconv.Atoi(idStr)
 	if err := models.DeleteNaturalezaConceptoNomina(id); err == nil {
-		c.Data["json"] = "OK"
+c.Data["json"] = map[string]interface{}{"Id": id}
 	} else {
-		c.Data["json"] = err.Error()
+logs.Error(err)
+ //c.Data["development"] = map[string]interface{}{"Code": "000", "Body": err.Error(), "Type": "error"}
+c.Data["system"] = err
+ c.Abort("404")
 	}
 	c.ServeJSON()
 }

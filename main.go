@@ -10,6 +10,7 @@ import (
 	_ "github.com/lib/pq"
 	_ "github.com/udistrital/administrativa_crud_api/routers"
 	"github.com/udistrital/utils_oas/apiStatusLib"
+	"github.com/udistrital/utils_oas/customerror"
 )
 
 func init() {
@@ -53,5 +54,6 @@ func main() {
 	}
 
 	apistatus.Init()
+	beego.ErrorController(&customerror.CustomErrorController{})
 	beego.Run()
 }
