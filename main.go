@@ -1,6 +1,7 @@
 package main
 
 import (
+	"fmt"
 	"time"
 
 	"github.com/astaxie/beego"
@@ -15,7 +16,12 @@ import (
 
 func init() {
 	orm.Debug = true
-	orm.DefaultTimeLoc = time.UTC
+	// orm.DefaultTimeLoc = time.UTC
+	loc, err := time.LoadLocation("America/Bogota")
+	if err != nil {
+		fmt.Println(err)
+	}
+	orm.DefaultTimeLoc = loc
 	q := "postgres://" + beego.AppConfig.String("PGuser") + ":" + beego.AppConfig.String("PGpass") + "@" + beego.AppConfig.String("PGurls") + "/" + beego.AppConfig.String("PGdb") + "?sslmode=disable&search_path=" + beego.AppConfig.String("PGschemas") + "&timezone=UTC"
 	//fmt.Println(q)
 	if err := orm.RegisterDataBase("default", "postgres", q); err != nil {
@@ -25,7 +31,6 @@ func init() {
 
 func main() {
 	orm.Debug = true
-
 	if beego.BConfig.RunMode == "dev" {
 		beego.BConfig.WebConfig.DirectoryIndex = true
 		beego.BConfig.WebConfig.StaticDir["/swagger"] = "swagger"

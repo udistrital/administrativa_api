@@ -6,6 +6,7 @@ import (
 	"strconv"
 
 	"github.com/astaxie/beego"
+	"github.com/astaxie/beego/logs"
 	"github.com/udistrital/administrativa_crud_api/models"
 )
 
@@ -25,14 +26,15 @@ func (c *ResolucionCompletaController) URLMapping() {
 // @Param	dedicacion	path 	string	true		"nombre de la dedicacion"
 // @Success 200 {object} models.ResolucionCompleta
 // @Failure 403
-// @router /ResolucionTemplate/:dedicacion/:nivel/:periodo/:tipo [get]
+// @router /ResolucionTemplate/:dedicacion/:nivel/:periodo/:tipo/:numero [get]
 func (c *ResolucionCompletaController) ResolucionTemplate() {
 	dedicacion := c.Ctx.Input.Param(":dedicacion")
 	nivel := c.Ctx.Input.Param(":nivel")
 	periodo := c.Ctx.Input.Param(":periodo")
 	tipo := c.Ctx.Input.Param(":tipo")
-	fmt.Println("dedicacion", dedicacion, nivel, tipo, periodo)
-	resolucion := models.GetTemplateResolucion(dedicacion, nivel, periodo, tipo)
+	numero := c.Ctx.Input.Param(":numero")
+	logs.Error("dedicacion", dedicacion, nivel, tipo, periodo, numero)
+	resolucion := models.GetTemplateResolucion(dedicacion, nivel, periodo, tipo, numero)
 	c.Ctx.Output.SetStatus(201)
 	c.Data["json"] = resolucion
 	c.ServeJSON()

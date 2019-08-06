@@ -133,7 +133,7 @@ func UpdateResolucionCompletaById(m *ResolucionCompleta) (err error) {
 	return
 }
 
-func GetTemplateResolucion(dedicacion, nivel, periodo, tipo string) (res ResolucionCompleta) {
+func GetTemplateResolucion(dedicacion, nivel, periodo, tipo string, numero string) (res ResolucionCompleta) {
 	var resolucion ResolucionCompleta
 	var articulos []Articulo
 	var articulo Articulo
@@ -183,7 +183,7 @@ func GetTemplateResolucion(dedicacion, nivel, periodo, tipo string) (res Resoluc
 	}
 
 	if tipo != "1" {
-		articulo = Articulo{Texto: "Modificar la Resolución No XXX del XXX del XXXX en cuanto al número de horas semanales y el valor total para el " + periodoStr + " Período Académico del " + strconv.Itoa(vigencia) + ", como docentes en la modalidad de " + nombreDedicacion + " de Vinculación Especial, en el escalafón y dedicación establecidas en la siguiente tabla:"}
+		articulo = Articulo{Texto: "Modificar la Resolución No " + numero + " del " + strconv.Itoa(vigencia) + " en cuanto al número de horas semanales y el valor total para el " + periodoStr + " Período Académico del " + strconv.Itoa(vigencia) + ", como docentes en la modalidad de " + nombreDedicacion + " de Vinculación Especial, en el escalafón y dedicación establecidas en la siguiente tabla:"}
 	}
 
 	articulos = append(articulos, articulo)
