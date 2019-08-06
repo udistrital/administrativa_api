@@ -29,7 +29,7 @@ func (c *TipoConceptoNominaController) URLMapping() {
 // @Description create TipoConceptoNomina
 // @Param	body		body 	models.TipoConceptoNomina	true		"body for TipoConceptoNomina content"
 // @Success 201 {int} models.TipoConceptoNomina
-// @Failure 403 body is empty
+// @Failure 400 the request contains incorrect syntax
 // @router / [post]
 func (c *TipoConceptoNominaController) Post() {
 	var v models.TipoConceptoNomina
@@ -38,10 +38,16 @@ func (c *TipoConceptoNominaController) Post() {
 			c.Ctx.Output.SetStatus(201)
 			c.Data["json"] = v
 		} else {
-			c.Data["json"] = err.Error()
+logs.Error(err)
+ //c.Data["development"] = map[string]interface{}{"Code": "000", "Body": err.Error(), "Type": "error"}
+c.Data["system"] = err
+ c.Abort("400")
 		}
 	} else {
-		c.Data["json"] = err.Error()
+logs.Error(err)
+ //c.Data["development"] = map[string]interface{}{"Code": "000", "Body": err.Error(), "Type": "error"}
+c.Data["system"] = err
+ c.Abort("400")
 	}
 	c.ServeJSON()
 }
@@ -51,14 +57,17 @@ func (c *TipoConceptoNominaController) Post() {
 // @Description get TipoConceptoNomina by id
 // @Param	id		path 	string	true		"The key for staticblock"
 // @Success 200 {object} models.TipoConceptoNomina
-// @Failure 403 :id is empty
+// @Failure 404 not found resource
 // @router /:id [get]
 func (c *TipoConceptoNominaController) GetOne() {
 	idStr := c.Ctx.Input.Param(":id")
 	id, _ := strconv.Atoi(idStr)
 	v, err := models.GetTipoConceptoNominaById(id)
 	if err != nil {
-		c.Data["json"] = err.Error()
+logs.Error(err)
+ //c.Data["development"] = map[string]interface{}{"Code": "000", "Body": err.Error(), "Type": "error"}
+c.Data["system"] = err
+ c.Abort("404")
 	} else {
 		c.Data["json"] = v
 	}
@@ -75,7 +84,7 @@ func (c *TipoConceptoNominaController) GetOne() {
 // @Param	limit	query	string	false	"Limit the size of result set. Must be an integer"
 // @Param	offset	query	string	false	"Start position of result set. Must be an integer"
 // @Success 200 {object} models.TipoConceptoNomina
-// @Failure 403
+// @Failure 404 not found resource
 // @router / [get]
 func (c *TipoConceptoNominaController) GetAll() {
 	var fields []string
@@ -121,9 +130,15 @@ func (c *TipoConceptoNominaController) GetAll() {
 
 	l, err := models.GetAllTipoConceptoNomina(query, fields, sortby, order, offset, limit)
 	if err != nil {
-		c.Data["json"] = err.Error()
+logs.Error(err)
+ //c.Data["development"] = map[string]interface{}{"Code": "000", "Body": err.Error(), "Type": "error"}
+c.Data["system"] = err
+ c.Abort("404")
 	} else {
-		c.Data["json"] = l
+if l == nil {
+ l = append(l, map[string]interface{}{})
+ }
+ c.Data["json"] = l
 	}
 	c.ServeJSON()
 }
@@ -134,7 +149,7 @@ func (c *TipoConceptoNominaController) GetAll() {
 // @Param	id		path 	string	true		"The id you want to update"
 // @Param	body		body 	models.TipoConceptoNomina	true		"body for TipoConceptoNomina content"
 // @Success 200 {object} models.TipoConceptoNomina
-// @Failure 403 :id is not int
+// @Failure 400 the request contains incorrect syntax
 // @router /:id [put]
 func (c *TipoConceptoNominaController) Put() {
 	idStr := c.Ctx.Input.Param(":id")
@@ -142,12 +157,18 @@ func (c *TipoConceptoNominaController) Put() {
 	v := models.TipoConceptoNomina{Id: id}
 	if err := json.Unmarshal(c.Ctx.Input.RequestBody, &v); err == nil {
 		if err := models.UpdateTipoConceptoNominaById(&v); err == nil {
-			c.Data["json"] = "OK"
+c.Data["json"] = v
 		} else {
-			c.Data["json"] = err.Error()
+logs.Error(err)
+ //c.Data["development"] = map[string]interface{}{"Code": "000", "Body": err.Error(), "Type": "error"}
+c.Data["system"] = err
+ c.Abort("400")
 		}
 	} else {
-		c.Data["json"] = err.Error()
+logs.Error(err)
+ //c.Data["development"] = map[string]interface{}{"Code": "000", "Body": err.Error(), "Type": "error"}
+c.Data["system"] = err
+ c.Abort("400")
 	}
 	c.ServeJSON()
 }
@@ -157,15 +178,18 @@ func (c *TipoConceptoNominaController) Put() {
 // @Description delete the TipoConceptoNomina
 // @Param	id		path 	string	true		"The id you want to delete"
 // @Success 200 {string} delete success!
-// @Failure 403 id is empty
+// @Failure 404 not found resource
 // @router /:id [delete]
 func (c *TipoConceptoNominaController) Delete() {
 	idStr := c.Ctx.Input.Param(":id")
 	id, _ := strconv.Atoi(idStr)
 	if err := models.DeleteTipoConceptoNomina(id); err == nil {
-		c.Data["json"] = "OK"
+c.Data["json"] = map[string]interface{}{"Id": id}
 	} else {
-		c.Data["json"] = err.Error()
+logs.Error(err)
+ //c.Data["development"] = map[string]interface{}{"Code": "000", "Body": err.Error(), "Type": "error"}
+c.Data["system"] = err
+ c.Abort("404")
 	}
 	c.ServeJSON()
 }
