@@ -58,7 +58,7 @@ func (c *VinculacionDocenteController) GetTotalContratosXResolucion() {
 // @Title Post
 // @Description create VinculacionDocente
 // @Success 201 {int}
-// @Failure 400 the request contains incorrect syntax
+// @Failure 403 body is empty
 // @router /InsertarVinculaciones [post]
 func (c *VinculacionDocenteController) InsertarVinculaciones() {
 	var v []models.VinculacionDocente
@@ -68,16 +68,10 @@ func (c *VinculacionDocenteController) InsertarVinculaciones() {
 			c.Ctx.Output.SetStatus(201)
 			c.Data["json"] = id
 		} else {
-logs.Error(err)
- //c.Data["development"] = map[string]interface{}{"Code": "000", "Body": err.Error(), "Type": "error"}
-c.Data["system"] = err
- c.Abort("400")
+			c.Data["json"] = err.Error()
 		}
 	} else {
-logs.Error(err)
- //c.Data["development"] = map[string]interface{}{"Code": "000", "Body": err.Error(), "Type": "error"}
-c.Data["system"] = err
- c.Abort("400")
+		c.Data["json"] = err.Error()
 	}
 	c.ServeJSON()
 }
@@ -87,7 +81,7 @@ c.Data["system"] = err
 // @Description create VinculacionDocente
 // @Param	body		body 	models.VinculacionDocente	true		"body for VinculacionDocente content"
 // @Success 201 {int} models.VinculacionDocente
-// @Failure 400 the request contains incorrect syntax
+// @Failure 403 body is empty
 // @router / [post]
 func (c *VinculacionDocenteController) Post() {
 	var v models.VinculacionDocente
@@ -96,17 +90,11 @@ func (c *VinculacionDocenteController) Post() {
 			c.Ctx.Output.SetStatus(201)
 			c.Data["json"] = v
 		} else {
-logs.Error(err)
- //c.Data["development"] = map[string]interface{}{"Code": "000", "Body": err.Error(), "Type": "error"}
-c.Data["system"] = err
- c.Abort("400")
+			c.Data["json"] = err.Error()
 		}
 	} else {
 
-logs.Error(err)
- //c.Data["development"] = map[string]interface{}{"Code": "000", "Body": err.Error(), "Type": "error"}
-c.Data["system"] = err
- c.Abort("400")
+		c.Data["json"] = err.Error()
 	}
 	c.ServeJSON()
 }
@@ -116,17 +104,14 @@ c.Data["system"] = err
 // @Description get VinculacionDocente by id
 // @Param	id		path 	string	true		"The key for staticblock"
 // @Success 200 {object} models.VinculacionDocente
-// @Failure 404 not found resource
+// @Failure 403 :id is empty
 // @router /:id [get]
 func (c *VinculacionDocenteController) GetOne() {
 	idStr := c.Ctx.Input.Param(":id")
 	id, _ := strconv.Atoi(idStr)
 	v, err := models.GetVinculacionDocenteById(id)
 	if err != nil {
-logs.Error(err)
- //c.Data["development"] = map[string]interface{}{"Code": "000", "Body": err.Error(), "Type": "error"}
-c.Data["system"] = err
- c.Abort("404")
+		c.Data["json"] = err.Error()
 	} else {
 		c.Data["json"] = v
 	}
@@ -143,7 +128,7 @@ c.Data["system"] = err
 // @Param	limit	query	string	false	"Limit the size of result set. Must be an integer"
 // @Param	offset	query	string	false	"Start position of result set. Must be an integer"
 // @Success 200 {object} models.VinculacionDocente
-// @Failure 404 not found resource
+// @Failure 403
 // @router / [get]
 func (c *VinculacionDocenteController) GetAll() {
 	var fields []string
@@ -189,15 +174,9 @@ func (c *VinculacionDocenteController) GetAll() {
 
 	l, err := models.GetAllVinculacionDocente(query, fields, sortby, order, offset, limit)
 	if err != nil {
-logs.Error(err)
- //c.Data["development"] = map[string]interface{}{"Code": "000", "Body": err.Error(), "Type": "error"}
-c.Data["system"] = err
- c.Abort("404")
+		c.Data["json"] = err.Error()
 	} else {
-if l == nil {
- l = append(l, map[string]interface{}{})
- }
- c.Data["json"] = l
+		c.Data["json"] = l
 	}
 	c.ServeJSON()
 }
@@ -208,7 +187,7 @@ if l == nil {
 // @Param	id		path 	string	true		"The id you want to update"
 // @Param	body		body 	models.VinculacionDocente	true		"body for VinculacionDocente content"
 // @Success 200 {object} models.VinculacionDocente
-// @Failure 400 the request contains incorrect syntax
+// @Failure 403 :id is not int
 // @router /:id [put]
 func (c *VinculacionDocenteController) Put() {
 	fmt.Println("edicion")
@@ -217,19 +196,13 @@ func (c *VinculacionDocenteController) Put() {
 	v := models.VinculacionDocente{Id: id}
 	if err := json.Unmarshal(c.Ctx.Input.RequestBody, &v); err == nil {
 		if err := models.UpdateVinculacionDocenteById(&v); err == nil {
-c.Data["json"] = v
+			c.Data["json"] = "OK"
 		} else {
-logs.Error(err)
- //c.Data["development"] = map[string]interface{}{"Code": "000", "Body": err.Error(), "Type": "error"}
-c.Data["system"] = err
- c.Abort("400")
+			c.Data["json"] = err.Error()
 		}
 	} else {
 		fmt.Println("rro")
-logs.Error(err)
- //c.Data["development"] = map[string]interface{}{"Code": "000", "Body": err.Error(), "Type": "error"}
-c.Data["system"] = err
- c.Abort("400")
+		c.Data["json"] = err.Error()
 	}
 	c.ServeJSON()
 }
@@ -239,18 +212,15 @@ c.Data["system"] = err
 // @Description delete the VinculacionDocente
 // @Param	id		path 	string	true		"The id you want to delete"
 // @Success 200 {string} delete success!
-// @Failure 404 not found resource
+// @Failure 403 id is empty
 // @router /:id [delete]
 func (c *VinculacionDocenteController) Delete() {
 	idStr := c.Ctx.Input.Param(":id")
 	id, _ := strconv.Atoi(idStr)
 	if err := models.DeleteVinculacionDocente(id); err == nil {
-c.Data["json"] = map[string]interface{}{"Id": id}
+		c.Data["json"] = "OK"
 	} else {
-logs.Error(err)
- //c.Data["development"] = map[string]interface{}{"Code": "000", "Body": err.Error(), "Type": "error"}
-c.Data["system"] = err
- c.Abort("404")
+		c.Data["json"] = err.Error()
 	}
 	c.ServeJSON()
 }

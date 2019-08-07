@@ -30,7 +30,7 @@ func (c *NecesidadController) URLMapping() {
 // @Description create Necesidad
 // @Param	body		body 	models.Necesidad	true		"body for Necesidad content"
 // @Success 201 {int} models.Necesidad
-// @Failure 400 the request contains incorrect syntax
+// @Failure 403 body is empty
 // @router / [post]
 func (c *NecesidadController) Post() {
 	var v models.Necesidad
@@ -39,16 +39,10 @@ func (c *NecesidadController) Post() {
 			c.Ctx.Output.SetStatus(201)
 			c.Data["json"] = v
 		} else {
-logs.Error(err)
- //c.Data["development"] = map[string]interface{}{"Code": "000", "Body": err.Error(), "Type": "error"}
-c.Data["system"] = err
- c.Abort("400")
+			c.Data["json"] = err.Error()
 		}
 	} else {
-logs.Error(err)
- //c.Data["development"] = map[string]interface{}{"Code": "000", "Body": err.Error(), "Type": "error"}
-c.Data["system"] = err
- c.Abort("400")
+		c.Data["json"] = err.Error()
 	}
 	c.ServeJSON()
 }
@@ -58,17 +52,14 @@ c.Data["system"] = err
 // @Description get Necesidad by id
 // @Param	id		path 	string	true		"The key for staticblock"
 // @Success 200 {object} models.Necesidad
-// @Failure 404 not found resource
+// @Failure 403 :id is empty
 // @router /:id [get]
 func (c *NecesidadController) GetOne() {
 	idStr := c.Ctx.Input.Param(":id")
 	id, _ := strconv.Atoi(idStr)
 	v, err := models.GetNecesidadById(id)
 	if err != nil {
-logs.Error(err)
- //c.Data["development"] = map[string]interface{}{"Code": "000", "Body": err.Error(), "Type": "error"}
-c.Data["system"] = err
- c.Abort("404")
+		c.Data["json"] = err.Error()
 	} else {
 		c.Data["json"] = v
 	}
@@ -85,7 +76,7 @@ c.Data["system"] = err
 // @Param	limit	query	string	false	"Limit the size of result set. Must be an integer"
 // @Param	offset	query	string	false	"Start position of result set. Must be an integer"
 // @Success 200 {object} models.Necesidad
-// @Failure 404 not found resource
+// @Failure 403
 // @router / [get]
 func (c *NecesidadController) GetAll() {
 	var fields []string
@@ -131,15 +122,9 @@ func (c *NecesidadController) GetAll() {
 
 	l, err := models.GetAllNecesidad(query, fields, sortby, order, offset, limit)
 	if err != nil {
-logs.Error(err)
- //c.Data["development"] = map[string]interface{}{"Code": "000", "Body": err.Error(), "Type": "error"}
-c.Data["system"] = err
- c.Abort("404")
+		c.Data["json"] = err.Error()
 	} else {
-if l == nil {
- l = append(l, map[string]interface{}{})
- }
- c.Data["json"] = l
+		c.Data["json"] = l
 	}
 	c.ServeJSON()
 }
@@ -150,7 +135,7 @@ if l == nil {
 // @Param	id		path 	string	true		"The id you want to update"
 // @Param	body		body 	models.Necesidad	true		"body for Necesidad content"
 // @Success 200 {object} models.Necesidad
-// @Failure 400 the request contains incorrect syntax
+// @Failure 403 :id is not int
 // @router /:id [put]
 func (c *NecesidadController) Put() {
 	idStr := c.Ctx.Input.Param(":id")
@@ -160,16 +145,10 @@ func (c *NecesidadController) Put() {
 		if alert, err := models.UpdateNecesidadById(&v); err == nil {
 			c.Data["json"] = alert
 		} else {
-logs.Error(err)
- //c.Data["development"] = map[string]interface{}{"Code": "000", "Body": err.Error(), "Type": "error"}
-c.Data["system"] = err
- c.Abort("400")
+			c.Data["json"] = err.Error()
 		}
 	} else {
-logs.Error(err)
- //c.Data["development"] = map[string]interface{}{"Code": "000", "Body": err.Error(), "Type": "error"}
-c.Data["system"] = err
- c.Abort("400")
+		c.Data["json"] = err.Error()
 	}
 	c.ServeJSON()
 }
@@ -179,18 +158,15 @@ c.Data["system"] = err
 // @Description delete the Necesidad
 // @Param	id		path 	string	true		"The id you want to delete"
 // @Success 200 {string} delete success!
-// @Failure 404 not found resource
+// @Failure 403 id is empty
 // @router /:id [delete]
 func (c *NecesidadController) Delete() {
 	idStr := c.Ctx.Input.Param(":id")
 	id, _ := strconv.Atoi(idStr)
 	if err := models.DeleteNecesidad(id); err == nil {
-c.Data["json"] = map[string]interface{}{"Id": id}
+		c.Data["json"] = "OK"
 	} else {
-logs.Error(err)
- //c.Data["development"] = map[string]interface{}{"Code": "000", "Body": err.Error(), "Type": "error"}
-c.Data["system"] = err
- c.Abort("404")
+		c.Data["json"] = err.Error()
 	}
 	c.ServeJSON()
 }

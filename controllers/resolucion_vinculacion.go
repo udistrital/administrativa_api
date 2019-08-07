@@ -30,7 +30,7 @@ func (c *ResolucionVinculacionController) URLMapping() {
 // @Param	limit	query	string	false	"Limit the size of result set. Must be an integer"
 // @Param	offset	query	string	false	"Start position of result set. Must be an integer"
 // @Success 200 {object} models.ResolucionVinculacionDocente
-// @Failure 404 not found resource
+// @Failure 403
 // @router / [get]
 func (c *ResolucionVinculacionController) GetAll() {
 	var fields []string
@@ -75,15 +75,9 @@ func (c *ResolucionVinculacionController) GetAll() {
 	}
 	l, err := models.GetAllResolucionVinculacion(query, fields, sortby, order, offset, limit)
 	if err != nil {
-logs.Error(err)
- //c.Data["development"] = map[string]interface{}{"Code": "000", "Body": err.Error(), "Type": "error"}
-c.Data["system"] = err
- c.Abort("404")
+		c.Data["json"] = err.Error()
 	} else {
-if l == nil {
- l = append(l, map[string]interface{}{})
- }
- c.Data["json"] = l
+		c.Data["json"] = l
 	}
 	c.ServeJSON()
 }
@@ -98,7 +92,7 @@ if l == nil {
 // @Param	limit	query	int		false	"Limit the size of result set. Must be an integer"
 // @Param	offset	query	int		false	"Start position of result set. Must be an integer"
 // @Success 201 {object} models.ResolucionVinculacionDocente
-// @Failure 404 not found resource
+// @Failure 403
 // @router /Aprobada [get]
 func (c *ResolucionVinculacionController) GetAllAprobada() {
 	var fields []string
@@ -149,10 +143,7 @@ func (c *ResolucionVinculacionController) GetAllAprobada() {
 	}
 
 	c.Ctx.Output.SetStatus(201)
-if l == nil {
- l = append(l, map[string]interface{}{})
- }
- c.Data["json"] = l
+	c.Data["json"] = listaResoluciones
 	c.ServeJSON()
 }
 
