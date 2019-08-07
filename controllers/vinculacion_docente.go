@@ -7,9 +7,10 @@ import (
 	"strconv"
 	"strings"
 
+	"github.com/astaxie/beego/logs"
+
 	"github.com/astaxie/beego"
 	"github.com/udistrital/administrativa_crud_api/models"
-	"github.com/udistrital/golog"
 )
 
 // VinculacionDocenteController oprations for VinculacionDocente
