@@ -9,6 +9,7 @@ import (
 
 	"github.com/astaxie/beego"
 	"github.com/udistrital/administrativa_crud_api/models"
+	"github.com/udistrital/golog"
 )
 
 // VinculacionDocenteController oprations for VinculacionDocente
@@ -40,7 +41,15 @@ func (c *VinculacionDocenteController) GetTotalContratosXResolucion() {
 	if err != nil {
 		c.Data["json"] = err.Error()
 	} else {
-		c.Data["json"] = v
+		ValorContratos := []models.ModeloRefactor{
+			{
+				Valor:       v,
+				Descripcion: "Valor total de la contratación para la resolución",
+			},
+		}
+		c.Data["json"] = ValorContratos
+		logs.Info(ValorContratos)
+		logs.Info(c.Data["json"])
 	}
 	c.ServeJSON()
 }
