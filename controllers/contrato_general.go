@@ -1,11 +1,13 @@
 package controllers
 
 import (
-	"github.com/udistrital/administrativa_crud_api/models"
 	"encoding/json"
 	"errors"
 	"strings"
+
 	"github.com/astaxie/beego"
+	"github.com/astaxie/beego/logs"
+	"github.com/udistrital/administrativa_crud_api/models"
 )
 
 //  ContratoGeneralController operations for ContratoGeneral
@@ -68,16 +70,16 @@ func (c *ContratoGeneralController) Post() {
 			c.Ctx.Output.SetStatus(201)
 			c.Data["json"] = v
 		} else {
-logs.Error(err)
- //c.Data["development"] = map[string]interface{}{"Code": "000", "Body": err.Error(), "Type": "error"}
-c.Data["system"] = err
- c.Abort("400")
+			logs.Error(err)
+			//c.Data["development"] = map[string]interface{}{"Code": "000", "Body": err.Error(), "Type": "error"}
+			c.Data["system"] = err
+			c.Abort("400")
 		}
 	} else {
-logs.Error(err)
- //c.Data["development"] = map[string]interface{}{"Code": "000", "Body": err.Error(), "Type": "error"}
-c.Data["system"] = err
- c.Abort("400")
+		logs.Error(err)
+		//c.Data["development"] = map[string]interface{}{"Code": "000", "Body": err.Error(), "Type": "error"}
+		c.Data["system"] = err
+		c.Abort("400")
 	}
 	c.ServeJSON()
 }
@@ -93,10 +95,10 @@ func (c *ContratoGeneralController) GetOne() {
 	idStr := c.Ctx.Input.Param(":id")
 	v, err := models.GetContratoGeneralById(idStr)
 	if err != nil {
-logs.Error(err)
- //c.Data["development"] = map[string]interface{}{"Code": "000", "Body": err.Error(), "Type": "error"}
-c.Data["system"] = err
- c.Abort("404")
+		logs.Error(err)
+		//c.Data["development"] = map[string]interface{}{"Code": "000", "Body": err.Error(), "Type": "error"}
+		c.Data["system"] = err
+		c.Abort("404")
 	} else {
 		c.Data["json"] = v
 	}
@@ -159,15 +161,15 @@ func (c *ContratoGeneralController) GetAll() {
 
 	l, err := models.GetAllContratoGeneral(query, fields, sortby, order, offset, limit)
 	if err != nil {
-logs.Error(err)
- //c.Data["development"] = map[string]interface{}{"Code": "000", "Body": err.Error(), "Type": "error"}
-c.Data["system"] = err
- c.Abort("404")
+		logs.Error(err)
+		//c.Data["development"] = map[string]interface{}{"Code": "000", "Body": err.Error(), "Type": "error"}
+		c.Data["system"] = err
+		c.Abort("404")
 	} else {
-if l == nil {
- l = append(l, map[string]interface{}{})
- }
- c.Data["json"] = l
+		if l == nil {
+			l = append(l, map[string]interface{}{})
+		}
+		c.Data["json"] = l
 	}
 	c.ServeJSON()
 }
@@ -185,18 +187,18 @@ func (c *ContratoGeneralController) Put() {
 	v := models.ContratoGeneral{Id: idStr}
 	if err := json.Unmarshal(c.Ctx.Input.RequestBody, &v); err == nil {
 		if err := models.UpdateContratoGeneralById(&v); err == nil {
-c.Data["json"] = v
+			c.Data["json"] = v
 		} else {
-logs.Error(err)
- //c.Data["development"] = map[string]interface{}{"Code": "000", "Body": err.Error(), "Type": "error"}
-c.Data["system"] = err
- c.Abort("400")
+			logs.Error(err)
+			//c.Data["development"] = map[string]interface{}{"Code": "000", "Body": err.Error(), "Type": "error"}
+			c.Data["system"] = err
+			c.Abort("400")
 		}
 	} else {
-logs.Error(err)
- //c.Data["development"] = map[string]interface{}{"Code": "000", "Body": err.Error(), "Type": "error"}
-c.Data["system"] = err
- c.Abort("400")
+		logs.Error(err)
+		//c.Data["development"] = map[string]interface{}{"Code": "000", "Body": err.Error(), "Type": "error"}
+		c.Data["system"] = err
+		c.Abort("400")
 	}
 	c.ServeJSON()
 }
@@ -211,12 +213,12 @@ c.Data["system"] = err
 func (c *ContratoGeneralController) Delete() {
 	idStr := c.Ctx.Input.Param(":id")
 	if err := models.DeleteContratoGeneral(idStr); err == nil {
-c.Data["json"] = map[string]interface{}{"Id": id}
+		c.Data["json"] = map[string]interface{}{"Id": idStr}
 	} else {
-logs.Error(err)
- //c.Data["development"] = map[string]interface{}{"Code": "000", "Body": err.Error(), "Type": "error"}
-c.Data["system"] = err
- c.Abort("404")
+		logs.Error(err)
+		//c.Data["development"] = map[string]interface{}{"Code": "000", "Body": err.Error(), "Type": "error"}
+		c.Data["system"] = err
+		c.Abort("404")
 	}
 	c.ServeJSON()
 }

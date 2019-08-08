@@ -5,6 +5,8 @@ import (
 	"fmt"
 	"strings"
 
+	"github.com/astaxie/beego/logs"
+
 	"github.com/astaxie/beego"
 	"github.com/udistrital/administrativa_crud_api/models"
 )
@@ -75,15 +77,15 @@ func (c *ResolucionVinculacionController) GetAll() {
 	}
 	l, err := models.GetAllResolucionVinculacion(query, fields, sortby, order, offset, limit)
 	if err != nil {
-logs.Error(err)
- //c.Data["development"] = map[string]interface{}{"Code": "000", "Body": err.Error(), "Type": "error"}
-c.Data["system"] = err
- c.Abort("404")
+		logs.Error(err)
+		//c.Data["development"] = map[string]interface{}{"Code": "000", "Body": err.Error(), "Type": "error"}
+		c.Data["system"] = err
+		c.Abort("404")
 	} else {
-if l == nil {
- l = append(l, map[string]interface{}{})
- }
- c.Data["json"] = l
+		if l == nil {
+			l = append(l)
+		}
+		c.Data["json"] = l
 	}
 	c.ServeJSON()
 }
@@ -149,10 +151,10 @@ func (c *ResolucionVinculacionController) GetAllAprobada() {
 	}
 
 	c.Ctx.Output.SetStatus(201)
-if l == nil {
- l = append(l, map[string]interface{}{})
- }
- c.Data["json"] = l
+	if listaResoluciones == nil {
+		listaResoluciones = append(listaResoluciones)
+	}
+	c.Data["json"] = listaResoluciones
 	c.ServeJSON()
 }
 

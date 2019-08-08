@@ -6,6 +6,8 @@ import (
 	"strconv"
 	"strings"
 
+	"github.com/astaxie/beego/logs"
+
 	"github.com/udistrital/administrativa_crud_api/models"
 
 	"github.com/astaxie/beego"
@@ -39,16 +41,16 @@ func (c *NecesidadController) Post() {
 			c.Ctx.Output.SetStatus(201)
 			c.Data["json"] = v
 		} else {
-logs.Error(err)
- //c.Data["development"] = map[string]interface{}{"Code": "000", "Body": err.Error(), "Type": "error"}
-c.Data["system"] = err
- c.Abort("400")
+			logs.Error(err)
+			//c.Data["development"] = map[string]interface{}{"Code": "000", "Body": err.Error(), "Type": "error"}
+			c.Data["system"] = err
+			c.Abort("400")
 		}
 	} else {
-logs.Error(err)
- //c.Data["development"] = map[string]interface{}{"Code": "000", "Body": err.Error(), "Type": "error"}
-c.Data["system"] = err
- c.Abort("400")
+		logs.Error(err)
+		//c.Data["development"] = map[string]interface{}{"Code": "000", "Body": err.Error(), "Type": "error"}
+		c.Data["system"] = err
+		c.Abort("400")
 	}
 	c.ServeJSON()
 }
@@ -65,10 +67,10 @@ func (c *NecesidadController) GetOne() {
 	id, _ := strconv.Atoi(idStr)
 	v, err := models.GetNecesidadById(id)
 	if err != nil {
-logs.Error(err)
- //c.Data["development"] = map[string]interface{}{"Code": "000", "Body": err.Error(), "Type": "error"}
-c.Data["system"] = err
- c.Abort("404")
+		logs.Error(err)
+		//c.Data["development"] = map[string]interface{}{"Code": "000", "Body": err.Error(), "Type": "error"}
+		c.Data["system"] = err
+		c.Abort("404")
 	} else {
 		c.Data["json"] = v
 	}
@@ -131,15 +133,15 @@ func (c *NecesidadController) GetAll() {
 
 	l, err := models.GetAllNecesidad(query, fields, sortby, order, offset, limit)
 	if err != nil {
-logs.Error(err)
- //c.Data["development"] = map[string]interface{}{"Code": "000", "Body": err.Error(), "Type": "error"}
-c.Data["system"] = err
- c.Abort("404")
+		logs.Error(err)
+		//c.Data["development"] = map[string]interface{}{"Code": "000", "Body": err.Error(), "Type": "error"}
+		c.Data["system"] = err
+		c.Abort("404")
 	} else {
-if l == nil {
- l = append(l, map[string]interface{}{})
- }
- c.Data["json"] = l
+		if l == nil {
+			l = append(l, map[string]interface{}{})
+		}
+		c.Data["json"] = l
 	}
 	c.ServeJSON()
 }
@@ -160,16 +162,16 @@ func (c *NecesidadController) Put() {
 		if alert, err := models.UpdateNecesidadById(&v); err == nil {
 			c.Data["json"] = alert
 		} else {
-logs.Error(err)
- //c.Data["development"] = map[string]interface{}{"Code": "000", "Body": err.Error(), "Type": "error"}
-c.Data["system"] = err
- c.Abort("400")
+			logs.Error(err)
+			//c.Data["development"] = map[string]interface{}{"Code": "000", "Body": err.Error(), "Type": "error"}
+			c.Data["system"] = err
+			c.Abort("400")
 		}
 	} else {
-logs.Error(err)
- //c.Data["development"] = map[string]interface{}{"Code": "000", "Body": err.Error(), "Type": "error"}
-c.Data["system"] = err
- c.Abort("400")
+		logs.Error(err)
+		//c.Data["development"] = map[string]interface{}{"Code": "000", "Body": err.Error(), "Type": "error"}
+		c.Data["system"] = err
+		c.Abort("400")
 	}
 	c.ServeJSON()
 }
@@ -185,12 +187,12 @@ func (c *NecesidadController) Delete() {
 	idStr := c.Ctx.Input.Param(":id")
 	id, _ := strconv.Atoi(idStr)
 	if err := models.DeleteNecesidad(id); err == nil {
-c.Data["json"] = map[string]interface{}{"Id": id}
+		c.Data["json"] = map[string]interface{}{"Id": id}
 	} else {
-logs.Error(err)
- //c.Data["development"] = map[string]interface{}{"Code": "000", "Body": err.Error(), "Type": "error"}
-c.Data["system"] = err
- c.Abort("404")
+		logs.Error(err)
+		//c.Data["development"] = map[string]interface{}{"Code": "000", "Body": err.Error(), "Type": "error"}
+		c.Data["system"] = err
+		c.Abort("404")
 	}
 	c.ServeJSON()
 }

@@ -6,6 +6,8 @@ import (
 	"strconv"
 	"strings"
 
+	"github.com/astaxie/beego/logs"
+
 	"github.com/udistrital/administrativa_crud_api/models"
 
 	"github.com/astaxie/beego"
@@ -39,16 +41,16 @@ func (c *PagoMensualController) Post() {
 			c.Ctx.Output.SetStatus(201)
 			c.Data["json"] = v
 		} else {
-logs.Error(err)
- //c.Data["development"] = map[string]interface{}{"Code": "000", "Body": err.Error(), "Type": "error"}
-c.Data["system"] = err
- c.Abort("400")
+			logs.Error(err)
+			//c.Data["development"] = map[string]interface{}{"Code": "000", "Body": err.Error(), "Type": "error"}
+			c.Data["system"] = err
+			c.Abort("400")
 		}
 	} else {
-logs.Error(err)
- //c.Data["development"] = map[string]interface{}{"Code": "000", "Body": err.Error(), "Type": "error"}
-c.Data["system"] = err
- c.Abort("400")
+		logs.Error(err)
+		//c.Data["development"] = map[string]interface{}{"Code": "000", "Body": err.Error(), "Type": "error"}
+		c.Data["system"] = err
+		c.Abort("400")
 	}
 	c.ServeJSON()
 }
@@ -65,10 +67,10 @@ func (c *PagoMensualController) GetOne() {
 	id, _ := strconv.Atoi(idStr)
 	v, err := models.GetPagoMensualById(id)
 	if err != nil {
-logs.Error(err)
- //c.Data["development"] = map[string]interface{}{"Code": "000", "Body": err.Error(), "Type": "error"}
-c.Data["system"] = err
- c.Abort("404")
+		logs.Error(err)
+		//c.Data["development"] = map[string]interface{}{"Code": "000", "Body": err.Error(), "Type": "error"}
+		c.Data["system"] = err
+		c.Abort("404")
 	} else {
 		c.Data["json"] = v
 	}
@@ -167,18 +169,18 @@ func (c *PagoMensualController) Put() {
 	v := models.PagoMensual{Id: id}
 	if err := json.Unmarshal(c.Ctx.Input.RequestBody, &v); err == nil {
 		if err := models.UpdatePagoMensualById(&v); err == nil {
-c.Data["json"] = v
+			c.Data["json"] = v
 		} else {
-logs.Error(err)
- //c.Data["development"] = map[string]interface{}{"Code": "000", "Body": err.Error(), "Type": "error"}
-c.Data["system"] = err
- c.Abort("400")
+			logs.Error(err)
+			//c.Data["development"] = map[string]interface{}{"Code": "000", "Body": err.Error(), "Type": "error"}
+			c.Data["system"] = err
+			c.Abort("400")
 		}
 	} else {
-logs.Error(err)
- //c.Data["development"] = map[string]interface{}{"Code": "000", "Body": err.Error(), "Type": "error"}
-c.Data["system"] = err
- c.Abort("400")
+		logs.Error(err)
+		//c.Data["development"] = map[string]interface{}{"Code": "000", "Body": err.Error(), "Type": "error"}
+		c.Data["system"] = err
+		c.Abort("400")
 	}
 	c.ServeJSON()
 }
@@ -194,12 +196,12 @@ func (c *PagoMensualController) Delete() {
 	idStr := c.Ctx.Input.Param(":id")
 	id, _ := strconv.Atoi(idStr)
 	if err := models.DeletePagoMensual(id); err == nil {
-c.Data["json"] = map[string]interface{}{"Id": id}
+		c.Data["json"] = map[string]interface{}{"Id": id}
 	} else {
-logs.Error(err)
- //c.Data["development"] = map[string]interface{}{"Code": "000", "Body": err.Error(), "Type": "error"}
-c.Data["system"] = err
- c.Abort("404")
+		logs.Error(err)
+		//c.Data["development"] = map[string]interface{}{"Code": "000", "Body": err.Error(), "Type": "error"}
+		c.Data["system"] = err
+		c.Abort("404")
 	}
 	c.ServeJSON()
 }

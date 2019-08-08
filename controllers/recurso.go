@@ -3,9 +3,11 @@ package controllers
 import (
 	"encoding/json"
 	"errors"
-	"github.com/udistrital/administrativa_crud_api/models"
 	"strconv"
 	"strings"
+
+	"github.com/astaxie/beego/logs"
+	"github.com/udistrital/administrativa_crud_api/models"
 
 	"github.com/astaxie/beego"
 )
@@ -38,16 +40,16 @@ func (c *RecursoController) Post() {
 			c.Ctx.Output.SetStatus(201)
 			c.Data["json"] = v
 		} else {
-logs.Error(err)
- //c.Data["development"] = map[string]interface{}{"Code": "000", "Body": err.Error(), "Type": "error"}
-c.Data["system"] = err
- c.Abort("400")
+			logs.Error(err)
+			//c.Data["development"] = map[string]interface{}{"Code": "000", "Body": err.Error(), "Type": "error"}
+			c.Data["system"] = err
+			c.Abort("400")
 		}
 	} else {
-logs.Error(err)
- //c.Data["development"] = map[string]interface{}{"Code": "000", "Body": err.Error(), "Type": "error"}
-c.Data["system"] = err
- c.Abort("400")
+		logs.Error(err)
+		//c.Data["development"] = map[string]interface{}{"Code": "000", "Body": err.Error(), "Type": "error"}
+		c.Data["system"] = err
+		c.Abort("400")
 	}
 	c.ServeJSON()
 }
@@ -64,10 +66,10 @@ func (c *RecursoController) GetOne() {
 	id, _ := strconv.Atoi(idStr)
 	v, err := models.GetRecursoById(id)
 	if err != nil {
-logs.Error(err)
- //c.Data["development"] = map[string]interface{}{"Code": "000", "Body": err.Error(), "Type": "error"}
-c.Data["system"] = err
- c.Abort("404")
+		logs.Error(err)
+		//c.Data["development"] = map[string]interface{}{"Code": "000", "Body": err.Error(), "Type": "error"}
+		c.Data["system"] = err
+		c.Abort("404")
 	} else {
 		c.Data["json"] = v
 	}
@@ -130,15 +132,15 @@ func (c *RecursoController) GetAll() {
 
 	l, err := models.GetAllRecurso(query, fields, sortby, order, offset, limit)
 	if err != nil {
-logs.Error(err)
- //c.Data["development"] = map[string]interface{}{"Code": "000", "Body": err.Error(), "Type": "error"}
-c.Data["system"] = err
- c.Abort("404")
+		logs.Error(err)
+		//c.Data["development"] = map[string]interface{}{"Code": "000", "Body": err.Error(), "Type": "error"}
+		c.Data["system"] = err
+		c.Abort("404")
 	} else {
-if l == nil {
- l = append(l, map[string]interface{}{})
- }
- c.Data["json"] = l
+		if l == nil {
+			l = append(l, map[string]interface{}{})
+		}
+		c.Data["json"] = l
 	}
 	c.ServeJSON()
 }
@@ -157,18 +159,18 @@ func (c *RecursoController) Put() {
 	v := models.Recurso{Id: id}
 	if err := json.Unmarshal(c.Ctx.Input.RequestBody, &v); err == nil {
 		if err := models.UpdateRecursoById(&v); err == nil {
-c.Data["json"] = v
+			c.Data["json"] = v
 		} else {
-logs.Error(err)
- //c.Data["development"] = map[string]interface{}{"Code": "000", "Body": err.Error(), "Type": "error"}
-c.Data["system"] = err
- c.Abort("400")
+			logs.Error(err)
+			//c.Data["development"] = map[string]interface{}{"Code": "000", "Body": err.Error(), "Type": "error"}
+			c.Data["system"] = err
+			c.Abort("400")
 		}
 	} else {
-logs.Error(err)
- //c.Data["development"] = map[string]interface{}{"Code": "000", "Body": err.Error(), "Type": "error"}
-c.Data["system"] = err
- c.Abort("400")
+		logs.Error(err)
+		//c.Data["development"] = map[string]interface{}{"Code": "000", "Body": err.Error(), "Type": "error"}
+		c.Data["system"] = err
+		c.Abort("400")
 	}
 	c.ServeJSON()
 }
@@ -184,12 +186,12 @@ func (c *RecursoController) Delete() {
 	idStr := c.Ctx.Input.Param(":id")
 	id, _ := strconv.Atoi(idStr)
 	if err := models.DeleteRecurso(id); err == nil {
-c.Data["json"] = map[string]interface{}{"Id": id}
+		c.Data["json"] = map[string]interface{}{"Id": id}
 	} else {
-logs.Error(err)
- //c.Data["development"] = map[string]interface{}{"Code": "000", "Body": err.Error(), "Type": "error"}
-c.Data["system"] = err
- c.Abort("404")
+		logs.Error(err)
+		//c.Data["development"] = map[string]interface{}{"Code": "000", "Body": err.Error(), "Type": "error"}
+		c.Data["system"] = err
+		c.Abort("404")
 	}
 	c.ServeJSON()
 }

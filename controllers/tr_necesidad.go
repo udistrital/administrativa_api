@@ -4,6 +4,8 @@ import (
 	"encoding/json"
 	"strconv"
 
+	"github.com/astaxie/beego/logs"
+
 	"github.com/astaxie/beego"
 	"github.com/udistrital/administrativa_crud_api/models"
 )
@@ -59,10 +61,10 @@ func (c *TrNecesidadController) Put() {
 			c.Data["json"] = models.Alert{Type: models.AlertError, Body: err}
 		}
 	} else {
-logs.Error(err)
- //c.Data["development"] = map[string]interface{}{"Code": "000", "Body": err.Error(), "Type": "error"}
-c.Data["system"] = err
- c.Abort("400")
+		logs.Error(err)
+		//c.Data["development"] = map[string]interface{}{"Code": "000", "Body": err.Error(), "Type": "error"}
+		c.Data["system"] = err
+		c.Abort("400")
 	}
 	c.ServeJSON()
 }

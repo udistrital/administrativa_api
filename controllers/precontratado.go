@@ -1,8 +1,8 @@
 package controllers
 
 import (
-  "github.com/udistrital/administrativa_crud_api/models"
-  "github.com/astaxie/beego"
+	"github.com/astaxie/beego"
+	"github.com/udistrital/administrativa_crud_api/models"
 )
 
 type PrecontratadoController struct {
@@ -11,7 +11,7 @@ type PrecontratadoController struct {
 
 func (c *PrecontratadoController) URLMapping() {
 	c.Mapping("GetAll", c.GetAll)
-    c.Mapping("GetAllContratado", c.GetAllContratado)
+	c.Mapping("GetAllContratado", c.GetAllContratado)
 	c.Mapping("GetOne", c.GetOne)
 }
 
@@ -24,13 +24,13 @@ func (c *PrecontratadoController) URLMapping() {
 // @router /:idResolucion [get]
 func (c *PrecontratadoController) GetAll() {
 	idResolucion := c.Ctx.Input.Param(":idResolucion")
-    listaPrecontratados := models.GetAllPrecontratado(idResolucion)
-    c.Ctx.Output.SetStatus(201)
-if l == nil {
- l = append(l, map[string]interface{}{})
- }
- c.Data["json"] = l
-    c.ServeJSON()
+	listaPrecontratados := models.GetAllPrecontratado(idResolucion)
+	c.Ctx.Output.SetStatus(201)
+	if listaPrecontratados == nil {
+		listaPrecontratados = append(listaPrecontratados)
+	}
+	c.Data["json"] = listaPrecontratados
+	c.ServeJSON()
 }
 
 // GetAllContratado ...
@@ -41,14 +41,14 @@ if l == nil {
 // @Failure 404 not found resource
 // @router /Contratado/:idResolucion [get]
 func (c *PrecontratadoController) GetAllContratado() {
-    idResolucion := c.Ctx.Input.Param(":idResolucion")
-    listaPrecontratados := models.GetAllContratado(idResolucion)
-    c.Ctx.Output.SetStatus(201)
-if l == nil {
- l = append(l, map[string]interface{}{})
- }
- c.Data["json"] = l
-    c.ServeJSON()
+	idResolucion := c.Ctx.Input.Param(":idResolucion")
+	listaPrecontratados := models.GetAllContratado(idResolucion)
+	c.Ctx.Output.SetStatus(201)
+	if listaPrecontratados == nil {
+		listaPrecontratados = append(listaPrecontratados)
+	}
+	c.Data["json"] = listaPrecontratados
+	c.ServeJSON()
 }
 
 // GetOne ...
@@ -62,8 +62,8 @@ if l == nil {
 func (c *PrecontratadoController) GetOne() {
 	idResolucion := c.Ctx.Input.Param(":idResolucion")
 	idPersona := c.Ctx.Input.Param(":idPersona")
-    precontratado := models.GetOnePrecontratado(idResolucion, idPersona)
-    c.Ctx.Output.SetStatus(201)
-    c.Data["json"] = precontratado
-    c.ServeJSON()
+	precontratado := models.GetOnePrecontratado(idResolucion, idPersona)
+	c.Ctx.Output.SetStatus(201)
+	c.Data["json"] = precontratado
+	c.ServeJSON()
 }

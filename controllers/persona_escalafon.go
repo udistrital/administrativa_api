@@ -1,8 +1,8 @@
 package controllers
 
 import (
-  "github.com/udistrital/administrativa_crud_api/models"
-  "github.com/astaxie/beego"
+	"github.com/astaxie/beego"
+	"github.com/udistrital/administrativa_crud_api/models"
 )
 
 type PersonaEscalafonController struct {
@@ -21,11 +21,11 @@ func (c *PersonaEscalafonController) URLMapping() {
 // @Failure 404 not found resource
 // @router / [get]
 func (c *PersonaEscalafonController) GetAll() {
-    listaPersonas := models.GetAllPersonaEscalafon()
-    c.Ctx.Output.SetStatus(201)
-if l == nil {
- l = append(l, map[string]interface{}{})
- }
- c.Data["json"] = l
-    c.ServeJSON()
+	listaPersonas := models.GetAllPersonaEscalafon()
+	c.Ctx.Output.SetStatus(201)
+	if listaPersonas == nil {
+		listaPersonas = append(listaPersonas)
+	}
+	c.Data["json"] = listaPersonas
+	c.ServeJSON()
 }
