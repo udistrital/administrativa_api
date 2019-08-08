@@ -5,6 +5,8 @@ import (
 	"fmt"
 	"strings"
 
+	"github.com/astaxie/beego/logs"
+
 	"github.com/astaxie/beego"
 	"github.com/udistrital/administrativa_crud_api/models"
 )
@@ -30,7 +32,7 @@ func (c *ResolucionVinculacionController) URLMapping() {
 // @Param	limit	query	string	false	"Limit the size of result set. Must be an integer"
 // @Param	offset	query	string	false	"Start position of result set. Must be an integer"
 // @Success 200 {object} models.ResolucionVinculacionDocente
-// @Failure 403
+// @Failure 404 not found resource
 // @router / [get]
 func (c *ResolucionVinculacionController) GetAll() {
 	var fields []string
@@ -75,8 +77,14 @@ func (c *ResolucionVinculacionController) GetAll() {
 	}
 	l, err := models.GetAllResolucionVinculacion(query, fields, sortby, order, offset, limit)
 	if err != nil {
-		c.Data["json"] = err.Error()
+		logs.Error(err)
+		//c.Data["development"] = map[string]interface{}{"Code": "000", "Body": err.Error(), "Type": "error"}
+		c.Data["system"] = err
+		c.Abort("404")
 	} else {
+		if l == nil {
+			l = append(l)
+		}
 		c.Data["json"] = l
 	}
 	c.ServeJSON()
@@ -92,7 +100,7 @@ func (c *ResolucionVinculacionController) GetAll() {
 // @Param	limit	query	int		false	"Limit the size of result set. Must be an integer"
 // @Param	offset	query	int		false	"Start position of result set. Must be an integer"
 // @Success 201 {object} models.ResolucionVinculacionDocente
-// @Failure 403
+// @Failure 404 not found resource
 // @router /Aprobada [get]
 func (c *ResolucionVinculacionController) GetAllAprobada() {
 	var fields []string
@@ -143,6 +151,9 @@ func (c *ResolucionVinculacionController) GetAllAprobada() {
 	}
 
 	c.Ctx.Output.SetStatus(201)
+	if listaResoluciones == nil {
+		listaResoluciones = append(listaResoluciones)
+	}
 	c.Data["json"] = listaResoluciones
 	c.ServeJSON()
 }

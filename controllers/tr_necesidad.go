@@ -4,6 +4,8 @@ import (
 	"encoding/json"
 	"strconv"
 
+	"github.com/astaxie/beego/logs"
+
 	"github.com/astaxie/beego"
 	"github.com/udistrital/administrativa_crud_api/models"
 )
@@ -46,7 +48,7 @@ func (c *TrNecesidadController) Post() {
 // @Param	id		path 	string	true		"The id you want to update"
 // @Param	body		body 	models.Necesidad	true		"body for TrNecesidad content"
 // @Success 200 {object} models.TrNecesidad
-// @Failure 403 :id is not int
+// @Failure 400 the request contains incorrect syntax
 // @router /:id [put]
 func (c *TrNecesidadController) Put() {
 	idStr := c.Ctx.Input.Param(":id")
@@ -59,7 +61,10 @@ func (c *TrNecesidadController) Put() {
 			c.Data["json"] = models.Alert{Type: models.AlertError, Body: err}
 		}
 	} else {
-		c.Data["json"] = err.Error()
+		logs.Error(err)
+		//c.Data["development"] = map[string]interface{}{"Code": "000", "Body": err.Error(), "Type": "error"}
+		c.Data["system"] = err
+		c.Abort("400")
 	}
 	c.ServeJSON()
 }

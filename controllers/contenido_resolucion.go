@@ -5,8 +5,9 @@ import (
 	"fmt"
 	"strconv"
 
-	"github.com/astaxie/beego"
 	"github.com/astaxie/beego/logs"
+
+	"github.com/astaxie/beego"
 	"github.com/udistrital/administrativa_crud_api/models"
 )
 
@@ -68,9 +69,12 @@ func (c *ResolucionCompletaController) Put() {
 	v := models.ResolucionCompleta{Id: idResolucion}
 	if err := json.Unmarshal(c.Ctx.Input.RequestBody, &v); err == nil {
 		if err := models.UpdateResolucionCompletaById(&v); err == nil {
-			c.Data["json"] = "OK"
+			c.Data["json"] = v
 		} else {
-			c.Data["json"] = err.Error()
+			logs.Error(err)
+			//c.Data["development"] = map[string]interface{}{"Code": "000", "Body": err.Error(), "Type": "error"}
+			c.Data["system"] = err
+			c.Abort("404")
 		}
 	} else {
 		fmt.Println(err.Error())
