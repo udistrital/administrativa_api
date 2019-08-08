@@ -18,11 +18,14 @@ func (c *PersonaEscalafonController) URLMapping() {
 // @Title Get All
 // @Description get PersonaEscalafon
 // @Success 200 {object} models.PersonaEscalafon
-// @Failure 403
+// @Failure 404 not found resource
 // @router / [get]
 func (c *PersonaEscalafonController) GetAll() {
     listaPersonas := models.GetAllPersonaEscalafon()
     c.Ctx.Output.SetStatus(201)
-    c.Data["json"] = listaPersonas
+if l == nil {
+ l = append(l, map[string]interface{}{})
+ }
+ c.Data["json"] = l
     c.ServeJSON()
 }

@@ -20,13 +20,16 @@ func (c *PrecontratadoController) URLMapping() {
 // @Description get Precontratado
 // @Param   idResolucion      path    string  true        "The key for staticblock"
 // @Success 200 {object} models.Precontratado
-// @Failure 403
+// @Failure 404 not found resource
 // @router /:idResolucion [get]
 func (c *PrecontratadoController) GetAll() {
 	idResolucion := c.Ctx.Input.Param(":idResolucion")
     listaPrecontratados := models.GetAllPrecontratado(idResolucion)
     c.Ctx.Output.SetStatus(201)
-    c.Data["json"] = listaPrecontratados
+if l == nil {
+ l = append(l, map[string]interface{}{})
+ }
+ c.Data["json"] = l
     c.ServeJSON()
 }
 
@@ -35,13 +38,16 @@ func (c *PrecontratadoController) GetAll() {
 // @Description get Precontratado
 // @Param   idResolucion      path    string  true        "The key for staticblock"
 // @Success 200 {object} models.Precontratado
-// @Failure 403
+// @Failure 404 not found resource
 // @router /Contratado/:idResolucion [get]
 func (c *PrecontratadoController) GetAllContratado() {
     idResolucion := c.Ctx.Input.Param(":idResolucion")
     listaPrecontratados := models.GetAllContratado(idResolucion)
     c.Ctx.Output.SetStatus(201)
-    c.Data["json"] = listaPrecontratados
+if l == nil {
+ l = append(l, map[string]interface{}{})
+ }
+ c.Data["json"] = l
     c.ServeJSON()
 }
 
@@ -51,7 +57,7 @@ func (c *PrecontratadoController) GetAllContratado() {
 // @Param   idResolucion     path    string  true        "The key for staticblock"
 // @Param   idPersona        path    string  true        "The key for staticblock"
 // @Success 200 {object} models.Precontratado
-// @Failure 403 :id is empty
+// @Failure 404 not found resource
 // @router /:idResolucion/:idPersona [get]
 func (c *PrecontratadoController) GetOne() {
 	idResolucion := c.Ctx.Input.Param(":idResolucion")

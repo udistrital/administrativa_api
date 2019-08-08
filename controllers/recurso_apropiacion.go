@@ -29,7 +29,7 @@ func (c *RecursoApropiacionController) URLMapping() {
 // @Description create RecursoApropiacion
 // @Param	body		body 	models.RecursoApropiacion	true		"body for RecursoApropiacion content"
 // @Success 201 {int} models.RecursoApropiacion
-// @Failure 403 body is empty
+// @Failure 400 the request contains incorrect syntax
 // @router / [post]
 func (c *RecursoApropiacionController) Post() {
 	var v models.RecursoApropiacion
@@ -38,10 +38,16 @@ func (c *RecursoApropiacionController) Post() {
 			c.Ctx.Output.SetStatus(201)
 			c.Data["json"] = v
 		} else {
-			c.Data["json"] = err.Error()
+logs.Error(err)
+ //c.Data["development"] = map[string]interface{}{"Code": "000", "Body": err.Error(), "Type": "error"}
+c.Data["system"] = err
+ c.Abort("400")
 		}
 	} else {
-		c.Data["json"] = err.Error()
+logs.Error(err)
+ //c.Data["development"] = map[string]interface{}{"Code": "000", "Body": err.Error(), "Type": "error"}
+c.Data["system"] = err
+ c.Abort("400")
 	}
 	c.ServeJSON()
 }
@@ -51,14 +57,17 @@ func (c *RecursoApropiacionController) Post() {
 // @Description get RecursoApropiacion by id
 // @Param	id		path 	string	true		"The key for staticblock"
 // @Success 200 {object} models.RecursoApropiacion
-// @Failure 403 :id is empty
+// @Failure 404 not found resource
 // @router /:id [get]
 func (c *RecursoApropiacionController) GetOne() {
 	idStr := c.Ctx.Input.Param(":id")
 	id, _ := strconv.Atoi(idStr)
 	v, err := models.GetRecursoApropiacionById(id)
 	if err != nil {
-		c.Data["json"] = err.Error()
+logs.Error(err)
+ //c.Data["development"] = map[string]interface{}{"Code": "000", "Body": err.Error(), "Type": "error"}
+c.Data["system"] = err
+ c.Abort("404")
 	} else {
 		c.Data["json"] = v
 	}
@@ -75,7 +84,7 @@ func (c *RecursoApropiacionController) GetOne() {
 // @Param	limit	query	string	false	"Limit the size of result set. Must be an integer"
 // @Param	offset	query	string	false	"Start position of result set. Must be an integer"
 // @Success 200 {object} models.RecursoApropiacion
-// @Failure 403
+// @Failure 404 not found resource
 // @router / [get]
 func (c *RecursoApropiacionController) GetAll() {
 	var fields []string
@@ -121,9 +130,15 @@ func (c *RecursoApropiacionController) GetAll() {
 
 	l, err := models.GetAllRecursoApropiacion(query, fields, sortby, order, offset, limit)
 	if err != nil {
-		c.Data["json"] = err.Error()
+logs.Error(err)
+ //c.Data["development"] = map[string]interface{}{"Code": "000", "Body": err.Error(), "Type": "error"}
+c.Data["system"] = err
+ c.Abort("404")
 	} else {
-		c.Data["json"] = l
+if l == nil {
+ l = append(l, map[string]interface{}{})
+ }
+ c.Data["json"] = l
 	}
 	c.ServeJSON()
 }
@@ -134,7 +149,7 @@ func (c *RecursoApropiacionController) GetAll() {
 // @Param	id		path 	string	true		"The id you want to update"
 // @Param	body		body 	models.RecursoApropiacion	true		"body for RecursoApropiacion content"
 // @Success 200 {object} models.RecursoApropiacion
-// @Failure 403 :id is not int
+// @Failure 400 the request contains incorrect syntax
 // @router /:id [put]
 func (c *RecursoApropiacionController) Put() {
 	idStr := c.Ctx.Input.Param(":id")
@@ -142,12 +157,18 @@ func (c *RecursoApropiacionController) Put() {
 	v := models.RecursoApropiacion{Id: id}
 	if err := json.Unmarshal(c.Ctx.Input.RequestBody, &v); err == nil {
 		if err := models.UpdateRecursoApropiacionById(&v); err == nil {
-			c.Data["json"] = "OK"
+c.Data["json"] = v
 		} else {
-			c.Data["json"] = err.Error()
+logs.Error(err)
+ //c.Data["development"] = map[string]interface{}{"Code": "000", "Body": err.Error(), "Type": "error"}
+c.Data["system"] = err
+ c.Abort("400")
 		}
 	} else {
-		c.Data["json"] = err.Error()
+logs.Error(err)
+ //c.Data["development"] = map[string]interface{}{"Code": "000", "Body": err.Error(), "Type": "error"}
+c.Data["system"] = err
+ c.Abort("400")
 	}
 	c.ServeJSON()
 }
@@ -157,15 +178,18 @@ func (c *RecursoApropiacionController) Put() {
 // @Description delete the RecursoApropiacion
 // @Param	id		path 	string	true		"The id you want to delete"
 // @Success 200 {string} delete success!
-// @Failure 403 id is empty
+// @Failure 404 not found resource
 // @router /:id [delete]
 func (c *RecursoApropiacionController) Delete() {
 	idStr := c.Ctx.Input.Param(":id")
 	id, _ := strconv.Atoi(idStr)
 	if err := models.DeleteRecursoApropiacion(id); err == nil {
-		c.Data["json"] = "OK"
+c.Data["json"] = map[string]interface{}{"Id": id}
 	} else {
-		c.Data["json"] = err.Error()
+logs.Error(err)
+ //c.Data["development"] = map[string]interface{}{"Code": "000", "Body": err.Error(), "Type": "error"}
+c.Data["system"] = err
+ c.Abort("404")
 	}
 	c.ServeJSON()
 }
