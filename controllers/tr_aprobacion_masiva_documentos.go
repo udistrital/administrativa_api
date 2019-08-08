@@ -28,7 +28,6 @@ func (c *TrAprobacionMasivaDocumentosController) AprobarDocumentos() {
 
 	var v []models.PagoMensual
 	if err := json.Unmarshal(c.Ctx.Input.RequestBody, &v); err == nil {
-
 		if err = models.AprobarDocumentos(&v); err == nil {
 			c.Ctx.Output.SetStatus(200)
 			c.Data["json"] = v
