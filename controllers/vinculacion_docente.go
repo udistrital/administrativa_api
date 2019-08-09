@@ -196,7 +196,7 @@ func (c *VinculacionDocenteController) GetAll() {
 		c.Abort("404")
 	} else {
 		if l == nil {
-			l = append(l, map[string]interface{}{})
+			l = append(l)
 		}
 		c.Data["json"] = l
 	}
