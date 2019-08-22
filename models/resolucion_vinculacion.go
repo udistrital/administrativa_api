@@ -6,6 +6,8 @@ import (
 	"strings"
 	"time"
 
+	"github.com/astaxie/beego/logs"
+
 	"github.com/astaxie/beego"
 
 	"github.com/astaxie/beego/orm"
@@ -41,7 +43,8 @@ func init() {
 		column := ""
 		_, err := fmt.Sscanf(strings.Split(tag, ";")[0], "column(%s)", &column)
 		if err != nil {
-			beego.Error(err)
+			//beego.Error(err)
+			logs.Error(err)
 		}
 		columnNames[field.Name] = column[:len(column)-1]
 	}

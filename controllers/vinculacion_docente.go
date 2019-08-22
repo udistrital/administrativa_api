@@ -7,6 +7,8 @@ import (
 	"strconv"
 	"strings"
 
+	"github.com/astaxie/beego/logs"
+
 	"github.com/astaxie/beego"
 	"github.com/udistrital/administrativa_crud_api/models"
 )
@@ -40,7 +42,15 @@ func (c *VinculacionDocenteController) GetTotalContratosXResolucion() {
 	if err != nil {
 		c.Data["json"] = err.Error()
 	} else {
-		c.Data["json"] = v
+		ValorContratos := []models.ModeloRefactor{
+			{
+				Valor:       v,
+				Descripcion: "Valor total de la contratación para la resolución",
+			},
+		}
+		c.Data["json"] = ValorContratos
+		logs.Info(ValorContratos)
+		logs.Info(c.Data["json"])
 	}
 	c.ServeJSON()
 }
@@ -49,7 +59,7 @@ func (c *VinculacionDocenteController) GetTotalContratosXResolucion() {
 // @Title Post
 // @Description create VinculacionDocente
 // @Success 201 {int}
-// @Failure 403 body is empty
+// @Failure 400 the request contains incorrect syntax
 // @router /InsertarVinculaciones [post]
 func (c *VinculacionDocenteController) InsertarVinculaciones() {
 	var v []models.VinculacionDocente
@@ -59,10 +69,16 @@ func (c *VinculacionDocenteController) InsertarVinculaciones() {
 			c.Ctx.Output.SetStatus(201)
 			c.Data["json"] = id
 		} else {
-			c.Data["json"] = err.Error()
+			logs.Error(err)
+			//c.Data["development"] = map[string]interface{}{"Code": "000", "Body": err.Error(), "Type": "error"}
+			c.Data["system"] = err
+			c.Abort("400")
 		}
 	} else {
-		c.Data["json"] = err.Error()
+		logs.Error(err)
+		//c.Data["development"] = map[string]interface{}{"Code": "000", "Body": err.Error(), "Type": "error"}
+		c.Data["system"] = err
+		c.Abort("400")
 	}
 	c.ServeJSON()
 }
@@ -72,7 +88,7 @@ func (c *VinculacionDocenteController) InsertarVinculaciones() {
 // @Description create VinculacionDocente
 // @Param	body		body 	models.VinculacionDocente	true		"body for VinculacionDocente content"
 // @Success 201 {int} models.VinculacionDocente
-// @Failure 403 body is empty
+// @Failure 400 the request contains incorrect syntax
 // @router / [post]
 func (c *VinculacionDocenteController) Post() {
 	var v models.VinculacionDocente
@@ -81,11 +97,17 @@ func (c *VinculacionDocenteController) Post() {
 			c.Ctx.Output.SetStatus(201)
 			c.Data["json"] = v
 		} else {
-			c.Data["json"] = err.Error()
+			logs.Error(err)
+			//c.Data["development"] = map[string]interface{}{"Code": "000", "Body": err.Error(), "Type": "error"}
+			c.Data["system"] = err
+			c.Abort("400")
 		}
 	} else {
 
-		c.Data["json"] = err.Error()
+		logs.Error(err)
+		//c.Data["development"] = map[string]interface{}{"Code": "000", "Body": err.Error(), "Type": "error"}
+		c.Data["system"] = err
+		c.Abort("400")
 	}
 	c.ServeJSON()
 }
@@ -95,14 +117,17 @@ func (c *VinculacionDocenteController) Post() {
 // @Description get VinculacionDocente by id
 // @Param	id		path 	string	true		"The key for staticblock"
 // @Success 200 {object} models.VinculacionDocente
-// @Failure 403 :id is empty
+// @Failure 404 not found resource
 // @router /:id [get]
 func (c *VinculacionDocenteController) GetOne() {
 	idStr := c.Ctx.Input.Param(":id")
 	id, _ := strconv.Atoi(idStr)
 	v, err := models.GetVinculacionDocenteById(id)
 	if err != nil {
-		c.Data["json"] = err.Error()
+		logs.Error(err)
+		//c.Data["development"] = map[string]interface{}{"Code": "000", "Body": err.Error(), "Type": "error"}
+		c.Data["system"] = err
+		c.Abort("404")
 	} else {
 		c.Data["json"] = v
 	}
@@ -119,7 +144,7 @@ func (c *VinculacionDocenteController) GetOne() {
 // @Param	limit	query	string	false	"Limit the size of result set. Must be an integer"
 // @Param	offset	query	string	false	"Start position of result set. Must be an integer"
 // @Success 200 {object} models.VinculacionDocente
-// @Failure 403
+// @Failure 404 not found resource
 // @router / [get]
 func (c *VinculacionDocenteController) GetAll() {
 	var fields []string
@@ -165,8 +190,14 @@ func (c *VinculacionDocenteController) GetAll() {
 
 	l, err := models.GetAllVinculacionDocente(query, fields, sortby, order, offset, limit)
 	if err != nil {
-		c.Data["json"] = err.Error()
+		logs.Error(err)
+		//c.Data["development"] = map[string]interface{}{"Code": "000", "Body": err.Error(), "Type": "error"}
+		c.Data["system"] = err
+		c.Abort("404")
 	} else {
+		if l == nil {
+			l = append(l)
+		}
 		c.Data["json"] = l
 	}
 	c.ServeJSON()
@@ -178,7 +209,7 @@ func (c *VinculacionDocenteController) GetAll() {
 // @Param	id		path 	string	true		"The id you want to update"
 // @Param	body		body 	models.VinculacionDocente	true		"body for VinculacionDocente content"
 // @Success 200 {object} models.VinculacionDocente
-// @Failure 403 :id is not int
+// @Failure 400 the request contains incorrect syntax
 // @router /:id [put]
 func (c *VinculacionDocenteController) Put() {
 	fmt.Println("edicion")
@@ -187,13 +218,19 @@ func (c *VinculacionDocenteController) Put() {
 	v := models.VinculacionDocente{Id: id}
 	if err := json.Unmarshal(c.Ctx.Input.RequestBody, &v); err == nil {
 		if err := models.UpdateVinculacionDocenteById(&v); err == nil {
-			c.Data["json"] = "OK"
+			c.Data["json"] = v
 		} else {
-			c.Data["json"] = err.Error()
+			logs.Error(err)
+			//c.Data["development"] = map[string]interface{}{"Code": "000", "Body": err.Error(), "Type": "error"}
+			c.Data["system"] = err
+			c.Abort("400")
 		}
 	} else {
 		fmt.Println("rro")
-		c.Data["json"] = err.Error()
+		logs.Error(err)
+		//c.Data["development"] = map[string]interface{}{"Code": "000", "Body": err.Error(), "Type": "error"}
+		c.Data["system"] = err
+		c.Abort("400")
 	}
 	c.ServeJSON()
 }
@@ -203,15 +240,18 @@ func (c *VinculacionDocenteController) Put() {
 // @Description delete the VinculacionDocente
 // @Param	id		path 	string	true		"The id you want to delete"
 // @Success 200 {string} delete success!
-// @Failure 403 id is empty
+// @Failure 404 not found resource
 // @router /:id [delete]
 func (c *VinculacionDocenteController) Delete() {
 	idStr := c.Ctx.Input.Param(":id")
 	id, _ := strconv.Atoi(idStr)
 	if err := models.DeleteVinculacionDocente(id); err == nil {
-		c.Data["json"] = "OK"
+		c.Data["json"] = map[string]interface{}{"Id": id}
 	} else {
-		c.Data["json"] = err.Error()
+		logs.Error(err)
+		//c.Data["development"] = map[string]interface{}{"Code": "000", "Body": err.Error(), "Type": "error"}
+		c.Data["system"] = err
+		c.Abort("404")
 	}
 	c.ServeJSON()
 }

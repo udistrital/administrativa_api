@@ -5,6 +5,8 @@ import (
 	"fmt"
 	"strconv"
 
+	"github.com/astaxie/beego/logs"
+
 	"github.com/astaxie/beego"
 	"github.com/udistrital/administrativa_crud_api/models"
 )
@@ -25,14 +27,15 @@ func (c *ResolucionCompletaController) URLMapping() {
 // @Param	dedicacion	path 	string	true		"nombre de la dedicacion"
 // @Success 200 {object} models.ResolucionCompleta
 // @Failure 403
-// @router /ResolucionTemplate/:dedicacion/:nivel/:periodo/:tipo [get]
+// @router /ResolucionTemplate/:dedicacion/:nivel/:periodo/:tipo/:numero [get]
 func (c *ResolucionCompletaController) ResolucionTemplate() {
 	dedicacion := c.Ctx.Input.Param(":dedicacion")
 	nivel := c.Ctx.Input.Param(":nivel")
 	periodo := c.Ctx.Input.Param(":periodo")
 	tipo := c.Ctx.Input.Param(":tipo")
-	fmt.Println("dedicacion", dedicacion, nivel, tipo, periodo)
-	resolucion := models.GetTemplateResolucion(dedicacion, nivel, periodo, tipo)
+	numero := c.Ctx.Input.Param(":numero")
+	logs.Error("dedicacion", dedicacion, nivel, tipo, periodo, numero)
+	resolucion := models.GetTemplateResolucion(dedicacion, nivel, periodo, tipo, numero)
 	c.Ctx.Output.SetStatus(201)
 	c.Data["json"] = resolucion
 	c.ServeJSON()
@@ -66,9 +69,12 @@ func (c *ResolucionCompletaController) Put() {
 	v := models.ResolucionCompleta{Id: idResolucion}
 	if err := json.Unmarshal(c.Ctx.Input.RequestBody, &v); err == nil {
 		if err := models.UpdateResolucionCompletaById(&v); err == nil {
-			c.Data["json"] = "OK"
+			c.Data["json"] = v
 		} else {
-			c.Data["json"] = err.Error()
+			logs.Error(err)
+			//c.Data["development"] = map[string]interface{}{"Code": "000", "Body": err.Error(), "Type": "error"}
+			c.Data["system"] = err
+			c.Abort("404")
 		}
 	} else {
 		fmt.Println(err.Error())
