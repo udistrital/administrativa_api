@@ -23,7 +23,7 @@ func init() {
 		fmt.Println(err)
 	}
 	orm.DefaultTimeLoc = loc
-	q := "postgres://" + beego.AppConfig.String("PGuser") + ":" + beego.AppConfig.String("PGpass") + "@" + beego.AppConfig.String("PGurls") + "/" + beego.AppConfig.String("PGdb") + "?sslmode=disable&search_path=" + beego.AppConfig.String("PGschemas") + "&timezone=UTC"
+	q := "postgres://" + beego.AppConfig.String("PGuser") + ":" + beego.AppConfig.String("PGpass") + "@" + beego.AppConfig.String("PGurls") + ":5431/" + beego.AppConfig.String("PGdb") + "?sslmode=disable&search_path=" + beego.AppConfig.String("PGschemas") + "&timezone=UTC"
 	//fmt.Println(q)
 	if err := orm.RegisterDataBase("default", "postgres", q); err != nil {
 		panic(err) //Nunca deberia pasar si están bien descargados los paquetes del repo

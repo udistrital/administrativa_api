@@ -1161,121 +1161,6 @@ paths:
           description: '{string} delete success!'
         "404":
           description: not found resource
-  /cambio_estado_pago/:
-    get:
-      tags:
-      - cambio_estado_pago
-      description: get CambioEstadoPago
-      operationId: CambioEstadoPagoController.Get All
-      parameters:
-      - in: query
-        name: query
-        description: Filter. e.g. col1:v1,col2:v2 ...
-        type: string
-      - in: query
-        name: fields
-        description: Fields returned. e.g. col1,col2 ...
-        type: string
-      - in: query
-        name: sortby
-        description: Sorted-by fields. e.g. col1,col2 ...
-        type: string
-      - in: query
-        name: order
-        description: Order corresponding to each sortby field, if single value, apply
-          to all sortby fields. e.g. desc,asc ...
-        type: string
-      - in: query
-        name: limit
-        description: Limit the size of result set. Must be an integer
-        type: string
-      - in: query
-        name: offset
-        description: Start position of result set. Must be an integer
-        type: string
-      responses:
-        "200":
-          description: ""
-          schema:
-            $ref: '#/definitions/models.CambioEstadoPago'
-        "403":
-          description: ""
-    post:
-      tags:
-      - cambio_estado_pago
-      description: create CambioEstadoPago
-      operationId: CambioEstadoPagoController.Post
-      parameters:
-      - in: body
-        name: body
-        description: body for CambioEstadoPago content
-        required: true
-        schema:
-          $ref: '#/definitions/models.CambioEstadoPago'
-      responses:
-        "201":
-          description: '{int} models.CambioEstadoPago'
-        "403":
-          description: body is empty
-  /cambio_estado_pago/{id}:
-    get:
-      tags:
-      - cambio_estado_pago
-      description: get CambioEstadoPago by id
-      operationId: CambioEstadoPagoController.Get One
-      parameters:
-      - in: path
-        name: id
-        description: The key for staticblock
-        required: true
-        type: string
-      responses:
-        "200":
-          description: ""
-          schema:
-            $ref: '#/definitions/models.CambioEstadoPago'
-        "403":
-          description: :id is empty
-    put:
-      tags:
-      - cambio_estado_pago
-      description: update the CambioEstadoPago
-      operationId: CambioEstadoPagoController.Put
-      parameters:
-      - in: path
-        name: id
-        description: The id you want to update
-        required: true
-        type: string
-      - in: body
-        name: body
-        description: body for CambioEstadoPago content
-        required: true
-        schema:
-          $ref: '#/definitions/models.CambioEstadoPago'
-      responses:
-        "200":
-          description: ""
-          schema:
-            $ref: '#/definitions/models.CambioEstadoPago'
-        "403":
-          description: :id is not int
-    delete:
-      tags:
-      - cambio_estado_pago
-      description: delete the CambioEstadoPago
-      operationId: CambioEstadoPagoController.Delete
-      parameters:
-      - in: path
-        name: id
-        description: The id you want to delete
-        required: true
-        type: string
-      responses:
-        "200":
-          description: '{string} delete success!'
-        "403":
-          description: id is empty
   /cambio_vida_util/:
     get:
       tags:
@@ -14620,28 +14505,6 @@ definitions:
         format: int64
       SalidaBodega:
         $ref: '#/definitions/models.SalidaBodega'
-  models.CambioEstadoPago:
-    title: CambioEstadoPago
-    type: object
-    properties:
-      CargoResponsable:
-        type: string
-      DocumentoResponsableId:
-        type: string
-      EstadoPagoMensualId:
-        type: integer
-        format: int64
-      FechaCreacion:
-        type: string
-        format: datetime
-      FechaModificacion:
-        type: string
-        format: datetime
-      Id:
-        type: integer
-        format: int64
-      PagoMensualId:
-        $ref: '#/definitions/models.PagoMensual'
   models.CambioVidaUtil:
     title: CambioVidaUtil
     type: object
@@ -17496,6 +17359,3 @@ tags:
 - name: tr_aprobacion_masiva_soportes_contratistas
   description: |
     operations for TrAprobacionMasivaSoportesContratistasController
-- name: cambio_estado_pago
-  description: |
-    CambioEstadoPagoController operations for CambioEstadoPago
