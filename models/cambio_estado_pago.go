@@ -11,7 +11,7 @@ import (
 )
 
 type CambioEstadoPago struct {
-	Id                     int          `orm:"column(id);pk"`
+	Id                     int          `orm:"column(id);pk;auto"`
 	FechaCreacion          time.Time    `orm:"column(fecha_creacion);type(timestamp without time zone)"`
 	FechaModificacion      time.Time    `orm:"column(fecha_modificacion);type(timestamp without time zone)"`
 	EstadoPagoMensualId    int          `orm:"column(estado_pago_mensual_id)"`

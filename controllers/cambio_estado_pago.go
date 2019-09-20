@@ -3,7 +3,7 @@ package controllers
 import (
 	"encoding/json"
 	"errors"
-	"github.com/udistrital/beeapi/models"
+	"github.com/udistrital/CambioEstado/models"
 	"strconv"
 	"strings"
 
