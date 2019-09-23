@@ -798,11 +798,11 @@ func init() {
 			),
 		),
 
-		// beego.NSNamespace("/cambio_estado_pago",
-		// 	beego.NSInclude(
-		// 		&controllers.CambioEstadoPagoController{},
-		// 	),
-		// ),
+		beego.NSNamespace("/cambio_estado_pago",
+			beego.NSInclude(
+				&controllers.CambioEstadoPagoController{},
+			),
+		),
 	)
 	beego.AddNamespace(ns)
 }
