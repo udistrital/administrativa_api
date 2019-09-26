@@ -17,6 +17,7 @@ type CambioEstadoPago struct {
 	EstadoPagoMensualId    int          `orm:"column(estado_pago_mensual_id)"`
 	DocumentoResponsableId string       `orm:"column(documento_responsable_id);null"`
 	CargoResponsable       string       `orm:"column(cargo_responsable);null"`
+	Activo                 bool         `orm:"column(activo)"`
 	PagoMensualId          *PagoMensual `orm:"column(pago_mensual_id);rel(fk)"`
 }
 
