@@ -8,6 +8,7 @@ import (
 
 	"github.com/astaxie/beego/logs"
 	"github.com/udistrital/administrativa_crud_api/models"
+	"github.com/udistrital/utils_oas/time_bogota"
 
 	"github.com/astaxie/beego"
 )
@@ -36,7 +37,9 @@ func (c *CambioEstadoPagoController) URLMapping() {
 func (c *CambioEstadoPagoController) Post() {
 	var v models.CambioEstadoPago
 	if err := json.Unmarshal(c.Ctx.Input.RequestBody, &v); err == nil {
-		if _, err := models.AddCambioEstadoPago(&v); err == nil {
+		v.FechaCreacion =  time_bogota.TiempoBogotaFormato()
+		v.FechaModificacion =  time_bogota.TiempoBogotaFormato()
+		if _, err := models.AddCambioEstadoPago(&v); err == nil {			
 			c.Ctx.Output.SetStatus(201)
 			c.Data["json"] = v
 		} else {
@@ -158,6 +161,7 @@ func (c *CambioEstadoPagoController) Put() {
 	id, _ := strconv.Atoi(idStr)
 	v := models.CambioEstadoPago{Id: id}
 	if err := json.Unmarshal(c.Ctx.Input.RequestBody, &v); err == nil {
+		v.FechaModificacion =  time_bogota.TiempoBogotaFormato()
 		if err := models.UpdateCambioEstadoPagoById(&v); err == nil {
 			c.Data["json"] = v
 		} else {
