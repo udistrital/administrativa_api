@@ -5,51 +5,54 @@ import (
 	"fmt"
 	"reflect"
 	"strings"
-
+	
 	"github.com/astaxie/beego/orm"
 )
 
-type ResolucionEstado struct {
-	Id            int               `orm:"column(id);pk;auto"`
-	FechaRegistro string            `orm:"column(fecha_registro);"`
-	Usuario       string            `orm:"column(usuario);null"`
-	Estado        *EstadoResolucion `orm:"column(estado);rel(fk)"`
-	Resolucion    *Resolucion       `orm:"column(resolucion);rel(fk)"`
+type CambioEstadoPago struct {
+	Id                     int          `orm:"column(id);pk;auto"`
+	FechaCreacion          string    	`orm:"column(fecha_creacion);type(timestamp without time zone)"`
+	FechaModificacion      string    	`orm:"column(fecha_modificacion);type(timestamp without time zone)"`
+	EstadoPagoMensualId    int          `orm:"column(estado_pago_mensual_id)"`
+	DocumentoResponsableId string       `orm:"column(documento_responsable_id);null"`
+	CargoResponsable       string       `orm:"column(cargo_responsable);null"`
+	Activo                 bool         `orm:"column(activo)"`
+	PagoMensualId          *PagoMensual `orm:"column(pago_mensual_id);rel(fk)"`
 }
 
-func (t *ResolucionEstado) TableName() string {
-	return "resolucion_estado"
+func (t *CambioEstadoPago) TableName() string {
+	return "cambio_estado_pago"
 }
 
 func init() {
-	orm.RegisterModel(new(ResolucionEstado))
+	orm.RegisterModel(new(CambioEstadoPago))
 }
 
-// AddResolucionEstado insert a new ResolucionEstado into database and returns
+// AddCambioEstadoPago insert a new CambioEstadoPago into database and returns
 // last inserted Id on success.
-func AddResolucionEstado(m *ResolucionEstado) (id int64, err error) {
+func AddCambioEstadoPago(m *CambioEstadoPago) (id int64, err error) {
 	o := orm.NewOrm()
 	id, err = o.Insert(m)
 	return
 }
 
-// GetResolucionEstadoById retrieves ResolucionEstado by Id. Returns error if
+// GetCambioEstadoPagoById retrieves CambioEstadoPago by Id. Returns error if
 // Id doesn't exist
-func GetResolucionEstadoById(id int) (v *ResolucionEstado, err error) {
+func GetCambioEstadoPagoById(id int) (v *CambioEstadoPago, err error) {
 	o := orm.NewOrm()
-	v = &ResolucionEstado{Id: id}
+	v = &CambioEstadoPago{Id: id}
 	if err = o.Read(v); err == nil {
 		return v, nil
 	}
 	return nil, err
 }
 
-// GetAllResolucionEstado retrieves all ResolucionEstado matches certain condition. Returns empty list if
+// GetAllCambioEstadoPago retrieves all CambioEstadoPago matches certain condition. Returns empty list if
 // no records exist
-func GetAllResolucionEstado(query map[string]string, fields []string, sortby []string, order []string,
+func GetAllCambioEstadoPago(query map[string]string, fields []string, sortby []string, order []string,
 	offset int64, limit int64) (ml []interface{}, err error) {
 	o := orm.NewOrm()
-	qs := o.QueryTable(new(ResolucionEstado))
+	qs := o.QueryTable(new(CambioEstadoPago))
 	// query k=v
 	for k, v := range query {
 		// rewrite dot-notation to Object__Attribute
@@ -99,7 +102,7 @@ func GetAllResolucionEstado(query map[string]string, fields []string, sortby []s
 		}
 	}
 
-	var l []ResolucionEstado
+	var l []CambioEstadoPago
 	qs = qs.OrderBy(sortFields...)
 	if _, err = qs.Limit(limit, offset).All(&l, fields...); err == nil {
 		if len(fields) == 0 {
@@ -122,11 +125,11 @@ func GetAllResolucionEstado(query map[string]string, fields []string, sortby []s
 	return nil, err
 }
 
-// UpdateResolucionEstado updates ResolucionEstado by Id and returns error if
+// UpdateCambioEstadoPago updates CambioEstadoPago by Id and returns error if
 // the record to be updated doesn't exist
-func UpdateResolucionEstadoById(m *ResolucionEstado) (err error) {
+func UpdateCambioEstadoPagoById(m *CambioEstadoPago) (err error) {
 	o := orm.NewOrm()
-	v := ResolucionEstado{Id: m.Id}
+	v := CambioEstadoPago{Id: m.Id}
 	// ascertain id exists in the database
 	if err = o.Read(&v); err == nil {
 		var num int64
@@ -137,15 +140,15 @@ func UpdateResolucionEstadoById(m *ResolucionEstado) (err error) {
 	return
 }
 
-// DeleteResolucionEstado deletes ResolucionEstado by Id and returns error if
+// DeleteCambioEstadoPago deletes CambioEstadoPago by Id and returns error if
 // the record to be deleted doesn't exist
-func DeleteResolucionEstado(id int) (err error) {
+func DeleteCambioEstadoPago(id int) (err error) {
 	o := orm.NewOrm()
-	v := ResolucionEstado{Id: id}
+	v := CambioEstadoPago{Id: id}
 	// ascertain id exists in the database
 	if err = o.Read(&v); err == nil {
 		var num int64
-		if num, err = o.Delete(&ResolucionEstado{Id: id}); err == nil {
+		if num, err = o.Delete(&CambioEstadoPago{Id: id}); err == nil {
 			fmt.Println("Number of records deleted in database:", num)
 		}
 	}

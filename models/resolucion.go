@@ -7,6 +7,10 @@ import (
 	"strings"
 	"time"
 
+	"github.com/udistrital/utils_oas/time_bogota"
+
+	"github.com/astaxie/beego/logs"
+
 	"github.com/astaxie/beego"
 	"github.com/astaxie/beego/orm"
 )
@@ -21,7 +25,7 @@ type Resolucion struct {
 	PreambuloResolucion     string          `orm:"column(preambulo_resolucion)"`
 	ConsideracionResolucion string          `orm:"column(consideracion_resolucion)"`
 	Estado                  bool            `orm:"column(estado)"`
-	FechaRegistro           time.Time       `orm:"column(fecha_registro);type(date)"`
+	FechaRegistro           string          `orm:"column(fecha_registro);"`
 	Objeto                  string          `orm:"column(objeto);null"`
 	NumeroSemanas           int             `orm:"column(numero_semanas)"`
 	Periodo                 int             `orm:"column(periodo)"`
@@ -60,7 +64,8 @@ func CancelarResolucion(m *Resolucion) (err error) {
 						e := ContratoEstado{}
 						e.NumeroContrato = aux1
 						e.Vigencia = aux2
-						e.FechaRegistro = time.Now()
+						e.FechaRegistro = time_bogota.TiempoBogotaFormato()
+						logs.Error(e.FechaRegistro)
 						e.Estado = &EstadoContrato{Id: 7}
 						if _, err = o.Insert(&e); err != nil {
 							err = o.Rollback()
@@ -84,7 +89,8 @@ func CancelarResolucion(m *Resolucion) (err error) {
 			var e ResolucionEstado
 			e.Resolucion = m
 			e.Estado = &EstadoResolucion{Id: 3}
-			e.FechaRegistro = time.Now()
+			e.FechaRegistro = time_bogota.TiempoBogotaFormato()
+			logs.Error(e.FechaRegistro)
 			_, err = o.Insert(&e)
 			if err == nil {
 				fmt.Println("Number of records updated in database:", num)
@@ -122,8 +128,9 @@ func GenerarResolucion(m *Resolucion) (id int64, err error) {
 	if err != nil {
 		beego.Error(err)
 	}
-	m.Vigencia, _, _ = time.Now().Date()
-	m.FechaRegistro = time.Now()
+	m.Vigencia, _, _ = time_bogota.Tiempo_bogota().Date()
+	m.FechaRegistro = time_bogota.TiempoBogotaFormato()
+	logs.Error(m.FechaRegistro)
 	m.Estado = true
 	m.IdTipoResolucion = &TipoResolucion{Id: 1}
 	id, err = o.Insert(m)
@@ -131,7 +138,8 @@ func GenerarResolucion(m *Resolucion) (id int64, err error) {
 		var e ResolucionEstado
 		e.Resolucion = m
 		e.Estado = &EstadoResolucion{Id: 1}
-		e.FechaRegistro = time.Now()
+		e.FechaRegistro = time_bogota.TiempoBogotaFormato()
+		logs.Error(e.FechaRegistro)
 		_, err = o.Insert(&e)
 		if err != nil {
 			err = o.Rollback()
@@ -165,7 +173,8 @@ func RestaurarResolucion(m *Resolucion) (err error) {
 		var e ResolucionEstado
 		e.Resolucion = m
 		e.Estado = &EstadoResolucion{Id: 1}
-		e.FechaRegistro = time.Now()
+		e.FechaRegistro = time_bogota.TiempoBogotaFormato()
+		logs.Error(e.FechaRegistro)
 		_, err = o.Insert(&e)
 		if err == nil {
 			fmt.Println("Number of records updated in database:", num)

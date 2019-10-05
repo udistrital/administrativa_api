@@ -8,17 +8,18 @@ import (
 
 	"github.com/astaxie/beego/logs"
 	"github.com/udistrital/administrativa_crud_api/models"
+	"github.com/udistrital/utils_oas/time_bogota"
 
 	"github.com/astaxie/beego"
 )
 
-// DetallePreliquidacionController operations for DetallePreliquidacion
-type DetallePreliquidacionController struct {
+// CambioEstadoPagoController operations for CambioEstadoPago
+type CambioEstadoPagoController struct {
 	beego.Controller
 }
 
 // URLMapping ...
-func (c *DetallePreliquidacionController) URLMapping() {
+func (c *CambioEstadoPagoController) URLMapping() {
 	c.Mapping("Post", c.Post)
 	c.Mapping("GetOne", c.GetOne)
 	c.Mapping("GetAll", c.GetAll)
@@ -28,15 +29,17 @@ func (c *DetallePreliquidacionController) URLMapping() {
 
 // Post ...
 // @Title Post
-// @Description create DetallePreliquidacion
-// @Param	body		body 	models.DetallePreliquidacion	true		"body for DetallePreliquidacion content"
-// @Success 201 {int} models.DetallePreliquidacion
+// @Description create CambioEstadoPago
+// @Param	body		body 	models.CambioEstadoPago	true		"body for CambioEstadoPago content"
+// @Success 201 {int} models.CambioEstadoPago
 // @Failure 400 the request contains incorrect syntax
 // @router / [post]
-func (c *DetallePreliquidacionController) Post() {
-	var v models.DetallePreliquidacion
+func (c *CambioEstadoPagoController) Post() {
+	var v models.CambioEstadoPago
 	if err := json.Unmarshal(c.Ctx.Input.RequestBody, &v); err == nil {
-		if _, err := models.AddDetallePreliquidacion(&v); err == nil {
+		v.FechaCreacion =  time_bogota.TiempoBogotaFormato()
+		v.FechaModificacion =  time_bogota.TiempoBogotaFormato()
+		if _, err := models.AddCambioEstadoPago(&v); err == nil {			
 			c.Ctx.Output.SetStatus(201)
 			c.Data["json"] = v
 		} else {
@@ -56,15 +59,15 @@ func (c *DetallePreliquidacionController) Post() {
 
 // GetOne ...
 // @Title Get One
-// @Description get DetallePreliquidacion by id
+// @Description get CambioEstadoPago by id
 // @Param	id		path 	string	true		"The key for staticblock"
-// @Success 200 {object} models.DetallePreliquidacion
+// @Success 200 {object} models.CambioEstadoPago
 // @Failure 404 not found resource
 // @router /:id [get]
-func (c *DetallePreliquidacionController) GetOne() {
+func (c *CambioEstadoPagoController) GetOne() {
 	idStr := c.Ctx.Input.Param(":id")
 	id, _ := strconv.Atoi(idStr)
-	v, err := models.GetDetallePreliquidacionById(id)
+	v, err := models.GetCambioEstadoPagoById(id)
 	if err != nil {
 		logs.Error(err)
 		//c.Data["development"] = map[string]interface{}{"Code": "000", "Body": err.Error(), "Type": "error"}
@@ -78,17 +81,17 @@ func (c *DetallePreliquidacionController) GetOne() {
 
 // GetAll ...
 // @Title Get All
-// @Description get DetallePreliquidacion
+// @Description get CambioEstadoPago
 // @Param	query	query	string	false	"Filter. e.g. col1:v1,col2:v2 ..."
 // @Param	fields	query	string	false	"Fields returned. e.g. col1,col2 ..."
 // @Param	sortby	query	string	false	"Sorted-by fields. e.g. col1,col2 ..."
 // @Param	order	query	string	false	"Order corresponding to each sortby field, if single value, apply to all sortby fields. e.g. desc,asc ..."
 // @Param	limit	query	string	false	"Limit the size of result set. Must be an integer"
 // @Param	offset	query	string	false	"Start position of result set. Must be an integer"
-// @Success 200 {object} models.DetallePreliquidacion
+// @Success 200 {object} models.CambioEstadoPago
 // @Failure 404 not found resource
 // @router / [get]
-func (c *DetallePreliquidacionController) GetAll() {
+func (c *CambioEstadoPagoController) GetAll() {
 	var fields []string
 	var sortby []string
 	var order []string
@@ -130,7 +133,7 @@ func (c *DetallePreliquidacionController) GetAll() {
 		}
 	}
 
-	l, err := models.GetAllDetallePreliquidacion(query, fields, sortby, order, offset, limit)
+	l, err := models.GetAllCambioEstadoPago(query, fields, sortby, order, offset, limit)
 	if err != nil {
 		logs.Error(err)
 		//c.Data["development"] = map[string]interface{}{"Code": "000", "Body": err.Error(), "Type": "error"}
@@ -147,18 +150,19 @@ func (c *DetallePreliquidacionController) GetAll() {
 
 // Put ...
 // @Title Put
-// @Description update the DetallePreliquidacion
+// @Description update the CambioEstadoPago
 // @Param	id		path 	string	true		"The id you want to update"
-// @Param	body		body 	models.DetallePreliquidacion	true		"body for DetallePreliquidacion content"
-// @Success 200 {object} models.DetallePreliquidacion
+// @Param	body		body 	models.CambioEstadoPago	true		"body for CambioEstadoPago content"
+// @Success 200 {object} models.CambioEstadoPago
 // @Failure 400 the request contains incorrect syntax
 // @router /:id [put]
-func (c *DetallePreliquidacionController) Put() {
+func (c *CambioEstadoPagoController) Put() {
 	idStr := c.Ctx.Input.Param(":id")
 	id, _ := strconv.Atoi(idStr)
-	v := models.DetallePreliquidacion{Id: id}
+	v := models.CambioEstadoPago{Id: id}
 	if err := json.Unmarshal(c.Ctx.Input.RequestBody, &v); err == nil {
-		if err := models.UpdateDetallePreliquidacionById(&v); err == nil {
+		v.FechaModificacion =  time_bogota.TiempoBogotaFormato()
+		if err := models.UpdateCambioEstadoPagoById(&v); err == nil {
 			c.Data["json"] = v
 		} else {
 			logs.Error(err)
@@ -177,15 +181,15 @@ func (c *DetallePreliquidacionController) Put() {
 
 // Delete ...
 // @Title Delete
-// @Description delete the DetallePreliquidacion
+// @Description delete the CambioEstadoPago
 // @Param	id		path 	string	true		"The id you want to delete"
 // @Success 200 {string} delete success!
 // @Failure 404 not found resource
 // @router /:id [delete]
-func (c *DetallePreliquidacionController) Delete() {
+func (c *CambioEstadoPagoController) Delete() {
 	idStr := c.Ctx.Input.Param(":id")
 	id, _ := strconv.Atoi(idStr)
-	if err := models.DeleteDetallePreliquidacion(id); err == nil {
+	if err := models.DeleteCambioEstadoPago(id); err == nil {
 		c.Data["json"] = map[string]interface{}{"Id": id}
 	} else {
 		logs.Error(err)
