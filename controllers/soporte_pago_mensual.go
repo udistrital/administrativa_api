@@ -3,11 +3,9 @@ package controllers
 import (
 	"encoding/json"
 	"errors"
+	"github.com/udistrital/administrativa_crud_api/models"
 	"strconv"
 	"strings"
-
-	"github.com/astaxie/beego/logs"
-	"github.com/udistrital/administrativa_crud_api/models"
 
 	"github.com/astaxie/beego"
 )
@@ -31,7 +29,7 @@ func (c *SoportePagoMensualController) URLMapping() {
 // @Description create SoportePagoMensual
 // @Param	body		body 	models.SoportePagoMensual	true		"body for SoportePagoMensual content"
 // @Success 201 {int} models.SoportePagoMensual
-// @Failure 400 the request contains incorrect syntax
+// @Failure 403 body is empty
 // @router / [post]
 func (c *SoportePagoMensualController) Post() {
 	var v models.SoportePagoMensual
@@ -40,16 +38,10 @@ func (c *SoportePagoMensualController) Post() {
 			c.Ctx.Output.SetStatus(201)
 			c.Data["json"] = v
 		} else {
-			logs.Error(err)
-			//c.Data["development"] = map[string]interface{}{"Code": "000", "Body": err.Error(), "Type": "error"}
-			c.Data["system"] = err
-			c.Abort("400")
+			c.Data["json"] = err.Error()
 		}
 	} else {
-		logs.Error(err)
-		//c.Data["development"] = map[string]interface{}{"Code": "000", "Body": err.Error(), "Type": "error"}
-		c.Data["system"] = err
-		c.Abort("400")
+		c.Data["json"] = err.Error()
 	}
 	c.ServeJSON()
 }
@@ -59,17 +51,14 @@ func (c *SoportePagoMensualController) Post() {
 // @Description get SoportePagoMensual by id
 // @Param	id		path 	string	true		"The key for staticblock"
 // @Success 200 {object} models.SoportePagoMensual
-// @Failure 404 not found resource
+// @Failure 403 :id is empty
 // @router /:id [get]
 func (c *SoportePagoMensualController) GetOne() {
 	idStr := c.Ctx.Input.Param(":id")
 	id, _ := strconv.Atoi(idStr)
 	v, err := models.GetSoportePagoMensualById(id)
 	if err != nil {
-		logs.Error(err)
-		//c.Data["development"] = map[string]interface{}{"Code": "000", "Body": err.Error(), "Type": "error"}
-		c.Data["system"] = err
-		c.Abort("404")
+		c.Data["json"] = err.Error()
 	} else {
 		c.Data["json"] = v
 	}
@@ -86,7 +75,7 @@ func (c *SoportePagoMensualController) GetOne() {
 // @Param	limit	query	string	false	"Limit the size of result set. Must be an integer"
 // @Param	offset	query	string	false	"Start position of result set. Must be an integer"
 // @Success 200 {object} models.SoportePagoMensual
-// @Failure 404 not found resource
+// @Failure 403
 // @router / [get]
 func (c *SoportePagoMensualController) GetAll() {
 	var fields []string
@@ -132,14 +121,8 @@ func (c *SoportePagoMensualController) GetAll() {
 
 	l, err := models.GetAllSoportePagoMensual(query, fields, sortby, order, offset, limit)
 	if err != nil {
-		logs.Error(err)
-		//c.Data["development"] = map[string]interface{}{"Code": "000", "Body": err.Error(), "Type": "error"}
-		c.Data["system"] = err
-		c.Abort("404")
+		c.Data["json"] = err.Error()
 	} else {
-		if l == nil {
-			l = append(l, map[string]interface{}{})
-		}
 		c.Data["json"] = l
 	}
 	c.ServeJSON()
@@ -151,7 +134,7 @@ func (c *SoportePagoMensualController) GetAll() {
 // @Param	id		path 	string	true		"The id you want to update"
 // @Param	body		body 	models.SoportePagoMensual	true		"body for SoportePagoMensual content"
 // @Success 200 {object} models.SoportePagoMensual
-// @Failure 400 the request contains incorrect syntax
+// @Failure 403 :id is not int
 // @router /:id [put]
 func (c *SoportePagoMensualController) Put() {
 	idStr := c.Ctx.Input.Param(":id")
@@ -159,18 +142,12 @@ func (c *SoportePagoMensualController) Put() {
 	v := models.SoportePagoMensual{Id: id}
 	if err := json.Unmarshal(c.Ctx.Input.RequestBody, &v); err == nil {
 		if err := models.UpdateSoportePagoMensualById(&v); err == nil {
-			c.Data["json"] = v
+			c.Data["json"] = "OK"
 		} else {
-			logs.Error(err)
-			//c.Data["development"] = map[string]interface{}{"Code": "000", "Body": err.Error(), "Type": "error"}
-			c.Data["system"] = err
-			c.Abort("400")
+			c.Data["json"] = err.Error()
 		}
 	} else {
-		logs.Error(err)
-		//c.Data["development"] = map[string]interface{}{"Code": "000", "Body": err.Error(), "Type": "error"}
-		c.Data["system"] = err
-		c.Abort("400")
+		c.Data["json"] = err.Error()
 	}
 	c.ServeJSON()
 }
@@ -180,18 +157,15 @@ func (c *SoportePagoMensualController) Put() {
 // @Description delete the SoportePagoMensual
 // @Param	id		path 	string	true		"The id you want to delete"
 // @Success 200 {string} delete success!
-// @Failure 404 not found resource
+// @Failure 403 id is empty
 // @router /:id [delete]
 func (c *SoportePagoMensualController) Delete() {
 	idStr := c.Ctx.Input.Param(":id")
 	id, _ := strconv.Atoi(idStr)
 	if err := models.DeleteSoportePagoMensual(id); err == nil {
-		c.Data["json"] = map[string]interface{}{"Id": id}
+		c.Data["json"] = "OK"
 	} else {
-		logs.Error(err)
-		//c.Data["development"] = map[string]interface{}{"Code": "000", "Body": err.Error(), "Type": "error"}
-		c.Data["system"] = err
-		c.Abort("404")
+		c.Data["json"] = err.Error()
 	}
 	c.ServeJSON()
 }

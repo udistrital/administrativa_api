@@ -1,8 +1,8 @@
 package controllers
 
 import (
-	"github.com/astaxie/beego"
-	"github.com/udistrital/administrativa_crud_api/models"
+  "github.com/udistrital/administrativa_crud_api/models"
+  "github.com/astaxie/beego"
 )
 
 type PrecontratadoController struct {
@@ -11,7 +11,7 @@ type PrecontratadoController struct {
 
 func (c *PrecontratadoController) URLMapping() {
 	c.Mapping("GetAll", c.GetAll)
-	c.Mapping("GetAllContratado", c.GetAllContratado)
+    c.Mapping("GetAllContratado", c.GetAllContratado)
 	c.Mapping("GetOne", c.GetOne)
 }
 
@@ -20,17 +20,14 @@ func (c *PrecontratadoController) URLMapping() {
 // @Description get Precontratado
 // @Param   idResolucion      path    string  true        "The key for staticblock"
 // @Success 200 {object} models.Precontratado
-// @Failure 404 not found resource
+// @Failure 403
 // @router /:idResolucion [get]
 func (c *PrecontratadoController) GetAll() {
 	idResolucion := c.Ctx.Input.Param(":idResolucion")
-	listaPrecontratados := models.GetAllPrecontratado(idResolucion)
-	c.Ctx.Output.SetStatus(201)
-	if listaPrecontratados == nil {
-		listaPrecontratados = append(listaPrecontratados)
-	}
-	c.Data["json"] = listaPrecontratados
-	c.ServeJSON()
+    listaPrecontratados := models.GetAllPrecontratado(idResolucion)
+    c.Ctx.Output.SetStatus(201)
+    c.Data["json"] = listaPrecontratados
+    c.ServeJSON()
 }
 
 // GetAllContratado ...
@@ -38,17 +35,14 @@ func (c *PrecontratadoController) GetAll() {
 // @Description get Precontratado
 // @Param   idResolucion      path    string  true        "The key for staticblock"
 // @Success 200 {object} models.Precontratado
-// @Failure 404 not found resource
+// @Failure 403
 // @router /Contratado/:idResolucion [get]
 func (c *PrecontratadoController) GetAllContratado() {
-	idResolucion := c.Ctx.Input.Param(":idResolucion")
-	listaPrecontratados := models.GetAllContratado(idResolucion)
-	c.Ctx.Output.SetStatus(201)
-	if listaPrecontratados == nil {
-		listaPrecontratados = append(listaPrecontratados)
-	}
-	c.Data["json"] = listaPrecontratados
-	c.ServeJSON()
+    idResolucion := c.Ctx.Input.Param(":idResolucion")
+    listaPrecontratados := models.GetAllContratado(idResolucion)
+    c.Ctx.Output.SetStatus(201)
+    c.Data["json"] = listaPrecontratados
+    c.ServeJSON()
 }
 
 // GetOne ...
@@ -57,13 +51,13 @@ func (c *PrecontratadoController) GetAllContratado() {
 // @Param   idResolucion     path    string  true        "The key for staticblock"
 // @Param   idPersona        path    string  true        "The key for staticblock"
 // @Success 200 {object} models.Precontratado
-// @Failure 404 not found resource
+// @Failure 403 :id is empty
 // @router /:idResolucion/:idPersona [get]
 func (c *PrecontratadoController) GetOne() {
 	idResolucion := c.Ctx.Input.Param(":idResolucion")
 	idPersona := c.Ctx.Input.Param(":idPersona")
-	precontratado := models.GetOnePrecontratado(idResolucion, idPersona)
-	c.Ctx.Output.SetStatus(201)
-	c.Data["json"] = precontratado
-	c.ServeJSON()
+    precontratado := models.GetOnePrecontratado(idResolucion, idPersona)
+    c.Ctx.Output.SetStatus(201)
+    c.Data["json"] = precontratado
+    c.ServeJSON()
 }
