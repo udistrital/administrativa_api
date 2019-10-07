@@ -10,7 +10,7 @@ import (
 )
 
 type ItemInformeTipoContrato struct {
-	Id           int          `orm:"column(id);pk;auto"`
+	Id           int          `orm:"column(id);pk:auto"`
 	ItemInforme  *ItemInforme `orm:"column(item_informe);rel(fk)"`
 	TipoContrato int          `orm:"column(tipo_contrato)"`
 }
