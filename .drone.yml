@@ -23,7 +23,7 @@ steps:
       event:
       - push
 
-  - name: go_test
+  - name: go_run_test
     image: golang:1.9
     commands:
      - go get -t
@@ -44,7 +44,7 @@ steps:
       event:
       - push
 
-  - name: sonar_scanner_test
+  - name: run_sonar_scanner
     image: openjdk:8-alpine
     commands:
      - export RELEASE=4.2.0.1873
