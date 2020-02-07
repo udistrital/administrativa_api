@@ -7,8 +7,6 @@ import (
 	"strings"
 	"time"
 
-	"github.com/astaxie/beego/logs"
-
 	"github.com/udistrital/administrativa_crud_api/models"
 
 	"github.com/astaxie/beego"
@@ -33,7 +31,7 @@ func (c *NecesidadRechazadaController) URLMapping() {
 // @Description create NecesidadRechazada
 // @Param	body		body 	models.NecesidadRechazada	true		"body for NecesidadRechazada content"
 // @Success 201 {int} models.NecesidadRechazada
-// @Failure 400 the request contains incorrect syntax
+// @Failure 403 body is empty
 // @router / [post]
 func (c *NecesidadRechazadaController) Post() {
 	var v models.NecesidadRechazada
@@ -43,16 +41,10 @@ func (c *NecesidadRechazadaController) Post() {
 			c.Ctx.Output.SetStatus(201)
 			c.Data["json"] = v
 		} else {
-			logs.Error(err)
-			//c.Data["development"] = map[string]interface{}{"Code": "000", "Body": err.Error(), "Type": "error"}
-			c.Data["system"] = err
-			c.Abort("400")
+			c.Data["json"] = err.Error()
 		}
 	} else {
-		logs.Error(err)
-		//c.Data["development"] = map[string]interface{}{"Code": "000", "Body": err.Error(), "Type": "error"}
-		c.Data["system"] = err
-		c.Abort("400")
+		c.Data["json"] = err.Error()
 	}
 	c.ServeJSON()
 }
@@ -62,17 +54,14 @@ func (c *NecesidadRechazadaController) Post() {
 // @Description get NecesidadRechazada by id
 // @Param	id		path 	string	true		"The key for staticblock"
 // @Success 200 {object} models.NecesidadRechazada
-// @Failure 404 not found resource
+// @Failure 403 :id is empty
 // @router /:id [get]
 func (c *NecesidadRechazadaController) GetOne() {
 	idStr := c.Ctx.Input.Param(":id")
 	id, _ := strconv.Atoi(idStr)
 	v, err := models.GetNecesidadRechazadaById(id)
 	if err != nil {
-		logs.Error(err)
-		//c.Data["development"] = map[string]interface{}{"Code": "000", "Body": err.Error(), "Type": "error"}
-		c.Data["system"] = err
-		c.Abort("404")
+		c.Data["json"] = err.Error()
 	} else {
 		c.Data["json"] = v
 	}
@@ -89,7 +78,7 @@ func (c *NecesidadRechazadaController) GetOne() {
 // @Param	limit	query	string	false	"Limit the size of result set. Must be an integer"
 // @Param	offset	query	string	false	"Start position of result set. Must be an integer"
 // @Success 200 {object} models.NecesidadRechazada
-// @Failure 404 not found resource
+// @Failure 403
 // @router / [get]
 func (c *NecesidadRechazadaController) GetAll() {
 	var fields []string
@@ -135,14 +124,8 @@ func (c *NecesidadRechazadaController) GetAll() {
 
 	l, err := models.GetAllNecesidadRechazada(query, fields, sortby, order, offset, limit)
 	if err != nil {
-		logs.Error(err)
-		//c.Data["development"] = map[string]interface{}{"Code": "000", "Body": err.Error(), "Type": "error"}
-		c.Data["system"] = err
-		c.Abort("404")
+		c.Data["json"] = err.Error()
 	} else {
-		if l == nil {
-			l = append(l, map[string]interface{}{})
-		}
 		c.Data["json"] = l
 	}
 	c.ServeJSON()
@@ -154,7 +137,7 @@ func (c *NecesidadRechazadaController) GetAll() {
 // @Param	id		path 	string	true		"The id you want to update"
 // @Param	body		body 	models.NecesidadRechazada	true		"body for NecesidadRechazada content"
 // @Success 200 {object} models.NecesidadRechazada
-// @Failure 400 the request contains incorrect syntax
+// @Failure 403 :id is not int
 // @router /:id [put]
 func (c *NecesidadRechazadaController) Put() {
 	idStr := c.Ctx.Input.Param(":id")
@@ -162,18 +145,12 @@ func (c *NecesidadRechazadaController) Put() {
 	v := models.NecesidadRechazada{Id: id}
 	if err := json.Unmarshal(c.Ctx.Input.RequestBody, &v); err == nil {
 		if err := models.UpdateNecesidadRechazadaById(&v); err == nil {
-			c.Data["json"] = v
+			c.Data["json"] = "OK"
 		} else {
-			logs.Error(err)
-			//c.Data["development"] = map[string]interface{}{"Code": "000", "Body": err.Error(), "Type": "error"}
-			c.Data["system"] = err
-			c.Abort("400")
+			c.Data["json"] = err.Error()
 		}
 	} else {
-		logs.Error(err)
-		//c.Data["development"] = map[string]interface{}{"Code": "000", "Body": err.Error(), "Type": "error"}
-		c.Data["system"] = err
-		c.Abort("400")
+		c.Data["json"] = err.Error()
 	}
 	c.ServeJSON()
 }
@@ -183,18 +160,15 @@ func (c *NecesidadRechazadaController) Put() {
 // @Description delete the NecesidadRechazada
 // @Param	id		path 	string	true		"The id you want to delete"
 // @Success 200 {string} delete success!
-// @Failure 404 not found resource
+// @Failure 403 id is empty
 // @router /:id [delete]
 func (c *NecesidadRechazadaController) Delete() {
 	idStr := c.Ctx.Input.Param(":id")
 	id, _ := strconv.Atoi(idStr)
 	if err := models.DeleteNecesidadRechazada(id); err == nil {
-		c.Data["json"] = map[string]interface{}{"Id": id}
+		c.Data["json"] = "OK"
 	} else {
-		logs.Error(err)
-		//c.Data["development"] = map[string]interface{}{"Code": "000", "Body": err.Error(), "Type": "error"}
-		c.Data["system"] = err
-		c.Abort("404")
+		c.Data["json"] = err.Error()
 	}
 	c.ServeJSON()
 }

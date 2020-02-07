@@ -797,12 +797,6 @@ func init() {
 				&controllers.TrAprobacionMasivaSoportesContratistasController{},
 			),
 		),
-
-		beego.NSNamespace("/cambio_estado_pago",
-			beego.NSInclude(
-				&controllers.CambioEstadoPagoController{},
-			),
-		),
 	)
 	beego.AddNamespace(ns)
 }

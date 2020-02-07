@@ -95,7 +95,7 @@ func AddContratosVinculcionEspecial(m ExpedicionResolucion) (err error) {
 	o := orm.NewOrm()
 	v := m.Vinculaciones
 	o.Begin()
-	vigencia, _, _ := tiempo_bogota().Date()
+	vigencia, _, _ := time.Now().Date()
 	numeroContratos := GetNumeroTotalContratoGeneralDVE(vigencia)
 	for _, vinculacion := range v {
 		numeroContratos = numeroContratos + 2
@@ -123,7 +123,7 @@ func AddContratosVinculcionEspecial(m ExpedicionResolucion) (err error) {
 				contrato.ModalidadSeleccion = 123
 				contrato.TipoCompromiso = 35
 				contrato.TipologiaContrato = 46
-				contrato.FechaRegistro = tiempo_bogota()
+				contrato.FechaRegistro = time.Now()
 				contrato.UnidadEjecutora = 1
 				contrato.Condiciones = "Sin condiciones"
 				//contratoAux := []ContratoGeneral{contrato}
@@ -135,7 +135,7 @@ func AddContratosVinculcionEspecial(m ExpedicionResolucion) (err error) {
 					e := ContratoEstado{}
 					e.NumeroContrato = aux1
 					e.Vigencia = aux2
-					e.FechaRegistro = tiempo_bogota()
+					e.FechaRegistro = time.Now()
 					e.Estado = &EstadoContrato{Id: 1}
 					_, err = o.Insert(&e)
 					if err == nil {
@@ -170,7 +170,7 @@ func AddContratosVinculcionEspecial(m ExpedicionResolucion) (err error) {
 				e := ContratoEstado{}
 				e.NumeroContrato = aux1
 				e.Vigencia = aux2
-				e.FechaRegistro = tiempo_bogota()
+				e.FechaRegistro = time.Now()
 				e.Estado = &EstadoContrato{Id: 1}
 				_, err = o.Insert(&e)
 				if err != nil {
@@ -185,13 +185,13 @@ func AddContratosVinculcionEspecial(m ExpedicionResolucion) (err error) {
 	}
 	r := &Resolucion{Id: m.IdResolucion}
 	if err = o.Read(r); err == nil {
-		fecha := tiempo_bogota()
+		fecha := time.Now()
 		r.FechaExpedicion = fecha
 		if _, err = o.Update(r); err == nil {
 			var e ResolucionEstado
 			e.Resolucion = r
 			e.Estado = &EstadoResolucion{Id: 2}
-			e.FechaRegistro = tiempo_bogota()
+			e.FechaRegistro = time.Now()
 			_, err = o.Insert(&e)
 			if err != nil {
 				o.Rollback()

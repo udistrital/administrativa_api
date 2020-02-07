@@ -1,9 +1,8 @@
 package controllers
 
 import (
-	"encoding/json"
-
 	"github.com/udistrital/administrativa_crud_api/models"
+	"encoding/json"
 
 	"github.com/astaxie/beego"
 )
@@ -90,3 +89,4 @@ func (o *ObjectController) Delete() {
 	o.Data["json"] = "delete success!"
 	o.ServeJSON()
 }
+
