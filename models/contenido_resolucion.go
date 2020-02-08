@@ -206,7 +206,7 @@ func GetTemplateResolucion(dedicacion, nivel, periodo, tipo string) (res Resoluc
 	}
 	if dedicacion == "HCH" && nivel == "PREGRADO" {
 		articulo = Articulo{Texto: "El pago de los servicios prestados por los catedráticos a que se refiere el artículo anterior, según su escalafón, se hará previa certificación de las horas efectivamente dictadas, que se encuentren inmersas en el correspondiente plan de trabajo de la gestión académica, expedida por el decano y/o director de proyecto curricular.\n\n"}
-		paragrafo := Paragrafo{Texto: "El pago de los servicios prestados por los catedráticos a que se refiere el artículo anterior, según su escalafón, se hará previa certificación de las horas efectivamente dictadas, que se encuentren inmersas en el correspondiente plan de trabajo de la gestión académica, expedida por el decano y/o director de proyecto curricular."}
+		paragrafo := Paragrafo{Texto: "El valor del punto en pesos para el reconocimiento y pago de los docentes de hora cátedra honorarios, será el que fije el Gobierno Nacional mediante decreto, cada año, y que la Universidad Distrital Francisco José de Caldas acoja mediante acto administrativo."}
 		articulo.Paragrafos = append(articulo.Paragrafos, paragrafo)
 	} else {
 		articulo = Articulo{Texto: "El pago de los servicios prestados por los profesores de vinculación especial a que se refiere el artículo anterior, según su escalafón, se hará previa certificación de las horas efectivamente dictadas, que se encuentren inmersas en el correspondiente plan de trabajo de la gestión académica, expedida por el decano y/o director de proyecto curricular.\n\n"}
