@@ -3,8 +3,6 @@ package models
 import (
 	"fmt"
 	"strconv"
-	"time"
-
 	"github.com/astaxie/beego/orm"
 )
 
