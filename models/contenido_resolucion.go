@@ -193,23 +193,27 @@ func GetTemplateResolucion(dedicacion, nivel, periodo, tipo string) (res Resoluc
 		paragrafo := Paragrafo{Texto: "El valor del salario mínimo mensual legal vigente para el reconocimiento y pago de los docentes en cuestión, será el que fije el Gobierno Nacional."}
 		articulo.Paragrafos = append(articulo.Paragrafos, paragrafo)
 	}
+	if dedicacion == "HCP" && nivel == "POSGRADO" {
+		articulo = Articulo{Texto: "El pago de los servicios prestados por los profesores de vinculación especial a que se refiere el artículo anterior, según su escalafón, se hará previa certificación de las horas efectivamente dictadas, que se encuentren inmersas en el correspondiente plan de trabajo de la gestión académica, expedida por el decano y/o director de proyecto curricular.\n\n"}
+		paragrafo := Paragrafo{Texto: "El valor del salario mínimo mensual legal vigente para el reconocimiento y pago de los docentes en cuestión, será el que fije el Gobierno Nacional."}
+		articulo.Paragrafos = append(articulo.Paragrafos, paragrafo)
+	}
 	if dedicacion == "TCO-MTO" {
 		//MTO Y TCO
 		articulo = Articulo{Texto: "El pago de los servicios prestados por los profesores de vinculación especial a que se refiere el artículo anterior, según su escalafón, se hará previa certificación de las horas efectivamente dictadas, que se encuentren inmersas en el correspondiente plan de trabajo de la gestión académica, expedida por el decano y/o director de proyecto curricular.\n\n"}
 		paragrafo := Paragrafo{Texto: "El valor del punto en pesos para el reconocimiento y pago de los docentes en cuestión, será el que fije el Gobierno Nacional, mediante decreto, cada año, y que la Universidad Distrital Francisco José de Caldas acoja, mediante acto administrativo."}
 		articulo.Paragrafos = append(articulo.Paragrafos, paragrafo)
-	} else {
-		if dedicacion == "HCP" && nivel == "POSGRADO" {
-			articulo = Articulo{Texto: "El pago de los servicios prestados por los profesores de vinculación especial a que se refiere el artículo anterior, según su escalafón, se hará previa certificación de las horas efectivamente dictadas, que se encuentren inmersas en el correspondiente plan de trabajo de la gestión académica, expedida por el decano y/o director de proyecto curricular.\n\n"}
-			paragrafo := Paragrafo{Texto: "El valor del salario mínimo mensual legal vigente para el reconocimiento y pago de los docentes en cuestión, será el que fije el Gobierno Nacional."}
-			articulo.Paragrafos = append(articulo.Paragrafos, paragrafo)
-		} else {
-			// HCH PREGRADO
-			articulo = Articulo{Texto: "El pago de los servicios prestados por los profesores de vinculación especial a que se refiere el artículo anterior, según su escalafón, se hará previa certificación de las horas efectivamente dictadas, que se encuentren inmersas en el correspondiente plan de trabajo de la gestión académica, expedida por el decano y/o director de proyecto curricular.\n\n"}
-			paragrafo := Paragrafo{Texto: "El valor del punto en pesos para el reconocimiento y pago de los docentes en cuestión, será el que fije el Gobierno Nacional, mediante decreto, cada año, y que la Universidad Distrital Francisco José de Caldas acoja, mediante acto administrativo."}
-			articulo.Paragrafos = append(articulo.Paragrafos, paragrafo)
-		}
 	}
+	if dedicacion == "HCH" && nivel == "PREGRADO" {
+		articulo = Articulo{Texto: "El pago de los servicios prestados por los catedráticos a que se refiere el artículo anterior, según su escalafón, se hará previa certificación de las horas efectivamente dictadas, que se encuentren inmersas en el correspondiente plan de trabajo de la gestión académica, expedida por el decano y/o director de proyecto curricular.\n\n"}
+		paragrafo := Paragrafo{Texto: "El pago de los servicios prestados por los catedráticos a que se refiere el artículo anterior, según su escalafón, se hará previa certificación de las horas efectivamente dictadas, que se encuentren inmersas en el correspondiente plan de trabajo de la gestión académica, expedida por el decano y/o director de proyecto curricular."}
+		articulo.Paragrafos = append(articulo.Paragrafos, paragrafo)
+	} else {
+		articulo = Articulo{Texto: "El pago de los servicios prestados por los profesores de vinculación especial a que se refiere el artículo anterior, según su escalafón, se hará previa certificación de las horas efectivamente dictadas, que se encuentren inmersas en el correspondiente plan de trabajo de la gestión académica, expedida por el decano y/o director de proyecto curricular.\n\n"}
+		paragrafo := Paragrafo{Texto: "El valor del punto en pesos para el reconocimiento y pago de los docentes en cuestión, será el que fije el Gobierno Nacional, mediante decreto, cada año, y que la Universidad Distrital Francisco José de Caldas acoja, mediante acto administrativo."}
+		articulo.Paragrafos = append(articulo.Paragrafos, paragrafo)
+	}
+	
 	articulos = append(articulos, articulo)
 	/////ARTICULO 3
 	if dedicacion == "HCH" && nivel == "POSGRADO" {
