@@ -138,9 +138,9 @@ func GetTemplateResolucion(dedicacion, nivel, periodo, tipo string) (res Resoluc
 	var paragrafo Paragrafo
 	//var vigencia, _, _ = time.Now().Date()
 	//var accion string
-	var periodoStr string
+	//var periodoStr string
 	var nombreDedicacion string
-
+	/*
 	switch periodo {
 	case "1":
 		periodoStr = "primer"
@@ -149,6 +149,7 @@ func GetTemplateResolucion(dedicacion, nivel, periodo, tipo string) (res Resoluc
 	case "3":
 		periodoStr = "tercer"
 	}
+	*/
 
 	switch dedicacion {
 	case "HCP":
