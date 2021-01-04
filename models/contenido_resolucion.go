@@ -311,9 +311,7 @@ func GetTemplateResolucion(dedicacion, nivel, periodo, tipo string) (res Resoluc
 			articulo.Paragrafos = append(articulo.Paragrafos, paragrafo)
 		}
 		if dedicacion == "HCP" && nivel == "POSGRADO" {
-			articulo = Articulo{Texto: "IMPUTACIÓN PRESUPUESTAL. El gasto que ocasione el presente acto administrativo, se hará con cargo al presupuesto de la actual vigencia, previa certificación de disponibilidad presupuestal.\n\n"}
-			paragrafo = Paragrafo{Texto: "En todo caso, los pagos correspondientes estarán sujetos a las apropiaciones presupuestales y a las transferencias realizadas por la Secretaría de Hacienda Distrital y se realizarán dentro de los primeros cinco (5) días hábiles de cada mes."}
-			articulo.Paragrafos = append(articulo.Paragrafos, paragrafo)
+			articulo = Articulo{Texto: "TERMINACIÓN ANTICIPADA. En caso de incumplimiento o retiro del docente, la Universidad Distrital Francisco José de Caldas, a través del correspondiente ordenador del gasto, mediante acto administrativo motivado, previo trámite en el cual se garantice al docente el ejercicio de los derechos de contradicción y de defensa, declarará la terminación del vínculo y la liquidación con corte a la fecha del respectivo cumplido, cancelando lo correspondiente, conforme al cálculo que efectúe la División de Recursos Humanos.\n\n"}
 		}
 		if dedicacion == "HCP" && nivel == "PREGRADO" {
 			//HCP Pregrado
@@ -335,8 +333,9 @@ func GetTemplateResolucion(dedicacion, nivel, periodo, tipo string) (res Resoluc
 		articulos = append(articulos, articulo)
 	}
 	if dedicacion == "HCP" && nivel == "POSGRADO" {
-		articulo = Articulo{Texto: "SUSPENSIÓN. En el supuesto de que se declare la suspensión de actividades académicas, por parte de los órganos competentes de la Universidad Distrital Francisco José de Caldas, cesará automáticamente para el docente de vinculación especial, la obligación de prestar sus servicios y para la Universidad, la de pagar los salarios y prestaciones correspondientes al periodo suspendido, pero persistirá, para esta última, la de efectuar los respectivos aportes a salud y pensión, en el porcentaje que le corresponda. En este caso, la fecha de terminación de la vinculación se prolongará por un período igual al de la suspensión.\n\nSi la suspensión de actividades académicas persiste por más de quince (15) días calendario, la Universidad Distrital Francisco José de Caldas, mediante acto administrativo motivado, podrá declarar la terminación del vínculo y efectuar la liquidación correspondiente, con corte a la fecha del respectivo cumplido, cancelando las correspondientes prestaciones sociales, conforme al cálculo que efectúe la División de Recursos Humanos.\n\n"}
-		articulos = append(articulos, articulo)
+		articulo = Articulo{Texto: "IMPUTACIÓN PRESUPUESTAL. El gasto que ocasione el presente acto administrativo, se hará con cargo al presupuesto de la actual vigencia, previa certificación de disponibilidad presupuestal.\n\n"}
+		paragrafo = Paragrafo{Texto: "En todo caso, los pagos correspondientes estarán sujetos a las apropiaciones presupuestales y a las transferencias realizadas por la Secretaría de Hacienda Distrital y se realizarán dentro de los primeros cinco (5) días hábiles de cada mes."}
+		articulo.Paragrafos = append(articulo.Paragrafos, paragrafo)
 	} else {
 		if dedicacion == "HCH" && nivel == "PREGRADO" {
 			// Pregrado y HCH
@@ -360,8 +359,9 @@ func GetTemplateResolucion(dedicacion, nivel, periodo, tipo string) (res Resoluc
 		articulos = append(articulos, articulo)
 	}
 	if dedicacion == "HCP" && nivel == "POSGRADO" {
-		articulo = Articulo{Texto: "RIESGOS LABORALES. Los docentes hora cátedra a que se refiere el presente acto administrativo, en los términos previstos en el artículo 2.2.4.2.2.16. del Decreto 1072 de 2015 y la Resolución de Rectoría No. 624 de 2017, darán cumplimiento a las normas del Sistema General de Riesgos Laborales."}
+		articulo = Articulo{Texto: "SUSPENSIÓN. En el supuesto de que se declare la suspensión de actividades académicas, por parte de los órganos competentes de la Universidad Distrital Francisco José de Caldas, cesará automáticamente para el docente de vinculación especial, la obligación de prestar sus servicios y para la Universidad, la de pagar los salarios y prestaciones correspondientes al periodo suspendido, pero persistirá, para esta última, la de efectuar los respectivos aportes a salud y pensión, en el porcentaje que le corresponda. En este caso, la fecha de terminación de la vinculación se prolongará por un período igual al de la suspensión.\n\nSi la suspensión de actividades académicas persiste por más de quince (15) días calendario, la Universidad Distrital Francisco José de Caldas, mediante acto administrativo motivado, podrá declarar la terminación del vínculo y efectuar la liquidación correspondiente, con corte a la fecha del respectivo cumplido, cancelando las correspondientes prestaciones sociales, conforme al cálculo que efectúe la División de Recursos Humanos.\n\n"}
 		articulos = append(articulos, articulo)
+
 	} else {
 		if dedicacion == "TCO-MTO" {
 			articulo = Articulo{Texto: "Los docentes ocasionales a que se refiere el presente acto administrativo, en los términos previstos en el artículo 2.2.4.2.2.16. del Decreto 1072 de 2015 y la Resolución de Rectoría No. 624 de 2017, darán cumplimiento a las normas del Sistema General de Riesgos Laborales.\n\n"}
@@ -384,7 +384,7 @@ func GetTemplateResolucion(dedicacion, nivel, periodo, tipo string) (res Resoluc
 		articulos = append(articulos, articulo)
 	}
 	if dedicacion == "HCP" && nivel == "POSGRADO" {
-		articulo = Articulo{Texto: "DECLARACIÓN DE AUSENCIA DE INHABILIDADES E INCOMPATIBILIDADES. Comuníquese la presente resolución a los docentes mencionados en el artículo primero, quienes deberán manifestar, bajo la gravedad de juramento que se entiende prestado con la aprobación del formato de carga en el aplicativo de gestión académica, que no se encuentran incursos en causal de inhabilidad o incompatibilidad establecida en las normas pertinentes y aplicables, que no tienen cruces de horarios."}
+		articulo = Articulo{Texto: "RIESGOS LABORALES. Los docentes hora cátedra a que se refiere el presente acto administrativo, en los términos previstos en el artículo 2.2.4.2.2.16. del Decreto 1072 de 2015 y la Resolución de Rectoría No. 624 de 2017, darán cumplimiento a las normas del Sistema General de Riesgos Laborales."}
 		articulos = append(articulos, articulo)
 	} else {
 		if dedicacion == "HCH" && nivel == "PREGRADO" {
@@ -424,9 +424,17 @@ func GetTemplateResolucion(dedicacion, nivel, periodo, tipo string) (res Resoluc
 		articulos = append(articulos, articulo)
 	}
 	if dedicacion == "HCP" && nivel == "POSGRADO" {
+		articulo = Articulo{Texto: "DECLARACIÓN DE AUSENCIA DE INHABILIDADES E INCOMPATIBILIDADES. Comuníquese la presente resolución a los docentes mencionados en el artículo primero, quienes deberán manifestar, bajo la gravedad de juramento que se entiende prestado con la aprobación del formato de carga en el aplicativo de gestión académica, que no se encuentran incursos en causal de inhabilidad o incompatibilidad establecida en las normas pertinentes y aplicables, que no tienen cruces de horarios."}
+		articulos = append(articulos, articulo)
+
+	}
+
+	/////ARTICULO 10
+	if dedicacion == "HCP" && nivel == "POSGRADO" {
 		articulo = Articulo{Texto: "VIGENCIA. -  El presente acto administrativo surte efectos de conformidad con la Resolución No. 065 de octubre seis (6) de dos mil veinte (2.020), por medio del cual se expide el calendario académico para el año dos mil veintiuno (2.021), en concreto, para las actividades académicas relacionadas con el primer periodo académico, que corresponde del xxxx (xxx) de enero y hasta xxxxxxx (xx) de junio del dos mil veintiuno (2.021)."}
 		articulos = append(articulos, articulo)
 	}
+
 	resolucion.Articulos = articulos
 
 	return resolucion
