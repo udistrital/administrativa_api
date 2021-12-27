@@ -21,14 +21,15 @@ type Articulo struct {
 }
 
 type ResolucionCompleta struct {
-	Vinculacion   ResolucionVinculacionDocente
-	Consideracion string
-	Preambulo     string
-	Vigencia      int
-	Numero        string
-	Id            int
-	Articulos     []Articulo
-	Titulo        string
+	Vinculacion             ResolucionVinculacionDocente
+	Consideracion           string
+	Preambulo               string
+	Vigencia                int
+	Numero                  string
+	Id                      int
+	Articulos               []Articulo
+	Titulo                  string
+	CuadroResponsabilidades string
 }
 
 func GetOneResolucionCompleta(idResolucion string) (resolucion ResolucionCompleta) {
@@ -41,7 +42,7 @@ func GetOneResolucionCompleta(idResolucion string) (resolucion ResolucionComplet
 		fmt.Println("Consulta exitosa")
 	}
 
-	resolucionCompleta := ResolucionCompleta{Id: temp[0].Id, Consideracion: temp[0].ConsideracionResolucion, Preambulo: temp[0].PreambuloResolucion, Vigencia: temp[0].Vigencia, Numero: temp[0].NumeroResolucion, Titulo: temp[0].Titulo}
+	resolucionCompleta := ResolucionCompleta{Id: temp[0].Id, Consideracion: temp[0].ConsideracionResolucion, Preambulo: temp[0].PreambuloResolucion, Vigencia: temp[0].Vigencia, Numero: temp[0].NumeroResolucion, Titulo: temp[0].Titulo, CuadroResponsabilidades: temp[0].CuadroResponsabilidades}
 
 	var arts []ComponenteResolucion
 	_, err2 := o.QueryTable("componente_resolucion").Filter("resolucion_id", idRes).Filter("tipo_componente", "Articulo").OrderBy("numero").All(&arts)
