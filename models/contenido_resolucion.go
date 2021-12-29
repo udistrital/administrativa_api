@@ -99,6 +99,7 @@ func UpdateResolucionCompletaById(m *ResolucionCompleta) (err error) {
 		v.ConsideracionResolucion = m.Consideracion
 		v.PreambuloResolucion = m.Preambulo
 		v.NumeroResolucion = m.Numero
+		v.CuadroResponsabilidades = m.CuadroResponsabilidades
 		fmt.Println(v)
 		if err := UpdateResolucionById(&v); err != nil {
 		}
