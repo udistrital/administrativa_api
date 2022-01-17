@@ -12,6 +12,21 @@ Ejecutar desde la terminal 'go get repositorio':
 go get github.com/udistrital/administrativa_crud_api
 ```
 
+## Variables de Entorno
+
+```sh
+# 1. Copiar plantilla .env
+cp template.env [COPIA].env
+
+# 2. Editar .env
+nano [COPIA].env
+# ... puede ser con nano u otro editor de texto plano
+
+# 3. Cargar variables del .env
+source [COPIA].env
+# Hacerlo cada que cambie la [COPIA].env o al abrir un nuevo terminal
+```
+
 ## Ejecución del proyecto
 
 - Ejecutar:
