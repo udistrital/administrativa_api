@@ -1,3 +1,17 @@
+# Binarios y temporales
+*.exe
+*.zip
+*.log
+*.tmp
+*~
 administrativa_crud_api
-administrativa_api
-lastupdate.tmp
+main
+
+# Variables de Entorno
+*.env
+!template.env
+
+# swagger
+swagger/**
+!swagger/swagger.json
+!swagger/swagger.yml
