@@ -1,0 +1,10 @@
+github.com/astaxie/beego v1.9.3-0.20180708081135-08c3ca642eb4 h1:KKBncmS+w+gU3f27iAq/o4eJ2mnhuGLidL9bj9gIfEM=
+github.com/astaxie/beego v1.9.3-0.20180708081135-08c3ca642eb4/go.mod h1:0R4++1tUqERR0WYFWdfkcrsyoVBCG4DgpDGokT3yb+U=
+github.com/go-sql-driver/mysql v1.6.0 h1:BCTh4TKNUYmOmMUcQ3IipzF5prigylS7XXjEkfCHuOE=
+github.com/go-sql-driver/mysql v1.6.0/go.mod h1:DCzpHaOWr8IXmIStZouvnhqoel9Qv2LBy8hT2VhHyBg=
+github.com/lib/pq v1.0.0 h1:X5PMW56eZitiTeO7tKzZxFCSpbFZJtkMMooicw2us9A=
+github.com/lib/pq v1.0.0/go.mod h1:5WUZQaWbwv1U+lTReE5YruASi9Al49XbQIvNi/34Woo=
+github.com/mattn/go-sqlite3 v1.14.10 h1:MLn+5bFRlWMGoSRmJour3CL1w/qL96mvipqpwQW/Sfk=
+github.com/mattn/go-sqlite3 v1.14.10/go.mod h1:NyWgC/yNuGj7Q9rpYnZvas74GogHl5/Z4A/KQRfk6bU=
+github.com/udistrital/utils_oas v0.0.0-20180702160023-808d161cc395 h1:eeaEa9vnnkPUh1hOvY5UdgO6MOoagpqVD3gZI4qFq9U=
+github.com/udistrital/utils_oas v0.0.0-20180702160023-808d161cc395/go.mod h1:cAempbkjyiJIy04wWta6iDcYwtwHNITWcNA6oKtkXPM=
