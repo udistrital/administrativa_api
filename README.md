@@ -1,32 +1,34 @@
-## administrativa crud api
+# administrativa crud api
 
 Api REST que comunica con la base de datos respectiva con el fin de gestionar latos relacionados a los sistemas Argo y Agora principalmente
 
-# Instalación
+## Instalación
+
 Para instalar el proyecto de debe relizar lo siguientes pasos:
 
 Ejecutar desde la terminal 'go get repositorio':
-```shell 
+
+```shell
 go get github.com/udistrital/administrativa_crud_api
 ```
 
-# Ejecución del proyecto
+## Ejecución del proyecto
 
+- Ejecutar:
 
-- Ejecutar: 
-```shell 
+```shell
 bee run
 ```
+
 - O si se quiere ejecutar el swager:
 
-```shell 
+```shell
 bee run -downdoc=true -gendoc=true
 ```
 
-
 ## Licencia
 
-This file is part of cumplidos-cliente.  
+This file is part of cumplidos-cliente.
 
 cumplidos-cliente is free software: you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version.
 
