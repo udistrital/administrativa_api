@@ -21558,6 +21558,10 @@
                     "type": "string",
                     "format": "datetime"
                 },
+                "FechaRegistro": {
+                    "type": "string",
+                    "format": "datetime"
+                },
                 "Id": {
                     "type": "integer",
                     "format": "int64"
@@ -24148,6 +24152,9 @@
                 "ConsideracionResolucion": {
                     "type": "string"
                 },
+                "CuadroResponsabilidades": {
+                    "type": "string"
+                },
                 "Estado": {
                     "type": "boolean"
                 },
@@ -24219,6 +24226,9 @@
                     }
                 },
                 "Consideracion": {
+                    "type": "string"
+                },
+                "CuadroResponsabilidades": {
                     "type": "string"
                 },
                 "Id": {
