@@ -18,6 +18,7 @@ type ActaInicio struct {
 	FechaFin       time.Time        `orm:"column(fecha_fin);type(timestamp without time zone);null"`
 	Descripcion    string           `orm:"column(descripcion);null"`
 	Usuario        string           `orm:"column(usuario);null"`
+	FechaRegistro  time.Time        `orm:"column(fecha_registro);type(timestamp without time zone);null"`
 }
 
 func (t *ActaInicio) TableName() string {
